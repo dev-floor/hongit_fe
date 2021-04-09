@@ -1,29 +1,24 @@
 import React from "react"
 import { ArticleDetailApi } from "../api/ApiProps";
 
-const ArticleHeader = ({ 
-    option, 
-    title, 
-    anonymous, 
-    author, 
-    createdDate
- }: ArticleDetailApi) => {
+const ArticleHeader = ( dummyData: ArticleDetailApi) => {
+    const {option, title, anonymous, createdDate, author} = {...dummyData}
     const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(4, 6)}-${createdDate.slice(6)}`;
     return (
-        <header>
-            <nav className = "articleOptionBlock">
+        <header className = "article-header">
+            <nav className = "article-option-block">
                 {option.map(op => (
-                <span className = "articleOption">op</span>
+                <span className = "article-option">{op}</span>
                     ))}
             </nav>   
-            <h2 className = "articleTitle">{title}</h2>
-            <div className = "articleDetail">
+            <h2 className = "article-title">{title}</h2>
+            <div className = "article-detail">
                 {anonymous ? (
                     <div>익명</div>
                 ) : (
                     <div>{author.name}</div>
                 )}
-                <time className = "articleCreatedTime">{createdTimeFormat}</time>
+                <time className = "article-created-time">{createdTimeFormat}</time>
             </div>
         </header>
     )

@@ -1,10 +1,11 @@
 import React from 'react';
 import './App.css';
+import ArticleHeaderContainer from "./container/ArticleHeaderContainer"
 
 function App() {
   return (
     <div className="App">
-      <h3>Hello World!</h3>
+      <ArticleHeaderContainer />
     </div>
   );
 }
