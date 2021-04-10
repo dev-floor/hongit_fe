@@ -5,9 +5,9 @@ import { ArticleDetailApi } from "../api/ApiProps"
 const dumpData :ArticleDetailApi = {
     option: ["one", "two"],
     title: "This is Test Data.",
-    anonymous: true,
+    anonymous: false,
     author: {
-        name: "홍석기",
+        name: "꾜무",
         image: "?!",
         github: "https://github.com/Derek-94",
         blog: "https://github.com/Derek-94",
@@ -22,8 +22,9 @@ const dumpData :ArticleDetailApi = {
 }
 
 const ArticleHeaderContainer = () => {
+    // this is for api procedures.
     const test = "";
-
+ 
     return (
         <ArticleHeader 
             option = {dumpData.option}

@@ -4,7 +4,7 @@ import ArticleHeaderContainer from "./container/ArticleHeaderContainer"
 
 function App() {
   return (
-    <div className="App">
+    <div>
       <ArticleHeaderContainer />
     </div>
   );

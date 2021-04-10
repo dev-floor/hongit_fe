@@ -19,6 +19,7 @@ const ArticleHeader = ( dummyData: ArticleDetailApi) => {
                     <div>{author.name}</div>
                 )}
                 <time className = "article-created-time">{createdTimeFormat}</time>
+                
             </div>
         </header>
     )
