@@ -1,13 +1,13 @@
 import React from "react"
-import { ArticleDetailApi } from "../api/ApiProps";
+import { ArticleDetailApi } from "../../api/ApiProps";
 
 const ArticleHeader = ( dummyData: ArticleDetailApi) => {
-    const {option, title, anonymous, createdDate, author} = {...dummyData}
+    const {options, title, anonymous, createdDate, author} = {...dummyData}
     const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(4, 6)}-${createdDate.slice(6)}`;
     return (
         <header className = "article-header">
             <nav className = "article-option-block">
-                {option.map(op => (
+                {options.map(op => (
                 <span className = "article-option">{op}</span>
                     ))}
             </nav>   

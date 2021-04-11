@@ -7,7 +7,7 @@ interface AuthorInfo {
 }
 
 export interface ArticleDetailApi {
-    option: string[];
+    options: string[];
     title: string;
     anonymous: boolean;
     author: AuthorInfo;
