@@ -1,34 +1,7 @@
-import { AnyARecord } from 'node:dns';
 import React from 'react';
-import './AuthorInfo.css';
+import './css/AuthorInfo.css';
 import mypic from './logo.svg'
-
-const articleInfo = {
-    "options" : [
-        "a",
-        "b",
-        "c",
-    ],
-    "title" : "hello world",
-    "anonymous" : true,
-    // "anonymous" : false,
-    "author" : {
-        "name" : "hello",
-        "image" : "https://hello.com",
-        "github" : "lxxjn0",
-        "blog" : "https://ell.com",
-        "description" : "",
-    },
-    "createdDate" : "",
-    "content" : "",
-    "hashtags" : [
-        "abc",
-        "def",
-    ],
-    "favorites" : 1,
-    "wonders" : 1,
-    "clips" : 1,
-    }
+import articleInfo from "./data/articleInfo.json";
 
 const user = {
     "name" : "hyunJu",
@@ -37,7 +10,6 @@ const user = {
     "blog" : "https://ell.com",
     "description" : "London 안녕하세요 is the capital city of England. It is the most populous city in the United Kingdom, with a metropolitan area of over 13 million inhabitants.Standing on the River Thames, London has been a major settlement for two millennia, its history going back to its founding by the Romans, who named it Londinium.",
 }
-
 
 function getUserName(flag: boolean) : any {
     if( !flag ){
@@ -56,12 +28,14 @@ function getDescription(flag: boolean) : any {
 }
 
 const tempUserName:string = getUserName(articleInfo.anonymous);
+
+// const tempUserName:string = getUserName(articleInfo.anonymous);
 const tempDescription:string = getDescription(articleInfo.anonymous);
 
 const AuthorInfo = () => (
     <div className="AuthorInfo">
         <div className="userImage">
-            <img src={user.image} alt="UserImage"/>
+            <img src={articleInfo.author.image} alt="UserImage"/>
         </div>
         <div className="userInfo">
             <div className="h-container">
