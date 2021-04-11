@@ -1,7 +1,7 @@
 import React from 'react';
-import './css/AuthorInfo.css';
-import mypic from './logo.svg'
-import articleInfo from "./data/articleInfo.json";
+import '../css/AuthorInfo.css'
+import mypic from '../../logo.svg'
+import articleInfo from "../../data/articleInfo.json";
 
 const user = {
     "name" : "hyunJu",
@@ -28,8 +28,6 @@ function getDescription(flag: boolean) : any {
 }
 
 const tempUserName:string = getUserName(articleInfo.anonymous);
-
-// const tempUserName:string = getUserName(articleInfo.anonymous);
 const tempDescription:string = getDescription(articleInfo.anonymous);
 
 const AuthorInfo = () => (
@@ -39,7 +37,6 @@ const AuthorInfo = () => (
         </div>
         <div className="userInfo">
             <div className="h-container">
-                {/* <div className = "userName"> {user.name} </div> */}
                 <div className = "userName"> {tempUserName} </div>
                 <a href="https://naver.com" target="_blank" rel="noreferrer">
                     <img className = "linkImage" src={user.image} alt={user.github}/>
@@ -48,12 +45,9 @@ const AuthorInfo = () => (
                     <img className = "linkImage" src={user.image} alt={user.blog}/>
                 </a>
             </div>
-            {/* <div className = "userDescription"> {user.description} </div> */}
             <div className = "userDescription"> {tempDescription} </div>
         </div>
     </div>
 );
-
-
 
 export default AuthorInfo;

@@ -5,7 +5,7 @@
         "c"
     ],
     "title" : "hello world",
-    "anonymous" : true,
+    "anonymous" : false,
     "author" : {
         "name" : "hyunJu",
         "image" : "../logo.svg",

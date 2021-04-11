@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import AuthorInfo  from './AuthorInfo'
-import ArticleHeaderContainer from "./container/ArticleHeaderContainer"
+import AuthorInfo  from './Article/container/AuthorInfo'
+import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
 
 function App() {
   return (
