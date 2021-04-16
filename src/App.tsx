@@ -1,6 +1,6 @@
 import React from 'react';
 import './App.css';
-import AuthorInfo  from './Article/container/AuthorInfo'
+import AuthorInfo  from './Article/presentational/AuthorInfo'
 import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
 import ArticleBodyContainer from './Article/container/ArticleBodyContainer'
 

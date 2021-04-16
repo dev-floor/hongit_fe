@@ -36,18 +36,13 @@
 .h-container .linkImage {
 	float: right;
 	width: 50px; 
-    /* margin-top: 1rem; */
 	text-align: center;
-    /* border: 1px solid red; */
 }
 .h-container .userName {
 	float: left;
     font-weight : bold;
-    /* margin-top: 2%; */
     font-size: 30px;
-    /* border: 1px solid red; */
-	/* width: 50px; */
-	/* border-right: none; */
+    margin-bottom: 1rem;
 }
 
 div{
