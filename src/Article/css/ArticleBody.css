@@ -1,0 +1,53 @@
+main {
+    margin : 2rem;
+}
+
+article {
+    display: block;
+    height:90%;
+    width: 95%;
+    margin: auto;
+}
+
+.article-content {
+}
+
+.article-image {
+}
+
+.article-descriptions {
+    margin: 5% 0% 0% 0%;
+    height: 10%;
+    display: flex;
+}
+
+.hashtags {
+    width: 50%;
+    margin: 0% 1% 0% 1%;
+    padding: 2%;
+}
+
+.hashtag{
+    height: 80%;
+    margin: 1%;
+    border: none;
+    border-radius: 12px;
+    background-color: lightgrey;
+}
+
+.buttons {
+    width: 50%;
+    margin: 0% 1% 0% 1%;
+    padding: 0% 1% 1% 25%;
+    display: flex;
+    display: flex;
+}
+
+.favorites-button {
+    margin: 50%;
+    height: 30%;
+    background-color: white;
+    border: none;
+    display: flex;  
+
+}
