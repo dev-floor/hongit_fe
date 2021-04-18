@@ -1,0 +1,85 @@
+.CommentArea {
+    padding: 1rem;
+    margin : 2rem;
+    background-color: #FAFAFA;
+    /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
+    overflow:hidden;
+}
+
+input[type=text], select {
+    width: 80%;
+    height: 100px;
+    padding: 16px 32px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.inputArea .btnSubmit {
+    background-color: #f4511e;
+    border: none;
+    height: 100px;
+    color: white;
+    padding: 16px 32px;
+    margin: 8px 0;
+    text-align: center;
+    font-size: 16px;
+    margin: 4px 2px;
+    opacity: 0.6;
+    transition: 0.3s;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+  
+/* .inputArea .btnSubmit :hover {opacity: 1} */
+  
+.Comment {
+    padding :0px;
+}
+.iconContainer {
+    display: flex;
+    float: right;
+}
+
+div {
+    /* border: 1px solid red; */
+}
+
+.authorInfo {
+    padding: 1.5rem;
+    padding-bottom: 8px;
+    margin : 5px;
+    margin-bottom: 10px;
+    background-color: #FAFAFA;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    overflow:hidden;
+}
+
+.contents {
+    padding: 15px;
+    margin-bottom : 5px;
+    text-align: left;
+    word-break:break-all;
+    background-color: rgba(238, 238, 238, 0.918);
+}
+
+.authorInfoHeader:after{ 
+    clear: both; 
+    padding: 1px;
+    display: flex;
+    align-items: center; 
+    content: '' 
+}
+
+.authorInfoHeader .authorName {
+	float: left;
+    font-weight : bold;
+    font-size: 30px;
+    margin-bottom: 1rem;
+}

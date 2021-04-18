@@ -9,17 +9,17 @@ const Comment = ( dummyData: ArticleDetailApi ) => {
     const { anonymous, author, content, favorites } = {...dummyData}
     return (
         <div className="Comment">
-            <div className="userInfo">
-                <div className="userInfoHeader">
+            <div className="authorInfo">
+                <div className="authorInfoHeader">
                     { anonymous ? (
-                        <div className = "userName"> 익명 </div>  
+                        <div className = "authorName"> 익명 </div>  
                     ) : ( 
-                        <div className = "userName"> {author.name} </div>  
+                        <div className = "authorName"> {author.name} </div>  
                     )}
                 </div>  
-                    <div className = "userDescription"> {author.description} </div> 
+                <div className = "contents"> {author.description} </div> 
+                <div className = "iconContainer"><AiOutlineHeart size="14"/>{favorites}</div>
             </div>
-            <div className = "iconContainer"><AiOutlineHeart size="14"/>{favorites}</div>
         </div>
     )
 }
@@ -31,10 +31,13 @@ const CommentArea = () => {
     <div className = "CommentArea" >
         <div className = "numCommentArea">댓글 수 {data2.length}</div>
         <hr className = "horizontalLine"/>
-        <div className = "inputArea">
+        <form className = "inputArea" onSubmit={(e) => {
+            alert("쨘!");
+            e.preventDefault();
+        }}>
             <input className ="inputBox" type="text" placeholder="댓글을 입력하세요..." />
-            <button className = "btnSubmit" type='button'>등록</button>
-        </div>
+            <button className = "btnSubmit" type='submit'>등록</button>
+        </form>
         <div>
             <Comment 
                 options = {data.options}
