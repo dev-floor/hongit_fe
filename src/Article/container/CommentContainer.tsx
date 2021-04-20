@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import CommentArea from "../presentational/Comment"
+import CommentArea from "../presentational/CommentArea"
 import { ArticleCommentApi } from "../../api/ApiProps"
-import dummyData from "../../data/commentsInfo.json"
+import dummyData from "../../data/commentList.json"
 
 const CommentContainer = () => {
     const [comments, setComments] = useState(dummyData);
 
     const onPressFavorite = (targetComment: ArticleCommentApi) => {
-        setComments(comments => comments.map(comment =>
+        setComments(commentList => commentList.map(comment =>
             comment === targetComment ? {...comment, favorites: comment.favorites + 1} : comment
         ))
     }
@@ -19,7 +19,11 @@ const CommentContainer = () => {
         ])
     }
 
-    return <CommentArea onRegisterComment = {onRegisterComment} onPressFavorite = {onPressFavorite} />
+    return <CommentArea 
+                onRegisterComment = {onRegisterComment} 
+                onPressFavorite = {onPressFavorite} 
+                commentsProps = {comments}
+            />
 }
 
 export default CommentContainer;

@@ -3,14 +3,14 @@ import './App.css';
 
 import AuthorInfoContainer  from './Article/container/AuthorInfoContainer'
 import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
-import CommentArea from "./Article/presentational/CommentArea"
+import CommentContainer from "./Article/container/CommentContainer"
 
 function App() {
   return (
     <div className="App">
       <ArticleHeaderContainer />
       <AuthorInfoContainer/>
-      <CommentArea/>
+      <CommentContainer/>
     </div>
   );
 }
