@@ -45,6 +45,12 @@ input[type=text], select {
 .iconContainer {
     display: flex;
     float: right;
+    transition: 0.5s;
+}
+
+.iconContainer:hover {
+    background-color: tomato;
+    cursor: pointer;
 }
 
 div {

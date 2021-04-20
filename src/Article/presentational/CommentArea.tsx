@@ -1,7 +1,6 @@
 import React, { useState } from "react"
 import { AiOutlineHeart } from "react-icons/ai";
-import { ArticleCommentApi, AuthorInfo } from "../../api/ApiProps";
-import data2 from "../../data/commentList.json"
+import { ArticleCommentApi } from "../../api/ApiProps";
 import "../css/CommentArea.css"
 
 const Comment = ( dummyData: ArticleCommentApi ) => {
@@ -23,13 +22,13 @@ const Comment = ( dummyData: ArticleCommentApi ) => {
     )
 }
 
-interface TestCase {
+interface CommentAreaProps {
     onRegisterComment: (newComment: ArticleCommentApi) => void, 
     onPressFavorite: (targetComment: ArticleCommentApi) => void,
-    commentsProps: ArticleCommentApi[]
+    commentsListProps: ArticleCommentApi[]
 }
 
-const CommentArea = ({onRegisterComment, onPressFavorite, commentsProps}: TestCase) => {
+const CommentArea = ({onRegisterComment, onPressFavorite, commentsListProps}: CommentAreaProps) => {
     const [newComment, setNewComment] = useState({
         anonymous: true,
         author: {
@@ -65,19 +64,19 @@ const CommentArea = ({onRegisterComment, onPressFavorite, commentsProps}: TestCa
     
     return (
         <div className = "CommentArea">
-            <div className = "numCommentArea">댓글 수 {data2.length}</div>
+            <div className = "numCommentArea">댓글 수 {commentsListProps.length}</div>
             <hr className = "horizontalLine"/>
             <form className = "inputArea" onSubmit={onHandleSubmit}>
                 <input className ="inputBox" type="text" placeholder="댓글을 입력하세요..." onChange = {onChange}/>
                 <button className = "btnSubmit" type='submit'>등록</button>
             </form>
             <div>
-                {commentsProps.map((com) => (
+                {commentsListProps.map((comment) => (
                     <Comment 
-                        anonymous = {com.anonymous}
-                        author = {com.author} 
-                        content = {com.content} 
-                        favorites = {com.favorites}
+                        anonymous = {comment.anonymous}
+                        author = {comment.author} 
+                        content = {comment.content} 
+                        favorites = {comment.favorites}
                     />))
                 }
             </div>

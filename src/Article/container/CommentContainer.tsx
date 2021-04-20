@@ -22,7 +22,7 @@ const CommentContainer = () => {
     return <CommentArea 
                 onRegisterComment = {onRegisterComment} 
                 onPressFavorite = {onPressFavorite} 
-                commentsProps = {comments}
+                commentsListProps = {comments}
             />
 }
 
