@@ -3,6 +3,7 @@ import './App.css';
 
 import AuthorInfoContainer  from './Article/container/AuthorInfoContainer'
 import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
+import ArticleCreatePage from "./Article/presentational/ArticleCreatePage"
 
 function App() {
   return (
