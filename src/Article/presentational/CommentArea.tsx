@@ -1,5 +1,6 @@
 import React, { useState } from "react"
 import { AiOutlineHeart } from "react-icons/ai";
+import { CommentAreaProps } from "../argumentsPropsInterface/ArticleProps"
 import { ArticleCommentApi } from "../../api/ApiProps";
 import "../css/CommentArea.css"
 
@@ -20,12 +21,6 @@ const Comment = ( dummyData: ArticleCommentApi ) => {
             </div>
         </div>
     )
-}
-
-interface CommentAreaProps {
-    onRegisterComment: (newComment: ArticleCommentApi) => void, 
-    onPressFavorite: (targetComment: ArticleCommentApi) => void,
-    commentsListProps: ArticleCommentApi[]
 }
 
 const CommentArea = ({onRegisterComment, onPressFavorite, commentsListProps}: CommentAreaProps) => {
