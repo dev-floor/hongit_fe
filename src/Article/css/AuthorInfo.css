@@ -26,30 +26,14 @@
     background-color: rgba(238, 238, 238, 0.918);
 }
 
-.h-container:after{ 
-    clear: both; 
-    padding: 1px;
-    display: flex;
-    align-items: center; 
-    content: '' 
-}
-.h-container .linkImage {
+.userInfoHeader .linkImage {
 	float: right;
 	width: 50px; 
-    /* margin-top: 1rem; */
 	text-align: center;
-    /* border: 1px solid red; */
 }
-.h-container .userName {
+.userInfoHeader .userName {
 	float: left;
     font-weight : bold;
-    /* margin-top: 2%; */
     font-size: 30px;
-    /* border: 1px solid red; */
-	/* width: 50px; */
-	/* border-right: none; */
-}
-
-div{
-    /* border: 1px solid blue; */
+    margin-bottom: 1rem;
 }
