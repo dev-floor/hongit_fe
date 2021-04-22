@@ -1,5 +1,4 @@
-import React, { useState } from "react";
-import { Button } from "semantic-ui-react";
+import React from "react";
 import { ArticleDetailApi } from "../../api/ApiProps";
 
 const article = {
@@ -7,51 +6,14 @@ const article = {
     "image" : "https://files.slack.com/files-pri/T01GPT3UY9J-F01U4D2D5PW/image.png",
 }
 
-interface Props{
-    
-}
-interface State{
-    count: number;
-}
-
-class CounterButton extends React.Component<Props,State>{
-    constructor(props:number){
-        super(props)
-        this.state={count:0}
-    }
-
-    onIncrement = (): void =>{
-        this.setState(
-            ({count})=>({count:count+1})
-        );
-    }
-
-    onDecrement = (): void =>{
-        this.setState(
-            ({count})=>({count:count-1})
-        );
-    }
-
-    render() {
-    const { onIncrement, onDecrement } = this;
-    return (
-      <div>
-        <button type="button" className="favorites-button" onClick={onIncrement}>
-            <i className="heart outline icon"/>
-        </button>
-      </div>
-    );
-  }
-} 
-
 const ArticleBody = ( dummyData: ArticleDetailApi ) => {
-    const {content, hashtags, favorites, wonders, clips} = {...dummyData}
+    const {content, hashtags} = {...dummyData}
     
     return(
         <main>
             <article>
                 <section className = "article-content">
-                    <h6>{article.content}</h6>
+                    <h6>{content}</h6>
                 </section>
                 <section className = "article-image">
                     <img src={article.image} alt='첨부된 이미지 파일'/>
@@ -62,11 +24,6 @@ const ArticleBody = ( dummyData: ArticleDetailApi ) => {
                     <button type="button" className="hashtag">#해시태그1</button>
                     <button type="button" className="hashtag">#해시태그2</button>
                     <button type="button" className="hashtag">#해시태그3</button>
-                </div>
-                <div className="buttons">
-                    <CounterButton/>
-                    <CounterButton/>
-                    <CounterButton/>
                 </div>
             </div>
         </main>

@@ -26,25 +26,23 @@
     background-color: rgba(238, 238, 238, 0.918);
 }
 
-.h-container:after{ 
+.userInfoHeader:after{ 
     clear: both; 
     padding: 1px;
     display: flex;
     align-items: center; 
     content: '' 
 }
-.h-container .linkImage {
+
+.userInfoHeader .linkImage {
 	float: right;
 	width: 50px; 
 	text-align: center;
 }
-.h-container .userName {
-	float: left;
+
+.userInfoHeader .userName {
+    float: left;
     font-weight : bold;
     font-size: 30px;
     margin-bottom: 1rem;
-}
-
-div{
-    /* border: 1px solid blue; */
 }
