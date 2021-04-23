@@ -18,3 +18,11 @@ export interface ArticleDetailApi {
     wonders: number;
     clips: number;
 }
+
+export interface ArticleCreateApi {
+    options: string[];
+    title: string;
+    anonymous: boolean;
+    content: string;
+    hashtags: string[];
+}
