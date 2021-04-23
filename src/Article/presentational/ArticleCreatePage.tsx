@@ -1,11 +1,7 @@
 import React, { useState } from "react";
-import { ArticleCreateApi } from "../../api/ApiProps"
+import { ArticleCreatePageProps } from "../argumentsPropsInterface/ArticleProps"
 
-interface ArticleCreatePageProps {
-    onRegisterArticle: (newArticle: ArticleCreateApi) => void;
-}
-
-const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
+const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) => {
     const [newTitle, setNewTitle] = useState("");
     const [newHashtags, setNewHashtags] = useState([] as string[]);
     const [newContent, setNewContent] = useState("");
@@ -44,7 +40,7 @@ const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
             content: newContent,
             hashtags: newHashtags
         })
-        onRegisterArticle(newArticle);
+        // onRegisterArticle(newArticle);
     }
 
     return (
