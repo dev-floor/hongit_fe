@@ -1,8 +1,12 @@
-import React from 'react';
-import ArticleCreatePage from '../presentational/ArticleCreatePage';
+import React from "react";
+import ArticleCreatePage from "../presentational/ArticleCreatePage";
 
 const ArticleCreatePageContainer = () => {
-  const onEvent = () => {};
+    const onEvent = () => {
+        
+    }
 
-  return <ArticleCreatePage />;
-};
+    return (
+        <ArticleCreatePage />
+    )
+}
