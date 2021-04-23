@@ -36,10 +36,11 @@ const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
     }
 
     const onSubmit = () => {
+        const $anonymous = document.querySelector(".article-create-anonymous") as HTMLInputElement;
         setNewArticle({
             options: [],
             title: newTitle,
-            anonymous: true,
+            anonymous: $anonymous.checked,
             content: newContent,
             hashtags: newHashtags
         })
