@@ -6,6 +6,7 @@
       "project": "./tsconfig.json"
     },
     "rules": {
-      "import/no-cycle": 0
-    }
-  }
+      "import/no-cycle": 0,
+      "import/no-extraneous-dependencies": ["error", {"devDependencies": true}]
+    }  
+}

@@ -1,4 +1,4 @@
-interface AuthorInfo {
+export interface AuthorInfo {
     name: string;
     image: string;
     github: string;
@@ -17,4 +17,11 @@ export interface ArticleDetailApi {
     favorites: number;
     wonders: number;
     clips: number;
+}
+
+export interface ArticleCommentApi {
+    anonymous: boolean;
+    author: AuthorInfo;
+    content: string;
+    favorites: number
 }
