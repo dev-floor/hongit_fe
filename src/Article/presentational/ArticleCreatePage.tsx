@@ -48,13 +48,15 @@ const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) =>
         <div className = "createArea">
             <form className = "articleCreateForm">
                 <div className = "titleArea">
-                    <input className = "article-create-title" type = "text" placeholder = "제목을 입력하세요..." onChange = {onChangeTitle}/>
-                    <input className = "article-create-anonymous" type = "checkbox" name = "anonymous" value = "anonymous" checked/>익명
+                    <input className = "title" type = "text" placeholder = "제목을 입력하세요..." onChange = {onChangeTitle}/>
+                    <label htmlFor="anonymous"><input type="checkbox" id="anonymous" /> <span>익명</span></label>
                 </div>
-                <hr/>
+                <hr/> 
                 <div className = "hashtagArea">
                     <input className = "article-create-hashtag" type = "text" placeholder = "해시태그를 쉼표를 기준으로 입력하세요..." onChange = {onChangeHashtags} />
                 </div>
+                <hr/>
+                툴바 추후 지원
                 <hr/>
                 <div className = "contentsArea">
                     <textarea className = "article-create-content" placeholder = "내용을 입력해주세요..." onChange = {onChangeContent} />
