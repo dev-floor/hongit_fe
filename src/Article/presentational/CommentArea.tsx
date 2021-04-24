@@ -10,16 +10,14 @@ const Comment = ( dummyData: ArticleCommentApi ) => {
     return (
         <div className="Comment">
             <div className="authorInfo">
-                <div className="authorInfoHeader">
-                    { anonymous ? (
-                        <div className = "authorName"> 익명 </div>  
-                    ) : ( 
-                        <div className = "authorName"> {author.name} </div>  
-                    )}
-                </div>  
-                <div className = "contents"> {content} </div> 
-                <div className = "iconContainer"><AiOutlineHeart size="14"/>{favorites}</div>
-            </div>
+                { anonymous ? (
+                    <div className = "authorName"> 익명 </div>  
+                ) : ( 
+                    <div className = "authorName"> {author.name} </div>  
+                )}
+            </div>  
+            <div className = "contents"> {content} </div> 
+            <div style={{display: 'flex', alignItems:'center'}} className = "iconContainer" ><AiOutlineHeart className="hearticon" size="14"/>{favorites}</div>
         </div>
     )
 }
@@ -37,7 +35,7 @@ const CommentArea = ({onRegisterComment, onPressFavorite, commentsListProps}: Co
         favorites: 0
     });
 
-    const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewComment({
             anonymous: true,
             author: {
@@ -58,14 +56,15 @@ const CommentArea = ({onRegisterComment, onPressFavorite, commentsListProps}: Co
     }
     
     return (
-        <div className = "CommentArea">
+        <div className = "commentArea">
             <div className = "numCommentArea">댓글 수 {commentsListProps.length}</div>
-            <hr className = "horizontalLine"/>
+            <hr/>
             <form className = "inputArea" onSubmit={onHandleSubmit}>
-                <input className ="inputBox" type="text" placeholder="댓글을 입력하세요..." onChange = {onChange}/>
+                <textarea className ="inputBox" placeholder="댓글을 입력하세요..." onChange = {onChange}/>
                 <button className = "btnSubmit" type='submit'>등록</button>
             </form>
-            <div>
+            <hr/>
+            <div className = "commentListArea">
                 {commentsListProps.map((comment) => (
                     <Comment 
                         anonymous = {comment.anonymous}
