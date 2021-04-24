@@ -1,4 +1,4 @@
-interface AuthorInfo {
+export interface AuthorInfo {
     name: string;
     image: string;
     github: string;
