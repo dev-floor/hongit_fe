@@ -5,7 +5,7 @@ export interface CommentAreaProps {
     onRegisterComment: (newComment: ArticleCommentApi) => void, 
     onPressFavorite: (targetComment: ArticleCommentApi) => void,
     commentsListProps: ArticleCommentApi[]
-
+}
 export interface ArticleCreatePageProps {
     onRegisterArticle: (newArticle: ArticleCreateApi) => void;
 }

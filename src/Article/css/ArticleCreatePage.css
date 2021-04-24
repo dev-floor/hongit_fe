@@ -1,0 +1,59 @@
+.createArea {
+    padding: 1rem;
+    margin : 2rem;
+    background-color: #FAFAFA;
+    display : flex;
+    overflow:hidden;
+}
+.titleArea {
+    width: 100%;
+    display : flex;
+    overflow:hidden;
+}
+input[type=text], select {
+    width: 80%;
+    padding: 16px 32px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+button {
+    border: none;
+    color: white;
+    padding: 8px 16px;
+    margin: 8px 0;
+    text-align: center;
+    font-size: 15px;
+    margin: 4px 2px;
+    transition: 0.3s; 
+    display: inline-block;
+    border-radius: 4px;
+    text-decoration: none;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+div {
+    border: 1px solid red;
+}
+.btnArea {
+    display: flex;
+    
+}
+.btnArea .btnCancel {
+    background-color: #1e2dff;
+}
+.btnArea .btnRegister {
+    background-color: #f4511e;
+}
+
+.btnArea .btnCancel :hover {
+    background-color: rgb(22, 0, 100);
+    cursor: pointer;
+}
+.btnArea .btnRegister:hover {
+    background-color: rgb(32, 5, 0);
+    cursor: pointer;
+}

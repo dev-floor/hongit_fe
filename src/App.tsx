@@ -9,9 +9,9 @@ import ArticleCreatePage from "./Article/presentational/ArticleCreatePage"
 function App() {
   return (
     <div className="App">
-      <ArticleHeaderContainer />
+      {/* <ArticleHeaderContainer />
       <AuthorInfoContainer/>
-      <CommentContainer/>
+      <CommentContainer/> */}
       <ArticleCreatePage/>
     </div>
   );

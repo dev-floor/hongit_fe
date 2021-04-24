@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ArticleCreatePageProps } from "../argumentsPropsInterface/ArticleProps"
+import "../css/ArticleCreatePage.css"
 
 const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) => {
     const [newTitle, setNewTitle] = useState("");
@@ -44,14 +45,27 @@ const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) =>
     }
 
     return (
-        <form className = "article-create-form">
-            <input className = "article-create-title" type = "text" placeholder = "제목을 입력하세요..." onChange = {onChangeTitle}/>
-            <input className = "article-create-anonymous" type = "checkbox" name = "anonymous" value = "anonymous" checked/>익명
-            <input className = "article-create-hashtag" type = "text" placeholder = "해시태그를 쉼표를 기준으로 입력하세요..." onChange = {onChangeHashtags} />
-            <textarea className = "article-create-content" placeholder = "내용을 입력해주세요..." onChange = {onChangeContent} />
-            <button className = "article-create-cancel-btn" type = "button">취소</button>
-            <button className = "article-create-register-btn" type = "submit" onSubmit = {onSubmit}>등록</button>
-        </form>
+        <div className = "createArea">
+            <form className = "articleCreateForm">
+                <div className = "titleArea">
+                    <input className = "article-create-title" type = "text" placeholder = "제목을 입력하세요..." onChange = {onChangeTitle}/>
+                    <input className = "article-create-anonymous" type = "checkbox" name = "anonymous" value = "anonymous" checked/>익명
+                </div>
+                <hr/>
+                <div className = "hashtagArea">
+                    <input className = "article-create-hashtag" type = "text" placeholder = "해시태그를 쉼표를 기준으로 입력하세요..." onChange = {onChangeHashtags} />
+                </div>
+                <hr/>
+                <div className = "contentsArea">
+                    <textarea className = "article-create-content" placeholder = "내용을 입력해주세요..." onChange = {onChangeContent} />
+                </div>
+                <hr/>
+                <div className = "btnArea">
+                    <button className = "btnCancel" type = "button">취소</button>
+                    <button className = "btnRegister" type = "submit" onSubmit = {onSubmit}>등록</button>
+                </div>
+            </form>
+        </div>
     )
 }
 
