@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 
-import AuthorInfoContainer  from './Article/container/AuthorInfoContainer'
-import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
-import CommentContainer from "./Article/container/CommentContainer"
-import ArticleCreatePage from "./Article/presentational/ArticleCreatePage"
+import AuthorInfoContainer from './Article/container/AuthorInfoContainer';
+import ArticleHeaderContainer from './Article/container/ArticleHeaderContainer';
+import CommentContainer from './Article/container/CommentContainer';
+import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
 
 function App() {
   return (
@@ -12,10 +12,9 @@ function App() {
       {/* <ArticleHeaderContainer />
       <AuthorInfoContainer/>
       <CommentContainer/> */}
-      <ArticleCreatePage/>
+      <ArticleCreatePage />
     </div>
   );
 }
 
 export default App;
- 
