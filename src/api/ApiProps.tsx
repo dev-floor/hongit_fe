@@ -24,10 +24,27 @@ export interface ArticleCommentApi {
   content: string;
   favorites: number;
 }
+
 export interface ArticleCreateApi {
   options: string[];
   title: string;
   anonymous: boolean;
   content: string;
   hashtags: string[];
+}
+
+export interface ArticleListApi {
+  id: number;
+  options: string[];
+  title: string;
+  anonymous: boolean;
+  author: {
+    name: string
+  };
+  createdDate: string;
+  modifiedDate: string;
+  content: string;
+  favorites: number;
+  wonders: number;
+  clips: number;
 }
