@@ -26,6 +26,7 @@ export interface ArticleCommentApi {
   favorites: number;
 }
 
+<<<<<<< HEAD
 export interface ArticleCreateApi {
   options: string[];
   title: string;
@@ -34,13 +35,19 @@ export interface ArticleCreateApi {
   hashtags: string[];
 }
 
+=======
+>>>>>>> e217e31... feat(component): Update area, container component.
 export interface ArticleListApi {
   id: number;
   options: string[];
   title: string;
   anonymous: boolean;
   author: {
+<<<<<<< HEAD
     name: string;
+=======
+    name: string
+>>>>>>> e217e31... feat(component): Update area, container component.
   };
   createdDate: string;
   modifiedDate: string;
@@ -48,4 +55,8 @@ export interface ArticleListApi {
   favorites: number;
   wonders: number;
   clips: number;
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e217e31... feat(component): Update area, container component.
