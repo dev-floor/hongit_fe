@@ -1,5 +1,5 @@
-import { ArticleListApi } from "../../api/ApiProps"
+import { ArticleListApi } from '../../api/ApiProps';
 
 export interface ArticleListProps {
-    articleListData: ArticleListApi[]
+  articleListData: ArticleListApi[];
 }
