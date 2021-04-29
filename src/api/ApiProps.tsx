@@ -39,7 +39,7 @@ export interface ArticleListApi {
   title: string;
   anonymous: boolean;
   author: {
-    name: string
+    name: string;
   };
   createdDate: string;
   modifiedDate: string;
