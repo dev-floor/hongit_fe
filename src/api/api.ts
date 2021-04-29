@@ -82,7 +82,7 @@ export const articleAPI = {
         },
         createdDate: '20201103',
         modifiedDate: '',
-        content: '저만 어렵나요 이과제년?',
+        content: 'sfs_disk.h에 정의된 함수 중 과제에서 사용 할 인터페이스(함수)는 disk_read()와 disk_write()뿐입니다. disk_blocksize도 있긴 하지만 블록사이즈는 sfs.h에 정의된 것을 사용 하는 것이 좋습니다. disk_read와 disk_write에 대해 간략히 설명을 하면 두 함수 모두 첫 번째 인자로 버퍼의 주소를 받습니다.(블록에 대한 연산이므로 버퍼의 크기는 반드시 블록사이즈와 같거나 커야 합니다) 두 번째 인자는 실제로 쓰거나 읽을 블록의 번호를 받게 되는데 예를 들어 disk_read(buf, 1)와 같이 호출 다면, SFS에서 블록 번호가 1인 곳에 위치하는 데이터는 루트 디렉토리의 i-node 이므로 buf에는 루트 디렉토리의 i-node가 읽어지게 됩니다',
         favorites: 2,
         wonders: 0,
         clips: 1,
