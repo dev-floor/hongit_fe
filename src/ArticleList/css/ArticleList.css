@@ -23,7 +23,10 @@
   background-color: #f2f2f2;
   margin: 20px 0px;
   padding: 5px;
+<<<<<<< HEAD
   cursor: pointer;
+=======
+>>>>>>> cdb3975... feat(presentational): Update presenter components.
 }
 
 .article-preview-option-block {
@@ -68,6 +71,7 @@
   justify-content: space-between;
 }
 
+<<<<<<< HEAD
 .article-preview-list-detail {
   display: flex;
 }
@@ -76,10 +80,13 @@
   margin-left: auto;
 }
 
+=======
+>>>>>>> cdb3975... feat(presentational): Update presenter components.
 .article-preview-response {
   display: flex;
 }
 
+<<<<<<< HEAD
 .article-preview-response * {
   margin: 0 5px;
 }
@@ -88,6 +95,12 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
+=======
+.article-preview-list {
+  display: flex;
+  flex-direction: column;
+
+>>>>>>> cdb3975... feat(presentational): Update presenter components.
   background-color: #f2f2f2;
   margin: 20px 0px;
   padding: 5px;

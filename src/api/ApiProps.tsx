@@ -44,10 +44,14 @@ export interface ArticleListApi {
   anonymous: boolean;
   author: {
 <<<<<<< HEAD
+<<<<<<< HEAD
     name: string;
 =======
     name: string
 >>>>>>> e217e31... feat(component): Update area, container component.
+=======
+    name: string;
+>>>>>>> cdb3975... feat(presentational): Update presenter components.
   };
   createdDate: string;
   modifiedDate: string;
@@ -56,7 +60,11 @@ export interface ArticleListApi {
   wonders: number;
   clips: number;
 <<<<<<< HEAD
+<<<<<<< HEAD
 }
 =======
 }
 >>>>>>> e217e31... feat(component): Update area, container component.
+=======
+}
+>>>>>>> cdb3975... feat(presentational): Update presenter components.

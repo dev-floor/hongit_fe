@@ -66,7 +66,7 @@ export const articleAPI = {
         title: '아니 과제 무슨 이따구임',
         anonymous: true,
         author: {
-          name: '',
+          name: '리혐주',
         },
         createdDate: '20210420',
         modifiedDate: '',
