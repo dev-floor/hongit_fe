@@ -23,6 +23,7 @@
   background-color: #f2f2f2;
   margin: 20px 0px;
   padding: 5px;
+  cursor: pointer;
 }
 
 .article-preview-option-block {
@@ -67,14 +68,26 @@
   justify-content: space-between;
 }
 
+.article-preview-list-detail {
+  display: flex;
+}
+
+.article-preview-list-detail .article-preview-response {
+  margin-left: auto;
+}
+
 .article-preview-response {
   display: flex;
+}
+
+.article-preview-response * {
+  margin: 0 5px;
 }
 
 .article-preview-list {
   display: flex;
   flex-direction: column;
-
+  cursor: pointer;
   background-color: #f2f2f2;
   margin: 20px 0px;
   padding: 5px;

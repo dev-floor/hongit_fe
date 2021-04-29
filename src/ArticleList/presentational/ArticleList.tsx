@@ -1,4 +1,6 @@
 import React, { useState } from 'react';
+import { FaThumbsUp, FaTags } from "react-icons/fa";
+import { ImWondering } from "react-icons/im";
 import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
 import { ArticleListApi } from '../../api/ApiProps';
 import '../css/ArticleList.css';
@@ -38,9 +40,9 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
       <div className="article-preview-card-detail">
         <a href="#none">Read more...</a>
         <div className="article-preview-response">
-          <div className="article-preview-favorites">{favorites}</div>
-          <div className="article-preview-wonder">{wonders}</div>
-          <div className="article-preview-clips">{clips}</div>
+          <div className="article-preview-favorites"><FaThumbsUp />{favorites}</div>
+          <div className="article-preview-wonder"><ImWondering />{wonders}</div>
+          <div className="article-preview-clips"><FaTags />{clips}</div>
         </div>
       </div>
     </article>
@@ -72,15 +74,15 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
         ))}
       </nav>
       <h3 className="article-preview-title">{title}</h3>
-      <div style={{ display: 'flex' }}>
+      <div className="article-preview-list-detail">
         <div className="article-preview-author">
           {anonymous ? `${author.name}` : `익명`}
         </div>
         <div className="article-preview-time">{createdTimeFormat}</div>
         <div className="article-preview-response">
-          <div className="article-preview-favorites">{favorites}</div>
-          <div className="article-preview-wonder">{wonders}</div>
-          <div className="article-preview-clips">{clips}</div>
+          <div className="article-preview-favorites"><FaThumbsUp />{favorites}</div>
+          <div className="article-preview-wonder"><ImWondering />{wonders}</div>
+          <div className="article-preview-clips"><FaTags />{clips}</div>
         </div>
       </div>
     </article>
