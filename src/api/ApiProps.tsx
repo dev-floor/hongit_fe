@@ -24,3 +24,10 @@ export interface ArticleCommentApi {
   content: string;
   favorites: number;
 }
+export interface ArticleCreateApi {
+  options: string[];
+  title: string;
+  anonymous: boolean;
+  content: string;
+  hashtags: string[];
+}
