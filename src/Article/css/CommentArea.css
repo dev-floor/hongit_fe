@@ -1,70 +1,58 @@
-.CommentArea {
+.commentArea {
   padding: 1rem;
   margin: 2rem;
   background-color: #fafafa;
-  /* box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23); */
   overflow: hidden;
 }
 
-input[type='text'],
-select {
-  width: 80%;
+hr {
+  border-top: 0px solid #bbb;
+  border-left: 0px solid #bbb;
+}
+
+/* form {
+     border: 1px solid blue; 
+} */
+/* div {
+    border: 1px solid red;
+} */
+
+.inputArea {
+  margin: 0.5rem;
   height: 100px;
-  padding: 16px 32px;
-  margin: 8px 0;
-  display: inline-block;
+  display: flex;
+}
+
+.inputArea input[type='text'],
+select,
+textarea {
+  width: 80%;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  box-sizing: border-box;
+  resize: none;
 }
 
 .inputArea .btnSubmit {
-  background-color: #f4511e;
-  border: none;
-  height: 100px;
+  width: 20%;
+  margin-left: 2px;
   color: white;
-  padding: 16px 32px;
-  margin: 8px 0;
-  text-align: center;
-  font-size: 16px;
-  margin: 4px 2px;
-  opacity: 0.6;
-  transition: 0.3s;
-  display: inline-block;
   border: 1px solid #ccc;
-  border-radius: 4px;
-  text-decoration: none;
-  box-sizing: border-box;
+  background-color: #ccc;
   cursor: pointer;
 }
 
-/* .inputArea .btnSubmit :hover {opacity: 1} */
+.inputArea .btnSubmit:hover {
+  color: white;
+  background-color: tomato;
+  transition-duration: 0.4s;
+}
 
 .Comment {
-  padding: 0px;
-}
-.iconContainer {
-  display: flex;
-  float: right;
-  transition: 0.5s;
-}
-
-.iconContainer:hover {
-  background-color: tomato;
-  cursor: pointer;
-}
-
-div {
-  /* border: 1px solid red; */
-}
-
-.authorInfo {
-  padding: 1.5rem;
+  margin: 0.5rem;
+  padding: 1rem 2rem 2rem 2rem;
   padding-bottom: 8px;
-  margin: 5px;
-  margin-bottom: 10px;
   background-color: #fafafa;
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   overflow: hidden;
 }
 
@@ -76,7 +64,7 @@ div {
   background-color: rgba(238, 238, 238, 0.918);
 }
 
-.authorInfoHeader:after {
+.authorInfo:after {
   clear: both;
   padding: 1px;
   display: flex;
@@ -84,9 +72,18 @@ div {
   content: '';
 }
 
-.authorInfoHeader .authorName {
+.authorInfo .authorName {
   float: left;
   font-weight: bold;
-  font-size: 30px;
-  margin-bottom: 1rem;
+  font-size: 15px;
+}
+
+.iconContainer {
+  float: right;
+  transition: 0.5s;
+}
+
+.iconContainer:hover {
+  background-color: tomato;
+  cursor: pointer;
 }

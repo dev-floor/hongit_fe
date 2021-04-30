@@ -18,7 +18,6 @@ export interface ArticleDetailApi {
   wonders: number;
   clips: number;
 }
-
 export interface ArticleCommentApi {
   anonymous: boolean;
   author: AuthorInfo;
