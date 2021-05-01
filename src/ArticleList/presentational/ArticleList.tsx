@@ -66,7 +66,6 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
     anonymous,
     author,
     createdDate,
-    content,
     favorites,
     wonders,
     clips,
