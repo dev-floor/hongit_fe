@@ -72,6 +72,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
             type="text"
             placeholder="제목을 입력하세요..."
             onChange={onChangeTitle}
+            required
           />
           <label htmlFor="anonymous">
             <input type="checkbox" id="anonymous" /> <span>익명</span>
@@ -84,6 +85,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
             type="text"
             placeholder="해시태그를 쉼표를 기준으로 입력하세요..."
             onChange={onChangeHashtags}
+            required
           />
         </div>
         <hr />
@@ -94,6 +96,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
             className="article-create-content"
             placeholder="내용을 입력해주세요..."
             onChange={onChangeContent}
+            required
           />
         </div>
         <hr />
