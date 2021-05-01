@@ -18,6 +18,7 @@ export interface ArticleDetailApi {
   wonders: number;
   clips: number;
 }
+
 export interface ArticleCommentApi {
   id: number;
   anonymous: boolean;
@@ -25,6 +26,7 @@ export interface ArticleCommentApi {
   content: string;
   favorites: number;
 }
+
 export interface ArticleCreateApi {
   options: string[];
   title: string;

@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 import '../css/ArticleCreatePage.css';
 
-const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   const [newTitle, setNewTitle] = useState('');
-  const [newHashtags, setNewHashtags] = useState("");
+  const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
   const [newArticle, setNewArticle] = useState({
     options: [],
@@ -28,14 +28,15 @@ const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
   };
 
   const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    const $anonymous = document.querySelector(
-      '#anonymous'
-    ) as HTMLInputElement;
+    const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
-    if(newHashtags.includes(",")) {
+    if (newHashtags.includes(',')) {
       modifiedHashTags = newHashtags.split(',');
+      modifiedHashTags = modifiedHashTags.map((splitHashtag) =>
+        splitHashtag.trim()
+      );
     } else {
-      modifiedHashTags = [newHashtags];
+      modifiedHashTags = [newHashtags.trim()];
     }
     setNewArticle({
       options: [],
