@@ -1,4 +1,6 @@
 import React from 'react';
+import { AiFillGithub } from 'react-icons/ai';
+import { SiNotion } from 'react-icons/si';
 import { ArticleDetailApi } from '../../api/ApiProps';
 
 const AuthorInfo = (dummyData: ArticleDetailApi) => {
@@ -16,19 +18,19 @@ const AuthorInfo = (dummyData: ArticleDetailApi) => {
             <div className="userName"> {author.name} </div>
           )}
           <a href={author.github} target="_blank" rel="noreferrer">
-            <img
+            <AiFillGithub
               style={{ display: anonymous ? 'none' : 'block' }}
               className="linkImage"
-              src={author.image}
-              alt={author.github}
+              size="25"
+              color="black"
             />
           </a>
           <a href={author.blog} target="_blank" rel="noreferrer">
-            <img
+            <SiNotion
               style={{ display: anonymous ? 'none' : 'block' }}
               className="linkImage"
-              src={author.image}
-              alt={author.blog}
+              size="25"
+              color="black"
             />
           </a>
         </div>
