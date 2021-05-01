@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 import '../css/ArticleCreatePage.css';
 
-const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) => {
+const ArticleCreatePage = ({onRegisterArticle}: ArticleCreatePageProps) => {
   const [newTitle, setNewTitle] = useState('');
-  const [newHashtags, setNewHashtags] = useState([] as string[]);
+  const [newHashtags, setNewHashtags] = useState("");
   const [newContent, setNewContent] = useState('');
   const [newArticle, setNewArticle] = useState({
     options: [],
@@ -20,35 +20,37 @@ const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) =>
 
   const onChangeHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
     const inputHashtags = e.target.value;
-    if (inputHashtags.includes(',')) {
-      const modifiedHashTags = inputHashtags.split(',');
-      setNewHashtags([...modifiedHashTags]);
-    } else {
-      setNewHashtags((hashtag) => hashtag.concat(inputHashtags));
-    }
+    setNewHashtags(inputHashtags);
   };
 
   const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewContent(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     const $anonymous = document.querySelector(
-      '.article-create-anonymous'
+      '#anonymous'
     ) as HTMLInputElement;
+    let modifiedHashTags: string[] = [];
+    if(newHashtags.includes(",")) {
+      modifiedHashTags = newHashtags.split(',');
+    } else {
+      modifiedHashTags = [newHashtags];
+    }
     setNewArticle({
       options: [],
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
-      hashtags: newHashtags,
+      hashtags: modifiedHashTags,
     });
-    // onRegisterArticle(newArticle);
+    e.preventDefault();
+    onRegisterArticle(newArticle);
   };
 
   return (
     <div className="createArea">
-      <form className="articleCreateForm">
+      <form className="articleCreateForm" onSubmit={onSubmit}>
         <div className="titleArea">
           <input
             className="title"
@@ -84,7 +86,7 @@ const ArticleCreatePage = (/* {onRegisterArticle}: ArticleCreatePageProps */) =>
           <button className="btnCancel" type="button">
             취소
           </button>
-          <button className="btnRegister" type="submit" onSubmit={onSubmit}>
+          <button className="btnRegister" type="submit">
             등록
           </button>
         </div>

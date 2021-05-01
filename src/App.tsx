@@ -4,7 +4,7 @@ import './App.css';
 import AuthorInfoContainer from './Article/container/AuthorInfoContainer';
 import ArticleHeaderContainer from './Article/container/ArticleHeaderContainer';
 import CommentContainer from './Article/container/CommentContainer';
-import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
+import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       {/* <ArticleHeaderContainer />
       <AuthorInfoContainer/>
       <CommentContainer/> */}
-      <ArticleCreatePage />
+      <ArticleCreatePageContainer />
     </div>
   );
 }
