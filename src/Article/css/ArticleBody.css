@@ -10,10 +10,9 @@ article {
     margin: auto;
 }
 
-.article-content {
-}
-
-.article-image {
+.article-content{
+    border: 1px solid white;
+    background-color: rgba(238, 238, 238, 0.918);
 }
 
 .article-descriptions {
@@ -23,32 +22,18 @@ article {
 }
 
 .hashtags {
-    width: 50%;
+    height: 30px;
+    width: 400px;
     margin: 0% 1% 0% 1%;
-    padding: 2%;
 }
 
 .hashtag{
-    height: 80%;
+    height: 25px;
+    width: 30%;
     margin: 1%;
     border: none;
     border-radius: 12px;
     background-color: lightgrey;
-}
-
-.buttons {
-    width: 50%;
-    margin: 0% 1% 0% 1%;
-    padding: 0% 1% 1% 25%;
-    display: flex;
-    display: flex;
-}
-
-.favorites-button {
-    margin: 50%;
-    height: 30%;
-    background-color: white;
-    border: none;
-    display: flex;  
-
+    color: black;
+    font-size: 10px;
 }
