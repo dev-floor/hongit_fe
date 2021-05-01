@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
 import CommentArea from '../presentational/CommentArea';
 import { ArticleCommentApi } from '../../api/ApiProps';
-import dummyData from '../../data/commentList.json';
+import { commentsAPI } from '../../api/api';
 
 const CommentContainer = () => {
-  const [comments, setComments] = useState(dummyData);
+  const com = commentsAPI.get();
+  const [comments, setComments] = useState(com);
 
   const onPressFavorite = (targetComment: ArticleCommentApi) => {
     setComments((commentList) =>
