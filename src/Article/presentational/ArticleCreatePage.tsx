@@ -27,7 +27,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
     setNewContent(e.target.value);
   };
 
-  const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const onSubmit = () => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
     if (newHashtags.includes(',')) {
@@ -45,13 +45,27 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
       content: newContent,
       hashtags: modifiedHashTags,
     });
-    e.preventDefault();
     onRegisterArticle(newArticle);
+  };
+
+  const onConfirmRegister = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (window.confirm('게시물을 등록하시겠습니까?')) {
+      onSubmit();
+    }
+  };
+
+  const onConfirmCancel = () => {
+    if (newTitle !== '' || newHashtags !== '' || newContent !== '') {
+      if (window.confirm('작성중인 내용이 있습니다. 나가시겠습니까?')) {
+        // React Router 사용.
+      }
+    }
   };
 
   return (
     <div className="createArea">
-      <form className="articleCreateForm" onSubmit={onSubmit}>
+      <form className="articleCreateForm" onSubmit={onConfirmRegister}>
         <div className="titleArea">
           <input
             className="title"
@@ -84,7 +98,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
         </div>
         <hr />
         <div className="btnArea">
-          <button className="btnCancel" type="button">
+          <button className="btnCancel" type="button" onClick={onConfirmCancel}>
             취소
           </button>
           <button className="btnRegister" type="submit">
