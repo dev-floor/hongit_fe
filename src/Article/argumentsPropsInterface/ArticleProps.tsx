@@ -1,5 +1,4 @@
-import { ArticleCommentApi } from '../../api/ApiProps';
-import { ArticleCreateApi } from '../../api/ApiProps';
+import { ArticleCommentApi, ArticleCreateApi } from '../../api/ApiProps';
 
 export interface CommentAreaProps {
   onRegisterComment: (newComment: ArticleCommentApi) => void;
