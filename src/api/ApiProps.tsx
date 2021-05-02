@@ -41,6 +41,7 @@ export interface ArticleDetailApi {
   clips: number;
 }
 export interface ArticleCommentApi {
+  id: number;
   anonymous: boolean;
   author: AuthorInfo;
   content: string;
