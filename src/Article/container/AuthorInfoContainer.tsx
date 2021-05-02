@@ -1,26 +1,26 @@
-import React from "react";
-import AuthorInfo from "../presentational/AuthorInfo";
-import data from "../../data/articleInfo.json"
-import "../css/AuthorInfo.css"
+import React from 'react';
+import AuthorInfo from '../presentational/AuthorInfo';
+import { articleAPI } from '../../api/api';
+import '../css/AuthorInfo.css';
 
 const AuthorInfoContainer = () => {
-    // this is for api procedures.
-    const test = "";
- 
-    return (
-        <AuthorInfo 
-            options = {data.options}
-            title = {data.title}
-            anonymous = {data.anonymous}
-            author = {data.author} 
-            createdDate = {data.createdDate}
-            content = {data.content} 
-            hashtags = {data.hashtags}
-            favorites = {data.favorites}
-            wonders = {data.wonders}
-            clips = {data.clips}
-        />
-    )
-}
+  // this is for api procedures.
+  const articleData = articleAPI.get();
+
+  return (
+    <AuthorInfo
+      options={articleData.options}
+      title={articleData.title}
+      anonymous={articleData.anonymous}
+      author={articleData.author}
+      createdDate={articleData.createdDate}
+      content={articleData.content}
+      hashtags={articleData.hashtags}
+      favorites={articleData.favorites}
+      wonders={articleData.wonders}
+      clips={articleData.clips}
+    />
+  );
+};
 
 export default AuthorInfoContainer;

@@ -1,9 +1,11 @@
 import React from 'react';
 import './App.css';
-import AuthorInfo  from './Article/container/AuthorInfo'
-import ArticleHeaderContainer from "./Article/container/ArticleHeaderContainer"
-import ArticleBodyContainer  from './Article/container/ArticleBodyContainer'
-import AuthorInfoContainer  from './Article/container/AuthorInfoContainer'
+
+import AuthorInfoContainer from './Article/container/AuthorInfoContainer';
+import ArticleBodyContainer from './Article/container/ArticleBodyContainer';
+import ArticleHeaderContainer from './Article/container/ArticleHeaderContainer';
+import CommentContainer from './Article/container/CommentContainer';
+import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
 
 function App() {
   return (
@@ -11,6 +13,8 @@ function App() {
       <ArticleHeaderContainer />
       <ArticleBodyContainer />
       <AuthorInfoContainer/>
+      <CommentContainer/> 
+      <ArticleCreatePage />
     </div>
   );
 }

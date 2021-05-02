@@ -1,39 +1,49 @@
 .AuthorInfo {
-    padding: 1rem;
-    margin : 2rem;
-    background-color: #FAFAFA;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-    overflow:hidden;
+  padding: 1rem;
+  margin: 2rem;
+  background-color: #fafafa;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  overflow: hidden;
 }
 
 .userImage {
-    width: 25%;
-    float: left;
-    align-self: baseline;
-    /* border: 1px solid red; */
+  width: 25%;
+  float: left;
+  align-self: baseline;
+  /* border: 1px solid red; */
 }
 
 .userInfo {
-    width: 75%;
-    float: left;
-    padding: 15px;
-    /* border: 1px solid red; */
+  width: 75%;
+  float: left;
+  padding: 15px;
+  /* border: 1px solid red; */
 }
+
 .userDescription {
-    padding: 15px;
-    text-align: left;
-    word-break:break-all;
-    background-color: rgba(238, 238, 238, 0.918);
+  padding: 15px;
+  text-align: left;
+  word-break: break-all;
+  background-color: rgba(238, 238, 238, 0.918);
+}
+
+.userInfoHeader:after {
+  clear: both;
+  padding: 1px;
+  display: flex;
+  align-items: center;
+  content: '';
 }
 
 .userInfoHeader .linkImage {
-	float: right;
-	width: 50px; 
-	text-align: center;
+  float: right;
+  width: 50px;
+  text-align: center;
 }
+
 .userInfoHeader .userName {
-	float: left;
-    font-weight : bold;
-    font-size: 30px;
-    margin-bottom: 1rem;
+  float: left;
+  font-weight: bold;
+  font-size: 30px;
+  margin-bottom: 1rem;
 }
