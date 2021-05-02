@@ -6,12 +6,13 @@
   background-color: #fafafa;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   overflow: hidden;
+  border-radius: 5px;
 }
 
 .AuthorInfo .userImage {
   width: 25%;
   float: left;
-  align-self: baseline;
+  /* align-self: baseline; */
   /* border: 1px solid red; */
 }
 
@@ -26,6 +27,7 @@
   text-align: left;
   word-break: break-all;
   background-color: rgba(238, 238, 238, 0.918);
+  border-radius: 5px;
 }
 .userInfo .userInfoHeader {
   /* border: 1px solid red; */

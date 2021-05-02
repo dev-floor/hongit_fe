@@ -12,7 +12,7 @@ function Router() {
   return (
     <div>
       <ul>
-        <li>
+        <li> 
           <Link to="/">홈</Link>
         </li>
         <li>
