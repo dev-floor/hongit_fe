@@ -1,24 +1,24 @@
 import React from 'react';
 import ArticleHeader from '../presentational/ArticleHeader';
-import articleInfo from '../../data/articleInfo.json';
+import { articleAPI } from '../../api/api';
 import '../css/ArticleHeader.css';
 
 const ArticleHeaderContainer = () => {
   // this is for api procedures.
-  const test = '';
+  const articleData = articleAPI.get();
 
   return (
     <ArticleHeader
-      options={articleInfo.options}
-      title={articleInfo.title}
-      anonymous={articleInfo.anonymous}
-      createdDate={articleInfo.createdDate}
-      author={articleInfo.author}
-      content={articleInfo.content}
-      hashtags={articleInfo.hashtags}
-      favorites={articleInfo.favorites}
-      wonders={articleInfo.wonders}
-      clips={articleInfo.clips}
+      options={articleData.options}
+      title={articleData.title}
+      anonymous={articleData.anonymous}
+      createdDate={articleData.createdDate}
+      author={articleData.author}
+      content={articleData.content}
+      hashtags={articleData.hashtags}
+      favorites={articleData.favorites}
+      wonders={articleData.wonders}
+      clips={articleData.clips}
     />
   );
 };

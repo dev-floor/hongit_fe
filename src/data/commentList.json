@@ -2,13 +2,13 @@
   {
     "anonymous": false,
     "author": {
-      "name": "hello",
+      "name": "현주",
       "image": "https://hello.com",
       "github": "lxxjn0",
       "blog": "https://ell.com",
       "description": ""
     },
-    "content": "sfdsfsfsdfdsffsd",
+    "content": "정말 유익한 글이였습니다!",
     "favorites": 2
   },
   {
@@ -20,7 +20,19 @@
       "blog": "https://ell.com",
       "description": ""
     },
-    "content": "sfdsfsfsdfefedsffsd",
-    "favorites": 6
+    "content": "싫어요.",
+    "favorites": 1
+  },
+  {
+    "anonymous": false,
+    "author": {
+      "name": "다연",
+      "image": "https://hello.com",
+      "github": "lxxjn0",
+      "blog": "https://ell.com",
+      "description": ""
+    },
+    "content": "최고에요!",
+    "favorites": 10
   }
 ]
