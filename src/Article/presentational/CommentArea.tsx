@@ -76,6 +76,7 @@ const CommentArea = ({
 
   return (
     <div className="commentArea">
+      <Route exact path="/Detail/:id" component={RouterTest} />
       <div className="numCommentArea">댓글 수 {commentsListProps.length}</div>
       <hr />
       <form className="inputArea" onSubmit={onHandleSubmit}>
