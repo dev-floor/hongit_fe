@@ -1,22 +1,14 @@
 import React from 'react';
 import './App.css';
+import { RouteComponentProps } from 'react-router-dom';
 
-import AuthorInfoContainer from './Article/container/AuthorInfoContainer';
-import ArticleBodyContainer from './Article/container/ArticleBodyContainer';
-import ArticleHeaderContainer from './Article/container/ArticleHeaderContainer';
-import CommentContainer from './Article/container/CommentContainer';
-import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
-
-function App() {
+const App = ({ match }: RouteComponentProps) => {
+  console.log(match);
   return (
-    <div className="App">
-      <ArticleHeaderContainer />
-      <ArticleBodyContainer />
-      <AuthorInfoContainer/>
-      <CommentContainer/> 
-      <ArticleCreatePage />
+    <div className="big-text">
+      <p> Home </p>
     </div>
   );
-}
+};
 
 export default App;
