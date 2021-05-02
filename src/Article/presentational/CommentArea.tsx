@@ -36,6 +36,7 @@ const CommentArea = ({
   onPressFavorite,
   commentsListProps,
 }: CommentAreaProps) => {
+  // id는 백에서 생성해서 전달 / recoil 로 관리 
   const id = useRef(commentsListProps.length + 1);
   const [newComment, setNewComment] = useState({
     id: id.current,
