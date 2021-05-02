@@ -2,7 +2,7 @@ import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
 import ArticleDetail from './Article/presentational/ArticleDetail';
-import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
+import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 
 import './Router.css';
 import RouterTest from './RouterTest';
@@ -25,7 +25,7 @@ function Router() {
       <hr />
       <Route path="/" component={App} exact/>
       <Route path="/Detail" component={ArticleDetail} exact />
-      <Route path="/Create" component={ArticleCreatePage} exact />
+      <Route path="/Create" component={ArticleCreatePageContainer} exact />
       <Route exact path="/Detail/:id" component={RouterTest} />
     </div>
   );
