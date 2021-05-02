@@ -1,11 +1,12 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
+import { Link, Route } from 'react-router-dom';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { CommentAreaProps } from '../argumentsPropsInterface/ArticleProps';
 import { ArticleCommentApi } from '../../api/ApiProps';
 import '../css/CommentArea.css';
 
 const Comment = (dummyData: ArticleCommentApi) => {
-  const { anonymous, author, content, favorites } = { ...dummyData };
+  const { id, anonymous, author, content, favorites } = { ...dummyData };
   return (
     <div className="Comment">
       <div className="authorInfo">
@@ -23,15 +24,19 @@ const Comment = (dummyData: ArticleCommentApi) => {
         <AiOutlineHeart className="hearticon" size="14" />
         {favorites}
       </div>
+      <Link to={`/Detail/${id}`}>Read More ...</Link>
     </div>
   );
 };
+
 const CommentArea = ({
   onRegisterComment,
   onPressFavorite,
   commentsListProps,
 }: CommentAreaProps) => {
+  const id = useRef(commentsListProps.length + 1);
   const [newComment, setNewComment] = useState({
+    id: id.current,
     anonymous: true,
     author: {
       name: '',
@@ -46,6 +51,7 @@ const CommentArea = ({
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
+      id: id.current,
       anonymous: true,
       author: {
         name: '',
@@ -60,8 +66,9 @@ const CommentArea = ({
   };
 
   const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
     onRegisterComment(newComment);
+    id.current += 1;
+    e.preventDefault();
   };
 
   return (
@@ -82,6 +89,7 @@ const CommentArea = ({
       <div className="commentListArea">
         {commentsListProps.map((comment) => (
           <Comment
+            id={comment.id}
             anonymous={comment.anonymous}
             author={comment.author}
             content={comment.content}

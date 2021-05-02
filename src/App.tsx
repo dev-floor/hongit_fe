@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
+import { RouteComponentProps } from 'react-router-dom';
 
+<<<<<<< HEAD
 import AuthorInfoContainer from './Article/container/AuthorInfoContainer';
 import ArticleBodyContainer from './Article/container/ArticleBodyContainer';
 import ArticleHeaderContainer from './Article/container/ArticleHeaderContainer';
@@ -15,8 +17,15 @@ function App() {
       <AuthorInfoContainer/>
       <CommentContainer/> 
       <ArticleCreatePage />
+=======
+const App = ({ match }: RouteComponentProps) => {
+  console.log(match);
+  return (
+    <div className="big-text">
+      <p> Home </p>
+>>>>>>> 378fd6a (React Router Test)
     </div>
   );
-}
+};
 
 export default App;

@@ -17,16 +17,15 @@ hr {
     border: 1px solid red;
 } */
 
-.inputArea {
+.commentArea .inputArea {
   margin: 0.5rem;
   height: 100px;
   display: flex;
 }
 
-.inputArea input[type='text'],
-select,
-textarea {
+.commentArea textarea {
   width: 80%;
+  height: 100px;
   padding: 12px;
   border: 1px solid #ccc;
   resize: none;
@@ -41,7 +40,7 @@ textarea {
   cursor: pointer;
 }
 
-.inputArea .btnSubmit:hover {
+.commentArea .inputArea .btnSubmit:hover {
   color: white;
   background-color: tomato;
   transition-duration: 0.4s;
@@ -49,6 +48,7 @@ textarea {
 
 .Comment {
   margin: 0.5rem;
+  margin-right: 0;
   padding: 1rem 2rem 2rem 2rem;
   padding-bottom: 8px;
   background-color: #fafafa;
@@ -56,7 +56,7 @@ textarea {
   overflow: hidden;
 }
 
-.contents {
+.Comment .contents {
   padding: 15px;
   margin-bottom: 5px;
   text-align: left;
@@ -64,7 +64,7 @@ textarea {
   background-color: rgba(238, 238, 238, 0.918);
 }
 
-.authorInfo:after {
+.Comment .authorInfo:after {
   clear: both;
   padding: 1px;
   display: flex;
@@ -72,18 +72,18 @@ textarea {
   content: '';
 }
 
-.authorInfo .authorName {
+.Comment .authorInfo .authorName {
   float: left;
   font-weight: bold;
   font-size: 15px;
 }
 
-.iconContainer {
+.Comment .iconContainer {
   float: right;
   transition: 0.5s;
 }
 
-.iconContainer:hover {
+.Comment .iconContainer:hover {
   background-color: tomato;
   cursor: pointer;
 }
