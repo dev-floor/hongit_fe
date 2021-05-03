@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 import '../css/ArticleCreatePage.css';
 
-const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProps) => {
   const [newTitle, setNewTitle] = useState('');
   const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
@@ -59,7 +59,11 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
     if (newTitle !== '' || newHashtags !== '' || newContent !== '') {
       if (window.confirm('작성중인 내용이 있습니다. 나가시겠습니까?')) {
         // React Router 사용.
+        history.goBack();
       }
+    } else {
+      // goBack();
+      history.goBack();
     }
   };
 

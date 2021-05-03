@@ -19,13 +19,13 @@ function Router() {
           <Link to="/Detail">게시물조회</Link>
         </li>
         <li>
-          <Link to="/Create">게시물생성</Link>
+          <Link to="/write">게시물생성</Link>
         </li>
       </ul>
       <hr />
       <Route path="/" component={App} exact/>
       <Route path="/Detail" component={ArticleDetail} exact />
-      <Route path="/Create" component={ArticleCreatePageContainer} exact />
+      <Route path="/write" component={ArticleCreatePageContainer} exact />
       <Route exact path="/Detail/:id" component={RouterTest} />
     </div>
   );

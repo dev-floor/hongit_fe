@@ -1,3 +1,4 @@
+import { RouteComponentProps } from 'react-router-dom';
 import { ArticleCommentApi, ArticleCreateApi } from '../../api/ApiProps';
 
 export interface CommentAreaProps {
@@ -7,4 +8,5 @@ export interface CommentAreaProps {
 }
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
+  history: RouteComponentProps
 }
