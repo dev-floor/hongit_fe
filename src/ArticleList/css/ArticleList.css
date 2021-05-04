@@ -90,15 +90,12 @@
   display: flex;
   flex-direction: column;
   cursor: pointer;
-<<<<<<< HEAD
 }
 
 .article-preview-list {
   display: flex;
   flex-direction: column;
   cursor: pointer;
-=======
->>>>>>> df14e5d21b3ca9796ca565ec9f94ef8506ee3ff2
   background-color: #f2f2f2;
   margin: 20px 0px;
   padding: 5px;

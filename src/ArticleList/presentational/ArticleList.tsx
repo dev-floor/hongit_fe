@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { Link, Route } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
+import { atom, useRecoilState } from 'recoil';
 import { FaThumbsUp, FaTags } from 'react-icons/fa';
 import { ImWondering } from 'react-icons/im';
 import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
@@ -109,11 +110,18 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   );
 };
 
+const viewModeHistoryer = atom({
+  key: 'viewMode',
+  default: 'card',
+});
+
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
-  const [viewMode, setViewMode] = useState('card');
+  const [viewModeHistory, setViewModeHistory] = useRecoilState(
+    viewModeHistoryer
+  );
 
   const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setViewMode(e.target.value);
+    setViewModeHistory(e.target.value);
   };
 
   return (
@@ -123,7 +131,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
         <option value="card">카드 뷰</option>
         <option value="list">리스트 뷰</option>
       </select>
-      {viewMode === 'card'
+      {viewModeHistory === 'card'
         ? articleListData.map((articlePreview) => (
             <ArticlePreviewCard
               id={articlePreview.id}
