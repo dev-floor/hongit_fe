@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link, Route } from 'react-router-dom';
 import { FaThumbsUp, FaTags } from 'react-icons/fa';
 import { ImWondering } from 'react-icons/im';
 import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
@@ -38,7 +39,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
       </div>
       <div className="article-preview-content">{content}</div>
       <div className="article-preview-card-detail">
-        <a href="#none">Read more...</a>
+        <Link to={`/article/${id}`}>Read more...</Link>
         <div className="article-preview-response">
           <div className="article-preview-favorites">
             <FaThumbsUp />
@@ -81,7 +82,9 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
           <span className="article-preview-option">{op}</span>
         ))}
       </nav>
-      <h3 className="article-preview-title">{title}</h3>
+      <Link to={`/article/${id}`}>
+        <h3 className="article-preview-title">{title}</h3>
+      </Link>
       <div className="article-preview-list-detail">
         <div className="article-preview-author">
           {anonymous ? `${author.name}` : `익명`}

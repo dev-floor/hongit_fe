@@ -30,7 +30,7 @@ export const articleAPI = {
     // const articleByList = await getRequest(`${END_POINT}/`);
     const articleByListResponse = articleByList;
     return articleByListResponse;
-  }
+  },
 };
 
 export const commentsAPI = {
