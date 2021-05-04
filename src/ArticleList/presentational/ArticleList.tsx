@@ -110,14 +110,14 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   );
 };
 
-const viewModeHistoryer = atom({
+const viewMode = atom({
   key: 'viewMode',
   default: 'card',
 });
 
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   const [viewModeHistory, setViewModeHistory] = useRecoilState(
-    viewModeHistoryer
+    viewMode
   );
 
   const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
