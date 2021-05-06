@@ -30,21 +30,27 @@ const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProp
   const onSubmit = () => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
-    if (newHashtags.includes(',')) {
-      modifiedHashTags = newHashtags.split(',');
-      modifiedHashTags = modifiedHashTags.map((splitHashtag) =>
-        splitHashtag.trim()
-      );
+    if (newHashtags.length > 0) {
+      if (newHashtags.includes(',')) {
+        modifiedHashTags = newHashtags.split(',');
+        modifiedHashTags = modifiedHashTags.map((splitHashtag) =>
+          splitHashtag.trim()
+        );
+      } else {
+        modifiedHashTags = [newHashtags.trim()];
+      }
     } else {
-      modifiedHashTags = [newHashtags.trim()];
+      modifiedHashTags = [""];
     }
     setNewArticle({
       options: [],
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
-      hashtags: modifiedHashTags,
+      hashtags: modifiedHashTags
     });
+    console.log(newTitle, newContent, modifiedHashTags);
+    console.log(newArticle)
     onRegisterArticle(newArticle);
   };
 
@@ -58,11 +64,9 @@ const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProp
   const onConfirmCancel = () => {
     if (newTitle !== '' || newHashtags !== '' || newContent !== '') {
       if (window.confirm('작성중인 내용이 있습니다. 나가시겠습니까?')) {
-        // React Router 사용.
         history.goBack();
       }
     } else {
-      // goBack();
       history.goBack();
     }
   };
@@ -89,7 +93,6 @@ const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProp
             type="text"
             placeholder="해시태그를 쉼표를 기준으로 입력하세요..."
             onChange={onChangeHashtags}
-            required
           />
         </div>
         <hr />

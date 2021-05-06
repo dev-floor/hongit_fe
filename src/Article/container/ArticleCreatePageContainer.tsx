@@ -14,7 +14,7 @@ const ArticleCreatePageContainer = ({ match, history }: RouteComponentProps<Matc
     articleAPI.postArticle(newArticle);
     // ArticleDetail 조회 페이지로 이동.
     history.push("/Detail")
-    console.log(newArticle);
+    // console.log(newArticle);
   };
 
   return <ArticleCreatePage onRegisterArticle={onRegisterArticle} history = {history} />;
