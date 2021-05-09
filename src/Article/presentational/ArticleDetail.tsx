@@ -4,10 +4,7 @@ import AuthorInfoContainer from '../container/AuthorInfoContainer';
 import ArticleHeaderContainer from '../container/ArticleHeaderContainer';
 import CommentContainer from '../container/CommentContainer';
 import ArticleBodyContianer from '../container/ArticleBodyContainer';
-
-interface MatchParams {
-  id: string;
-}
+import { MatchParams } from "../../interface/routerInterface"
 
 const ArticleDetailContainer = ({
   match,
