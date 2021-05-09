@@ -34,3 +34,19 @@ export interface ArticleCreateApi {
   content: string;
   hashtags: string[];
 }
+
+export interface ArticleListApi {
+  id: number;
+  options: string[];
+  title: string;
+  anonymous: boolean;
+  author: {
+    name: string;
+  };
+  createdDate: string;
+  modifiedDate: string;
+  content: string;
+  favorites: number;
+  wonders: number;
+  clips: number;
+}

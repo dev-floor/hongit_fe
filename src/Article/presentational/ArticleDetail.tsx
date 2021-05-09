@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { RouteComponentProps } from 'react-router-dom';
 import AuthorInfoContainer from '../container/AuthorInfoContainer';
 import ArticleHeaderContainer from '../container/ArticleHeaderContainer';
 import CommentContainer from '../container/CommentContainer';
@@ -8,7 +8,6 @@ import ArticleBodyContainer from '../container/ArticleBodyContainer';
 import FloatingButton from './FloatingButton';
 import '../css/FloatingButton.css';
 
-function ArticleDetail() {
   return (
     <div className="articleDetail">
       <div className="articleDetailLeft">
@@ -20,6 +19,6 @@ function ArticleDetail() {
       <FloatingButton />
     </div>
   );
-}
+};
 
-export default ArticleDetail;
+export default ArticleDetailContainer;
