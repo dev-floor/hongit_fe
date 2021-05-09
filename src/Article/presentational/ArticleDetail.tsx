@@ -17,7 +17,7 @@ function ArticleDetail() {
         <AuthorInfoContainer />
         <CommentContainer />
       </div>
-      <FloatingButton/>
+      <FloatingButton />
     </div>
   );
 }

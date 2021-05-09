@@ -21,7 +21,10 @@ export const getRequest = async (url: string) => {
   }
 };
 
-export const postArticleRequest = async (url: string, data: ArticleCreateApi) => {
+export const postArticleRequest = async (
+  url: string,
+  data: ArticleCreateApi
+) => {
   try {
     const response = await axios.post(url, data);
     if (response.status === 404) {

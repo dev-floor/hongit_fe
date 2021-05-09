@@ -12,4 +12,3 @@ const App = ({ match }: RouteComponentProps) => {
 };
 
 export default App;
- 

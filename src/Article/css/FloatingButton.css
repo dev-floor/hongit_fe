@@ -1,30 +1,30 @@
-aside{
-    border: 1px solid black;
-    position: sticky;
-    top: 0;
+aside {
+  border: 1px solid black;
+  position: sticky;
+  top: 0;
 }
 
-.btnTop{
-    width: 50%;
-    background-color:transparent;
-    color: black;
+.btnTop {
+  width: 50%;
+  background-color: transparent;
+  color: black;
 }
 
-.btnBottom{
-    width: 50%;
-    background-color:transparent;
-    color: black;
+.btnBottom {
+  width: 50%;
+  background-color: transparent;
+  color: black;
 }
 
-.articleDetail{
-    display: flex;
-    flex-direction: row;
+.articleDetail {
+  display: flex;
+  flex-direction: row;
 }
 
-.articleDetailLeft{
-    width:93%;
+.articleDetailLeft {
+  width: 93%;
 }
 
-.articleDetailRight{
-    width:7%;
+.articleDetailRight {
+  width: 7%;
 }

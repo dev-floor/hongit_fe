@@ -23,7 +23,7 @@ function Router() {
         </li>
       </ul>
       <hr />
-      <Route path="/" component={App} exact/>
+      <Route path="/" component={App} exact />
       <Route path="/Detail" component={ArticleDetail} exact />
       <Route path="/write" component={ArticleCreatePageContainer} exact />
       <Route exact path="/Detail/:id" component={RouterTest} />
