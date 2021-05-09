@@ -2,7 +2,10 @@ import React, { useState } from 'react';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 import '../css/ArticleCreatePage.css';
 
-const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({
+  onRegisterArticle,
+  history,
+}: ArticleCreatePageProps) => {
   const [newTitle, setNewTitle] = useState('');
   const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
@@ -40,17 +43,17 @@ const ArticleCreatePage = ({ onRegisterArticle, history }: ArticleCreatePageProp
         modifiedHashTags = [newHashtags.trim()];
       }
     } else {
-      modifiedHashTags = [""];
+      modifiedHashTags = [''];
     }
     setNewArticle({
       options: [],
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
-      hashtags: modifiedHashTags
+      hashtags: modifiedHashTags,
     });
     console.log(newTitle, newContent, modifiedHashTags);
-    console.log(newArticle)
+    console.log(newArticle);
     onRegisterArticle(newArticle);
   };
 
