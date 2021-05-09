@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
 
+
 import ArticleDetailContainer from './Article/presentational/ArticleDetail';
 import ArticleCreatePage from './Article/presentational/ArticleCreatePage';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
@@ -20,7 +21,7 @@ function Router() {
           <Link to="/articleList">게시물 목록 조회</Link>
         </li>
         <li>
-          <Link to="/Create">게시물생성</Link>
+          <Link to="/write">게시물생성</Link>
         </li>
       </ul>
       <hr />
