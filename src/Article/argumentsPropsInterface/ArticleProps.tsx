@@ -8,5 +8,4 @@ export interface CommentAreaProps {
 }
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
-  history: RouteComponentProps;
 }

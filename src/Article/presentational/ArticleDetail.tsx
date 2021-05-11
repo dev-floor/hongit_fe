@@ -1,19 +1,16 @@
 import React from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 import AuthorInfoContainer from '../container/AuthorInfoContainer';
 import ArticleHeaderContainer from '../container/ArticleHeaderContainer';
 import CommentContainer from '../container/CommentContainer';
 import ArticleBodyContainer from '../container/ArticleBodyContainer';
-import { MatchParams } from "../../interface/routerInterface"
 import FloatingButton from './FloatingButton';
 import '../css/FloatingButton.css';
 
-const ArticleDetailContainer = ({
-  match,
-  history,
-}: RouteComponentProps<MatchParams>) => {
-  console.log(match, history);
-  const { id } = match.params;
+const ArticleDetailContainer = () => {
+  const { id } = useParams();
+  const history = useHistory();
+  console.log(id, history);
   return (
     <div className="articleDetail">
       <div className="articleDetailLeft">

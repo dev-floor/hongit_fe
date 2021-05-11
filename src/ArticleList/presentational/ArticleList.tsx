@@ -116,9 +116,7 @@ const viewMode = atom({
 });
 
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
-  const [viewModeHistory, setViewModeHistory] = useRecoilState(
-    viewMode
-  );
+  const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);
 
   const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     setViewModeHistory(e.target.value);
