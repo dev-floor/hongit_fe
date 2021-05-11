@@ -1,12 +1,14 @@
 import React, { useEffect, useState } from 'react';
-import { RouteComponentProps } from 'react-router-dom';
+import { useHistory, useParams } from 'react-router-dom';
 
 interface MatchParams {
   id: string;
 }
-const RouterTest = ({ match, history }: RouteComponentProps<MatchParams>) => {
-  console.log(match);
-  const { id } = match.params;
+const RouterTest = () => {
+  const { id } = useParams();
+  const history = useHistory();
+  console.log(id);
+
   const goBack = () => {
     history.goBack();
   };

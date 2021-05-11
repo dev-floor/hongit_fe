@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { ArticleCreateApi } from './ApiProps';
 
-import articleByList from '../data/articleList.json';
-import commentList from '../data/commentList.json';
-import articleDetail from '../data/articleInfo.json';
+import articleListDummyData from '../data/ArticleListDummyData';
+import commentListDummyData from '../data/CommentListDummyData';
+import articleInfoDummyData from '../data/ArticleInfoDummyData';
 
 const END_POINT = 'www.NotUsedYet.com';
 
@@ -13,7 +13,7 @@ export const getRequest = async (url: string) => {
     if (response.status === 404) {
       throw Error('There would be error in requesting.');
     }
-    const result = await response.data;
+    const result = response.data;
     return result;
   } catch (e) {
     console.error(e);
@@ -30,7 +30,7 @@ export const postArticleRequest = async (
     if (response.status === 404) {
       throw Error('There would be error in requesting.');
     }
-    const result = await response.data;
+    const result = response.data;
     return result;
   } catch (e) {
     console.error(e);
@@ -40,18 +40,17 @@ export const postArticleRequest = async (
 
 export const articleAPI = {
   get: () => {
-    // const articleDetail = await getRequest(`${END_POINT}/`);
-    const articleDetailResponse = articleDetail;
+    // const articleInfo = await getRequest(`${END_POINT}/`);
+    const articleDetailResponse = articleInfoDummyData;
     return articleDetailResponse;
   },
   getByList: () => {
     // const articleByList = await getRequest(`${END_POINT}/`);
-    const articleByListResponse = articleByList;
+    const articleByListResponse = articleListDummyData;
     return articleByListResponse;
   },
   postArticle: (data: ArticleCreateApi) => {
     // const articlePost = await postRequest(`${END_POINT}/`, data);
-    // 여기서 articleByList 를 수정할 수 있나??
     console.log(data);
   },
 };
@@ -59,7 +58,7 @@ export const articleAPI = {
 export const commentsAPI = {
   get: () => {
     // const commentList = await getRequest(`${END_POINT}/~`);
-    const commentListResponse = commentList;
+    const commentListResponse = commentListDummyData;
     return commentListResponse;
   },
 };

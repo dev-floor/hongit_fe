@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 import '../css/ArticleCreatePage.css';
 
-const ArticleCreatePage = ({
-  onRegisterArticle,
-  history,
-}: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
+  const history = useHistory();
+
   const [newTitle, setNewTitle] = useState('');
   const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
