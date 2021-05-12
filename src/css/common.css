@@ -1,7 +1,22 @@
+
+:root {
+  --my-color: rgb(243, 242, 242);
+  --options-color: #2cc9a9;
+  --hashtag-color: #9639bb;
+  --back-color: #ffffffe7;
+  --text-area-color: #e2e2e259;
+  --btn-color: #ffd034;
+  --btn-hover-color: #b4942a;
+  --submit-btn-color: #9639bb;
+  --submit-btn-hover-color: #5d0181;
+}
+
 form {
   /* border: 1px solid blue;  */
   width: 100%;
 }
+
+/* for debug each area*/
 /* 
 div {
  border: 1px solid red;
@@ -11,14 +26,17 @@ section {
   border: 1px solid green;
 }
 
+time {
+  border: 1px solid red;
+}
 header {
   border: 1px solid yellowgreen;
- } */
+ }
 
 h2 {
   border: 1px solid red;
  }
-  
+   */
 
 hr {
   border-top: 0px solid #bbb;
@@ -28,4 +46,45 @@ hr {
 .vertical {
   border-left: 1px solid #bbb;
   /* height: 200px; */
+}
+
+button[type='submit']{
+  background: var(--submit-btn-color);
+  color:#fff;
+  border:none;
+  margin: 1px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position:relative;
+  font-size:1.1rem;
+  padding:0 1rem;
+  cursor:pointer;
+  border-radius: 4px;
+  transition:800ms ease all;
+  outline:none;
+}
+
+button[type='submit']:hover{
+  background:var(--submit-btn-hover-color);
+  color: white;
+  border-radius: 4px;
+}
+
+button[type='button']{
+  background: var(--btn-color);
+  color:#fff;
+  border:none;
+  margin: 1px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position:relative;
+  font-size:1rem;
+  cursor:pointer;
+  border-radius: 4px;
+  transition:800ms ease all;
+  outline:none;
+}
+
+button[type='button']:hover{
+  background:var(--btn-hover-color);
+  color: white;
+  border-radius: 4px;
 }

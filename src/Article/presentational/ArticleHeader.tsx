@@ -19,26 +19,28 @@ const ArticleHeader = ({
         ))}
       </section>
       <h2 className="article-title">{title}</h2>
-      <section className="article-detail">
-        {anonymous ? <div>익명</div> : <div>{author.name}</div>}
-        <time className="article-created-time">{createdTimeFormat}</time>
-      </section>
-      <div className="articleheader-btns">
-        <button
-          type="button"
-          className="articleheader-btn-update"
-          onClick={onUpdateArticle}
-        >
-          수정
-        </button>
-        <button
-          type="button"
-          className="articleheader-btn-delete"
-          onClick={onDeleteArticle}
-        >
-          삭제
-        </button>
-      </div>
+      <section className="article-header-bar">
+        <div className="article-info-area">
+          {anonymous ? <div>익명</div> : <div>{author.name}</div>}
+          <time className="article-created-time">{createdTimeFormat}</time>
+        </div>
+        <div className="article-btn-area">
+          <button
+            type="button"
+            className="articleheader-btn-update"
+            onClick={onUpdateArticle}
+          >
+            수정
+          </button>
+          <button
+            type="button"
+            className="articleheader-btn-delete"
+            onClick={onDeleteArticle}
+          >
+            삭제
+          </button>
+          </div>
+        </section>
     </header>
   );
 };

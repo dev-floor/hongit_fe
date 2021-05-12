@@ -13,14 +13,23 @@ const ArticleDetailContainer = () => {
   const history = useHistory();
   console.log(id, history);
   return (
-    <div className="articleDetail">
-      <div className="articleDetailLeft">
+    <div className="article-detail">
+      <div className="article-detail-left">
         <ArticleHeaderContainer />
-        <ArticleBodyContainer />
-        <AuthorInfoContainer />
-        <CommentContainer />
+        <hr/>
+        <div className="article-detail-body">
+          <ArticleBodyContainer />
+          <AuthorInfoContainer />
+        </div>
+        <hr/>
+        <div className="article-detail-comment">
+          <CommentContainer />
+        </div>
       </div>
-      <FloatingButton />
+      <div className ="vertical"> </div>
+      <div className="article-detail-right">
+        <FloatingButton />
+      </div>
     </div>
   );
 };
