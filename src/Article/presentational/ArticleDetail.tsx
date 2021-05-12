@@ -5,7 +5,8 @@ import ArticleHeaderContainer from '../container/ArticleHeaderContainer';
 import CommentContainer from '../container/CommentContainer';
 import ArticleBodyContainer from '../container/ArticleBodyContainer';
 import FloatingButton from './FloatingButton';
-import '../css/FloatingButton.css';
+
+import 'css/Article.css'
 
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();

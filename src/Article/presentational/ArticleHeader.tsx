@@ -12,17 +12,17 @@ const ArticleHeader = ({
     6
   )}-${createdDate.slice(6)}`;
   return (
-    <header className="article-header">
-      <nav className="article-option-block">
+     <header className="article-header">
+      <section className="option-area">
         {options.map((op) => (
-          <span className="article-option">{op}</span>
+          <span className="option">{op}</span>
         ))}
-      </nav>
+      </section>
       <h2 className="article-title">{title}</h2>
-      <div className="article-detail">
+      <section className="article-detail">
         {anonymous ? <div>익명</div> : <div>{author.name}</div>}
         <time className="article-created-time">{createdTimeFormat}</time>
-      </div>
+      </section>
       <div className="articleheader-btns">
         <button
           type="button"

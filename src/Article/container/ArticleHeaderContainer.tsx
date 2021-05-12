@@ -1,7 +1,6 @@
 import React from 'react';
 import ArticleHeader from '../presentational/ArticleHeader';
 import { articleAPI } from '../../api/api';
-import '../css/ArticleHeader.css';
 
 const ArticleHeaderContainer = () => {
   // this is for api procedures.

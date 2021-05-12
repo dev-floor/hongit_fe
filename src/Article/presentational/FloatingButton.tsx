@@ -1,5 +1,6 @@
 import React from 'react';
-import '../css/FloatingButton.css';
+
+import 'css/Article.css'
 
 const FloatingButton = () => {
   const scrollToTop = () => {
