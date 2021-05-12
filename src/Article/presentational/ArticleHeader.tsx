@@ -26,14 +26,14 @@ const ArticleHeader = ({
       <div className="articleheader-btns">
         <button
           type="button"
-          className="articleheade-btn-update"
+          className="articleheader-btn-update"
           onClick={onUpdateArticle}
         >
           수정
         </button>
         <button
           type="button"
-          className="articleheade-btn-delete"
+          className="articleheader-btn-delete"
           onClick={onDeleteArticle}
         >
           삭제
