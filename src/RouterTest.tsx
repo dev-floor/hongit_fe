@@ -5,7 +5,7 @@ interface MatchParams {
   id: string;
 }
 const RouterTest = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const history = useHistory();
   console.log(id);
 
