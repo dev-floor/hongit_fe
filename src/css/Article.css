@@ -268,11 +268,12 @@ select {
 .title-area {
   width: 100%;
   display: flex;
+  justify-content: space-between;
   overflow: auto;
 }
 
 .title-area label {
-  width: 15%;
+  width: 50px;
   margin: 0.7rem;
 }
 .title-area label span {
@@ -283,38 +284,14 @@ select {
   vertical-align: middle;
 }
 
-.btn-area .button {
-  border: none;
-  color: white;
-  padding: 8px 32px;
-  text-align: center;
-  font-size: 15px;
-  transition: 0.3s;
-  border-radius: 4px;
-  box-sizing: border-box;
-  cursor: pointer;
-}
-
 .btn-area {
   text-align: right;
 }
-.btn-area .btn-cancle {
-  background-color: var(--options-color);
-}
 
-.btn-area .btn-cancle:hover {
-  background-color: var(--hover-color);
-  cursor: pointer;
-}
-
-.btn-area .btn-register {
-  background-color: tomato;
-  margin-left: 5px;
-}
-
-.btn-area .btn-register:hover {
-  background-color: rgb(182, 27, 0);
-  cursor: pointer;
+.btn-area button {
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  margin:3px;
+  font-size: 1.2rem;
 }
 
 /*=============== ArticleDetail ==================*/
