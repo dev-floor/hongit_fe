@@ -1,8 +1,12 @@
 import React from 'react';
-import { ArticleDetailApi } from '../../api/ApiProps';
+import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
 
-const ArticleHeader = (dummyData: ArticleDetailApi) => {
-  const { options, title, anonymous, createdDate, author } = { ...dummyData };
+const ArticleHeader = ({
+  onUpdateArticle,
+  onDeleteArticle,
+  articleData,
+}: ArticleHeaderProps) => {
+  const { options, title, anonymous, createdDate, author } = { ...articleData };
   const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
     4,
     6
@@ -18,6 +22,22 @@ const ArticleHeader = (dummyData: ArticleDetailApi) => {
       <div className="article-detail">
         {anonymous ? <div>익명</div> : <div>{author.name}</div>}
         <time className="article-created-time">{createdTimeFormat}</time>
+      </div>
+      <div className="articleheader-btns">
+        <button
+          type="button"
+          className="articleheade-btn-update"
+          onClick={onUpdateArticle}
+        >
+          수정
+        </button>
+        <button
+          type="button"
+          className="articleheade-btn-delete"
+          onClick={onDeleteArticle}
+        >
+          삭제
+        </button>
       </div>
     </header>
   );

@@ -7,18 +7,21 @@ const ArticleHeaderContainer = () => {
   // this is for api procedures.
   const articleData = articleAPI.get();
 
+  const onUpdateArticle = () => {
+    console.log('update btn clicked!');
+    // 게시물 업데이트 기능을 여기에 구현하면 됩니다. (너무친절)
+  };
+
+  const onDeleteArticle = () => {
+    console.log('delete btn clicked!');
+    // 게시물 삭제 기능을 여기에 구현하면 됩니다. (너무친절)
+  };
+
   return (
     <ArticleHeader
-      options={articleData.options}
-      title={articleData.title}
-      anonymous={articleData.anonymous}
-      createdDate={articleData.createdDate}
-      author={articleData.author}
-      content={articleData.content}
-      hashtags={articleData.hashtags}
-      favorites={articleData.favorites}
-      wonders={articleData.wonders}
-      clips={articleData.clips}
+      onUpdateArticle={onUpdateArticle}
+      onDeleteArticle={onDeleteArticle}
+      articleData={articleData}
     />
   );
 };
