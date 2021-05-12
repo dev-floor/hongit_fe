@@ -8,7 +8,7 @@ import FloatingButton from './FloatingButton';
 import '../css/FloatingButton.css';
 
 const ArticleDetailContainer = () => {
-  const { id } = useParams();
+  const { id } = useParams<{ id: string }>();
   const history = useHistory();
   console.log(id, history);
   return (
