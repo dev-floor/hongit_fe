@@ -240,7 +240,7 @@
 .article-create-area {
   padding: 1rem;
   margin: 2rem;
-  background-color: var(--back-color);
+  background-color: var(--my-color);
   display: flex;
   overflow: auto;
 }
@@ -273,7 +273,7 @@ select {
 }
 
 .title-area label {
-  width: 50px;
+  width: 60px;
   margin: 0.7rem;
 }
 .title-area label span {

@@ -6,7 +6,7 @@ import { ImWondering } from 'react-icons/im';
 import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
 import { ArticleListApi } from '../../api/ApiProps';
 
-import '../css/ArticleList.css';
+import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
   const {
@@ -26,21 +26,21 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
     6
   )}-${createdDate.slice(6)}`;
   return (
-    <article className="article-preview-card">
-      <nav className="article-preview-option-block">
+    <article className="article-preview-detail">
+      <section className="option-area">
         {options.map((op) => (
-          <span className="article-preview-option">{op}</span>
+          <span className="option">{op}</span>
         ))}
-      </nav>
-      <h3 className="article-preview-title">{title}</h3>
-      <div style={{ display: 'flex' }}>
+      </section>
+      <section className="article-preview-title">{title}</section>
+      <section className="article-preview-bar">
         <div className="article-preview-author">
-          {anonymous ? `${author.name}` : `익명`}
+            {anonymous ? `${author.name}` : `익명`}
+          <time className="article-created-time">{createdTimeFormat}</time>
         </div>
-        <div className="article-preview-time">{createdTimeFormat}</div>
-      </div>
-      <div className="article-preview-content">{content}</div>
-      <div className="article-preview-card-detail">
+      </section>
+      <section className="article-preview-content">{content}</section>
+      <section className="article-preview-card-detail">
         <Link to={`/article/${id}`}>Read more...</Link>
         <div className="article-preview-response">
           <div className="article-preview-favorites">
@@ -56,7 +56,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
             {clips}
           </div>
         </div>
-      </div>
+      </section>
     </article>
   );
 };
@@ -78,20 +78,20 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
     6
   )}-${createdDate.slice(6)}`;
   return (
-    <article className="article-preview-list">
-      <nav className="article-preview-option-block">
+    <article className="article-preview-detail">
+      <section className="option-area">
         {options.map((op) => (
-          <span className="article-preview-option">{op}</span>
+          <span className="option">{op}</span>
         ))}
-      </nav>
+      </section>
       <Link to={`/article/${id}`}>
-        <h3 className="article-preview-title">{title}</h3>
+        <section className="article-preview-title">{title}</section>
       </Link>
-      <div className="article-preview-list-detail">
-        <div className="article-preview-author">
-          {anonymous ? `${author.name}` : `익명`}
-        </div>
-        <div className="article-preview-time">{createdTimeFormat}</div>
+      <section className="article-preview-list-detail">    
+          <div className="article-preview-author">
+            {anonymous ? `${author.name}` : `익명`}
+          </div>
+          <time className="article-created-time">{createdTimeFormat}</time>
         <div className="article-preview-response">
           <div className="article-preview-favorites">
             <FaThumbsUp />
@@ -106,7 +106,7 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
             {clips}
           </div>
         </div>
-      </div>
+      </section>
     </article>
   );
 };
@@ -124,44 +124,48 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   };
 
   return (
-    <section className="article-preview-area">
-      <title className="article-preview-boardname">수업게시판</title>
-      <select className="article-view-mode-select" onChange={onChangeSelect}>
-        <option value="card">카드 뷰</option>
-        <option value="list">리스트 뷰</option>
-      </select>
+    <div className="article-preview">
+      <section className = "article-preview-header">
+        <title className="article-preview-boardname">수업게시판</title>
+        <select className="article-view-mode-select" onChange={onChangeSelect}>
+          <option value="card">카드 뷰</option>
+          <option value="list">리스트 뷰</option>
+        </select>
+      </section>
+      <section className = "article-preview-area">
       {viewModeHistory === 'card'
-        ? articleListData.map((articlePreview) => (
-            <ArticlePreviewCard
-              id={articlePreview.id}
-              options={articlePreview.options}
-              title={articlePreview.title}
-              anonymous={articlePreview.anonymous}
-              author={articlePreview.author}
-              createdDate={articlePreview.createdDate}
-              modifiedDate={articlePreview.modifiedDate}
-              content={articlePreview.content}
-              favorites={articlePreview.favorites}
-              wonders={articlePreview.wonders}
-              clips={articlePreview.clips}
-            />
-          ))
-        : articleListData.map((articlePreview) => (
-            <ArticlePreviewList
-              id={articlePreview.id}
-              options={articlePreview.options}
-              title={articlePreview.title}
-              anonymous={articlePreview.anonymous}
-              author={articlePreview.author}
-              createdDate={articlePreview.createdDate}
-              modifiedDate={articlePreview.modifiedDate}
-              content={articlePreview.content}
-              favorites={articlePreview.favorites}
-              wonders={articlePreview.wonders}
-              clips={articlePreview.clips}
-            />
-          ))}
-    </section>
+          ? articleListData.map((articlePreview) => (
+              <ArticlePreviewCard
+                id={articlePreview.id}
+                options={articlePreview.options}
+                title={articlePreview.title}
+                anonymous={articlePreview.anonymous}
+                author={articlePreview.author}
+                createdDate={articlePreview.createdDate}
+                modifiedDate={articlePreview.modifiedDate}
+                content={articlePreview.content}
+                favorites={articlePreview.favorites}
+                wonders={articlePreview.wonders}
+                clips={articlePreview.clips}
+              />
+            ))
+          : articleListData.map((articlePreview) => (
+              <ArticlePreviewList
+                id={articlePreview.id}
+                options={articlePreview.options}
+                title={articlePreview.title}
+                anonymous={articlePreview.anonymous}
+                author={articlePreview.author}
+                createdDate={articlePreview.createdDate}
+                modifiedDate={articlePreview.modifiedDate}
+                content={articlePreview.content}
+                favorites={articlePreview.favorites}
+                wonders={articlePreview.wonders}
+                clips={articlePreview.clips}
+              />
+            ))}
+      </section>
+    </div>
   );
 };
 
