@@ -6,7 +6,7 @@ import CommentContainer from '../container/CommentContainer';
 import ArticleBodyContainer from '../container/ArticleBodyContainer';
 import FloatingButton from './FloatingButton';
 
-import 'css/Article.css'
+import 'css/Article.css';
 
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
@@ -14,22 +14,22 @@ const ArticleDetailContainer = () => {
   console.log(id, history);
   return (
     <div className="article-detail">
-      <div className="article-detail-left">
+      <section className="article-detail-left">
         <ArticleHeaderContainer />
-        <hr/>
-        <div className="article-detail-body">
+        <hr />
+        <section className="article-detail-body">
           <ArticleBodyContainer />
           <AuthorInfoContainer />
-        </div>
-        <hr/>
-        <div className="article-detail-comment">
+        </section>
+        <hr />
+        <section className="article-detail-comment">
           <CommentContainer />
-        </div>
-      </div>
-      <div className ="vertical"> </div>
-      <div className="article-detail-right">
+        </section>
+      </section>
+      <section className="vertical"> </section>
+      <section className="article-detail-right">
         <FloatingButton />
-      </div>
+      </section>
     </div>
   );
 };

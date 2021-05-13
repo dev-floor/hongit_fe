@@ -2,7 +2,6 @@ import React from 'react';
 import AuthorInfo from '../presentational/AuthorInfo';
 import { articleAPI } from '../../api/api';
 
-
 const AuthorInfoContainer = () => {
   // this is for api procedures.
   const articleData = articleAPI.get();

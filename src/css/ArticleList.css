@@ -2,12 +2,12 @@
 
 .article-preview {
   margin: 1rem;
-  padding :1rem;
+  padding: 1rem;
   background-color: var(--my-color);
   overflow: hidden;
 }
 
-.article-preview-header{
+.article-preview-header {
   display: flex;
   justify-content: space-between;
 }
@@ -84,7 +84,7 @@
 .article-preview-bar {
   display: flex;
   justify-content: space-between;
-  width:100%;
+  width: 100%;
   color: gray;
   font-size: 0.6rem;
   margin-left: 3px;
@@ -97,15 +97,15 @@
   margin-left: 10px;
 }
 
-.article-preview-info{
+.article-preview-info {
   display: flex;
-  justify-content:flex-start;
-  width:100%;
+  justify-content: flex-start;
+  width: 100%;
   color: gray;
   font-size: 0.6rem;
   margin-left: 3px;
-  margin:0px;
-  padding:0px;
+  margin: 0px;
+  padding: 0px;
 }
 
 .article-tail-bar {
@@ -130,7 +130,6 @@
   display: flex;
   justify-content: space-between;
   font-size: 0.8em;
-  margin-left: 3px;
   margin-left: 3px;
 }
 .article-preview-list-detail .article-created-time {

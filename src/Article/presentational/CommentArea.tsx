@@ -4,7 +4,7 @@ import { AiOutlineHeart } from 'react-icons/ai';
 import { CommentAreaProps } from '../argumentsPropsInterface/ArticleProps';
 import { ArticleCommentApi } from '../../api/ApiProps';
 
-import 'css/Article.css'
+import 'css/Article.css';
 
 import RouterTest from '../../RouterTest';
 
@@ -27,7 +27,7 @@ const Comment = (dummyData: ArticleCommentApi) => {
         <AiOutlineHeart className="heart-icon" size="14" />
         {favorites}
       </div>
-      </div>
+    </div>
   );
 };
 
@@ -79,10 +79,7 @@ const CommentArea = ({
       <div>댓글 수 {commentsListProps.length}</div>
       <hr />
       <form className="comment-submit-area" onSubmit={onHandleSubmit}>
-        <textarea
-          placeholder="댓글을 입력하세요..."
-          onChange={onChange}
-        />
+        <textarea placeholder="댓글을 입력하세요..." onChange={onChange} />
         <button className="btn-submit" type="submit">
           등록
         </button>

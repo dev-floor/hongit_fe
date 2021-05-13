@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 
-import 'css/Article.css'
+import 'css/Article.css';
 
 const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   const history = useHistory();
@@ -110,7 +110,11 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
         </div>
         <hr />
         <div className="btn-area">
-          <button className="btn-cancle" type="button" onClick={onConfirmCancel}>
+          <button
+            className="btn-cancle"
+            type="button"
+            onClick={onConfirmCancel}
+          >
             취소
           </button>
           <button className="btn-register" type="submit">

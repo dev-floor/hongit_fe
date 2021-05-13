@@ -35,7 +35,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
       <section className="article-preview-title">{title}</section>
       <section className="article-preview-bar">
         <div className="article-preview-author">
-            {anonymous ? `${author.name}` : `익명`}
+          {anonymous ? `${author.name}` : `익명`}
           <time className="article-created-time">{createdTimeFormat}</time>
         </div>
       </section>
@@ -87,11 +87,11 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
       <Link to={`/article/${id}`}>
         <section className="article-preview-title">{title}</section>
       </Link>
-      <section className="article-preview-list-detail">    
-          <div className="article-preview-author">
-            {anonymous ? `${author.name}` : `익명`}
-          </div>
-          <time className="article-created-time">{createdTimeFormat}</time>
+      <section className="article-preview-list-detail">
+        <div className="article-preview-author">
+          {anonymous ? `${author.name}` : `익명`}
+        </div>
+        <time className="article-created-time">{createdTimeFormat}</time>
         <div className="article-preview-response">
           <div className="article-preview-favorites">
             <FaThumbsUp />
@@ -125,15 +125,15 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
 
   return (
     <div className="article-preview">
-      <section className = "article-preview-header">
+      <section className="article-preview-header">
         <title className="article-preview-boardname">수업게시판</title>
         <select className="article-view-mode-select" onChange={onChangeSelect}>
           <option value="card">카드 뷰</option>
           <option value="list">리스트 뷰</option>
         </select>
       </section>
-      <section className = "article-preview-area">
-      {viewModeHistory === 'card'
+      <section className="article-preview-area">
+        {viewModeHistory === 'card'
           ? articleListData.map((articlePreview) => (
               <ArticlePreviewCard
                 id={articlePreview.id}

@@ -12,7 +12,7 @@ const ArticleHeader = ({
     6
   )}-${createdDate.slice(6)}`;
   return (
-     <header className="article-header">
+    <header className="article-header">
       <section className="option-area">
         {options.map((op) => (
           <span className="option">{op}</span>
@@ -39,8 +39,8 @@ const ArticleHeader = ({
           >
             삭제
           </button>
-          </div>
-        </section>
+        </div>
+      </section>
     </header>
   );
 };
