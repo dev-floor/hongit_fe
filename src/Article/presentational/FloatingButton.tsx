@@ -1,5 +1,6 @@
 import React from 'react';
-import '../css/FloatingButton.css';
+
+import 'css/Article.css';
 
 const FloatingButton = () => {
   const scrollToTop = () => {
@@ -17,15 +18,13 @@ const FloatingButton = () => {
   const onScroll = () => {};
 
   return (
-    <div className="articleDetailRight">
-      <div className="floatingButtons" onScroll={onScroll}>
-        <button className="btnTop" type="button" onClick={scrollToTop}>
-          <i className="chevron up icon" />
-        </button>
-        <button className="btnBottom" type="button" onClick={scrollToBottom}>
-          <i className="chevron down icon" />
-        </button>
-      </div>
+    <div className="floating-btn-area" onScroll={onScroll}>
+      <button className="btn-top" type="button" onClick={scrollToTop}>
+        <i className="chevron up icon" />
+      </button>
+      <button className="btn-bottom" type="button" onClick={scrollToBottom}>
+        <i className="chevron down icon" />
+      </button>
     </div>
   );
 };

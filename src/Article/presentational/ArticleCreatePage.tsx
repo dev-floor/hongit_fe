@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
-import '../css/ArticleCreatePage.css';
+
+import 'css/Article.css';
 
 const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   const history = useHistory();
@@ -75,9 +76,9 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   };
 
   return (
-    <div className="createArea">
-      <form className="articleCreateForm" onSubmit={onConfirmRegister}>
-        <div className="titleArea">
+    <div className="article-create-area">
+      <form className="article-create-form" onSubmit={onConfirmRegister}>
+        <div className="title-area">
           <input
             className="title"
             type="text"
@@ -90,9 +91,8 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
           </label>
         </div>
         <hr />
-        <div className="hashtagArea">
+        <div className="hashtag-area">
           <input
-            className="article-create-hashtag"
             type="text"
             placeholder="해시태그를 쉼표를 기준으로 입력하세요..."
             onChange={onChangeHashtags}
@@ -101,20 +101,23 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
         <hr />
         툴바 추후 지원
         <hr />
-        <div className="contentsArea">
+        <div className="contents-area">
           <textarea
-            className="article-create-content"
             placeholder="내용을 입력해주세요..."
             onChange={onChangeContent}
             required
           />
         </div>
         <hr />
-        <div className="btnArea">
-          <button className="btnCancel" type="button" onClick={onConfirmCancel}>
+        <div className="btn-area">
+          <button
+            className="btn-cancle"
+            type="button"
+            onClick={onConfirmCancel}
+          >
             취소
           </button>
-          <button className="btnRegister" type="submit">
+          <button className="btn-register" type="submit">
             등록
           </button>
         </div>

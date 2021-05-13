@@ -3,30 +3,30 @@ import { Link, Route } from 'react-router-dom';
 import { AiOutlineHeart } from 'react-icons/ai';
 import { CommentAreaProps } from '../argumentsPropsInterface/ArticleProps';
 import { ArticleCommentApi } from '../../api/ApiProps';
-import '../css/CommentArea.css';
+
+import 'css/Article.css';
 
 import RouterTest from '../../RouterTest';
 
 const Comment = (dummyData: ArticleCommentApi) => {
   const { id, anonymous, author, content, favorites } = { ...dummyData };
   return (
-    <div className="Comment">
-      <div className="authorInfo">
+    <div className="comment">
+      <div className="comment-author-area">
         {anonymous ? (
-          <div className="authorName"> 익명 </div>
+          <div className="comment-author-name"> 익명 </div>
         ) : (
-          <div className="authorName"> {author.name} </div>
+          <div className="comment-author-name"> {author.name} </div>
         )}
       </div>
-      <div className="contents"> {content} </div>
+      <div className="comment-content"> {content} </div>
       <div
         style={{ display: 'flex', alignItems: 'center' }}
-        className="iconContainer"
+        className="comment-icon-area"
       >
-        <AiOutlineHeart className="hearticon" size="14" />
+        <AiOutlineHeart className="heart-icon" size="14" />
         {favorites}
       </div>
-      <Link to={`/Detail/${id}`}>Read More ...</Link>
     </div>
   );
 };
@@ -75,22 +75,17 @@ const CommentArea = ({
   };
 
   return (
-    <div className="commentArea">
-      <Route exact path="/Detail/:id" component={RouterTest} />
-      <div className="numCommentArea">댓글 수 {commentsListProps.length}</div>
+    <div className="comment-area">
+      <div>댓글 수 {commentsListProps.length}</div>
       <hr />
-      <form className="inputArea" onSubmit={onHandleSubmit}>
-        <textarea
-          className="inputBox"
-          placeholder="댓글을 입력하세요..."
-          onChange={onChange}
-        />
-        <button className="btnSubmit" type="submit">
+      <form className="comment-submit-area" onSubmit={onHandleSubmit}>
+        <textarea placeholder="댓글을 입력하세요..." onChange={onChange} />
+        <button className="btn-submit" type="submit">
           등록
         </button>
       </form>
       <hr />
-      <div className="commentListArea">
+      <div>
         {commentsListProps.map((comment) => (
           <Comment
             id={comment.id}

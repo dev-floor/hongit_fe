@@ -40,6 +40,7 @@
     "src/setupTests.ts",
     "./node_modules/**/*"
   ],
+  "extends": "./tsconfig.paths.json",
   "include": [
     "./src/**/*",
     "@type"

@@ -1,8 +1,6 @@
 import React from 'react';
 import { articleAPI } from '../../api/api';
 import ArticleBody from '../presentational/ArticleBody';
-import articleInfoDummyData from '../../data/ArticleInfoDummyData';
-import '../css/ArticleBody.css';
 
 const ArticleBodyContainer = () => {
   const articleData = articleAPI.get();

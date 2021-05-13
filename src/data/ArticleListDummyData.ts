@@ -9,7 +9,8 @@ const articleListDummyData = [
     },
     createdDate: '20210420',
     modifiedDate: '',
-    content: '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래',
+    content:
+      '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래 아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래해오래 해오래 해오래 해오래 해오래  ...',
     favorites: 39,
     wonders: 1,
     clips: 1,

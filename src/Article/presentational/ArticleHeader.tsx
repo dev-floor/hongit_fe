@@ -13,32 +13,34 @@ const ArticleHeader = ({
   )}-${createdDate.slice(6)}`;
   return (
     <header className="article-header">
-      <nav className="article-option-block">
+      <section className="option-area">
         {options.map((op) => (
-          <span className="article-option">{op}</span>
+          <span className="option">{op}</span>
         ))}
-      </nav>
+      </section>
       <h2 className="article-title">{title}</h2>
-      <div className="article-detail">
-        {anonymous ? <div>익명</div> : <div>{author.name}</div>}
-        <time className="article-created-time">{createdTimeFormat}</time>
-      </div>
-      <div className="articleheader-btns">
-        <button
-          type="button"
-          className="articleheader-btn-update"
-          onClick={onUpdateArticle}
-        >
-          수정
-        </button>
-        <button
-          type="button"
-          className="articleheader-btn-delete"
-          onClick={onDeleteArticle}
-        >
-          삭제
-        </button>
-      </div>
+      <section className="article-header-bar">
+        <div className="article-info-area">
+          {anonymous ? <div>익명</div> : <div>{author.name}</div>}
+          <time className="article-created-time">{createdTimeFormat}</time>
+        </div>
+        <div className="article-btn-area">
+          <button
+            type="button"
+            className="articleheader-btn-update"
+            onClick={onUpdateArticle}
+          >
+            수정
+          </button>
+          <button
+            type="button"
+            className="articleheader-btn-delete"
+            onClick={onDeleteArticle}
+          >
+            삭제
+          </button>
+        </div>
+      </section>
     </header>
   );
 };
