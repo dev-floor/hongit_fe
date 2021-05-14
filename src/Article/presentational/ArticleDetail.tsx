@@ -11,7 +11,6 @@ import 'css/Article.css';
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
   const history = useHistory();
-  console.log(id, history);
   return (
     <div className="article-detail">
       <section className="article-detail-left">

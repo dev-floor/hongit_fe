@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 
@@ -31,7 +31,7 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
     setNewContent(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onChangeNewArticle = () => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
     if (newHashtags.length > 0) {
@@ -46,22 +46,23 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
     } else {
       modifiedHashTags = [''];
     }
-    setNewArticle({
+    setNewArticle(() => ({
       options: [],
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
       hashtags: modifiedHashTags,
-    });
-    console.log(newTitle, newContent, modifiedHashTags);
-    console.log(newArticle);
-    onRegisterArticle(newArticle);
+    }));
   };
+
+  useEffect(() => {
+    onRegisterArticle(newArticle);
+  }, [onRegisterArticle, newArticle]);
 
   const onConfirmRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (window.confirm('게시물을 등록하시겠습니까?')) {
-      onSubmit();
+      onChangeNewArticle();
     }
   };
 

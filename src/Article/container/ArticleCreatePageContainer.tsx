@@ -7,11 +7,11 @@ import { ArticleCreateApi } from '../../api/ApiProps';
 const ArticleCreatePageContainer = () => {
   const history = useHistory();
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {
-    // api 호출로 post 날리고
-    articleAPI.postArticle(newArticle);
-    // ArticleDetail 조회 페이지로 이동.
-    history.push('/Detail');
-    // console.log(newArticle);
+    if (newArticle.title !== '') {
+      // api 호출로 post 날리고
+      articleAPI.postArticle(newArticle);
+      history.push('/Detail');
+    }
   };
 
   return <ArticleCreatePage onRegisterArticle={onRegisterArticle} />;
