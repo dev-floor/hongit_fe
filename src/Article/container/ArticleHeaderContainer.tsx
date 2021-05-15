@@ -8,14 +8,18 @@ const ArticleHeaderContainer = () => {
   // this is for api procedures.
   const articleData = articleAPI.get();
 
-  const onUpdateArticle = () => {
-    console.log('update btn clicked!');
-    // article 정보
+  const onUpdateArticle = (id: number) => {
+    if (id > 0) {
+      history.push({
+        pathname: '/write',
+        state: { modifyArticleId: id },
+      });
+    }
   };
 
   const onDeleteArticle = () => {
     console.log('delete btn clicked!');
-    // 게시물 삭제 기능을 여기에 구현하면 됩니다. (너무친절)
+    // 게시물 삭제 기능을 여기에 구현하면 됩니다. (너무 친절)
   };
 
   return (

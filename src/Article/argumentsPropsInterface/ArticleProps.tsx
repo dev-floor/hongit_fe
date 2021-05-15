@@ -12,10 +12,11 @@ export interface CommentAreaProps {
 
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
+  modifiyTargetArticle?: ArticleDetailApi;
 }
 
 export interface ArticleHeaderProps {
-  onUpdateArticle: () => void;
+  onUpdateArticle: (id: number) => void;
   onDeleteArticle: () => void;
   articleData: ArticleDetailApi;
 }

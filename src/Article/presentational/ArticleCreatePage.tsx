@@ -1,11 +1,18 @@
-import React, { useState, useMemo, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 
 import 'css/Article.css';
 
-const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({
+  onRegisterArticle,
+  modifiyTargetArticle,
+}: ArticleCreatePageProps) => {
   const history = useHistory();
+
+  // modifiyTargetArticle 값이
+  // undefined 이면 게시물을 새로 등록하는 것.
+  // undefined가 아니라면 해당내용을 수정하는 것.
 
   const [newTitle, setNewTitle] = useState('');
   const [newHashtags, setNewHashtags] = useState('');
@@ -58,6 +65,19 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   useEffect(() => {
     onRegisterArticle(newArticle);
   }, [onRegisterArticle, newArticle]);
+
+  useEffect(() => {
+    if (modifiyTargetArticle !== undefined) {
+      (document.querySelector('.title-area .title') as HTMLInputElement).value =
+        modifiyTargetArticle.title;
+      (document.querySelector(
+        '.hashtag-area input'
+      ) as HTMLInputElement).value = modifiyTargetArticle.hashtags.join(',');
+      (document.querySelector(
+        '.contents-area textarea'
+      ) as HTMLTextAreaElement).value = modifiyTargetArticle.content;
+    }
+  }, [modifiyTargetArticle]);
 
   const onConfirmRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();

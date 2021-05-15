@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
 
 const ArticleHeader = ({
@@ -6,11 +6,25 @@ const ArticleHeader = ({
   onDeleteArticle,
   articleData,
 }: ArticleHeaderProps) => {
-  const { options, title, anonymous, createdDate, author } = { ...articleData };
+  const { /* id, */ options, title, anonymous, createdDate, author } = {
+    ...articleData,
+  };
   const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
     4,
     6
   )}-${createdDate.slice(6)}`;
+
+  const tmpID = 10; // id가 더미데이터게 없어서 임시로 만듬.
+  const [articleId, setArticleId] = useState(-1);
+
+  const onClickArticleUpdate = () => {
+    setArticleId(() => tmpID); // 원래는 setArticle(id);
+  };
+
+  useEffect(() => {
+    onUpdateArticle(articleId);
+  }, [onUpdateArticle, articleId]);
+
   return (
     <header className="article-header">
       <section className="option-area">
@@ -28,7 +42,7 @@ const ArticleHeader = ({
           <button
             type="button"
             className="articleheader-btn-update"
-            onClick={onUpdateArticle}
+            onClick={onClickArticleUpdate}
           >
             수정
           </button>
