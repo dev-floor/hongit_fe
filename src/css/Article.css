@@ -221,6 +221,8 @@
 .floating-btn-area {
   display: flex;
   flex-direction: column;
+  position: fixed;
+  margin: 570px 0 0 0;
 }
 
 .floating-btn-area .btn-top {
@@ -286,10 +288,44 @@ select {
   text-align: right;
 }
 
-.btn-area button {
+.btn-area .btn-register {
+  background: var(--submit-btn-color);
+  color: #fff;
+  border: none;
+  margin: 1px;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  margin: 3px;
-  font-size: 1.2rem;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+.btn-area .btn-register :hover {
+  background: var(--submit-btn-hover-color);
+  color: white;
+  border-radius: 4px;
+}
+
+.btn-area .btn-cancle {
+  background: var(--btn-color);
+  color: #fff;
+  border: none;
+  margin: 1px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+.btn-area .btn-cancle :hover {
+  background: var(--btn-hover-color);
+  color: white;
+  border-radius: 4px;
 }
 
 /*=============== ArticleDetail ==================*/

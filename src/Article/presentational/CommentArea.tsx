@@ -6,8 +6,6 @@ import { ArticleCommentApi } from '../../api/ApiProps';
 
 import 'css/Article.css';
 
-import RouterTest from '../../RouterTest';
-
 const Comment = (dummyData: ArticleCommentApi) => {
   const { id, anonymous, author, content, favorites } = { ...dummyData };
   return (

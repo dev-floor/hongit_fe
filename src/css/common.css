@@ -8,6 +8,12 @@
   --btn-hover-color: #b4942a;
   --submit-btn-color: #9639bb;
   --submit-btn-hover-color: #5d0181;
+  --pantone-yellow: #f5df4d;
+  --pantone-gray: #939597;
+  --modal-header-color: #ffed4e83;
+  --modal-btn-color: rgb(255, 187, 0);
+  --modal-line-color: rgba(255, 217, 0, 0.507);
+  --modal-background: rgba(0, 0, 0, 0.6);
 }
 
 form {
@@ -47,6 +53,12 @@ hr {
 .vertical {
   border-left: 1px solid #bbb;
   /* height: 200px; */
+}
+
+.big-text {
+  margin-top: 3rem;
+  font-size: 7rem;
+  text-align: center;
 }
 
 button[type='submit'] {

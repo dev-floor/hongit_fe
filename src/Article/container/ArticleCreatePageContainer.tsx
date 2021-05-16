@@ -10,7 +10,7 @@ const ArticleCreatePageContainer = () => {
     // api 호출로 post 날리고
     articleAPI.postArticle(newArticle);
     // ArticleDetail 조회 페이지로 이동.
-    history.push('/Detail');
+    history.push('/detail');
     // console.log(newArticle);
   };
 
