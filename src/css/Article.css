@@ -162,6 +162,19 @@
   border-radius: 5px;
 }
 
+.comment-btn-area button {
+  font-size: 0.9rem;
+  background-color: transparent;
+  color: lightseagreen;
+  padding: 0px 2px 0px 2px;
+  margin: 5px 0px 5px 0px ;
+}
+
+.comment-btn-area button:hover {
+  color: red;
+  background-color: transparent;
+}
+
 /*------*/
 .comment {
   margin: 0rem 0rem 0.5rem 0rem;
