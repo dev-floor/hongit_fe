@@ -1,11 +1,22 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useRecoilValue } from 'recoil';
+import { selectedArticleId } from './ArticleDetailContainer';
 import CommentArea from '../presentational/CommentArea';
 import { ArticleCommentApi } from '../../api/ApiProps';
 import { commentsAPI } from '../../api/api';
 
 const CommentContainer = () => {
-  const com = commentsAPI.get();
-  const [comments, setComments] = useState(com);
+  const articleId = useRecoilValue(selectedArticleId);
+  const [comments, setComments] = useState<ArticleCommentApi[]>([]);
+
+  const loadData = async () => {
+    const response = await commentsAPI.get(/* articleId */);
+    setComments([...response]);
+  };
+
+  useEffect(() => {
+    loadData();
+  }, []);
 
   const onPressFavorite = (targetComment: ArticleCommentApi) => {
     setComments((commentList) =>

@@ -30,8 +30,7 @@ const ArticleCreatePage = ({
   };
 
   const onChangeHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputHashtags = e.target.value;
-    setNewHashtags(inputHashtags);
+    setNewHashtags(e.target.value);
   };
 
   const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
@@ -39,6 +38,10 @@ const ArticleCreatePage = ({
   };
 
   const onChangeNewArticle = () => {
+    onRegisterArticle(newArticle);
+  };
+
+  useEffect(() => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
     if (newHashtags.length > 0) {
@@ -60,11 +63,7 @@ const ArticleCreatePage = ({
       content: newContent,
       hashtags: modifiedHashTags,
     }));
-  };
-
-  useEffect(() => {
-    onRegisterArticle(newArticle);
-  }, [onRegisterArticle, newArticle]);
+  }, [newTitle, newHashtags, newContent]);
 
   useEffect(() => {
     if (modifiyTargetArticle !== undefined) {

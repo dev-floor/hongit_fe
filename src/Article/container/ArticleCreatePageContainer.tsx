@@ -6,7 +6,7 @@ import { ArticleCreateApi } from '../../api/ApiProps';
 
 const ArticleCreatePageContainer = () => {
   const history = useHistory();
-  const location = useLocation<{ modifyArticleId: number }>();
+  const location = useLocation<{ modifyArticleId: string }>();
   const [modifyTargetArticle, setModifyTargetArticle] = useState({
     options: [] as string[],
     title: '',
@@ -27,18 +27,17 @@ const ArticleCreatePageContainer = () => {
   });
 
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {
-    if (newArticle.title !== '') {
-      // api 호출로 post 날리고
-      articleAPI.postArticle(newArticle);
-      console.log(newArticle);
-      history.push('/Detail');
-    }
+    // api 호출로 post 날리고
+    articleAPI.postArticle(newArticle);
+
+    // 새롭게 등록된 게시물 id를 알수 있는지? 아래 원래는 push('/article/${newid}')
+    history.push('/article/3');
   };
 
   useEffect(() => {
     if (location.state !== undefined) {
       // api 호출. location.state.modifyArticleId의 값에 해당하는 article 정보 불러야한다.
-      const articleData = articleAPI.get();
+      const articleData = articleAPI.get(/* location.state.modifyArticleId */);
       setModifyTargetArticle(articleData);
     }
   });
