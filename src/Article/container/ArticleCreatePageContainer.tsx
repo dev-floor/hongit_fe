@@ -34,13 +34,16 @@ const ArticleCreatePageContainer = () => {
     history.push('/article/3');
   };
 
+  const loadData = async () => {
+    const articleData = await articleAPI.get(/* location.state.modifyArticleId */);
+    setModifyTargetArticle(articleData);
+  };
+
   useEffect(() => {
     if (location.state !== undefined) {
-      // api 호출. location.state.modifyArticleId의 값에 해당하는 article 정보 불러야한다.
-      const articleData = articleAPI.get(/* location.state.modifyArticleId */);
-      setModifyTargetArticle(articleData);
+      loadData();
     }
-  });
+  }, [location.state]);
 
   return location.state === undefined ? (
     <ArticleCreatePage onRegisterArticle={onRegisterArticle} />
