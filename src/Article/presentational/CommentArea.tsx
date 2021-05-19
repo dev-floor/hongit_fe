@@ -39,7 +39,7 @@ const Comment = ({
           <button
             type="button"
             className="comment-btn-delete"
-            onClick={onDeleteComment}
+            onClick={()=>{ onDeleteComment({id})}}
           >
             삭제
           </button>
@@ -68,6 +68,8 @@ const CommentArea = ({
     content: '',
     favorites: 0,
   });
+
+  const [tempCommentList, setTmpCommentList] = useState(commentsListProps);
 
   const onChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewComment({
@@ -99,9 +101,10 @@ const CommentArea = ({
     // 댓글 업데이트 기능을 여기에 구현하면 됩니다. (너무친절)
   };
 
-  const onDeleteComment = () => {
-    console.log('delete Comment btn clicked!');
+  const onDeleteComment = (idd:any) => {
+    console.log(`${idd.id} 지운다`);
     // 댓글 삭제 기능을 여기에 구현하면 됩니다. (너무친절)
+    setTmpCommentList(() => tempCommentList.filter(comment => comment.id !== idd.id) )
   };
 
   return (
@@ -116,7 +119,7 @@ const CommentArea = ({
       </form>
       <hr />
       <div>
-        {commentsListProps.map((comment) => (
+        {tempCommentList.map((comment) => (
           <Comment
             onUpdateComment={onUpdateComment}
             onDeleteComment={onDeleteComment}

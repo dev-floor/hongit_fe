@@ -11,7 +11,7 @@ export interface CommentAreaProps {
 }
 export interface CommentProps {
   onUpdateComment: () => void;
-  onDeleteComment: () => void;
+  onDeleteComment: (idd:any) => void;
   commentsProps: ArticleCommentApi;
 }
 
