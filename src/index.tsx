@@ -9,7 +9,7 @@ import reportWebVitals from './reportWebVitals';
 import Router from './Router';
 
 // IMPORT CSS
-import './index.css';
+import 'css/index.css';
 import 'semantic-ui-css/semantic.min.css';
 
 ReactDOM.render(
