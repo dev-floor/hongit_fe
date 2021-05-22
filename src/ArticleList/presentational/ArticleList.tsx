@@ -28,7 +28,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op) => (
+        {options.map((op, index) => (
           <span className="option">{op}</span>
         ))}
       </section>
@@ -80,7 +80,7 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op) => (
+        {options.map((op, index) => (
           <span className="option">{op}</span>
         ))}
       </section>

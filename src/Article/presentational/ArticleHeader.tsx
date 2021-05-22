@@ -24,7 +24,7 @@ const ArticleHeader = ({
   return (
     <header className="article-header">
       <section className="option-area">
-        {options.map((op) => (
+        {options.map((op, index) => (
           <span className="option">{op}</span>
         ))}
       </section>
