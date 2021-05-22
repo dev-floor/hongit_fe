@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
 
 import 'css/Article.css';
 
-const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
+const ArticleCreatePage = ({
+  onRegisterArticle,
+  modifiyTargetArticle,
+}: ArticleCreatePageProps) => {
   const history = useHistory();
+
+  // modifiyTargetArticle 값이
+  // undefined 이면 게시물을 새로 등록하는 것.
+  // undefined가 아니라면 해당내용을 수정하는 것.
 
   const [newTitle, setNewTitle] = useState('');
   const [newHashtags, setNewHashtags] = useState('');
@@ -23,15 +30,18 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
   };
 
   const onChangeHashtags = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const inputHashtags = e.target.value;
-    setNewHashtags(inputHashtags);
+    setNewHashtags(e.target.value);
   };
 
   const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
     setNewContent(e.target.value);
   };
 
-  const onSubmit = () => {
+  const onChangeNewArticle = () => {
+    onRegisterArticle(newArticle);
+  };
+
+  useEffect(() => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
     if (newHashtags.length > 0) {
@@ -46,22 +56,32 @@ const ArticleCreatePage = ({ onRegisterArticle }: ArticleCreatePageProps) => {
     } else {
       modifiedHashTags = [''];
     }
-    setNewArticle({
+    setNewArticle(() => ({
       options: [],
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
       hashtags: modifiedHashTags,
-    });
-    console.log(newTitle, newContent, modifiedHashTags);
-    console.log(newArticle);
-    onRegisterArticle(newArticle);
-  };
+    }));
+  }, [newTitle, newHashtags, newContent]);
+
+  useEffect(() => {
+    if (modifiyTargetArticle !== undefined) {
+      (document.querySelector('.title-area .title') as HTMLInputElement).value =
+        modifiyTargetArticle.title;
+      (document.querySelector(
+        '.hashtag-area input'
+      ) as HTMLInputElement).value = modifiyTargetArticle.hashtags.join(',');
+      (document.querySelector(
+        '.contents-area textarea'
+      ) as HTMLTextAreaElement).value = modifiyTargetArticle.content;
+    }
+  }, [modifiyTargetArticle]);
 
   const onConfirmRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (window.confirm('게시물을 등록하시겠습니까?')) {
-      onSubmit();
+      onChangeNewArticle();
     }
   };
 

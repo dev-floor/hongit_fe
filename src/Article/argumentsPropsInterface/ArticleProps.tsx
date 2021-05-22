@@ -17,10 +17,11 @@ export interface CommentProps {
 
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
+  modifiyTargetArticle?: ArticleDetailApi;
 }
 
 export interface ArticleHeaderProps {
-  onUpdateArticle: () => void;
+  onUpdateArticle: (id: string) => void;
   onDeleteArticle: () => void;
   articleData: ArticleDetailApi;
 }

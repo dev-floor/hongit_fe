@@ -87,6 +87,9 @@ const CommentArea = ({
 
   const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     onRegisterComment(newComment);
+    (document.querySelector(
+      '.comment-submit-area textarea'
+    ) as HTMLTextAreaElement).value = '';
     id.current += 1;
     e.preventDefault();
   };

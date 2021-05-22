@@ -1,4 +1,6 @@
 import React from 'react';
+import { useRecoilValue } from 'recoil';
+import { selectedArticleId } from '../container/ArticleDetailContainer';
 import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
 
 const ArticleHeader = ({
@@ -6,11 +8,19 @@ const ArticleHeader = ({
   onDeleteArticle,
   articleData,
 }: ArticleHeaderProps) => {
-  const { options, title, anonymous, createdDate, author } = { ...articleData };
+  const { options, title, anonymous, createdDate, author } = {
+    ...articleData,
+  };
   const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
     4,
     6
   )}-${createdDate.slice(6)}`;
+
+  const articleId = useRecoilValue(selectedArticleId);
+  const onClickArticleUpdate = () => {
+    onUpdateArticle(articleId);
+  };
+
   return (
     <header className="article-header">
       <section className="option-area">
@@ -28,7 +38,7 @@ const ArticleHeader = ({
           <button
             type="button"
             className="articleheader-btn-update"
-            onClick={onUpdateArticle}
+            onClick={onClickArticleUpdate}
           >
             수정
           </button>
