@@ -1,15 +1,16 @@
 import React, { useState, useRef } from 'react';
 import { Link, Route } from 'react-router-dom';
 import { AiOutlineHeart } from 'react-icons/ai';
-import { CommentAreaProps } from '../argumentsPropsInterface/ArticleProps';
+import { CommentAreaProps, CommentProps } from '../argumentsPropsInterface/ArticleProps';
 import { ArticleCommentApi } from '../../api/ApiProps';
 
 import 'css/Article.css';
 
-import RouterTest from '../../RouterTest';
-
-const Comment = (dummyData: ArticleCommentApi) => {
-  const { id, anonymous, author, content, favorites } = { ...dummyData };
+const Comment = ({ 
+  onUpdateComment,
+  onDeleteComment,
+  commentsProps }: CommentProps ) => {
+  const { id, anonymous, author, content, favorites } = { ...commentsProps };
   return (
     <div className="comment">
       <div className="comment-author-area">
@@ -27,6 +28,22 @@ const Comment = (dummyData: ArticleCommentApi) => {
         <AiOutlineHeart className="heart-icon" size="14" />
         {favorites}
       </div>
+      <div className="comment-btn-area">
+          <button
+            type="button"
+            className="comment-btn-update"
+            onClick={onUpdateComment}
+          >
+            수정
+          </button>
+          <button
+            type="button"
+            className="comment-btn-delete"
+            onClick={onDeleteComment}
+          >
+            삭제
+          </button>
+        </div>
     </div>
   );
 };
@@ -37,7 +54,7 @@ const CommentArea = ({
   commentsListProps,
 }: CommentAreaProps) => {
   // id는 백에서 생성해서 전달 / recoil 로 관리
-  const id = useRef(commentsListProps.length + 1);
+  const id = useRef(commentsListProps.length+1);
   const [newComment, setNewComment] = useState({
     id: id.current,
     anonymous: true,
@@ -77,6 +94,16 @@ const CommentArea = ({
     e.preventDefault();
   };
 
+  const onUpdateComment = () => {
+    console.log('update Comment btn clicked!');
+    // 댓글 업데이트 기능을 여기에 구현하면 됩니다. (너무친절)
+  };
+
+  const onDeleteComment = () => {
+    console.log('delete Comment btn clicked!');
+    // 댓글 삭제 기능을 여기에 구현하면 됩니다. (너무친절)
+  };
+
   return (
     <div className="comment-area">
       <div>댓글 수 {commentsListProps.length}</div>
@@ -91,11 +118,9 @@ const CommentArea = ({
       <div>
         {commentsListProps.map((comment) => (
           <Comment
-            id={comment.id}
-            anonymous={comment.anonymous}
-            author={comment.author}
-            content={comment.content}
-            favorites={comment.favorites}
+            onUpdateComment={onUpdateComment}
+            onDeleteComment={onDeleteComment}
+            commentsProps = {comment}
           />
         ))}
       </div>

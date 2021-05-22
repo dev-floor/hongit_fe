@@ -29,7 +29,6 @@ const ArticleCreatePageContainer = () => {
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {
     // api 호출로 post 날리고
     articleAPI.postArticle(newArticle);
-
     // 새롭게 등록된 게시물 id를 알수 있는지? 아래 원래는 push('/article/${newid}')
     history.push('/article/3');
   };

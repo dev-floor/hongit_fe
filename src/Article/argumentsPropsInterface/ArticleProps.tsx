@@ -9,6 +9,11 @@ export interface CommentAreaProps {
   onPressFavorite: (targetComment: ArticleCommentApi) => void;
   commentsListProps: ArticleCommentApi[];
 }
+export interface CommentProps {
+  onUpdateComment: () => void;
+  onDeleteComment: () => void;
+  commentsProps: ArticleCommentApi;
+}
 
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
