@@ -33,14 +33,17 @@ const CommentContainer = () => {
   };
 
   const onRegisterUpdateComment = (updateComment: ArticleCommentApi) => {
-    setComments(
-      comments.map((comment) =>
-        comment.id === updateComment.id
-          ? { ...comment, content: updateComment.content }
-          : comment
-      )
+    const modify = comments.map((comment) =>
+      comment.id === updateComment.id
+        ? { ...comment, content: updateComment.content }
+        : comment
     );
+    setComments(modify);
   };
+
+  useEffect(() => {
+    commentsAPI.putComments(comments);
+  }, [comments]);
 
   const onRegisterDeleteComment = (deleteId: number) => {
     setComments(comments.filter((comment) => comment.id !== deleteId));
