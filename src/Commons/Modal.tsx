@@ -6,10 +6,10 @@ const Modal = (props: any) => {
   const {
     open,
     close,
-    btn1str,
-    btn1func,
-    btn2str,
-    btn2func,
+    registerBtnStr,
+    registerBtnFunc,
+    cancelBtnStr,
+    cancelBtnFunc,
     header,
     info,
   } = props;
@@ -25,11 +25,19 @@ const Modal = (props: any) => {
           </header>
           <main>{info}</main>
           <footer>
-            <button className="btn-register" onClick={btn1func} type="button">
-              {btn1str}
+            <button
+              className="btn-register"
+              onClick={registerBtnFunc}
+              type="button"
+            >
+              {registerBtnStr}
             </button>
-            <button className="btn-close" onClick={btn2func} type="button">
-              {btn2str}
+            <button
+              className="btn-cancel"
+              onClick={cancelBtnFunc}
+              type="button"
+            >
+              {cancelBtnStr}
             </button>
           </footer>
         </section>

@@ -257,7 +257,7 @@
   justify-content: flex-end;
   flex-direction: column;
   position: fixed;
-  bottom:0;
+  bottom: 0;
 }
 
 .floating-btn-area .btn-top {

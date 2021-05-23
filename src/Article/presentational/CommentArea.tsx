@@ -224,10 +224,10 @@ const CommentArea = ({
       <Modal
         open={open}
         close={closeModal}
-        btn1str="확인"
-        btn1func={onModalClickDeleteComment}
-        btn2str="취소"
-        btn2func={closeModal}
+        registerBtnStr="예"
+        registerBtnFunc={onModalClickDeleteComment}
+        cancelBtnStr="아니오"
+        cancelBtnFunc={closeModal}
         header="댓글 삭제"
         info="해당 댓글을 삭제하시겠습니까?"
       />
