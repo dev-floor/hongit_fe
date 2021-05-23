@@ -23,7 +23,8 @@ export const getRequest = async (url: string) => {
 
 export const postArticleRequest = async (
   url: string,
-  data: ArticleCreateApi
+  data: ArticleCreateApi,
+  id: string
 ) => {
   try {
     const response = await axios.post(url, data);
@@ -71,6 +72,10 @@ export const articleAPI = {
 
     console.log(data);
   },
+  delete: (id: string) => {
+    // return axios.delete('articles/${id}')
+    alert(id);
+  }
 };
 
 export const commentsAPI = {
