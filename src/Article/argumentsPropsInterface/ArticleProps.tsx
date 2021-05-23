@@ -14,7 +14,6 @@ export interface CommentAreaProps {
 }
 export interface CommentProps {
   onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
-  onRegisterDeleteComment: (deleteId: number) => void;
   onClickUpdateComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClickDeleteComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
   commentsProps: ArticleCommentApi;

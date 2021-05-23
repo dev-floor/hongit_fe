@@ -254,9 +254,10 @@
 
 .floating-btn-area {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   position: fixed;
-  margin: 570px 0 0 0;
+  bottom:0;
 }
 
 .floating-btn-area .btn-top {
@@ -381,5 +382,6 @@ select {
 }
 
 .article-detail-right {
+  display: flex;
   width: 10%;
 }

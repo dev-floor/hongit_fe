@@ -9,6 +9,7 @@ import Modal from '../../Commons/Modal';
 
 import 'css/Article.css';
 
+// type add
 export const UpdateCommentId = atom({
   key: 'updateCommentId',
   default: 0, // 0일경우 수정 안함
@@ -26,7 +27,6 @@ export const NewCommentId = atom({
 
 const Comment = ({
   onRegisterUpdateComment,
-  onRegisterDeleteComment,
   onClickUpdateComment,
   onClickDeleteComment,
   commentsProps,
@@ -133,6 +133,7 @@ const CommentArea = ({
   setNewCommentId(commentsListProps.length + 1);
 
   const newCommentId = useRecoilValue(NewCommentId);
+  // const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
   const deleteCommentId = useRecoilValue(DeleteCommentId);
 
   const [newComment, setNewComment] = useState({
@@ -148,6 +149,7 @@ const CommentArea = ({
     content: '',
     favorites: 0,
   });
+
   const [open, setOpen] = useState(false);
 
   const closeModal = () => {
@@ -213,7 +215,6 @@ const CommentArea = ({
         {commentsListProps.map((comment, index) => (
           <Comment
             onRegisterUpdateComment={onRegisterUpdateComment}
-            onRegisterDeleteComment={onRegisterDeleteComment}
             onClickUpdateComment={onClickUpdateComment}
             onClickDeleteComment={onClickDeleteComment}
             commentsProps={comment}
