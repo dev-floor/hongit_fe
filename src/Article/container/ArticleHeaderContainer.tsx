@@ -44,9 +44,13 @@ const ArticleHeaderContainer = () => {
     });
   };
 
-  const onDeleteArticle = () => {
-    console.log('delete btn clicked!');
-    // 게시물 삭제 기능을 여기에 구현하면 됩니다. (너무 친절)
+  const onDeleteArticle = async(id: string) => {
+    if(window.confirm("해당 게시물을 정말 삭제하시겠습니까?")){
+      await articleAPI.delete(id);
+      console.log("게시물이 삭제되었습니다.");
+      return window.location.assign("/articleList");
+    }
+    return window.location.reload(true);
   };
 
   return (

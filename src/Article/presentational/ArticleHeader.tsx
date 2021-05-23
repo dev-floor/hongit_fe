@@ -20,6 +20,9 @@ const ArticleHeader = ({
   const onClickArticleUpdate = () => {
     onUpdateArticle(articleId);
   };
+  const onClickArticleDelete = () => {
+    onDeleteArticle(articleId);
+  };
 
   return (
     <header className="article-header">
@@ -45,7 +48,7 @@ const ArticleHeader = ({
           <button
             type="button"
             className="articleheader-btn-delete"
-            onClick={onDeleteArticle}
+            onClick={onClickArticleDelete}
           >
             삭제
           </button>
