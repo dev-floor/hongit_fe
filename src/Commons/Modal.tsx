@@ -17,10 +17,10 @@ const Modal = (props: any) => {
           <main>{info}</main>
           <footer>
             <button className="btn-register" onClick={close} type="button">
-              등록
+              예
             </button>
             <button className="btn-close" onClick={close} type="button">
-              취소
+              아니오
             </button>
           </footer>
         </section>

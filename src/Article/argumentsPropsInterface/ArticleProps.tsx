@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ArticleCommentApi,
   ArticleCreateApi,
@@ -21,7 +22,7 @@ export interface ArticleCreatePageProps {
 }
 
 export interface ArticleHeaderProps {
-  onUpdateArticle: (id : string) => void;
-  onDeleteArticle: (id : string) => void;
+  onUpdateArticle: (id: string) => void;
+  onDeleteArticle: (id: string) => void;
   articleData: ArticleDetailApi;
 }
