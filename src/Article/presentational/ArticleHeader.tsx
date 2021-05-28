@@ -27,7 +27,13 @@ const ArticleHeader = ({
   
   const [open, setOpen] = useState(false);
   
+<<<<<<< HEAD
   const closeModal = () => setOpen(false);
+=======
+  const closeModal = () => {
+    setOpen(false);
+  };
+>>>>>>> 424b4be... editied
   
   const onClickArticleDelete = () => setOpen(true);
 
