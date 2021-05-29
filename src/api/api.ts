@@ -53,7 +53,7 @@ export const articleAPI = {
     // const articlePost = await postRequest(`${END_POINT}/`, data);
     console.log(data);
   },
-  delete: () => {
+  delete: (/* id: string */) => {
     // return axios.delete('articles/${id}')
     console.log('=====ARTICLE DELETE API CALL=====')
   }
