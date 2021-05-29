@@ -100,16 +100,24 @@ const Comment = ({
         <button
           type="button"
           className="comment-btn-update"
+<<<<<<< HEAD
           value={id}
           onClick={onClickUpdateComment}
+=======
+          onClick={onUpdateComment}
+>>>>>>> 156c2c8 (Add board)
         >
           수정
         </button>
         <button
           type="button"
           className="comment-btn-delete"
+<<<<<<< HEAD
           value={id}
           onClick={onClickDeleteComment}
+=======
+          onClick={onDeleteComment}
+>>>>>>> 156c2c8 (Add board)
         >
           삭제
         </button>
@@ -126,11 +134,15 @@ const CommentArea = ({
   commentsListProps,
 }: CommentAreaProps) => {
   // id는 백에서 생성해서 전달 / recoil 로 관리
+<<<<<<< HEAD
   const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
   const [deleteCommentId, setDeleteCommentId] = useRecoilState(DeleteCommentId);
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
   setNewCommentId(commentsListProps.length + 1);
 
+=======
+  const id = useRef(commentsListProps.length + 1);
+>>>>>>> 156c2c8 (Add board)
   const [newComment, setNewComment] = useState({
     id: newCommentId,
     anonymous: true,
@@ -209,9 +221,14 @@ const CommentArea = ({
       <div>
         {commentsListProps.map((comment, index) => (
           <Comment
+<<<<<<< HEAD
             onRegisterUpdateComment={onRegisterUpdateComment}
             onClickUpdateComment={onClickUpdateComment}
             onClickDeleteComment={onClickDeleteComment}
+=======
+            onUpdateComment={onUpdateComment}
+            onDeleteComment={onDeleteComment}
+>>>>>>> 156c2c8 (Add board)
             commentsProps={comment}
           />
         ))}
