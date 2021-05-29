@@ -2,8 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { selectedArticleId } from './ArticleDetailContainer';
 import CommentArea from '../presentational/CommentArea';
-import { ArticleCommentApi  } from '../../api/ApiProps';
-import { CommentProps  } from '../argumentsPropsInterface/ArticleProps';
+import { ArticleCommentApi } from '../../api/ApiProps';
+import { CommentProps } from '../argumentsPropsInterface/ArticleProps';
 import { commentsAPI } from '../../api/api';
 
 const CommentContainer = () => {

@@ -4,6 +4,7 @@ import { ArticleCreateApi } from './ApiProps';
 import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';
 import articleInfoDummyData from '../data/ArticleInfoDummyData';
+import boardDetailDummyData from '../data/BoardDetailDummyData';
 
 const END_POINT = 'www.NotUsedYet.com';
 
@@ -60,5 +61,12 @@ export const commentsAPI = {
     // const commentList = await getRequest(`${END_POINT}/~`);
     const commentListResponse = commentListDummyData;
     return commentListResponse;
+  },
+};
+
+export const boardAPI = {
+  get: () => {
+    const boardDetailResponse = boardDetailDummyData;
+    return boardDetailResponse;
   },
 };
