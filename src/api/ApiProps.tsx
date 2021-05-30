@@ -50,3 +50,18 @@ export interface ArticleListApi {
   wonders: number;
   clips: number;
 }
+
+export interface BoardOption {
+  name: string;
+  text: string;
+}
+export interface BoardDetailApi {
+  id: number;
+  name: string;
+  professorName: string;
+  subjectName: string;
+  boardTypeName: string;
+  boardTypeText: string;
+  dividedOptions: BoardOption[];
+  articleTypeOptions: BoardOption[];
+}

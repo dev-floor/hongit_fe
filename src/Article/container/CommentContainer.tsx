@@ -3,7 +3,6 @@ import { useRecoilValue } from 'recoil';
 
 import { selectedArticleId } from './ArticleDetailContainer';
 import CommentArea from '../presentational/CommentArea';
-
 import { ArticleCommentApi } from '../../api/ApiProps';
 import { commentsAPI } from '../../api/api';
 
