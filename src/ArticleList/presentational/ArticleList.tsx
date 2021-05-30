@@ -126,7 +126,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   return (
     <div className="article-preview">
       <section className="article-preview-header">
-        <title className="article-preview-boardname">수업게시판</title>
+        <title className="article-preview-boardname"> </title>
         <select className="article-view-mode-select" onChange={onChangeSelect}>
           <option value="card">카드 뷰</option>
           <option value="list">리스트 뷰</option>
