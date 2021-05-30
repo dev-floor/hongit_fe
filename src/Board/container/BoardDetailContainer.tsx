@@ -40,7 +40,7 @@ const BoardDetailContainer = () => {
         </div>
         <hr />
         <div>
-      {boardData.dividedOptions.map((option) => (
+      {/* {boardData.dividedOptions.map((option) => (
           <button className="hashtag" type="button">
             {option.text}
           </button>
@@ -49,7 +49,7 @@ const BoardDetailContainer = () => {
           <button className="hashtag" type="button">
             {option.text}
           </button>
-        ))}
+        ))} */}
       </div>
         <div className="article-area">
           <ArticleListContainer/>
