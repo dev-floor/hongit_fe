@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { atom, useSetRecoilState, useRecoilValue } from 'recoil';
+import { atom, useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
 import { AiOutlineHeart } from 'react-icons/ai';
 import {
   CommentAreaProps,
@@ -126,15 +126,10 @@ const CommentArea = ({
   commentsListProps,
 }: CommentAreaProps) => {
   // id는 백에서 생성해서 전달 / recoil 로 관리
-  const setNewCommentId = useSetRecoilState(NewCommentId);
+  const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
+  const [deleteCommentId, setDeleteCommentId] = useRecoilState(DeleteCommentId);
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
-  const setDeleteCommentId = useSetRecoilState(DeleteCommentId);
-
   setNewCommentId(commentsListProps.length + 1);
-
-  const newCommentId = useRecoilValue(NewCommentId);
-  // const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
-  const deleteCommentId = useRecoilValue(DeleteCommentId);
 
   const [newComment, setNewComment] = useState({
     id: newCommentId,
