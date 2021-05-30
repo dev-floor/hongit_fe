@@ -3,7 +3,16 @@ import React from 'react';
 import 'css/Modal.css';
 
 const Modal = (props: any) => {
-  const { open, close, header, info } = props;
+  const {
+    open,
+    close,
+    registerBtnStr,
+    registerBtnFunc,
+    cancelBtnStr,
+    cancelBtnFunc,
+    header,
+    info,
+  } = props;
   return (
     <div className={open ? 'openModal modal' : 'modal'}>
       {open && (
@@ -16,11 +25,19 @@ const Modal = (props: any) => {
           </header>
           <main>{info}</main>
           <footer>
-            <button className="btn-register" onClick={close} type="button">
-              등록
+            <button
+              className="btn-register"
+              onClick={registerBtnFunc}
+              type="button"
+            >
+              {registerBtnStr}
             </button>
-            <button className="btn-close" onClick={close} type="button">
-              취소
+            <button
+              className="btn-cancel"
+              onClick={cancelBtnFunc}
+              type="button"
+            >
+              {cancelBtnStr}
             </button>
           </footer>
         </section>

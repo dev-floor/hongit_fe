@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   ArticleCommentApi,
   ArticleCreateApi,
@@ -5,13 +6,16 @@ import {
 } from '../../api/ApiProps';
 
 export interface CommentAreaProps {
-  onRegisterComment: (newComment: ArticleCommentApi) => void;
+  onRegisterCreateComment: (newComment: ArticleCommentApi) => void;
+  onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
+  onRegisterDeleteComment: (deleteId: number) => void;
   onPressFavorite: (targetComment: ArticleCommentApi) => void;
   commentsListProps: ArticleCommentApi[];
 }
 export interface CommentProps {
-  onUpdateComment: () => void;
-  onDeleteComment: () => void;
+  onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
+  onClickUpdateComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
+  onClickDeleteComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
   commentsProps: ArticleCommentApi;
 }
 

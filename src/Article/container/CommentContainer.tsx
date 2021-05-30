@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
+
 import { selectedArticleId } from './ArticleDetailContainer';
 import CommentArea from '../presentational/CommentArea';
-import { ArticleCommentApi  } from '../../api/ApiProps';
-import { CommentProps  } from '../argumentsPropsInterface/ArticleProps';
+
+import { ArticleCommentApi } from '../../api/ApiProps';
 import { commentsAPI } from '../../api/api';
 
 const CommentContainer = () => {
@@ -21,7 +22,7 @@ const CommentContainer = () => {
 
   const onPressFavorite = (targetComment: ArticleCommentApi) => {
     setComments((commentList) =>
-      commentList.map((comment) =>
+      commentList.map((comment, index) =>
         comment === targetComment
           ? { ...comment, favorites: comment.favorites + 1 }
           : comment
@@ -29,13 +30,32 @@ const CommentContainer = () => {
     );
   };
 
-  const onRegisterComment = (newComment: ArticleCommentApi) => {
+  const onRegisterCreateComment = (newComment: ArticleCommentApi) => {
     setComments([...comments, newComment]);
+  };
+
+  const onRegisterUpdateComment = (updateComment: ArticleCommentApi) => {
+    const modify = comments.map((comment) =>
+      comment.id === updateComment.id
+        ? { ...comment, content: updateComment.content }
+        : comment
+    );
+    setComments(modify);
+  };
+
+  useEffect(() => {
+    commentsAPI.putComments(comments);
+  }, [comments]);
+
+  const onRegisterDeleteComment = (deleteId: number) => {
+    setComments(comments.filter((comment) => comment.id !== deleteId));
   };
 
   return (
     <CommentArea
-      onRegisterComment={onRegisterComment}
+      onRegisterCreateComment={onRegisterCreateComment}
+      onRegisterUpdateComment={onRegisterUpdateComment}
+      onRegisterDeleteComment={onRegisterDeleteComment}
       onPressFavorite={onPressFavorite}
       commentsListProps={comments}
     />

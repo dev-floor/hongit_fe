@@ -162,12 +162,33 @@
   border-radius: 5px;
 }
 
+/*--UPDATE COMMENT--*/
+.comment-update-submit-area {
+  height: 50px;
+  display: flex;
+}
+
+.comment-update-submit-area .btn-update-submit {
+  width: 20%;
+  margin: 0px 0px 0px 1px;
+}
+
+.comment-update-submit-area textarea {
+  width: 80%;
+  height: 100%;
+  padding: 12px;
+  border: 1px solid #ccc;
+  resize: none;
+  border-radius: 5px;
+}
+/*-----------------------------------------*/
+
 .comment-btn-area button {
   font-size: 0.9rem;
   background-color: transparent;
   color: lightseagreen;
   padding: 0px 2px 0px 2px;
-  margin: 5px 0px 5px 0px ;
+  margin: 5px 0px 5px 0px;
 }
 
 .comment-btn-area button:hover {
@@ -233,9 +254,10 @@
 
 .floating-btn-area {
   display: flex;
+  justify-content: flex-end;
   flex-direction: column;
   position: fixed;
-  margin: 570px 0 0 0;
+  bottom: 0;
 }
 
 .floating-btn-area .btn-top {
@@ -360,5 +382,6 @@ select {
 }
 
 .article-detail-right {
+  display: flex;
   width: 10%;
 }

@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ArticleCreateApi } from './ApiProps';
+import { ArticleCommentApi, ArticleCreateApi } from './ApiProps';
 
 import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';
@@ -38,6 +38,23 @@ export const postArticleRequest = async (
   }
 };
 
+export const putCommentRequest = async (
+  url: string,
+  data: ArticleCommentApi[]
+) => {
+  try {
+    const response = await axios.put(url, data);
+    if (response.status === 404) {
+      throw Error('There would be error in requesting.');
+    }
+    const result = response.data;
+    return result;
+  } catch (e) {
+    console.error(e);
+    return e;
+  }
+};
+
 export const articleAPI = {
   get: () => {
     // const articleInfo = await getRequest(`${END_POINT}/`);
@@ -51,6 +68,7 @@ export const articleAPI = {
   },
   postArticle: (data: ArticleCreateApi) => {
     // const articlePost = await postRequest(`${END_POINT}/`, data);
+
     console.log(data);
   },
 };
@@ -60,5 +78,10 @@ export const commentsAPI = {
     // const commentList = await getRequest(`${END_POINT}/~`);
     const commentListResponse = commentListDummyData;
     return commentListResponse;
+  },
+  putComments: (data: ArticleCommentApi[]) => {
+    // const commentPuts = await putRequest(`${END_POINT}/`, data);
+    console.log('========COMMENTS PUT API CALL======');
+    console.log(data);
   },
 };
