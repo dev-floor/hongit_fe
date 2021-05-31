@@ -1,5 +1,5 @@
 import React from 'react';
-import { articleAPI } from '../../api/api';
+import { articleAPI } from 'api/api';
 import ArticleListArea from '../presentational/ArticleList';
 
 const ArticleListContainer = () => {

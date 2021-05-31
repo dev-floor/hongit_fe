@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
+// import { useRecoilValue } from 'recoil';
+// import { selectedArticleId } from 'Atoms/atom';
+import { articleAPI } from 'api/api';
 import { ArticleDetailApi } from 'api/ApiProps';
-import { selectedArticleId } from './ArticleDetailContainer';
 import AuthorInfo from '../presentational/AuthorInfo';
-import { articleAPI } from '../../api/api';
 
 const AuthorInfoContainer = () => {
-  const articleId = useRecoilValue(selectedArticleId);
+  // const articleId = useRecoilValue(selectedArticleId);
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
     options: [''],
     title: '',

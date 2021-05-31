@@ -6,7 +6,7 @@ import commentListDummyData from '../data/CommentListDummyData';
 import articleInfoDummyData from '../data/ArticleInfoDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
 
-const END_POINT = 'www.NotUsedYet.com';
+// const END_POINT = 'www.NotUsedYet.com';
 
 export const getRequest = async (url: string) => {
   try {

@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 
 import { useRecoilValue } from 'recoil';
-
-import Modal from 'Commons/Modal';
-import { selectedArticleId } from '../container/ArticleDetailContainer';
-import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
+import { selectedArticleId } from 'Atoms/atom';
+import { ArticleHeaderProps } from 'interface/ArgProps';
 
 const ArticleHeader = ({
   onUpdateArticle,

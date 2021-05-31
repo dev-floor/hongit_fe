@@ -1,29 +1,10 @@
 import React, { useState } from 'react';
-import { atom, useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
+import { useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
+import { UpdateCommentId, DeleteCommentId, NewCommentId } from 'Atoms/atom';
+import { CommentAreaProps, CommentProps } from 'interface/ArgProps';
+import Modal from 'Commons/Modal';
 import { AiOutlineHeart } from 'react-icons/ai';
-import {
-  CommentAreaProps,
-  CommentProps,
-} from '../argumentsPropsInterface/ArticleProps';
-import Modal from '../../Commons/Modal';
-
 import 'css/Article.css';
-
-// type add
-export const UpdateCommentId = atom({
-  key: 'updateCommentId',
-  default: 0, // 0일경우 수정 안함
-});
-
-export const DeleteCommentId = atom({
-  key: 'deleteCommentId',
-  default: 0, // 0일경우 삭제 안함
-});
-
-export const NewCommentId = atom({
-  key: 'newCommentId',
-  default: 0,
-});
 
 const Comment = ({
   onRegisterUpdateComment,
@@ -100,24 +81,16 @@ const Comment = ({
         <button
           type="button"
           className="comment-btn-update"
-<<<<<<< HEAD
           value={id}
           onClick={onClickUpdateComment}
-=======
-          onClick={onUpdateComment}
->>>>>>> 156c2c8 (Add board)
         >
           수정
         </button>
         <button
           type="button"
           className="comment-btn-delete"
-<<<<<<< HEAD
           value={id}
           onClick={onClickDeleteComment}
-=======
-          onClick={onDeleteComment}
->>>>>>> 156c2c8 (Add board)
         >
           삭제
         </button>
@@ -134,15 +107,11 @@ const CommentArea = ({
   commentsListProps,
 }: CommentAreaProps) => {
   // id는 백에서 생성해서 전달 / recoil 로 관리
-<<<<<<< HEAD
   const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
   const [deleteCommentId, setDeleteCommentId] = useRecoilState(DeleteCommentId);
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
   setNewCommentId(commentsListProps.length + 1);
 
-=======
-  const id = useRef(commentsListProps.length + 1);
->>>>>>> 156c2c8 (Add board)
   const [newComment, setNewComment] = useState({
     id: newCommentId,
     anonymous: true,
@@ -221,14 +190,9 @@ const CommentArea = ({
       <div>
         {commentsListProps.map((comment, index) => (
           <Comment
-<<<<<<< HEAD
             onRegisterUpdateComment={onRegisterUpdateComment}
             onClickUpdateComment={onClickUpdateComment}
             onClickDeleteComment={onClickDeleteComment}
-=======
-            onUpdateComment={onUpdateComment}
-            onDeleteComment={onDeleteComment}
->>>>>>> 156c2c8 (Add board)
             commentsProps={comment}
           />
         ))}

@@ -9,6 +9,8 @@
       "import/no-cycle": 0,
       "import/no-named-as-default": 0,
       "import/no-extraneous-dependencies": ["error", {"devDependencies": true}],
+      "no-console":"off",
+      "no-alert":"off",
       "jsx-a11y/label-has-associated-control": ["error", {
         "required": {
           "some": ["nesting", "id"]
