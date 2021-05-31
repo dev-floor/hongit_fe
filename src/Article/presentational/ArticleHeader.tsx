@@ -1,7 +1,7 @@
 import React from 'react';
 import { useRecoilValue } from 'recoil';
-import { selectedArticleId } from '../container/ArticleDetailContainer';
-import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
+import { selectedArticleId } from 'Atoms/atom';
+import { ArticleHeaderProps } from 'interface/ArgProps';
 
 const ArticleHeader = ({
   onUpdateArticle,

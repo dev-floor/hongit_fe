@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link, Route } from 'react-router-dom';
-
 import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
 import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
 import BoardDetailContainer from './Board/container/BoardDetailContainer';
-
 import App from './App';
 
 function Router() {

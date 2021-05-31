@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+// import { useRecoilValue } from 'recoil';
+// import { selectedArticleId } from 'Atoms/atom';
+import { articleAPI } from 'api/api';
 import { ArticleDetailApi } from 'api/ApiProps';
-import { selectedArticleId } from './ArticleDetailContainer';
 import ArticleHeader from '../presentational/ArticleHeader';
-import { articleAPI } from '../../api/api';
 
 const ArticleHeaderContainer = () => {
+  // const articleId = useRecoilValue(selectedArticleId);
   const history = useHistory();
-  const articleId = useRecoilValue(selectedArticleId);
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
     options: [''],
     title: '',

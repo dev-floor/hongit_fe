@@ -1,14 +1,9 @@
-// IMPORT MODULE
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { RecoilRoot } from 'recoil';
 import { BrowserRouter } from 'react-router-dom';
-import reportWebVitals from './reportWebVitals';
-
-// IMPORT COMPONENT
+import { RecoilRoot } from 'recoil';
+// import reportWebVitals from './reportWebVitals';
 import Router from './Router';
-
-// IMPORT CSS
 import 'css/index.css';
 import 'semantic-ui-css/semantic.min.css';
 

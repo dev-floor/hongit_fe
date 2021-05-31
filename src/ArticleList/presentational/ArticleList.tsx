@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { atom, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { viewMode } from 'Atoms/atom';
+import { ArticleListApi } from 'api/ApiProps';
+import { ArticleListProps } from 'interface/ArgProps';
 import { FaThumbsUp, FaTags } from 'react-icons/fa';
 import { ImWondering } from 'react-icons/im';
-import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
-import { ArticleListApi } from '../../api/ApiProps';
-
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
@@ -110,11 +110,6 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
     </article>
   );
 };
-
-const viewMode = atom({
-  key: 'viewMode',
-  default: 'card',
-});
 
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);

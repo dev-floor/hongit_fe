@@ -1,9 +1,17 @@
 {
     "compilerOptions": {
-      "baseUrl": "./",
+      "baseUrl": ".",
       "paths": {
-        "css/*": ["src/css/*"]
+        "css/*": ["src/css/*"],
+        "@interface/*": ["src/interface/*"],
+        "@api/*": ["src/api/*"],
+        "@Atoms/*": ["src/Atoms/*"],
+        "@Commons/*":["src/Commons/*"],
+        "@Article/*":["src/Article/*"],
+        "@ArticleList/*":["src/ArticleList/*"],
+        "@Board/*":["src/Board/*"]
       }
+      
     }
   }
   
