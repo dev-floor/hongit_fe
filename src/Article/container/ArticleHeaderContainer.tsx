@@ -3,8 +3,8 @@ import { useHistory } from 'react-router-dom';
 
 import { useRecoilValue } from 'recoil';
 
-import { articleAPI } from '../../api/api';
 import { ArticleDetailApi } from 'api/ApiProps';
+import { articleAPI } from '../../api/api';
 
 import { selectedArticleId } from './ArticleDetailContainer';
 import ArticleHeader from '../presentational/ArticleHeader';
