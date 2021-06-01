@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useRecoilValue } from 'recoil';
+import Modal from 'Commons/Modal';
+import { useHistory } from 'react-router';
 import { selectedArticleId } from '../container/ArticleDetailContainer';
 import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
 
@@ -20,8 +22,20 @@ const ArticleHeader = ({
   const onClickArticleUpdate = () => {
     onUpdateArticle(articleId);
   };
-  const onClickArticleDelete = () => {
+  
+  const [open, setOpen] = useState(false);
+  
+  const closeModal = () => {
+    setOpen(false);
+  };
+  
+  const onClickArticleDelete = () => setOpen(true);
+
+  const history = useHistory();
+
+  const onModalClickArticleDelete = () => {
     onDeleteArticle(articleId);
+    history.push("/articleList");
   };
 
   return (
@@ -54,6 +68,16 @@ const ArticleHeader = ({
           </button>
         </div>
       </section>
+      <Modal
+        open={open}
+        close={closeModal}
+        registerBtnStr="예"
+        registerBtnFunc={onModalClickArticleDelete}
+        cancleBtnStr="아니오"
+        cancleBtnFunc={closeModal}
+        header="게시글 삭제"
+        info="해당 게시글을 정말 삭제하시겠습니까?"
+      />
     </header>
   );
 };
