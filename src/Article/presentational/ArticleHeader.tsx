@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
-import { useRecoilValue } from 'recoil';
-import Modal from 'Commons/Modal';
 import { useHistory } from 'react-router';
+
+import { useRecoilValue } from 'recoil';
+
+import Modal from 'Commons/Modal';
 import { selectedArticleId } from '../container/ArticleDetailContainer';
 import { ArticleHeaderProps } from '../argumentsPropsInterface/ArticleProps';
 
