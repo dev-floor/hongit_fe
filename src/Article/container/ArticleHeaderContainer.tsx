@@ -1,10 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+
 import { useRecoilValue } from 'recoil';
+
 import { ArticleDetailApi } from 'api/ApiProps';
+import { articleAPI } from '../../api/api';
+
 import { selectedArticleId } from './ArticleDetailContainer';
 import ArticleHeader from '../presentational/ArticleHeader';
-import { articleAPI } from '../../api/api';
 
 const ArticleHeaderContainer = () => {
   const history = useHistory();
@@ -44,11 +47,8 @@ const ArticleHeaderContainer = () => {
     });
   };
 
-  const onDeleteArticle = () => {
-    console.log('delete btn clicked!');
-    // 게시물 삭제 기능을 여기에 구현하면 됩니다. (너무 친절)
-  };
-
+  const onDeleteArticle = (id: string) => articleAPI.delete(/* id */);
+       
   return (
     <ArticleHeader
       onUpdateArticle={onUpdateArticle}

@@ -26,6 +26,6 @@ export interface ArticleCreatePageProps {
 
 export interface ArticleHeaderProps {
   onUpdateArticle: (id: string) => void;
-  onDeleteArticle: () => void;
+  onDeleteArticle: (id: string) => void;
   articleData: ArticleDetailApi;
 }
