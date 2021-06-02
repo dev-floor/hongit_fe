@@ -45,7 +45,7 @@ const ArticleHeaderContainer = () => {
   };
 
   const onDeleteArticle = (id: string) => articleAPI.delete(/* id */);
-       
+
   return (
     <ArticleHeader
       onUpdateArticle={onUpdateArticle}

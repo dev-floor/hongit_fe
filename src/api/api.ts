@@ -24,7 +24,7 @@ export const getRequest = async (url: string) => {
 
 export const postArticleRequest = async (
   url: string,
-  data: ArticleCreateApi,
+  data: ArticleCreateApi
 ) => {
   try {
     const response = await axios.post(url, data);
@@ -74,8 +74,8 @@ export const articleAPI = {
   },
   delete: (/* id: string */) => {
     // return axios.delete('articles/${id}')
-    console.log('=====ARTICLE DELETE API CALL=====')
-  }
+    console.log('=====ARTICLE DELETE API CALL=====');
+  },
 };
 
 export const commentsAPI = {
@@ -97,4 +97,3 @@ export const boardAPI = {
     return boardDetailResponse;
   },
 };
-

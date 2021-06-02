@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
-
 import { useRecoilValue } from 'recoil';
 import { selectedArticleId } from 'Atoms/atom';
 import { ArticleHeaderProps } from 'interface/ArgProps';
+import Modal from 'Commons/Modal';
 
 const ArticleHeader = ({
   onUpdateArticle,
@@ -22,20 +22,20 @@ const ArticleHeader = ({
   const onClickArticleUpdate = () => {
     onUpdateArticle(articleId);
   };
-  
+
   const [open, setOpen] = useState(false);
-  
+
   const closeModal = () => {
     setOpen(false);
   };
-  
+
   const onClickArticleDelete = () => setOpen(true);
 
   const history = useHistory();
 
   const onModalClickArticleDelete = () => {
     onDeleteArticle(articleId);
-    history.push("/articleList");
+    history.push('/articleList');
   };
 
   return (
