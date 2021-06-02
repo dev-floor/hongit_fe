@@ -10,7 +10,9 @@
 }
 
 .modal .filter-modal-section {
-  top: 100px;
+  position: absolute;
+  right: 30px;
+  top: 150px;
   width: 90%;
   max-width: 450px;
   margin: 0 auto;
