@@ -1,0 +1,30 @@
+@import url('./common.css');
+
+/*=============== BoardDetail ==================*/
+
+.board-detail {
+  display: flex;
+  flex-direction: row;
+}
+
+.side-bar {
+  width: 20%;
+}
+
+.content {
+  width: 80%;
+}
+
+/*=============== BoardContentHeader===============*/
+.board-detail-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 1rem;
+  padding: 0.5rem;
+}
+
+.board-name {
+  font-size: 2rem;
+  padding: 0.3rem;
+  font-weight: bold;
+}

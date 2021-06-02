@@ -1,11 +1,11 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { atom, useRecoilState } from 'recoil';
+import { useRecoilState } from 'recoil';
+import { viewMode } from 'Atoms/atom';
+import { ArticleListApi } from 'api/ApiProps';
+import { ArticleListProps } from 'interface/ArgProps';
 import { FaThumbsUp, FaTags } from 'react-icons/fa';
 import { ImWondering } from 'react-icons/im';
-import { ArticleListProps } from '../argumentsPropsInterface/ArticleListProps';
-import { ArticleListApi } from '../../api/ApiProps';
-
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
@@ -111,11 +111,6 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   );
 };
 
-const viewMode = atom({
-  key: 'viewMode',
-  default: 'card',
-});
-
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);
 
@@ -126,7 +121,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   return (
     <div className="article-preview">
       <section className="article-preview-header">
-        <title className="article-preview-boardname">수업게시판</title>
+        <title className="article-preview-boardname"> </title>
         <select className="article-view-mode-select" onChange={onChangeSelect}>
           <option value="card">카드 뷰</option>
           <option value="list">리스트 뷰</option>

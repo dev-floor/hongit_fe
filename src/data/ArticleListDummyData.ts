@@ -30,6 +30,51 @@ const articleListDummyData = [
     wonders: 0,
     clips: 1,
   },
+  {
+    id: 3,
+    options: ['김선일', '운영체제', '1분반'],
+    title: '과제 관련 질문해봅니다!',
+    anonymous: false,
+    author: {
+      name: '홍석기',
+    },
+    createdDate: '20201103',
+    modifiedDate: '',
+    content: '? ㅜㅜ',
+    favorites: 2,
+    wonders: 0,
+    clips: 1,
+  },
+  {
+    id: 4,
+    options: ['김선일', '운영체제', '1분반'],
+    title: '질문!',
+    anonymous: false,
+    author: {
+      name: '홍석기',
+    },
+    createdDate: '20201103',
+    modifiedDate: '',
+    content: '저만 어렵나요 이 과제? ㅜㅜ',
+    favorites: 2,
+    wonders: 0,
+    clips: 1,
+  },
+  {
+    id: 5,
+    options: ['김선일', '운영체제', '1분반'],
+    title: '파일 시스템 과제 관련 질문해봅니다!',
+    anonymous: false,
+    author: {
+      name: '홍석기',
+    },
+    createdDate: '20201103',
+    modifiedDate: '',
+    content: '저만 어렵나요 이 과제? ㅜㅜ',
+    favorites: 2,
+    wonders: 0,
+    clips: 1,
+  },
 ];
 
 export default articleListDummyData;

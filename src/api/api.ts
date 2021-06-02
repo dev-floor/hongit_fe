@@ -4,8 +4,9 @@ import { ArticleCommentApi, ArticleCreateApi } from './ApiProps';
 import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';
 import articleInfoDummyData from '../data/ArticleInfoDummyData';
+import boardDetailDummyData from '../data/BoardDetailDummyData';
 
-const END_POINT = 'www.NotUsedYet.com';
+// const END_POINT = 'www.NotUsedYet.com';
 
 export const getRequest = async (url: string) => {
   try {
@@ -23,7 +24,7 @@ export const getRequest = async (url: string) => {
 
 export const postArticleRequest = async (
   url: string,
-  data: ArticleCreateApi,
+  data: ArticleCreateApi
 ) => {
   try {
     const response = await axios.post(url, data);
@@ -73,8 +74,8 @@ export const articleAPI = {
   },
   delete: (/* id: string */) => {
     // return axios.delete('articles/${id}')
-    console.log('=====ARTICLE DELETE API CALL=====')
-  }
+    console.log('=====ARTICLE DELETE API CALL=====');
+  },
 };
 
 export const commentsAPI = {
@@ -87,5 +88,12 @@ export const commentsAPI = {
     // const commentPuts = await putRequest(`${END_POINT}/`, data);
     console.log('========COMMENTS PUT API CALL======');
     console.log(data);
+  },
+};
+
+export const boardAPI = {
+  get: () => {
+    const boardDetailResponse = boardDetailDummyData;
+    return boardDetailResponse;
   },
 };

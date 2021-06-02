@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
+import { articleAPI } from 'api/api';
+import { ArticleCreateApi } from 'api/ApiProps';
 import ArticleCreatePage from '../presentational/ArticleCreatePage';
-import { articleAPI } from '../../api/api';
-import { ArticleCreateApi } from '../../api/ApiProps';
 
 const ArticleCreatePageContainer = () => {
   const history = useHistory();

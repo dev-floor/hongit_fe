@@ -43,6 +43,8 @@
   "extends": "./tsconfig.paths.json",
   "include": [
     "./src/**/*",
-    "@type"
+    "@type",
+    "src",
+    "craco.config.js"
   ]
 }

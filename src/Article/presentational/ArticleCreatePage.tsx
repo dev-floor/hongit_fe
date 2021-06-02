@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { ArticleCreatePageProps } from '../argumentsPropsInterface/ArticleProps';
-
+import { ArticleCreatePageProps } from 'interface/ArgProps';
 import 'css/Article.css';
 
 const ArticleCreatePage = ({

@@ -1,6 +1,5 @@
 import React from 'react';
-import { ArticleDetailApi } from '../../api/ApiProps';
-
+import { ArticleDetailApi } from 'api/ApiProps';
 import 'css/Article.css';
 
 const ArticleBody = (dummyData: ArticleDetailApi) => {

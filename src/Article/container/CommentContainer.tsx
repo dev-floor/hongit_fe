@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-
-import { selectedArticleId } from './ArticleDetailContainer';
+// import { useRecoilValue } from 'recoil';
+// import { selectedArticleId } from 'Atoms/atom';
+import { commentsAPI } from 'api/api';
+import { ArticleCommentApi } from 'api/ApiProps';
 import CommentArea from '../presentational/CommentArea';
 
-import { ArticleCommentApi } from '../../api/ApiProps';
-import { commentsAPI } from '../../api/api';
-
 const CommentContainer = () => {
-  const articleId = useRecoilValue(selectedArticleId);
+  // const articleId = useRecoilValue(selectedArticleId);
   const [comments, setComments] = useState<ArticleCommentApi[]>([]);
 
   const loadData = async () => {

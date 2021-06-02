@@ -3,7 +3,9 @@ import {
   ArticleCommentApi,
   ArticleCreateApi,
   ArticleDetailApi,
-} from '../../api/ApiProps';
+  ArticleListApi,
+  BoardDetailApi,
+} from 'api/ApiProps';
 
 export interface CommentAreaProps {
   onRegisterCreateComment: (newComment: ArticleCommentApi) => void;
@@ -12,6 +14,7 @@ export interface CommentAreaProps {
   onPressFavorite: (targetComment: ArticleCommentApi) => void;
   commentsListProps: ArticleCommentApi[];
 }
+
 export interface CommentProps {
   onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
   onClickUpdateComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
@@ -28,4 +31,12 @@ export interface ArticleHeaderProps {
   onUpdateArticle: (id: string) => void;
   onDeleteArticle: (id: string) => void;
   articleData: ArticleDetailApi;
+}
+
+export interface ArticleListProps {
+  articleListData: ArticleListApi[];
+}
+
+export interface BoardDetailProp {
+  boardDetailData: BoardDetailApi;
 }
