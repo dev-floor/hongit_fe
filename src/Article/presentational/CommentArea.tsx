@@ -107,7 +107,7 @@ const CommentArea = ({
   commentsListProps,
 }: CommentAreaProps) => {
   // id는 백에서 생성해서 전달 / recoil 로 관리
-  const [newCommentId, setNewCommentId ] = useRecoilState(NewCommentId);
+  const [newCommentId, setNewCommentId] = useRecoilState(NewCommentId);
   const [deleteCommentId, setDeleteCommentId] = useRecoilState(DeleteCommentId);
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
   setNewCommentId(commentsListProps.length + 1);

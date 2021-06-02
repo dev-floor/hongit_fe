@@ -98,9 +98,3 @@ export const boardAPI = {
   },
 };
 
-export const boardAPI = {
-  get: () => {
-    const boardDetailResponse = boardDetailDummyData;
-    return boardDetailResponse;
-  },
-};
