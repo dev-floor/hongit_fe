@@ -27,7 +27,9 @@ const ArticleHeader = ({
   
   const [open, setOpen] = useState(false);
   
-  const closeModal = () => setOpen(false);
+  const closeModal = () => {
+    setOpen(false);
+  };
   
   const onClickArticleDelete = () => setOpen(true);
 
