@@ -28,7 +28,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op, index) => (
+        {options.map((op) => (
           <span className="option">{op}</span>
         ))}
       </section>
@@ -80,7 +80,7 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op, index) => (
+        {options.map((op) => (
           <span className="option">{op}</span>
         ))}
       </section>
@@ -133,23 +133,6 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
     setArticleListData(articleListData);
     console.log('!');
   }, [articleListData]);
-
-  useEffect(() => {
-    console.log(viewSortValue);
-    if (viewSortValue === 'favorite') {
-      setArticleListData(
-        articleListData.sort((a, b) => b.favorites - a.favorites)
-      );
-      console.log(articleListTmp);
-    }
-  }, [viewSortValue]);
-
-  useEffect(() => {
-    console.log(viewFilterState);
-    setArticleListData(
-      articleListTmp.filter((article) => article.options.includes)
-    );
-  }, [viewFilterState]);
 
   return (
     <div className="article-preview">

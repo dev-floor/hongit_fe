@@ -168,3 +168,18 @@
   margin: 20px 0px;
   padding: 5px;
 }
+
+.article-preview-header .filter-btn {
+  margin-right: 1rem;
+  font-size: 25px;
+}
+
+.article-preview-header .filter-btn.activated {
+  margin-right: 1rem;
+  font-size: 25px;
+  color: var(--options-color);
+}
+
+.article-preview-header .filter-btn :hover {
+  cursor: pointer;
+}
