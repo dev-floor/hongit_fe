@@ -6,6 +6,11 @@ export interface AuthorInfo {
   description: string;
 }
 
+export interface OptionInfo {
+  name: string;
+  text: string;
+}
+
 export interface ArticleDetailApi {
   options: string[];
   title: string;
