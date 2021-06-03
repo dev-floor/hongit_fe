@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { boardAPI } from 'api/api';
-import { BoardDetailApi, BoardOption } from 'api/ApiProps';
+import { BoardDetailApi } from 'api/ApiProps';
 import ArticleCreatePageContainer from 'Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from 'ArticleList/container/ArticleListContainer';
 import BoardContentHeader from '../presentational/BoardContentHeader';
@@ -10,13 +10,20 @@ import 'css/BoardDetail.css';
 const BoardDetailContainer = () => {
   const [boardData, setboardData] = useState<BoardDetailApi>({
     id: 0,
-    name: '',
-    professorName: '',
-    subjectName: '',
-    boardTypeName: '',
-    boardTypeText: '',
-    dividedOptions: [] as BoardOption[],
-    articleTypeOptions: [] as BoardOption[],
+    title: '',
+    professor: {
+      name: '',
+      email: '',
+    },
+    subject: '',
+    openingSemester: {
+      year: '',
+      semester: '',
+    },
+    grade: '',
+    type: '',
+    typeText: '',
+    options: [],
   });
 
   const loadData = async () => {

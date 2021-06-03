@@ -1,16 +1,12 @@
 import React from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
-import {
-  viewMode,
-  viewSort,
-  viewFilter,
-} from '../ArticleList/presentational/ArticleList';
-import { applyFilterFlag } from '../ArticleList/container/ArticleListContainer';
+import { viewMode, viewSort, viewFilter, applyFilterFlag } from 'Atoms/atom';
 
 import 'css/FilterModal.css';
 
 const FilterModal = (props: any) => {
   const { open, close, options } = props;
+
   const [viewModeValue, setViewMode] = useRecoilState<string>(viewMode);
   const [viewSortValue, setViewSort] = useRecoilState<string>(viewSort);
   const [viewFilterState, setViewFilterState] = useRecoilState<string[]>(

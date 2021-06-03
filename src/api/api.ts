@@ -78,14 +78,6 @@ export const articleAPI = {
   },
 };
 
-export const boardAPI = {
-  getBoardDetail: () => {
-    // const boardDetail = await getRequest(`${END_POINT}/boards/${boardId}`)
-    const boardDetailResponse = BoardDetailDummyData;
-    return boardDetailResponse;
-  },
-};
-
 export const commentsAPI = {
   get: () => {
     // const commentList = await getRequest(`${END_POINT}/~`);

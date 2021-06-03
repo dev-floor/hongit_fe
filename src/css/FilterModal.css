@@ -11,8 +11,8 @@
 
 .modal .filter-modal-section {
   position: absolute;
-  right: 30px;
-  top: 150px;
+  right: 7rem;
+  top: 12rem;
   width: 90%;
   max-width: 450px;
   margin: 0 auto;
@@ -86,4 +86,19 @@
   to {
     opacity: 1;
   }
+}
+
+.board-button-area .filter-btn {
+  margin-right: 1rem;
+  font-size: 25px;
+}
+
+.board-button-area .filter-btn.activated {
+  margin-right: 1rem;
+  font-size: 25px;
+  color: var(--options-color);
+}
+
+.board-button-area .filter-btn :hover {
+  cursor: pointer;
 }

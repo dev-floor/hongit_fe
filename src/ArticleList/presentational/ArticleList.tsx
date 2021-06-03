@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
 import { ArticleListApi } from 'api/ApiProps';
 import { ArticleListProps } from 'interface/ArgProps';
@@ -112,22 +112,9 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
 };
 
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
-  const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);
-
   const viewModeHistory = useRecoilValue<string>(viewMode);
-  const viewSortValue = useRecoilValue<string>(viewSort);
-  const viewFilterState = useRecoilValue<string[]>(viewFilter);
 
-  const [filterOpenState, setFilterOpenState] = useState<boolean>(false);
   const [articleListTmp, setArticleListData] = useState<ArticleListApi[]>([]);
-
-  const onOpenFilterModal = () => {
-    setFilterOpenState(true);
-  };
-
-  const onCloseFilterModal = () => {
-    setFilterOpenState(false);
-  };
 
   useEffect(() => {
     setArticleListData(articleListData);
@@ -136,13 +123,6 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
 
   return (
     <div className="article-preview">
-      <section className="article-preview-header">
-        <title className="article-preview-boardname"> </title>
-        <select className="article-view-mode-select" onChange={onChangeSelect}>
-          <option value="card">카드 뷰</option>
-          <option value="list">리스트 뷰</option>
-        </select>
-      </section>
       <section className="article-preview-area">
         {viewModeHistory === 'card'
           ? articleListTmp.map((articlePreview) => (
@@ -176,11 +156,6 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
               />
             ))}
       </section>
-      <FilterModal
-        open={filterOpenState}
-        close={onCloseFilterModal}
-        options={options}
-      />
     </div>
   );
 };

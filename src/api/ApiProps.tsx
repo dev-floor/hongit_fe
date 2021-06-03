@@ -78,13 +78,15 @@ export interface BoardOption {
   name: string;
   text: string;
 }
+
 export interface BoardDetailApi {
   id: number;
-  name: string;
-  professorName: string;
-  subjectName: string;
-  boardTypeName: string;
-  boardTypeText: string;
-  dividedOptions: BoardOption[];
-  articleTypeOptions: BoardOption[];
+  title: string;
+  professor: ProfessorInfo;
+  subject: string;
+  openingSemester: LectureInfo;
+  grade: string;
+  type: string;
+  typeText: string;
+  options: OptionFormat[];
 }
