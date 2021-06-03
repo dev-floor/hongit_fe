@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 import { viewMode } from 'Atoms/atom';
@@ -114,13 +114,42 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
   const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);
 
-  const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setViewModeHistory(e.target.value);
+  const viewModeHistory = useRecoilValue<string>(viewMode);
+  const viewSortValue = useRecoilValue<string>(viewSort);
+  const viewFilterState = useRecoilValue<string[]>(viewFilter);
+
+  const [filterOpenState, setFilterOpenState] = useState<boolean>(false);
+  const [articleListTmp, setArticleListData] = useState<ArticleListApi[]>([]);
+
+  const onOpenFilterModal = () => {
+    setFilterOpenState(true);
   };
 
-  const onClickFilter = () => {
-    console.log('clicked!');
+  const onCloseFilterModal = () => {
+    setFilterOpenState(false);
   };
+
+  useEffect(() => {
+    setArticleListData(articleListData);
+    console.log('!');
+  }, [articleListData]);
+
+  useEffect(() => {
+    console.log(viewSortValue);
+    if (viewSortValue === 'favorite') {
+      setArticleListData(
+        articleListData.sort((a, b) => b.favorites - a.favorites)
+      );
+      console.log(articleListTmp);
+    }
+  }, [viewSortValue]);
+
+  useEffect(() => {
+    console.log(viewFilterState);
+    setArticleListData(
+      articleListTmp.filter((article) => article.options.includes)
+    );
+  }, [viewFilterState]);
 
   return (
     <div className="article-preview">
@@ -133,7 +162,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
       </section>
       <section className="article-preview-area">
         {viewModeHistory === 'card'
-          ? articleListData.map((articlePreview) => (
+          ? articleListTmp.map((articlePreview) => (
               <ArticlePreviewCard
                 id={articlePreview.id}
                 options={articlePreview.options}
@@ -148,7 +177,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
                 clips={articlePreview.clips}
               />
             ))
-          : articleListData.map((articlePreview) => (
+          : articleListTmp.map((articlePreview) => (
               <ArticlePreviewList
                 id={articlePreview.id}
                 options={articlePreview.options}
@@ -164,6 +193,11 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
               />
             ))}
       </section>
+      <FilterModal
+        open={filterOpenState}
+        close={onCloseFilterModal}
+        options={options}
+      />
     </div>
   );
 };
