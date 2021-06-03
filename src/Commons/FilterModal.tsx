@@ -1,10 +1,11 @@
 import React from 'react';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 import {
   viewMode,
   viewSort,
   viewFilter,
 } from '../ArticleList/presentational/ArticleList';
+import { applyFilterFlag } from '../ArticleList/container/ArticleListContainer';
 
 import 'css/FilterModal.css';
 
@@ -15,6 +16,7 @@ const FilterModal = (props: any) => {
   const [viewFilterState, setViewFilterState] = useRecoilState<string[]>(
     viewFilter
   );
+  const setApplyFilterFlag = useSetRecoilState(applyFilterFlag);
 
   const courseGroup = options.filter((op) => op.type === 'COURSE_GROUP');
   const articleKind = options.filter((op) => op.type === 'ARTICLE_KIND');
@@ -50,6 +52,7 @@ const FilterModal = (props: any) => {
   const onCompleteFilterSetting = () => {
     console.log('setting completed.');
     console.log(viewSortValue, viewFilterState);
+    setApplyFilterFlag(true);
     close();
   };
 
