@@ -6,9 +6,27 @@ export interface AuthorInfo {
   description: string;
 }
 
-export interface OptionInfo {
-  name: string;
+export interface OptionClass {
+  id: string;
+  type: string;
   text: string;
+  timetable: string;
+}
+
+export interface OptionFormat {
+  id: string;
+  type: string;
+  text: string;
+}
+
+export interface ProfessorInfo {
+  name: string;
+  email: string;
+}
+
+export interface LectureInfo {
+  year: string;
+  semester: string;
 }
 
 export interface ArticleDetailApi {

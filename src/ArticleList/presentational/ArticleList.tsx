@@ -118,6 +118,10 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
     setViewModeHistory(e.target.value);
   };
 
+  const onClickFilter = () => {
+    console.log('clicked!');
+  };
+
   return (
     <div className="article-preview">
       <section className="article-preview-header">
