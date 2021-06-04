@@ -57,7 +57,7 @@ const FilterModal = (props: any) => {
       {open && (
         <section className="filter-modal-section">
           <header className="filter-option">분반</header>
-          <footer>
+          <section>
             {courseGroup.map((course) =>
               viewFilterState.includes(course.text) ? (
                 <button
@@ -79,9 +79,9 @@ const FilterModal = (props: any) => {
                 </button>
               )
             )}
-          </footer>
+          </section>
           <header className="filter-option">질문 유형</header>
-          <footer>
+          <section>
             {articleKind.map((kind) =>
               viewFilterState.includes(kind.text) ? (
                 <button
@@ -103,10 +103,10 @@ const FilterModal = (props: any) => {
                 </button>
               )
             )}
-          </footer>
+          </section>
           <hr />
           <header className="filter-option">뷰</header>
-          <footer>
+          <section>
             {viewModeValue === 'card' ? (
               <button
                 className="selected"
@@ -145,9 +145,9 @@ const FilterModal = (props: any) => {
                 리스트 뷰
               </button>
             )}
-          </footer>
+          </section>
           <header className="filter-option">정렬 방식</header>
-          <footer>
+          <section>
             {viewSortValue === 'seen' ? (
               <button
                 className="selected"
@@ -193,7 +193,7 @@ const FilterModal = (props: any) => {
             >
               적용
             </button>
-          </footer>
+          </section>
         </section>
       )}
     </div>
