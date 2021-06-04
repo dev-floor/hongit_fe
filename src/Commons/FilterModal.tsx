@@ -14,8 +14,8 @@ const FilterModal = (props: any) => {
   );
   const setApplyFilterFlag = useSetRecoilState(applyFilterFlag);
 
-  const courseGroup = options.filter((op) => op.type === 'COURSE_GROUP');
-  const articleKind = options.filter((op) => op.type === 'ARTICLE_KIND');
+  const courseGroup = options.filter((op) => op.type.id === 'COURSE_GROUP');
+  const articleKind = options.filter((op) => op.type.id === 'ARTICLE_KIND');
 
   const onClickViewMode = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.currentTarget.classList.toggle('selected');

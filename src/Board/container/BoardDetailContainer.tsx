@@ -16,13 +16,14 @@ const BoardDetailContainer = () => {
       email: '',
     },
     subject: '',
-    openingSemester: {
-      year: '',
-      semester: '',
+    type: {
+      id: '',
+      text: '',
     },
-    grade: '',
-    type: '',
-    typeText: '',
+    grade: {
+      id: '',
+      text: '',
+    },
     options: [],
   });
 

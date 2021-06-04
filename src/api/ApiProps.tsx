@@ -6,27 +6,20 @@ export interface AuthorInfo {
   description: string;
 }
 
-export interface OptionClass {
-  id: string;
-  type: string;
-  text: string;
-  timetable: string;
-}
-
-export interface OptionFormat {
-  id: string;
-  type: string;
-  text: string;
-}
-
-export interface ProfessorInfo {
+export interface ProfessorResponse {
   name: string;
   email: string;
 }
 
-export interface LectureInfo {
-  year: string;
-  semester: string;
+export interface BaseEnumResponse {
+  id: string;
+  text: string;
+}
+
+export interface OptionResponse {
+  id: number;
+  text: string;
+  type: BaseEnumResponse;
 }
 
 export interface ArticleDetailApi {
@@ -82,11 +75,9 @@ export interface BoardOption {
 export interface BoardDetailApi {
   id: number;
   title: string;
-  professor: ProfessorInfo;
+  professor: ProfessorResponse;
   subject: string;
-  openingSemester: LectureInfo;
-  grade: string;
-  type: string;
-  typeText: string;
-  options: OptionFormat[];
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse;
+  options: OptionResponse[];
 }

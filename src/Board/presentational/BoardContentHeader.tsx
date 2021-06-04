@@ -8,7 +8,7 @@ import FilterModal from '../../Commons/FilterModal';
 import 'css/FilterModal.css';
 
 const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
-  const { options } = { ...boardDetailData };
+  const { title, options } = { ...boardDetailData };
 
   const viewSortValue = useRecoilValue<string>(viewSort);
   const viewFilterState = useRecoilValue<string[]>(viewFilter);
@@ -25,7 +25,7 @@ const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
 
   return (
     <div className="board-detail-header">
-      <div className="board-name">{boardDetailData.title}</div>
+      <div className="board-name">{title}</div>
       <div className="board-button-area">
         {viewSortValue !== '' || viewFilterState.length > 0 ? (
           <RiEqualizerLine

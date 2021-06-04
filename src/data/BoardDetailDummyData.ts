@@ -1,40 +1,51 @@
 const boardDetailDummyData = {
   id: 1,
-  title: '알고리즘 / 정균락',
+  title: '알고리즘 - 정균락',
   professor: {
     name: '정균락',
     email: 'hello@world.com',
   },
   subject: '알고리즘',
-  openingSemester: {
-    year: '2021',
-    semester: '1학기',
+  type: {
+    id: 'COURSE_BOARD',
+    text: '수업게시판',
   },
-  grade: '3학년',
-  type: 'CLASS_BOARD',
-  typeText: '수업 게시판',
+  grade: {
+    id: 'SENIOR',
+    text: '4학년',
+  },
   options: [
     {
-      id: 'CLASS_ONE',
-      type: 'COURSE_GROUP',
-      text: '1분반',
-      timetable: '월5화67',
+      id: 1,
+      text: '1분반/월2수34',
+      type: {
+        id: 'COURSE_GROUP',
+        text: '분반',
+      },
     },
     {
-      id: 'CLASS_TWO',
-      type: 'COURSE_GROUP',
-      text: '2분반',
-      timetable: '수2목89',
+      id: 2,
+      text: '2분반/월3수67',
+      type: {
+        id: 'COURSE_GROUP',
+        text: '분반',
+      },
     },
     {
-      id: 'QUESTION',
-      type: 'ARTICLE_KIND',
+      id: 3,
       text: '질문',
+      type: {
+        id: 'ARTICLE_KIND',
+        text: '게시글 종류',
+      },
     },
     {
-      id: 'SCHEDUAL',
-      type: 'ARTICLE_KIND',
+      id: 4,
       text: '일정',
+      type: {
+        id: 'ARTICLE_KIND',
+        text: '게시글 종류',
+      },
     },
   ],
 };
