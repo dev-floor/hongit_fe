@@ -73,8 +73,8 @@ const ArticleHeader = ({
         close={closeModal}
         registerBtnStr="예"
         registerBtnFunc={onModalClickArticleDelete}
-        cancleBtnStr="아니오"
-        cancleBtnFunc={closeModal}
+        cancelBtnStr="아니오"
+        cancelBtnFunc={closeModal}
         header="게시글 삭제"
         info="해당 게시글을 정말 삭제하시겠습니까?"
       />

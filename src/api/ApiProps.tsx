@@ -65,3 +65,11 @@ export interface BoardDetailApi {
   dividedOptions: BoardOption[];
   articleTypeOptions: BoardOption[];
 }
+
+export interface SideBarDetailApi {
+ id: number;
+ title: string;
+ grade: string;
+ type: string;
+ typeText: string; 
+}
