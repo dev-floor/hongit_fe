@@ -81,3 +81,11 @@ export interface BoardDetailApi {
   grade: BaseEnumResponse;
   options: OptionResponse[];
 }
+
+export interface SideBarDetailApi {
+ id: number;
+ title: string;
+ grade: string;
+ type: string;
+ typeText: string; 
+}
