@@ -6,6 +6,22 @@ export interface AuthorInfo {
   description: string;
 }
 
+export interface ProfessorResponse {
+  name: string;
+  email: string;
+}
+
+export interface BaseEnumResponse {
+  id: string;
+  text: string;
+}
+
+export interface OptionResponse {
+  id: number;
+  text: string;
+  type: BaseEnumResponse;
+}
+
 export interface ArticleDetailApi {
   options: string[];
   title: string;
@@ -55,13 +71,13 @@ export interface BoardOption {
   name: string;
   text: string;
 }
+
 export interface BoardDetailApi {
   id: number;
-  name: string;
-  professorName: string;
-  subjectName: string;
-  boardTypeName: string;
-  boardTypeText: string;
-  dividedOptions: BoardOption[];
-  articleTypeOptions: BoardOption[];
+  title: string;
+  professor: ProfessorResponse;
+  subject: string;
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse;
+  options: OptionResponse[];
 }

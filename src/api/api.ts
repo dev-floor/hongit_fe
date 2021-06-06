@@ -58,12 +58,12 @@ export const putCommentRequest = async (
 
 export const articleAPI = {
   get: () => {
-    // const articleInfo = await getRequest(`${END_POINT}/`);
+    // const articleInfo = await getRequest(`${END_POINT}/articles/${articleId}`);
     const articleDetailResponse = articleInfoDummyData;
     return articleDetailResponse;
   },
   getByList: () => {
-    // const articleByList = await getRequest(`${END_POINT}/`);
+    // const articleByList = await getRequest(`${END_POINT}/articles`);
     const articleByListResponse = articleListDummyData;
     return articleByListResponse;
   },

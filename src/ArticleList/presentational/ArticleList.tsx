@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
 import { ArticleListApi } from 'api/ApiProps';
 import { ArticleListProps } from 'interface/ArgProps';
@@ -28,7 +28,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op, index) => (
+        {options.map((op) => (
           <span className="option">{op}</span>
         ))}
       </section>
@@ -80,7 +80,7 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op, index) => (
+        {options.map((op) => (
           <span className="option">{op}</span>
         ))}
       </section>
@@ -112,24 +112,20 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
 };
 
 const ArticleListArea = ({ articleListData }: ArticleListProps) => {
-  const [viewModeHistory, setViewModeHistory] = useRecoilState(viewMode);
+  const viewModeHistory = useRecoilValue<string>(viewMode);
 
-  const onChangeSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setViewModeHistory(e.target.value);
-  };
+  const [articleListTmp, setArticleListData] = useState<ArticleListApi[]>([]);
+
+  useEffect(() => {
+    setArticleListData(articleListData);
+    console.log('!');
+  }, [articleListData]);
 
   return (
     <div className="article-preview">
-      <section className="article-preview-header">
-        <title className="article-preview-boardname"> </title>
-        <select className="article-view-mode-select" onChange={onChangeSelect}>
-          <option value="card">카드 뷰</option>
-          <option value="list">리스트 뷰</option>
-        </select>
-      </section>
       <section className="article-preview-area">
         {viewModeHistory === 'card'
-          ? articleListData.map((articlePreview) => (
+          ? articleListTmp.map((articlePreview) => (
               <ArticlePreviewCard
                 id={articlePreview.id}
                 options={articlePreview.options}
@@ -144,7 +140,7 @@ const ArticleListArea = ({ articleListData }: ArticleListProps) => {
                 clips={articlePreview.clips}
               />
             ))
-          : articleListData.map((articlePreview) => (
+          : articleListTmp.map((articlePreview) => (
               <ArticlePreviewList
                 id={articlePreview.id}
                 options={articlePreview.options}
