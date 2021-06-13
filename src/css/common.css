@@ -82,7 +82,7 @@ button[type='submit']:hover {
   border-radius: 4px;
 }
 
-button[type='button'] {
+/* button[type='button'] {
   background: var(--btn-color);
   color: #fff;
   border: none;
@@ -100,4 +100,4 @@ button[type='button']:hover {
   background: var(--btn-hover-color);
   color: white;
   border-radius: 4px;
-}
+} */

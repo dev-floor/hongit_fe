@@ -1,5 +1,25 @@
 @import url('./common.css');
 
+/* button[type='button'] {
+  background: var(--btn-color);
+  color: #fff;
+  border: none;
+  margin: 1px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+button[type='button']:hover {
+  background: var(--btn-hover-color);
+  color: white;
+  border-radius: 4px;
+} */
+
 /*=============== ArticleBody ==================*/
 
 .article-content {
