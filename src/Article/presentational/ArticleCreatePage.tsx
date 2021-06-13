@@ -136,7 +136,7 @@ const ArticleCreatePage = ({
           >
             취소
           </button>
-          <button className="btn-register" type="submit">
+          <button className="btn-register default-submit-btn" type="submit">
             등록
           </button>
         </div>

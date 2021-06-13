@@ -82,7 +82,7 @@ button[type='submit']:hover {
   border-radius: 4px;
 }
 
-/* button[type='button'] {
+.default-submit-btn {
   background: var(--btn-color);
   color: #fff;
   border: none;
@@ -96,8 +96,30 @@ button[type='submit']:hover {
   outline: none;
 }
 
-button[type='button']:hover {
+.default-submit-btn:hover {
   background: var(--btn-hover-color);
   color: white;
   border-radius: 4px;
-} */
+}
+
+
+.default-btn {
+  background: var(--btn-color);
+  color: #fff;
+  border: none;
+  margin: 1px;
+  padding: 0.5rem 1rem 0.5rem 1rem;
+  position: relative;
+  font-size: 1rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: 800ms ease all;
+  outline: none;
+}
+
+.default-btn:hover {
+  background: var(--btn-hover-color);
+  color: white;
+  border-radius: 4px;
+}
+

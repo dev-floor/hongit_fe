@@ -65,7 +65,7 @@ const Comment = ({
       ) : (
         <form className="comment-update-submit-area" onSubmit={onUpdateSubmit}>
           <textarea defaultValue={content} onChange={onChange} />
-          <button className="btn-update-submit" type="submit">
+          <button className="btn-update-submit default-submit-btn" type="submit">
             수정
           </button>
         </form>
@@ -80,7 +80,7 @@ const Comment = ({
       <div className="comment-btn-area">
         <button
           type="button"
-          className="comment-btn-update"
+          className="comment-btn-update default-btn"
           value={id}
           onClick={onClickUpdateComment}
         >
@@ -88,7 +88,7 @@ const Comment = ({
         </button>
         <button
           type="button"
-          className="comment-btn-delete"
+          className="comment-btn-delete default-btn"
           value={id}
           onClick={onClickDeleteComment}
         >
@@ -182,7 +182,7 @@ const CommentArea = ({
       <hr />
       <form className="comment-submit-area" onSubmit={onHandleSubmit}>
         <textarea placeholder="댓글을 입력하세요..." onChange={onChange} />
-        <button className="btn-submit" type="submit">
+        <button className="btn-submit default-submit-btn" type="submit">
           등록
         </button>
       </form>
