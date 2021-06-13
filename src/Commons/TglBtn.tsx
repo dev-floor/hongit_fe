@@ -9,7 +9,7 @@ import {
 import 'css/TglBtn.css';
 
 const IconByType = (props: any) => {
-  const { type, like } = props;
+  const { type, press } = props;
   const defaultIcon = {
     heart: (
       <FontAwesomeIcon
@@ -56,12 +56,12 @@ const IconByType = (props: any) => {
       />
     ),
   };
-  return <div>{like ? pressIcon[type] : defaultIcon[type]}</div>;
+  return <div>{press ? pressIcon[type] : defaultIcon[type]}</div>;
 };
 
 const TglBtn = (props: any) => {
   const { type, count, handler } = props;
-  const [like, setLike] = useState<boolean>(false);
+  const [press, setPress] = useState<boolean>(false);
   const [curCount, setCount] = useState<number>(0);
 
   useEffect(() => {
@@ -69,8 +69,8 @@ const TglBtn = (props: any) => {
   }, [count]);
 
   const onToggleButton = () => {
-    setLike(!like);
-    if (!like) {
+    setPress(!press);
+    if (!press) {
       setCount(curCount + 1);
     } else {
       setCount(curCount - 1);
@@ -81,7 +81,7 @@ const TglBtn = (props: any) => {
   return (
     <div>
       <button type="button" className="tgl-btn" onClick={onToggleButton}>
-        <IconByType type={type} like={like} /> {curCount}
+        <IconByType type={type} press={press} /> {curCount}
       </button>
     </div>
   );
