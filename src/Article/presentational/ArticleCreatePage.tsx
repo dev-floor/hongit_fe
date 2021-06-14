@@ -1,6 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useRecoilValue } from 'recoil';
+import { articleCreateOption } from 'Atoms/atom';
 import { ArticleCreatePageProps } from 'interface/ArgProps';
+import { RiEqualizerLine } from 'react-icons/ri';
+import ArticleOptionModal from 'Commons/ArticleOptionModal';
 import 'css/Article.css';
 
 const ArticleCreatePage = ({
@@ -23,6 +27,18 @@ const ArticleCreatePage = ({
     content: '',
     hashtags: [] as string[],
   });
+  const [filterOpenState, setFilterOpenState] = useState<boolean>(false);
+
+  const onOpenFilterModal = () => {
+    setFilterOpenState(true);
+  };
+
+  const onCloseFilterModal = () => {
+    setFilterOpenState(false);
+  };
+
+  const boardOptions = useRecoilValue(articleCreateOption);
+  // 위 변수에는 options 들이 있다. 얘들을 렌더링해줘야 함.
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(e.target.value);
@@ -105,6 +121,7 @@ const ArticleCreatePage = ({
             onChange={onChangeTitle}
             required
           />
+          <RiEqualizerLine className="option-btn" onClick={onOpenFilterModal} />
           <label htmlFor="anonymous">
             <input type="checkbox" id="anonymous" /> <span>익명</span>
           </label>
@@ -141,6 +158,11 @@ const ArticleCreatePage = ({
           </button>
         </div>
       </form>
+      <ArticleOptionModal
+        open={filterOpenState}
+        close={onCloseFilterModal}
+        options={boardOptions}
+      />
     </div>
   );
 };

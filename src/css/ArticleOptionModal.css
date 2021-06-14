@@ -1,0 +1,64 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 99;
+  background-color: var(--modal-background);
+}
+
+.modal .article-write-option-section {
+  position: absolute;
+  right: 7rem;
+  top: 12rem;
+  width: 90%;
+  max-width: 450px;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: #fff;
+  animation: modal-show 0.3s;
+  overflow: hidden;
+  border: 5px solid black;
+}
+
+.article-create-option-modal-title {
+  padding: 16px;
+  margin-bottom: 0;
+}
+
+.modal .course-group,
+.modal .article-kind {
+  position: relative;
+  padding: 16px;
+  font-weight: bold;
+  background-color: #fff;
+}
+
+.article-write-option-section :last-child {
+  margin-bottom: 1.5rem;
+}
+
+.article-write-option-section button {
+  padding: 6px 12px;
+  margin-left: 16px;
+  color: #fff;
+  background-color: var(--options-color);
+  border-radius: 5px;
+  font-size: 13px;
+}
+
+.article-write-option-section .selected {
+  background-color: red;
+}
+
+.modal.openArticleOptionModal {
+  display: flex;
+  align-items: center;
+  animation: modal-bg-show 0.3s;
+}
+
+.article-write-option-section .btn-submit {
+  margin-right: 16px;
+}

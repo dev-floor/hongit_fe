@@ -1,4 +1,5 @@
 import { atom } from 'recoil';
+import { OptionResponse } from '../api/ApiProps';
 
 export const selectedArticleId = atom<string>({
   key: 'selectedArticleId',
@@ -23,6 +24,11 @@ export const viewFilter = atom<string[]>({
 export const applyFilterFlag = atom<boolean>({
   key: 'applyFilterFlag',
   default: false,
+});
+
+export const articleCreateOption = atom<OptionResponse[]>({
+  key: 'articleCreateOptions',
+  default: [],
 });
 
 // NEED TO IMPLEMENT :: type add
