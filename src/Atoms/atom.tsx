@@ -21,6 +21,11 @@ export const viewFilter = atom<string[]>({
   default: [],
 });
 
+export const articleCreateSelectedOptions = atom<string[]>({
+  key: 'articleCreateSelectedOptions',
+  default: [],
+});
+
 export const applyFilterFlag = atom<boolean>({
   key: 'applyFilterFlag',
   default: false,

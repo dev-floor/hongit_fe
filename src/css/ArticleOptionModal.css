@@ -23,6 +23,21 @@
   border: 5px solid black;
 }
 
+.title-area .option-btn {
+  margin: 0.5rem 0.5rem 0.5rem 0.9rem;
+  font-size: 25px;
+}
+
+.title-area .option-btn.activated {
+  margin: 0.5rem 0.5rem 0.5rem 0.9rem;
+  font-size: 25px;
+  color: var(--options-color);
+}
+
+.option-btn:hover {
+  cursor: pointer;
+}
+
 .article-create-option-modal-title {
   padding: 16px;
   margin-bottom: 0;
