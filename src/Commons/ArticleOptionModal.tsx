@@ -1,14 +1,20 @@
 import React from 'react';
-import { articleCreateSelectedOptions } from 'Atoms/atom';
+import {
+  articleCreateSelectedOptions,
+  applySelectedOptionsFlag,
+} from 'Atoms/atom';
 
 import 'css/ArticleOptionModal.css';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 const ArticleOptionModal = (props: any) => {
   const { open, close, options } = props;
 
   const [selectedOptions, setSelectedOptions] = useRecoilState(
     articleCreateSelectedOptions
+  );
+  const setApplyArticleCreateOptionsFlag = useSetRecoilState(
+    applySelectedOptionsFlag
   );
 
   const courseGroup = options.filter((op) => op.type.id === 'COURSE_GROUP');
@@ -28,6 +34,7 @@ const ArticleOptionModal = (props: any) => {
 
   const onCompleteOptionSetting = () => {
     console.log(selectedOptions);
+    setApplyArticleCreateOptionsFlag(true);
     close();
   };
 

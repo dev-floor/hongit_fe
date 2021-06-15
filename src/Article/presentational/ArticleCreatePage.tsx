@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
-import { articleCreateOption, articleCreateSelectedOptions } from 'Atoms/atom';
+import {
+  articleCreateOption,
+  articleCreateSelectedOptions,
+  applySelectedOptionsFlag,
+} from 'Atoms/atom';
 import { ArticleCreatePageProps } from 'interface/ArgProps';
 import { RiEqualizerLine } from 'react-icons/ri';
 import ArticleOptionModal from 'Commons/ArticleOptionModal';
@@ -40,6 +44,7 @@ const ArticleCreatePage = ({
   // recoil values.
   const boardOptions = useRecoilValue(articleCreateOption);
   const selectedOptions = useRecoilValue(articleCreateSelectedOptions);
+  const articleCreateOptionsFlag = useRecoilValue(applySelectedOptionsFlag);
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(e.target.value);
@@ -113,6 +118,15 @@ const ArticleCreatePage = ({
 
   return (
     <div className="article-create-area">
+      {articleCreateOptionsFlag && (
+        <header className="article-create-header">
+          <section className="article-create-option-area">
+            {selectedOptions.map((op) => (
+              <span className="option">{op}</span>
+            ))}
+          </section>
+        </header>
+      )}
       <form className="article-create-form" onSubmit={onConfirmRegister}>
         <div className="title-area">
           <input

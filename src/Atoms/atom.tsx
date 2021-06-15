@@ -21,11 +21,6 @@ export const viewFilter = atom<string[]>({
   default: [],
 });
 
-export const articleCreateSelectedOptions = atom<string[]>({
-  key: 'articleCreateSelectedOptions',
-  default: [],
-});
-
 export const applyFilterFlag = atom<boolean>({
   key: 'applyFilterFlag',
   default: false,
@@ -34,6 +29,16 @@ export const applyFilterFlag = atom<boolean>({
 export const articleCreateOption = atom<OptionResponse[]>({
   key: 'articleCreateOptions',
   default: [],
+});
+
+export const articleCreateSelectedOptions = atom<string[]>({
+  key: 'articleCreateSelectedOptions',
+  default: [],
+});
+
+export const applySelectedOptionsFlag = atom<boolean>({
+  key: 'applySelectedOptions',
+  default: false,
 });
 
 // NEED TO IMPLEMENT :: type add

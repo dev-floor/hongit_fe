@@ -94,11 +94,13 @@
 
 .board-button-area .filter-btn {
   margin-right: 1rem;
+  margin-bottom: -0.3rem;
   font-size: 25px;
 }
 
 .board-button-area .filter-btn.activated {
   margin-right: 1rem;
+  margin-bottom: -0.3rem;
   font-size: 25px;
   color: var(--options-color);
 }

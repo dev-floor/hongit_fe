@@ -278,6 +278,32 @@
   background-color: var(--my-color);
   display: flex;
   overflow: auto;
+  flex-direction: column;
+}
+
+.article-create-header {
+  display: flex;
+  margin-bottom: 1rem;
+  flex-direction: column;
+  align-items: baseline;
+  font-size: 0.9rem;
+}
+
+.article-create-option-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.article-create-option-area .option {
+  margin: 0 3px;
+  padding: 3px;
+  width: 100px;
+  text-align: center;
+  border-width: 2px 2px;
+  border-radius: 40px;
+  background-color: var(--options-color);
+  color: white;
+  font-size: 7px;
 }
 
 .article-create-form input[type='text'],
