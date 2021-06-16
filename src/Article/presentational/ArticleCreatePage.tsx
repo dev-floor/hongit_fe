@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-import { useRecoilValue } from 'recoil';
+import { useRecoilValue, useRecoilState } from 'recoil';
 import {
   articleCreateOption,
   articleCreateSelectedOptions,
@@ -25,7 +25,7 @@ const ArticleCreatePage = ({
   const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
   const [newArticle, setNewArticle] = useState({
-    options: [],
+    options: [] as string[],
     title: '',
     anonymous: true,
     content: '',
@@ -43,8 +43,10 @@ const ArticleCreatePage = ({
 
   // recoil values.
   const boardOptions = useRecoilValue(articleCreateOption);
-  const selectedOptions = useRecoilValue(articleCreateSelectedOptions);
-  const articleCreateOptionsFlag = useRecoilValue(applySelectedOptionsFlag);
+  const [selectedOptions, setSelectedOptions] = useRecoilState(
+    articleCreateSelectedOptions
+  );
+  const selectedOptionsApplyFlag = useRecoilValue(applySelectedOptionsFlag);
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(e.target.value);
@@ -59,12 +61,16 @@ const ArticleCreatePage = ({
   };
 
   const onChangeNewArticle = () => {
+    setSelectedOptions(() => [] as string[]);
     onRegisterArticle(newArticle);
   };
 
   useEffect(() => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
+    const newOptions = selectedOptionsApplyFlag
+      ? selectedOptions
+      : ([] as string[]);
     if (newHashtags.length > 0) {
       if (newHashtags.includes(',')) {
         modifiedHashTags = newHashtags.split(',');
@@ -75,16 +81,23 @@ const ArticleCreatePage = ({
         modifiedHashTags = [newHashtags.trim()];
       }
     } else {
-      modifiedHashTags = [''];
+      modifiedHashTags = [] as string[];
     }
+
     setNewArticle(() => ({
-      options: [],
+      options: newOptions,
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
       hashtags: modifiedHashTags,
     }));
-  }, [newTitle, newHashtags, newContent]);
+  }, [
+    newTitle,
+    newHashtags,
+    newContent,
+    selectedOptions,
+    selectedOptionsApplyFlag,
+  ]);
 
   useEffect(() => {
     if (modifiyTargetArticle !== undefined) {
@@ -118,7 +131,7 @@ const ArticleCreatePage = ({
 
   return (
     <div className="article-create-area">
-      {articleCreateOptionsFlag && (
+      {selectedOptionsApplyFlag && (
         <header className="article-create-header">
           <section className="article-create-option-area">
             {selectedOptions.map((op) => (

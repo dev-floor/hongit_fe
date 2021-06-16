@@ -33,7 +33,6 @@ const ArticleOptionModal = (props: any) => {
   };
 
   const onCompleteOptionSetting = () => {
-    console.log(selectedOptions);
     setApplyArticleCreateOptionsFlag(true);
     close();
   };
