@@ -26,8 +26,8 @@ export const applyFilterFlag = atom<boolean>({
   default: false,
 });
 
-export const articleCreateOption = atom<OptionResponse[]>({
-  key: 'articleCreateOptions',
+export const boardDetailOptions = atom<OptionResponse[]>({
+  key: 'boardDetailOptions',
   default: [],
 });
 

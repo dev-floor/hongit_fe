@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Route } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
-import { articleCreateOption } from 'Atoms/atom';
+import { boardDetailOptions } from 'Atoms/atom';
 import { boardAPI } from 'api/api';
 import { BoardDetailApi } from 'api/ApiProps';
 import ArticleCreatePageContainer from 'Article/container/ArticleCreatePageContainer';
@@ -28,12 +28,12 @@ const BoardDetailContainer = () => {
     },
     options: [],
   });
-  const setArticleCreateOption = useSetRecoilState(articleCreateOption);
+  const setBoardDetailOption = useSetRecoilState(boardDetailOptions);
 
   const loadData = async () => {
     const response = await boardAPI.get(/* boardId */);
     setboardData(response);
-    setArticleCreateOption(response.options);
+    setBoardDetailOption(response.options);
   };
 
   useEffect(() => {

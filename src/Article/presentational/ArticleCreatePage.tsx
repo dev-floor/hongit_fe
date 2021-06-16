@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {
-  articleCreateOption,
+  boardDetailOptions,
   articleCreateSelectedOptions,
   applySelectedOptionsFlag,
 } from 'Atoms/atom';
@@ -42,7 +42,7 @@ const ArticleCreatePage = ({
   };
 
   // recoil values.
-  const boardOptions = useRecoilValue(articleCreateOption);
+  const boardOptions = useRecoilValue(boardDetailOptions);
   const [selectedOptions, setSelectedOptions] = useRecoilState(
     articleCreateSelectedOptions
   );
