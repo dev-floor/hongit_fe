@@ -1,0 +1,19 @@
+.tgl-btn {
+  display: flex;
+  text-align: center;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: 0.1rem;
+  background-color: transparent;
+  border: none;
+}
+
+.tgl-btn-icon {
+  margin-right: 5px;
+}
+
+.btn-area {
+  display: flex;
+  align-items: flex-start;
+}
