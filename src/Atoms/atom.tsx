@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { OptionResponse } from '../api/ApiProps';
+import { OptionResponse } from 'api/ApiProps';
 
 export const selectedArticleId = atom<string>({
   key: 'selectedArticleId',

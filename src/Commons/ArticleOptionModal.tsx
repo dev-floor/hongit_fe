@@ -4,8 +4,8 @@ import {
   applySelectedOptionsFlag,
 } from 'Atoms/atom';
 
-import 'css/ArticleOptionModal.css';
 import { useRecoilState, useSetRecoilState } from 'recoil';
+import 'css/ArticleOptionModal.css';
 
 const ArticleOptionModal = (props: any) => {
   const { open, close, options } = props;
@@ -57,7 +57,6 @@ const ArticleOptionModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
                 type="button"
                 value={course.text}
                 onClick={onClickOptions}
@@ -80,7 +79,6 @@ const ArticleOptionModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
                 type="button"
                 value={kind.text}
                 onClick={onClickOptions}
