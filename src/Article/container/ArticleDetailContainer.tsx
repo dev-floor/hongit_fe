@@ -6,7 +6,7 @@ import AuthorInfoContainer from './AuthorInfoContainer';
 import ArticleHeaderContainer from './ArticleHeaderContainer';
 import CommentContainer from './CommentContainer';
 import ArticleBodyContainer from './ArticleBodyContainer';
-import FloatingButton from '../presentational/FloatingButton';
+import FloatingButton from '../../Commons/FloatingButton';
 import 'css/Article.css';
 
 const ArticleDetailContainer = () => {
