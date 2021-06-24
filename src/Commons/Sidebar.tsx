@@ -32,7 +32,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         </li>
       </ul>
       <nav className="sidebar">
-        <button className="big-category-btn" type="button" id="1" onClick={showSubNav1}>
+        <button className="big-category-btn" type="button" onClick={showSubNav1}>
           <i className="chevron right icon"/>
           수업게시판
         </button>
@@ -41,7 +41,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
               <Link to='/boards/{course.id}' className="small-category-btn">{course.title}</Link>
             )}
           </nav>
-        <button className="big-category-btn" type="button" id="2" onClick={showSubNav2}>
+        <button className="big-category-btn" type="button" onClick={showSubNav2}>
           <i className="chevron right icon" />
           질문게시판
         </button>
