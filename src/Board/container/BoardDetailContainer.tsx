@@ -5,6 +5,7 @@ import { BoardDetailApi } from 'api/ApiProps';
 import ArticleCreatePageContainer from 'Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from 'ArticleList/container/ArticleListContainer';
 import BoardContentHeader from '../presentational/BoardContentHeader';
+
 import 'css/BoardDetail.css';
 
 const BoardDetailContainer = () => {
@@ -38,8 +39,6 @@ const BoardDetailContainer = () => {
 
   return (
     <div className="board-detail">
-      <section className="side-bar"> side-bar </section>
-      <section className="vertical"> </section>
       <section className="content">
         <header className="contents-header">
           <BoardContentHeader boardDetailData={boardData} />
