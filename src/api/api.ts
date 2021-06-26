@@ -101,7 +101,7 @@ export const boardAPI = {
 
 export const sidebarAPI = {
   get: () => {
-    const sideBarListResponse = sidebarDummyData;
-    return sideBarListResponse;
+    const sideBarResponse = sidebarDummyData;
+    return sideBarResponse;
   },
 };

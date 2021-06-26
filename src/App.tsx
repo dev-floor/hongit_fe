@@ -1,15 +1,26 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { sidebarAPI } from 'api/api';
+import { SideBarDetailApi } from 'api/ApiProps';
 import TglBtn from 'Commons/TglBtn';
-import Sidebar from './Commons/Sidebar';
+import Sidebar from 'Commons/Sidebar';
 
 import 'css/TglBtn.css';
+import 'css/Sidebar.css';
 
 const App = () => {
-  const sideBarData = sidebarAPI.get();
+  const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
-  const [sidebar, setSidebar] = useState(false);
-  const showSidebar = () => setSidebar(!sidebar);
+  const loadData = async() => {
+    const response = await sidebarAPI.get(/* sidebar */);
+    setSidebarData(response);
+  }
+
+  useEffect(() => {
+    loadData();
+  }, []);
+
+  const [showSidebar, setShowSidebar] = useState(false);
+  const sideBarShowState = () => setShowSidebar(!showSidebar);
   
   const tempstr = 'HOME입니다';
 
@@ -19,11 +30,11 @@ const App = () => {
 
   return (
     <div className="main">
-      <section className={sidebar ? 'side-bar-active' : 'side-bar'}>
-        <Sidebar sideBarData={sideBarData} />
+      <section className={showSidebar ? 'side-bar-active' : 'side-bar'}>
+        <Sidebar sideBarData={sidebarData} />
       </section>
       <section className="content">
-        <button className="menu-btn" type="button" onClick={showSidebar}>
+        <button className="menu-btn" type="button" onClick={sideBarShowState}>
           <i className="list icon"/>
         </button>
         {tempstr}

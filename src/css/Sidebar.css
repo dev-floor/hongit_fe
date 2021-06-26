@@ -1,3 +1,32 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.side-bar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 800ms ease all;
+  z-index: 10;
+}
+
+.side-bar.active {
+  height: 100%;
+  left: 0;
+  transition: 800ms ease all;
+}
+
+.content {
+  width: 88%;
+  border: none;
+}
+
 .sidebar{
   display: block;
   height: 100%;

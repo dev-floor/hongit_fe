@@ -2,11 +2,11 @@ import React from 'react';
 import { useParams } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { selectedArticleId } from 'Atoms/atom';
+import FloatingButton from 'Commons/FloatingButton';
 import AuthorInfoContainer from './AuthorInfoContainer';
 import ArticleHeaderContainer from './ArticleHeaderContainer';
 import CommentContainer from './CommentContainer';
 import ArticleBodyContainer from './ArticleBodyContainer';
-import FloatingButton from '../../Commons/FloatingButton';
 import 'css/Article.css';
 
 const ArticleDetailContainer = () => {
