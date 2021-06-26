@@ -91,6 +91,6 @@ export interface SideBarDetailApi {
   };
   grade: {
     id: string;
-    text: string;  
+    text: string;
   };
 }

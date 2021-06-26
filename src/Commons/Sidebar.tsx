@@ -8,11 +8,15 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
   const showSubNav1 = () => setSubNav1(!subNav1);
   const [subNav2, setSubNav2] = useState(false);
   const showSubNav2 = () => setSubNav2(!subNav2);
-  
-  const courseBoard = sideBarData.filter((board) => board.type.id === 'COURSE_BOARD');
+
+  const courseBoard = sideBarData.filter(
+    (board) => board.type.id === 'COURSE_BOARD'
+  );
   console.log(courseBoard);
 
-  const questionBoard = sideBarData.filter((board) => board.type.id === 'QUESTION_BOARD');
+  const questionBoard = sideBarData.filter(
+    (board) => board.type.id === 'QUESTION_BOARD'
+  );
   console.log(questionBoard);
 
   return (
@@ -32,27 +36,39 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         </li>
       </ul>
       <nav className="sidebar">
-        <button className="big-category-btn" type="button" onClick={showSubNav1}>
-          <i className="chevron right icon"/>
+        <button
+          className="big-category-btn"
+          type="button"
+          onClick={showSubNav1}
+        >
+          <i className="chevron right icon" />
           수업게시판
         </button>
-          <nav className={subNav1 ? 'subNav-active' : 'subNav'}>
-            {courseBoard.map((course) => 
-              <Link to='/boards/{course.id}' className="small-category-btn">{course.title}</Link>
-            )}
-          </nav>
-        <button className="big-category-btn" type="button" onClick={showSubNav2}>
+        <nav className={subNav1 ? 'subNav-active' : 'subNav'}>
+          {courseBoard.map((course) => (
+            <Link to="/boards/{course.id}" className="small-category-btn">
+              {course.title}
+            </Link>
+          ))}
+        </nav>
+        <button
+          className="big-category-btn"
+          type="button"
+          onClick={showSubNav2}
+        >
           <i className="chevron right icon" />
           질문게시판
         </button>
-          <nav className={subNav2 ? 'subNav-active' : 'subNav'}>
-            {questionBoard.map((course) => 
-              <Link to='/boards/{course.id}' className="small-category-btn">{course.title}</Link>
-            )}
-          </nav>
+        <nav className={subNav2 ? 'subNav-active' : 'subNav'}>
+          {questionBoard.map((course) => (
+            <Link to="/boards/{course.id}" className="small-category-btn">
+              {course.title}
+            </Link>
+          ))}
+        </nav>
       </nav>
     </div>
-  )
-}
+  );
+};
 
 export default Sidebar;

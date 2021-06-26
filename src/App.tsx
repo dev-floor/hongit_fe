@@ -10,10 +10,10 @@ import 'css/Sidebar.css';
 const App = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
-  const loadData = async() => {
+  const loadData = async () => {
     const response = await sidebarAPI.get(/* sidebar */);
     setSidebarData(response);
-  }
+  };
 
   useEffect(() => {
     loadData();
@@ -21,7 +21,7 @@ const App = () => {
 
   const [showSidebar, setShowSidebar] = useState(false);
   const sideBarShowState = () => setShowSidebar(!showSidebar);
-  
+
   const tempstr = 'HOME입니다';
 
   const onUpdateSubmit = (e: React.FormEvent<HTMLFormElement>) => {
@@ -35,7 +35,7 @@ const App = () => {
       </section>
       <section className="content">
         <button className="menu-btn" type="button" onClick={sideBarShowState}>
-          <i className="list icon"/>
+          <i className="list icon" />
         </button>
         {tempstr}
         <div className="btn-area">
