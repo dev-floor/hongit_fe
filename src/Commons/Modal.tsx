@@ -18,7 +18,11 @@ const Modal = (props: any) => {
         <section>
           <header>
             {header}
-            <button className="btn-close-mark default-btn" onClick={close} type="button">
+            <button
+              className="btn-close-mark default-btn"
+              onClick={close}
+              type="button"
+            >
               &times;
             </button>
           </header>

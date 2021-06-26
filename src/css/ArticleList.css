@@ -12,6 +12,11 @@
   justify-content: space-between;
 }
 
+.article-preview-link {
+  margin: auto;
+  margin-left: 0px;
+}
+
 .article-preview-boardname {
   display: inline-block;
   font-size: 2rem;
@@ -32,6 +37,7 @@
   background-color: var(--my-color);
   margin: 10px 0px;
   padding: 10px;
+  padding-bottom: 0px;
   cursor: pointer;
   border-radius: 5px;
   border: 1px solid rgba(166, 188, 206, 0.473);
@@ -89,12 +95,15 @@
   font-size: 0.6rem;
   margin-left: 3px;
 }
-.article-preview-author {
+.article-preview-author-time {
   display: flex;
+  margin: auto;
+  margin-left: 0px;
   justify-content: flex-start;
 }
-.article-created-time {
-  margin-left: 10px;
+
+time {
+  margin-left: 5px;
 }
 
 .article-preview-info {
@@ -148,10 +157,6 @@
 
 .article-preview-response {
   display: flex;
-}
-
-.article-preview-response * {
-  margin: 0 5px;
 }
 
 .article-preview-list {
