@@ -19,6 +19,8 @@ const ArticleHeader = ({
   )}-${createdDate.slice(6)}`;
 
   const articleId = useRecoilValue(selectedArticleId);
+  // const setArticleSelectedOptions = useSetRecoilState(articleCreateSelectedOptions);
+  // setArticleSelectedOptions(options);
   const onClickArticleUpdate = () => {
     onUpdateArticle(articleId);
   };

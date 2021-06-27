@@ -10,7 +10,7 @@ const ArticleHeaderContainer = () => {
   // const articleId = useRecoilValue(selectedArticleId);
   const history = useHistory();
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
-    options: [''],
+    options: [] as string[],
     title: '',
     anonymous: false,
     author: {
@@ -22,7 +22,7 @@ const ArticleHeaderContainer = () => {
     },
     createdDate: '',
     content: '',
-    hashtags: [''],
+    hashtags: [] as string[],
     favorites: 0,
     wonders: 0,
     clips: 0,

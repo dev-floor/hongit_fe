@@ -1,6 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
+import { useRecoilValue, useRecoilState } from 'recoil';
+import {
+  boardDetailOptions,
+  articleCreateSelectedOptions,
+  applySelectedOptionsFlag,
+} from 'Atoms/atom';
 import { ArticleCreatePageProps } from 'interface/ArgProps';
+import { RiEqualizerLine } from 'react-icons/ri';
+import ArticleOptionModal from 'Commons/ArticleOptionModal';
 import 'css/Article.css';
 
 const ArticleCreatePage = ({
@@ -17,12 +25,28 @@ const ArticleCreatePage = ({
   const [newHashtags, setNewHashtags] = useState('');
   const [newContent, setNewContent] = useState('');
   const [newArticle, setNewArticle] = useState({
-    options: [],
+    options: [] as string[],
     title: '',
     anonymous: true,
     content: '',
     hashtags: [] as string[],
   });
+  const [filterOpenState, setFilterOpenState] = useState<boolean>(false);
+
+  const onOpenFilterModal = () => {
+    setFilterOpenState(true);
+  };
+
+  const onCloseFilterModal = () => {
+    setFilterOpenState(false);
+  };
+
+  // recoil values.
+  const boardOptions = useRecoilValue(boardDetailOptions);
+  const [selectedOptions, setSelectedOptions] = useRecoilState(
+    articleCreateSelectedOptions
+  );
+  const selectedOptionsApplyFlag = useRecoilValue(applySelectedOptionsFlag);
 
   const onChangeTitle = (e: React.ChangeEvent<HTMLInputElement>) => {
     setNewTitle(e.target.value);
@@ -37,12 +61,16 @@ const ArticleCreatePage = ({
   };
 
   const onChangeNewArticle = () => {
+    setSelectedOptions(() => [] as string[]);
     onRegisterArticle(newArticle);
   };
 
   useEffect(() => {
     const $anonymous = document.querySelector('#anonymous') as HTMLInputElement;
     let modifiedHashTags: string[] = [];
+    const newOptions = selectedOptionsApplyFlag
+      ? selectedOptions
+      : ([] as string[]);
     if (newHashtags.length > 0) {
       if (newHashtags.includes(',')) {
         modifiedHashTags = newHashtags.split(',');
@@ -53,16 +81,23 @@ const ArticleCreatePage = ({
         modifiedHashTags = [newHashtags.trim()];
       }
     } else {
-      modifiedHashTags = [''];
+      modifiedHashTags = [] as string[];
     }
+
     setNewArticle(() => ({
-      options: [],
+      options: newOptions,
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
       hashtags: modifiedHashTags,
     }));
-  }, [newTitle, newHashtags, newContent]);
+  }, [
+    newTitle,
+    newHashtags,
+    newContent,
+    selectedOptions,
+    selectedOptionsApplyFlag,
+  ]);
 
   useEffect(() => {
     if (modifiyTargetArticle !== undefined) {
@@ -96,6 +131,15 @@ const ArticleCreatePage = ({
 
   return (
     <div className="article-create-area">
+      {selectedOptionsApplyFlag && (
+        <header className="article-create-header">
+          <section className="article-create-option-area">
+            {selectedOptions.map((op) => (
+              <span className="option">{op}</span>
+            ))}
+          </section>
+        </header>
+      )}
       <form className="article-create-form" onSubmit={onConfirmRegister}>
         <div className="title-area">
           <input
@@ -105,6 +149,18 @@ const ArticleCreatePage = ({
             onChange={onChangeTitle}
             required
           />
+          {selectedOptions.length > 0 ? (
+            <RiEqualizerLine
+              className="option-btn activated"
+              onClick={onOpenFilterModal}
+            />
+          ) : (
+            <RiEqualizerLine
+              className="option-btn"
+              onClick={onOpenFilterModal}
+            />
+          )}
+
           <label htmlFor="anonymous">
             <input type="checkbox" id="anonymous" /> <span>익명</span>
           </label>
@@ -141,6 +197,11 @@ const ArticleCreatePage = ({
           </button>
         </div>
       </form>
+      <ArticleOptionModal
+        open={filterOpenState}
+        close={onCloseFilterModal}
+        options={boardOptions}
+      />
     </div>
   );
 };
