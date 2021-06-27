@@ -38,7 +38,7 @@ const ArticleOptionModal = (props: any) => {
   };
 
   return (
-    <div className={open ? 'openArticleOptionModal modal' : 'modal'}>
+    <div className={open ? 'article-filter-modal-active modal' : 'modal'}>
       {open && (
         <section className="article-write-option-section">
           <h3 className="article-create-option-modal-title">

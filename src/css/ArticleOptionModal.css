@@ -68,7 +68,7 @@
   background-color: red;
 }
 
-.modal.openArticleOptionModal {
+.modal.article-filter-modal-active {
   display: flex;
   align-items: center;
   animation: modal-bg-show 0.3s;
