@@ -7,10 +7,13 @@
   letter-spacing: 0.1rem;
   background-color: transparent;
   border: none;
+  margin: 0px;
 }
 
 .tgl-btn-icon {
   margin-right: 5px;
+  margin-top: 0px;
+  padding-bottom: 0px;
 }
 
 .btn-area {

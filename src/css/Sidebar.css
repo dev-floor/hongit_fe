@@ -27,13 +27,13 @@
   border: none;
 }
 
-.sidebar{
+.sidebar {
   display: block;
   height: 100%;
   border: none;
 }
 
-.menu-btn{
+.menu-btn {
   background-color: lightgrey;
   border: none;
   font-size: 25px;
@@ -82,8 +82,8 @@
   font-size: 12px;
 }
 
-.small-category-btn:hover{
-    background: lightslategray;
-    color: black;
-    cursor: pointer;
+.small-category-btn:hover {
+  background: lightslategray;
+  color: black;
+  cursor: pointer;
 }

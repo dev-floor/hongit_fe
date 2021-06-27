@@ -4,8 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
 import { ArticleListApi } from 'api/ApiProps';
 import { ArticleListProps } from 'interface/ArgProps';
-import { FaThumbsUp, FaTags } from 'react-icons/fa';
-import { ImWondering } from 'react-icons/im';
+import TglBtn from 'Commons/TglBtn';
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
@@ -21,10 +20,24 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
     wonders,
     clips,
   } = { ...articlePreview };
+
   const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
     4,
     6
   )}-${createdDate.slice(6)}`;
+
+  const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Card View Favorites Button Clicked - Api Call');
+  };
+
+  const onToggleWonder = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Card View Wonder Button Clicked - Api Call');
+  };
+
+  const onToggleClips = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Card View Clips Button Clicked - Api Call');
+  };
+
   return (
     <article className="article-preview-detail">
       <section className="option-area">
@@ -41,20 +54,13 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
       </section>
       <section className="article-preview-content">{content}</section>
       <section className="article-preview-card-detail">
-        <Link to={`/article/${id}`}>Read more...</Link>
+        <Link to={`/article/${id}`} className="article-preview-link">
+          Read more...
+        </Link>
         <div className="article-preview-response">
-          <div className="article-preview-favorites">
-            <FaThumbsUp />
-            {favorites}
-          </div>
-          <div className="article-preview-wonder">
-            <ImWondering />
-            {wonders}
-          </div>
-          <div className="article-preview-clips">
-            <FaTags />
-            {clips}
-          </div>
+          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
+          <TglBtn type="wonder" count={wonders} handler={onToggleWonder} />
+          <TglBtn type="scrap" count={clips} handler={onToggleClips} />
         </div>
       </section>
     </article>
@@ -73,10 +79,24 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
     wonders,
     clips,
   } = { ...articlePreview };
+
   const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
     4,
     6
   )}-${createdDate.slice(6)}`;
+
+  const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('List View Favorites Button Clicked - Api Call');
+  };
+
+  const onToggleWonder = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('List View Wonder Button Clicked - Api Call');
+  };
+
+  const onToggleClips = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('List View Clips Button Clicked - Api Call');
+  };
+
   return (
     <article className="article-preview-detail">
       <section className="option-area">
@@ -88,23 +108,14 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
         <section className="article-preview-title">{title}</section>
       </Link>
       <section className="article-preview-list-detail">
-        <div className="article-preview-author">
+        <div className="article-preview-author-time">
           {anonymous ? `${author.name}` : `익명`}
+          <time>{createdTimeFormat}</time>
         </div>
-        <time className="article-created-time">{createdTimeFormat}</time>
         <div className="article-preview-response">
-          <div className="article-preview-favorites">
-            <FaThumbsUp />
-            {favorites}
-          </div>
-          <div className="article-preview-wonder">
-            <ImWondering />
-            {wonders}
-          </div>
-          <div className="article-preview-clips">
-            <FaTags />
-            {clips}
-          </div>
+          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
+          <TglBtn type="wonder" count={wonders} handler={onToggleWonder} />
+          <TglBtn type="scrap" count={clips} handler={onToggleClips} />
         </div>
       </section>
     </article>
