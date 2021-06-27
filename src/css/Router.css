@@ -1,0 +1,14 @@
+.total-main {
+  display: flex;
+  /* margin-left:15%; */
+  /* margin-right: 15%; */
+}
+
+.total-contents {
+  margin: 1rem;
+  width: 100%;
+}
+
+.side-contents {
+  margin: 1rem;
+}

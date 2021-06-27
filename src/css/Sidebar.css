@@ -1,12 +1,10 @@
 .main {
   display: flex;
   flex-direction: row;
-  height: 100%;
-  width: 100%;
+  width: 200px;
 }
 
 .side-bar {
-  height: 100%;
   display: flex;
   justify-content: center;
   position: fixed;
@@ -14,17 +12,14 @@
   left: -100%;
   transition: 800ms ease all;
   z-index: 10;
+  width: 200px;
 }
 
 .side-bar.active {
   height: 100%;
+  width: 200px;
   left: 0;
   transition: 800ms ease all;
-}
-
-.content {
-  width: 88%;
-  border: none;
 }
 
 .sidebar {
@@ -46,15 +41,19 @@
   position: fixed;
   top: -100%;
   transition: 800ms ease all;
+  width: 200px;
 }
 
 .subNav-active {
   transition: 800ms ease all;
+  width: 200px;
 }
 
 .big-category-btn {
-  width: 100%;
-  background-color: gray;
+  width: 200px;
+  height: 30px;
+  background-color: rgba(27, 27, 27, 0.616);
+  color: white;
   cursor: pointer;
   border-radius: 7px;
   transition: 800ms ease all;

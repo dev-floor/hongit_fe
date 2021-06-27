@@ -78,11 +78,7 @@ const ArticleOptionModal = (props: any) => {
                 {kind.text}
               </button>
             ) : (
-              <button
-                type="button"
-                value={kind.text}
-                onClick={onClickOptions}
-              >
+              <button type="button" value={kind.text} onClick={onClickOptions}>
                 {kind.text}
               </button>
             )
