@@ -6,13 +6,13 @@
   display: flex;
   flex-direction: row;
 }
-
+/* 
 .side-bar {
   width: 15%;
   display: block;
   justify-content: flex-start;
   align-items: center;
-}
+} */
 
 /* .menu {
   border: 1px solid black;
@@ -21,9 +21,9 @@
   border: 1px solid black;
 } */
 
-.content {
-  width: 80%;
-}
+/* .content {
+  /* width: 80%; 
+} */
 
 /*=============== BoardContentHeader===============*/
 .board-detail-header {
