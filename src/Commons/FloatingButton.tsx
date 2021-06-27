@@ -18,10 +18,18 @@ const FloatingButton = () => {
 
   return (
     <div className="floating-btn-area" onScroll={onScroll}>
-      <button className="btn-top" type="button" onClick={scrollToTop}>
+      <button
+        className="btn-top default-btn"
+        type="button"
+        onClick={scrollToTop}
+      >
         <i className="chevron up icon" />
       </button>
-      <button className="btn-bottom" type="button" onClick={scrollToBottom}>
+      <button
+        className="btn-bottom default-btn"
+        type="button"
+        onClick={scrollToBottom}
+      >
         <i className="chevron down icon" />
       </button>
     </div>

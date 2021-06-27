@@ -3,7 +3,7 @@ import { useSetRecoilState, useRecoilValue, useRecoilState } from 'recoil';
 import { UpdateCommentId, DeleteCommentId, NewCommentId } from 'Atoms/atom';
 import { CommentAreaProps, CommentProps } from 'interface/ArgProps';
 import Modal from 'Commons/Modal';
-import { AiOutlineHeart } from 'react-icons/ai';
+import TglBtn from 'Commons/TglBtn';
 import 'css/Article.css';
 
 const Comment = ({
@@ -48,16 +48,17 @@ const Comment = ({
     console.log(`${updateComment.id}번째 댓글의 내용이 변경중입니다`);
   };
 
+  const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
+    console.log('Comment Favorites Button Clicked - Api Call');
+  };
+
   return (
     <div className="comment">
       <div className="comment-author-area">
         {anonymous ? (
-          <div className="comment-author-name"> {id} 익명 </div>
+          <div className="comment-author-name"> 익명 </div>
         ) : (
-          <div className="comment-author-name">
-            {' '}
-            {id} {author.name}{' '}
-          </div>
+          <div className="comment-author-name"> {author.name} </div>
         )}
       </div>
       {commentId !== id ? (
@@ -65,35 +66,34 @@ const Comment = ({
       ) : (
         <form className="comment-update-submit-area" onSubmit={onUpdateSubmit}>
           <textarea defaultValue={content} onChange={onChange} />
-          <button className="btn-update-submit" type="submit">
+          <button
+            className="btn-update-submit default-submit-btn"
+            type="submit"
+          >
             수정
           </button>
         </form>
       )}
-      <div
-        style={{ display: 'flex', alignItems: 'center' }}
-        className="comment-icon-area"
-      >
-        <AiOutlineHeart className="heart-icon" size="14" />
-        {favorites}
-      </div>
-      <div className="comment-btn-area">
-        <button
-          type="button"
-          className="comment-btn-update"
-          value={id}
-          onClick={onClickUpdateComment}
-        >
-          수정
-        </button>
-        <button
-          type="button"
-          className="comment-btn-delete"
-          value={id}
-          onClick={onClickDeleteComment}
-        >
-          삭제
-        </button>
+      <div className="comment-info-area">
+        <div className="comment-btn-area">
+          <button
+            type="button"
+            className="comment-btn-update default-btn"
+            value={id}
+            onClick={onClickUpdateComment}
+          >
+            수정
+          </button>
+          <button
+            type="button"
+            className="comment-btn-delete default-btn"
+            value={id}
+            onClick={onClickDeleteComment}
+          >
+            삭제
+          </button>
+        </div>
+        <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
       </div>
     </div>
   );
@@ -182,7 +182,7 @@ const CommentArea = ({
       <hr />
       <form className="comment-submit-area" onSubmit={onHandleSubmit}>
         <textarea placeholder="댓글을 입력하세요..." onChange={onChange} />
-        <button className="btn-submit" type="submit">
+        <button className="btn-submit default-submit-btn" type="submit">
           등록
         </button>
       </form>

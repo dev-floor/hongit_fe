@@ -61,7 +61,7 @@ const FilterModal = (props: any) => {
             {courseGroup.map((course) =>
               viewFilterState.includes(course.text) ? (
                 <button
-                  className="selected"
+                  className="selected default-btn"
                   type="button"
                   value={course.text}
                   onClick={onClickViewFilter}
@@ -70,7 +70,7 @@ const FilterModal = (props: any) => {
                 </button>
               ) : (
                 <button
-                  className=""
+                  className="default-btn"
                   type="button"
                   value={course.text}
                   onClick={onClickViewFilter}
@@ -85,7 +85,7 @@ const FilterModal = (props: any) => {
             {articleKind.map((kind) =>
               viewFilterState.includes(kind.text) ? (
                 <button
-                  className="selected"
+                  className="selected default-btn"
                   type="button"
                   value={kind.text}
                   onClick={onClickViewFilter}
@@ -94,7 +94,7 @@ const FilterModal = (props: any) => {
                 </button>
               ) : (
                 <button
-                  className=""
+                  className="default-btn"
                   type="button"
                   value={kind.text}
                   onClick={onClickViewFilter}
@@ -109,7 +109,7 @@ const FilterModal = (props: any) => {
           <section>
             {viewModeValue === 'card' ? (
               <button
-                className="selected"
+                className="selected default-btn"
                 type="button"
                 value="card"
                 onClick={onClickViewMode}
@@ -118,7 +118,7 @@ const FilterModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
+                className="default-btn"
                 type="button"
                 value="card"
                 onClick={onClickViewMode}
@@ -128,7 +128,7 @@ const FilterModal = (props: any) => {
             )}
             {viewModeValue === 'list' ? (
               <button
-                className="selected"
+                className="selected default-btn"
                 type="button"
                 value="list"
                 onClick={onClickViewMode}
@@ -137,7 +137,7 @@ const FilterModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
+                className="default-btn"
                 type="button"
                 value="list"
                 onClick={onClickViewMode}
@@ -150,7 +150,7 @@ const FilterModal = (props: any) => {
           <section>
             {viewSortValue === 'seen' ? (
               <button
-                className="selected"
+                className="selected default-btn"
                 type="button"
                 value="seen"
                 onClick={onClickViewSort}
@@ -159,7 +159,7 @@ const FilterModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
+                className="default-btn"
                 type="button"
                 value="seen"
                 onClick={onClickViewSort}
@@ -169,7 +169,7 @@ const FilterModal = (props: any) => {
             )}
             {viewSortValue === 'favorite' ? (
               <button
-                className="selected"
+                className="selected default-btn"
                 type="button"
                 value="favorite"
                 onClick={onClickViewSort}
@@ -178,7 +178,7 @@ const FilterModal = (props: any) => {
               </button>
             ) : (
               <button
-                className=""
+                className="default-btn"
                 type="button"
                 value="favorite"
                 onClick={onClickViewSort}
@@ -187,7 +187,7 @@ const FilterModal = (props: any) => {
               </button>
             )}
             <button
-              className="btn-submit"
+              className="btn-submit default-btn"
               type="button"
               onClick={onCompleteFilterSetting}
             >

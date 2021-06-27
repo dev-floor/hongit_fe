@@ -18,21 +18,25 @@ const Modal = (props: any) => {
         <section>
           <header>
             {header}
-            <button className="btn-close-mark" onClick={close} type="button">
+            <button
+              className="btn-close-mark default-btn"
+              onClick={close}
+              type="button"
+            >
               &times;
             </button>
           </header>
           <main>{info}</main>
           <footer>
             <button
-              className="btn-register"
+              className="btn-register default-btn"
               onClick={registerBtnFunc}
               type="button"
             >
               {registerBtnStr}
             </button>
             <button
-              className="btn-cancel"
+              className="btn-cancel default-btn"
               onClick={cancelBtnFunc}
               type="button"
             >

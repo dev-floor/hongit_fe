@@ -8,8 +8,19 @@
   font-size: 0.9rem;
 }
 
-.article-descriptions button {
-  margin: 20px 2px 0px 2px;
+.article-descriptions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.hashtag-area {
+  margin: 0px;
+  padding: 0px;
+}
+
+.hashtag-area .hashtag {
+  margin: 0.7rem 2px 0px 2px;
   border: none;
   padding: 5px;
   width: 80px;
@@ -19,6 +30,10 @@
   background-color: var(--hashtag-color);
   color: white;
   font-size: 0.8rem;
+}
+
+.tglbtn-area {
+  display: flex;
 }
 
 /*=============== ArticleHeader ==================*/
@@ -183,12 +198,16 @@
 }
 /*-----------------------------------------*/
 
+.comment-btn-area {
+  display: flex;
+}
+
 .comment-btn-area button {
   font-size: 0.9rem;
   background-color: transparent;
   color: lightseagreen;
   padding: 0px 2px 0px 2px;
-  margin: 5px 0px 5px 0px;
+  margin: 0px;
 }
 
 .comment-btn-area button:hover {
@@ -196,10 +215,15 @@
   background-color: transparent;
 }
 
+.comment-info-area {
+  display: flex;
+  justify-content: space-between;
+}
+
 /*------*/
 .comment {
   margin: 0rem 0rem 0.5rem 0rem;
-  padding: 9px 1.5rem 5px 1.5rem;
+  padding: 1.2rem 1.5rem 5px 1.5rem;
   background-color: var(--back-color);
   box-shadow: 0 1px 1px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
   overflow: hidden;
@@ -209,6 +233,7 @@
 
 .comment-content {
   padding: 10px;
+  margin-top: 5px;
   margin-bottom: 0px;
   text-align: left;
   font-size: 12px;

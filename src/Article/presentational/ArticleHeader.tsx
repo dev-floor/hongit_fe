@@ -56,14 +56,14 @@ const ArticleHeader = ({
         <div className="article-btn-area">
           <button
             type="button"
-            className="articleheader-btn-update"
+            className="articleheader-btn-update default-btn"
             onClick={onClickArticleUpdate}
           >
             수정
           </button>
           <button
             type="button"
-            className="articleheader-btn-delete"
+            className="articleheader-btn-delete default-btn"
             onClick={onClickArticleDelete}
           >
             삭제
@@ -75,8 +75,8 @@ const ArticleHeader = ({
         close={closeModal}
         registerBtnStr="예"
         registerBtnFunc={onModalClickArticleDelete}
-        cancleBtnStr="아니오"
-        cancleBtnFunc={closeModal}
+        cancelBtnStr="아니오"
+        cancelBtnFunc={closeModal}
         header="게시글 삭제"
         info="해당 게시글을 정말 삭제하시겠습니까?"
       />

@@ -1,0 +1,89 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  width: 100%;
+}
+
+.side-bar {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 800ms ease all;
+  z-index: 10;
+}
+
+.side-bar.active {
+  height: 100%;
+  left: 0;
+  transition: 800ms ease all;
+}
+
+.content {
+  width: 88%;
+  border: none;
+}
+
+.sidebar {
+  display: block;
+  height: 100%;
+  border: none;
+}
+
+.menu-btn {
+  background-color: lightgrey;
+  border: none;
+  font-size: 25px;
+}
+
+.subNav {
+  background-color: #060b26;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: -100%;
+  transition: 800ms ease all;
+}
+
+.subNav-active {
+  transition: 800ms ease all;
+}
+
+.big-category-btn {
+  width: 100%;
+  background-color: gray;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 800ms ease all;
+  border: none;
+  text-align: left;
+}
+
+.big-category-btn:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.small-category-btn {
+  background: lightgrey;
+  height: 40px;
+  margin: 0.2rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 800ms ease all;
+  color: black;
+  font-size: 12px;
+}
+
+.small-category-btn:hover {
+  background: lightslategray;
+  color: black;
+  cursor: pointer;
+}

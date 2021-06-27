@@ -36,7 +36,9 @@ const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
           <RiEqualizerLine className="filter-btn" onClick={onOpenFilterModal} />
         )}
         <Link to="/write">
-          <button type="button">글쓰기</button>
+          <button type="button" className="default-btn">
+            글쓰기
+          </button>
         </Link>
       </div>
       <FilterModal
