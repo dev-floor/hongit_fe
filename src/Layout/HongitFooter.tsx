@@ -1,8 +1,6 @@
 import React from 'react';
 import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
 
-import 'css/HongitFooter.css';
-
 const HongitFooter = () => (
   <Segment inverted vertical style={{ padding: '2em 0em' }}>
     <Container>

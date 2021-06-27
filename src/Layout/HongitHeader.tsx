@@ -1,8 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Container, Grid, Header, List, Segment } from 'semantic-ui-react';
-import 'css/HongitHeader.css';
-import { RiGitBranchFill } from 'react-icons/ri';
 
 const HongitHeader = () => (
   <div>
