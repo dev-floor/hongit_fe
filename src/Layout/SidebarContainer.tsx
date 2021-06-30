@@ -17,20 +17,11 @@ const SidebarContainer = () => {
     loadData();
   }, []);
 
-  // const [showSidebar, setShowSidebar] = useState(false);
-  // const sideBarShowState = () => setShowSidebar(!showSidebar);
-
   return (
     <div className="main">
-      {/* <section className={showSidebar ? 'side-bar-active' : 'side-bar'}> */}
-      <section className="side-bar-active">
+      <section className="side-bar">
         <Sidebar sideBarData={sidebarData} />
       </section>
-      {/* <section className="content">
-        <button className="menu-btn" type="button" onClick={sideBarShowState}>
-          <i className="list icon" />
-        </button>
-      </section> */}
     </div>
   );
 };
