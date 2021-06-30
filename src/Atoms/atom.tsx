@@ -1,4 +1,4 @@
-import { atom } from 'recoil';
+import { atom, selector } from 'recoil';
 import { OptionResponse } from 'api/ApiProps';
 
 export const selectedArticleId = atom<string>({
@@ -55,4 +55,9 @@ export const DeleteCommentId = atom<number>({
 export const NewCommentId = atom<number>({
   key: 'newCommentId',
   default: 0,
+});
+
+export const schoolYear = atom<string>({
+  key: 'studentSchoolYear',
+  default: '0학년',
 });

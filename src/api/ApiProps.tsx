@@ -94,3 +94,8 @@ export interface SideBarDetailApi {
     text: string;
   };
 }
+
+export interface FavoriteLectureApi {
+  yearFilteredData: string[];
+  finalFilteredData: BoardDetailApi[];
+}

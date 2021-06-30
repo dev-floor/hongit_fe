@@ -18,9 +18,11 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
 
   return (
     <nav className="sidebar">
-      <button className="big-category-btn" type="button">
-        즐겨찾기 추가
-      </button>
+      <Link to="/favoriteRegister">
+        <button className="big-category-btn" type="button">
+          즐겨찾기 추가
+        </button>
+      </Link>
       <button className="big-category-btn" type="button" onClick={showSubNav}>
         <i className={subNav ? 'chevron down icon' : 'chevron right icon'} />
         수업게시판

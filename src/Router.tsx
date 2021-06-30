@@ -6,6 +6,7 @@ import ArticleCreatePageContainer from './Article/container/ArticleCreatePageCon
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
 import BoardDetailContainer from './Board/container/BoardDetailContainer';
 import SidebarContainer from './Layout/SidebarContainer';
+import FavoriteLectureContainer from './FavoriteLecture/Container/FavoriteLectureContainer';
 import HongitMain from './Layout/HongitMain';
 import HongitHeader from './Layout/HongitHeader';
 import HongitFooter from './Layout/HongitFooter';
@@ -27,6 +28,11 @@ const Router = () => (
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
         <Route path="/write" component={ArticleCreatePageContainer} exact />
         <Route path="/board" component={BoardDetailContainer} exact />
+        <Route
+          path="/favoriteRegister"
+          component={FavoriteLectureContainer}
+          exact
+        />
         <Route path="/board/1" render={() => <h1>질문게시판</h1>} />
         <Route path="/board/2" render={() => <h1>커뮤니티게시판</h1>} />
         <Route path="/board/3" render={() => <h1>구인게시판</h1>} />
