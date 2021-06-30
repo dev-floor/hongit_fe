@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { SideBarProps } from 'interface/ArgProps';
 import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
 import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
@@ -26,6 +27,10 @@ const Router = () => (
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
         <Route path="/write" component={ArticleCreatePageContainer} exact />
         <Route path="/board" component={BoardDetailContainer} exact />
+        <Route path="/board/1" render={() => <h1>질문게시판</h1>} />
+        <Route path="/board/2" render={() => <h1>커뮤니티게시판</h1>} />
+        <Route path="/board/3" render={() => <h1>구인게시판</h1>} />
+        <Route path="/board/4" render={() => <h1>채용게시판</h1>} />
       </div>
     </div>
     <HongitFooter />
