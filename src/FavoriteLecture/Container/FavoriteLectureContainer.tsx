@@ -26,14 +26,14 @@ const FavoriteLectureContainer = () => {
     const lecturesSet = [] as string[];
     for (let i = 0; i < allLectureData.length; i += 1) {
       if (
-        selectedSchoolYear === allLectureData[i].grade.text &&
+        selectedSchoolYear.includes(allLectureData[i].grade.text) &&
         !lecturesSet.includes(allLectureData[i].subject)
       ) {
         lecturesSet.push(allLectureData[i].subject);
       }
     }
     setYearFilteredData(lecturesSet);
-  }, [selectedSchoolYear]);
+  }, [selectedSchoolYear, allLectureData]);
 
   return (
     <FavortieLecture

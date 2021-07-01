@@ -57,7 +57,7 @@ export const NewCommentId = atom<number>({
   default: 0,
 });
 
-export const schoolYear = atom<string>({
+export const schoolYear = atom<string[]>({
   key: 'studentSchoolYear',
-  default: '0학년',
+  default: [] as string[],
 });
