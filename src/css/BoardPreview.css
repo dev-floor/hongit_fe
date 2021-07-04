@@ -15,7 +15,7 @@
 .board-preview-detail {
   background-color: rgba(136, 134, 134, 0.089);
   padding: 7px;
-  margin-left: 10px;
+  /* margin-left: 10px; */
   border-radius: 5px;
 }
 
