@@ -1,0 +1,10 @@
+.hongit-link {
+  margin-top: 1rem;
+  font-size: 30px;
+  color: white;
+  font-weight: 600;
+}
+
+.hongit-link:hover {
+  color: crimson;
+}

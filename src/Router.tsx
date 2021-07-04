@@ -1,6 +1,5 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { SideBarProps } from 'interface/ArgProps';
 import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
 import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
