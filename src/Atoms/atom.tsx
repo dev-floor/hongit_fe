@@ -56,3 +56,9 @@ export const NewCommentId = atom<number>({
   key: 'newCommentId',
   default: 0,
 });
+
+export const isFullSize = atom<boolean>({
+  key: 'isfullSize',
+  default: false,
+});
+
