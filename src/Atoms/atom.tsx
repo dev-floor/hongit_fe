@@ -56,3 +56,8 @@ export const NewCommentId = atom<number>({
   key: 'newCommentId',
   default: 0,
 });
+
+export const viewBanner = atom<boolean>({
+  key: 'viewBanner',
+  default: false,
+})
