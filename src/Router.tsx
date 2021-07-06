@@ -1,5 +1,6 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
+import { isFullSize } from 'Atoms/atom';
 import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
 import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
@@ -8,11 +9,14 @@ import SidebarContainer from './Layout/SidebarContainer';
 import HongitMain from './Layout/HongitMain';
 import HongitHeader from './Layout/HongitHeader';
 import HongitFooter from './Layout/HongitFooter';
-
+import Login from './User/Login';
+import SignIn from './User/SignIn';
 import 'css/Router.css';
 
 const Router = () => (
   <div>
+    <Route path="/login" component={Login} exact />
+    <Route path="/SignIn" component={SignIn} exact />
     <HongitHeader />
     <div className="total-main">
       <div className="side-contents">
