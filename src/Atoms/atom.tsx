@@ -61,3 +61,9 @@ export const schoolYear = atom<string[]>({
   key: 'studentSchoolYear',
   default: [] as string[],
 });
+
+export const isFullSize = atom<boolean>({
+  key: 'isfullSize',
+  default: false,
+});
+
