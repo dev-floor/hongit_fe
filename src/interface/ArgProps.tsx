@@ -6,6 +6,7 @@ import {
   ArticleListApi,
   BoardDetailApi,
   SideBarDetailApi,
+  FavoriteLectureApi,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -44,4 +45,9 @@ export interface BoardDetailProp {
 
 export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
+}
+
+export interface FavoriteLectureProps {
+  yearFilteredData: string[];
+  finalFilteredData: string[];
 }

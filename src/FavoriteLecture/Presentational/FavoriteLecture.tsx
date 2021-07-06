@@ -1,24 +1,53 @@
-import React from 'react';
+import React, { useState, useEffect, SyntheticEvent } from 'react';
 import { useRecoilState } from 'recoil';
-import { schoolYear } from 'Atoms/atom';
-import { FavoriteLectureApi } from 'api/ApiProps';
-import { Grid, Header, Divider, Button } from 'semantic-ui-react';
+import { schoolYear, subjectName } from 'Atoms/atom';
+import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
+import { FavoriteLectureProps } from '../../interface/ArgProps';
+
+import './FavoriteLecture.css';
 
 const FavortieLecture = ({
   yearFilteredData,
   finalFilteredData,
-}: FavoriteLectureApi) => {
+}: FavoriteLectureProps) => {
   const [selectedSchoolYear, setSchoolYear] = useRecoilState(schoolYear);
+  const [selectedSubject, setSubject] = useRecoilState(subjectName);
 
-  const onClickYear = (e: any) => {
-    const clickedYear = e.target.value as string;
-    if (selectedSchoolYear.includes(clickedYear)) {
-      setSchoolYear(selectedSchoolYear.filter((year) => year !== clickedYear));
-    } else {
-      setSchoolYear([...selectedSchoolYear, clickedYear]);
-    }
-    e.target.classList.toggle('active');
+  const [selectedProf, setProf] = useState<string>('');
+  const [selectedCombination, setCombination] = useState<string[]>([]);
+
+  const onClickYear = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const clickedYear = e.currentTarget.value;
+    setSchoolYear(clickedYear);
+    e.currentTarget.classList.toggle('active');
   };
+
+  const onClickSubject = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const clickedSubject = e.currentTarget.value;
+    setSubject(clickedSubject);
+    e.currentTarget.classList.toggle('active');
+  };
+
+  const onClickProfessor = (e: React.MouseEvent<HTMLButtonElement>) => {
+    setProf(e.currentTarget.value);
+  };
+
+  const onRemove = (e: SyntheticEvent) => {
+    const clickedValue = e.currentTarget.parentElement?.textContent;
+    console.log(e.currentTarget.parentElement?.textContent);
+    setCombination(() =>
+      selectedCombination.filter((combi) => combi !== clickedValue)
+    );
+  };
+
+  const onRegisterFavorite = () => {};
+
+  useEffect(() => {
+    const addItem = `${selectedSubject} - ${selectedProf}`;
+    if (selectedSubject !== '' && selectedProf !== '') {
+      setCombination([...selectedCombination, addItem]);
+    }
+  }, [selectedProf]);
 
   return (
     <Grid container style={{ padding: '2em 0em' }}>
@@ -26,9 +55,9 @@ const FavortieLecture = ({
         <Grid.Column>
           <Header as="h1">즐겨찾기 등록</Header>
           <Divider />
-          <Grid columns={4}>
-            <Grid.Column>
-              <Button.Group toggle vertical size="large">
+          <Grid columns={5}>
+            <Grid.Column centered width={2}>
+              <Button.Group className="fav-btns" toggle vertical size="large">
                 {selectedSchoolYear.includes('1학년') ? (
                   <Button value="1학년" color="red" onClick={onClickYear}>
                     1학년
@@ -87,17 +116,44 @@ const FavortieLecture = ({
                 )}
               </Button.Group>
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column centered width={5}>
               <Button.Group vertical>
                 {yearFilteredData.length === 0
                   ? ``
-                  : yearFilteredData.map((data) => <Button>{data}</Button>)}
+                  : yearFilteredData.map((data) => (
+                      <Button value={data} onClick={onClickSubject}>
+                        {data}
+                      </Button>
+                    ))}
+              </Button.Group>
+            </Grid.Column>
+            <Grid.Column centered width={2}>
+              <Button.Group vertical>
+                {finalFilteredData.length === 0
+                  ? ``
+                  : finalFilteredData.map((data) => (
+                      <Button value={data} onClick={onClickProfessor}>
+                        {data}
+                      </Button>
+                    ))}
               </Button.Group>
             </Grid.Column>
             <Grid.Column>
-              <Button.Group vertical>
-                <Button>Test</Button>
-              </Button.Group>
+              {selectedCombination.length === 0
+                ? ``
+                : selectedCombination.map((combi) => (
+                    <Label value={combi}>
+                      {combi}
+                      <Icon name="delete" onClick={onRemove} />
+                    </Label>
+                  ))}
+            </Grid.Column>
+            <Grid.Column>
+              {selectedCombination.length === 0 ? (
+                <Button disabled>추가</Button>
+              ) : (
+                <Button onClick={onRegisterFavorite}>추가</Button>
+              )}
             </Grid.Column>
           </Grid>
         </Grid.Column>

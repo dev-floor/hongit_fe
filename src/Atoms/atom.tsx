@@ -1,4 +1,4 @@
-import { atom, selector } from 'recoil';
+import { atom } from 'recoil';
 import { OptionResponse } from 'api/ApiProps';
 
 export const selectedArticleId = atom<string>({
@@ -57,13 +57,25 @@ export const NewCommentId = atom<number>({
   default: 0,
 });
 
-export const schoolYear = atom<string[]>({
+export const schoolYear = atom<string>({
   key: 'studentSchoolYear',
-  default: [] as string[],
+  default: '',
+});
+
+export const subjectName = atom<string>({
+  key: 'favortieLectureSubject',
+  default: '',
+});
+
+export const finalFavoriteObj = atom<object>({
+  key: 'finalFavoriteObj',
+  default: {
+    subject: '',
+    professor: '',
+  },
 });
 
 export const isFullSize = atom<boolean>({
   key: 'isfullSize',
   default: false,
 });
-

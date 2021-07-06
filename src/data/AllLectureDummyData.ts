@@ -15,40 +15,6 @@ const allLectureDummyData = [
       id: 'FRESHMAN',
       text: '1학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 2,
@@ -66,40 +32,6 @@ const allLectureDummyData = [
       id: 'FRESHMAN',
       text: '1학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 3,
@@ -117,40 +49,6 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 4,
@@ -168,40 +66,6 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 5,
@@ -219,40 +83,6 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 6,
@@ -270,40 +100,6 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 7,
@@ -321,40 +117,6 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 8,
@@ -372,40 +134,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 9,
@@ -423,40 +151,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 10,
@@ -474,40 +168,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 11,
@@ -525,40 +185,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 12,
@@ -576,40 +202,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 13,
@@ -627,40 +219,6 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 14,
@@ -678,40 +236,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 15,
@@ -729,40 +253,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 16,
@@ -780,40 +270,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 17,
@@ -831,40 +287,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 18,
@@ -882,40 +304,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 19,
@@ -933,40 +321,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
   {
     id: 20,
@@ -984,40 +338,6 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
-    options: [
-      {
-        id: 1,
-        text: '1분반/월2수34',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 2,
-        text: '2분반/월3수67',
-        type: {
-          id: 'COURSE_GROUP',
-          text: '분반',
-        },
-      },
-      {
-        id: 3,
-        text: '질문',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-      {
-        id: 4,
-        text: '일정',
-        type: {
-          id: 'ARTICLE_KIND',
-          text: '게시글 종류',
-        },
-      },
-    ],
   },
 ];
 

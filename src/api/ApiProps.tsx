@@ -96,6 +96,10 @@ export interface SideBarDetailApi {
 }
 
 export interface FavoriteLectureApi {
-  yearFilteredData: string[];
-  finalFilteredData: BoardDetailApi[];
+  id: number;
+  title: string;
+  professor: ProfessorResponse;
+  subject: string;
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse;
 }

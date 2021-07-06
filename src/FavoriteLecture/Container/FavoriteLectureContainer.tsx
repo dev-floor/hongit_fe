@@ -1,17 +1,20 @@
 import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import { schoolYear } from 'Atoms/atom';
+import { schoolYear, subjectName } from 'Atoms/atom';
 import { allLectureAPI } from 'api/api';
-import { BoardDetailApi } from 'api/ApiProps';
+import { FavoriteLectureApi } from 'api/ApiProps';
 import FavortieLecture from '../Presentational/FavoriteLecture';
 
 const FavoriteLectureContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<BoardDetailApi[]>([]);
-  const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
-  const [finalFilteredData, setFinalFilteredData] = useState<BoardDetailApi[]>(
+  const [allLectureData, setAllLectureData] = useState<FavoriteLectureApi[]>(
     []
   );
+  const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
+  const [subjectFilteredData, setSubjecFilteredData] = useState<string[]>([]);
+  const [finalFilteredData, setFinalFilteredData] = useState<string[]>([]);
+
   const selectedSchoolYear = useRecoilValue(schoolYear);
+  const selectedSubject = useRecoilValue(subjectName);
 
   const loadData = async () => {
     const totalLectureInfo = await allLectureAPI.get();
@@ -26,7 +29,7 @@ const FavoriteLectureContainer = () => {
     const lecturesSet = [] as string[];
     for (let i = 0; i < allLectureData.length; i += 1) {
       if (
-        selectedSchoolYear.includes(allLectureData[i].grade.text) &&
+        selectedSchoolYear === allLectureData[i].grade.text &&
         !lecturesSet.includes(allLectureData[i].subject)
       ) {
         lecturesSet.push(allLectureData[i].subject);
@@ -34,6 +37,19 @@ const FavoriteLectureContainer = () => {
     }
     setYearFilteredData(lecturesSet);
   }, [selectedSchoolYear, allLectureData]);
+
+  useEffect(() => {
+    const professorSet = [] as string[];
+    for (let i = 0; i < allLectureData.length; i += 1) {
+      if (
+        selectedSubject === allLectureData[i].subject &&
+        !professorSet.includes(allLectureData[i].professor.name)
+      ) {
+        professorSet.push(allLectureData[i].professor.name);
+      }
+    }
+    setFinalFilteredData(professorSet);
+  }, [selectedSubject]);
 
   return (
     <FavortieLecture
