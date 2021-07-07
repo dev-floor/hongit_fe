@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import { schoolYear, subjectName } from 'Atoms/atom';
+
+import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { schoolYear, subjectName, selectedFavorites } from 'Atoms/atom';
+
 import { allLectureAPI } from 'api/api';
 import { FavoriteLectureApi } from 'api/ApiProps';
 import FavortieLecture from '../Presentational/FavoriteLecture';
@@ -10,15 +12,21 @@ const FavoriteLectureContainer = () => {
     []
   );
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
-  const [subjectFilteredData, setSubjecFilteredData] = useState<string[]>([]);
   const [finalFilteredData, setFinalFilteredData] = useState<string[]>([]);
 
   const selectedSchoolYear = useRecoilValue(schoolYear);
   const selectedSubject = useRecoilValue(subjectName);
+  const setFavorites = useSetRecoilState(selectedFavorites);
 
   const loadData = async () => {
     const totalLectureInfo = await allLectureAPI.get();
     setAllLectureData(totalLectureInfo);
+  };
+
+  const onAddSiderBars = (lectures: string[]) => {
+    setFavorites(() =>
+      allLectureData.filter((data) => lectures.includes(data.title))
+    );
   };
 
   useEffect(() => {
@@ -49,12 +57,13 @@ const FavoriteLectureContainer = () => {
       }
     }
     setFinalFilteredData(professorSet);
-  }, [selectedSubject]);
+  }, [selectedSubject, allLectureData]);
 
   return (
     <FavortieLecture
       yearFilteredData={yearFilteredData}
       finalFilteredData={finalFilteredData}
+      onAddSiderBars={onAddSiderBars}
     />
   );
 };

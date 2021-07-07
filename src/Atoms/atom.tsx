@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { OptionResponse } from 'api/ApiProps';
+import { OptionResponse, FavoriteLectureApi } from 'api/ApiProps';
 
 export const selectedArticleId = atom<string>({
   key: 'selectedArticleId',
@@ -67,12 +67,9 @@ export const subjectName = atom<string>({
   default: '',
 });
 
-export const finalFavoriteObj = atom<object>({
+export const selectedFavorites = atom<FavoriteLectureApi[]>({
   key: 'finalFavoriteObj',
-  default: {
-    subject: '',
-    professor: '',
-  },
+  default: [],
 });
 
 export const isFullSize = atom<boolean>({

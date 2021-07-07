@@ -50,4 +50,5 @@ export interface SideBarProps {
 export interface FavoriteLectureProps {
   yearFilteredData: string[];
   finalFilteredData: string[];
+  onAddSiderBars: (lectures: string[]) => void;
 }
