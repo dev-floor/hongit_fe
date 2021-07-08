@@ -61,4 +61,3 @@ export const isFullSize = atom<boolean>({
   key: 'isfullSize',
   default: false,
 });
-
