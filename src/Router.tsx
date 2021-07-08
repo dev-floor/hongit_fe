@@ -9,14 +9,14 @@ import SidebarContainer from './Layout/SidebarContainer';
 import HongitMain from './Layout/HongitMain';
 import HongitHeader from './Layout/HongitHeader';
 import HongitFooter from './Layout/HongitFooter';
-import Login from './User/Login';
-import SignIn from './User/SignIn';
+import LoginContainer from './User/Container/LoginContainer';
+import SignInContainer from './User/Container/SignInContainer';
 import 'css/Router.css';
 
 const Router = () => (
   <div>
-    <Route path="/login" component={Login} exact />
-    <Route path="/SignIn" component={SignIn} exact />
+    <Route path="/login" component={LoginContainer} exact />
+    <Route path="/SignIn" component={SignInContainer} exact />
     <HongitHeader />
     <div className="total-main">
       <div className="side-contents">
