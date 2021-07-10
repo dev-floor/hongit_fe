@@ -10,6 +10,10 @@
   margin: 0px;
 }
 
+.tgl-btn:hover {
+  cursor: pointer;
+}
+
 .tgl-btn-icon {
   margin-right: 5px;
   margin-top: 0px;

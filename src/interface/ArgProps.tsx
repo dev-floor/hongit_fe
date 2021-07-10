@@ -6,6 +6,8 @@ import {
   ArticleListApi,
   BoardDetailApi,
   SideBarDetailApi,
+  BoardPreviewInfo,
+  ArticlePreviewInfo,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -44,4 +46,11 @@ export interface BoardDetailProp {
 
 export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
+}
+
+export interface BoardPreviewProp {
+  previewData: BoardPreviewInfo;
+}
+export interface ArticlePreviewProp {
+  previewData: ArticlePreviewInfo;
 }
