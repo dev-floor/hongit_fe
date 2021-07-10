@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { SideBarProps } from 'interface/ArgProps';
+import { useResetRecoilState } from 'recoil';
+import { viewBanner } from 'Atoms/atom';
 import 'css/Sidebar.css';
 
 const Sidebar = ({ sideBarData }: SideBarProps) => {
   const [subNav, setSubNav] = useState(false);
   const showSubNav = () => setSubNav(!subNav);
+
+  const removeBanner = useResetRecoilState(viewBanner);
 
   const courseBoard = sideBarData.filter(
     (board) => board.type.id === 'COURSE_BOARD'
@@ -31,7 +35,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
       <nav className={subNav ? 'subNav-active' : 'subNav'}>
         {courseBoard.map((course) => (
           // <Link to={`/board/${course.id}`} className="small-category-btn">
-          <Link to="/board" className="small-category-btn">
+          <Link to="/board" className="small-category-btn" onClick={removeBanner}>
             {course.title}
           </Link>
         ))}
@@ -41,6 +45,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
           to={`/board/${course.id}`}
           className="big-category-btn"
           type="button"
+          onClick={removeBanner}
         >
           <i className="chevron right icon" />
           {course.type.text}
