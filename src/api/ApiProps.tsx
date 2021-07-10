@@ -22,6 +22,31 @@ export interface OptionResponse {
   type: BaseEnumResponse;
 }
 
+export interface ArticlePreviewInfo {
+  articleId: number;
+  title: string;
+  favoriteCount: number;
+  wonderCount: number;
+  clipCount: number;
+  createdAt: string;
+  modifiedAt: string;
+}
+
+export interface BoardPreviewInfo {
+  boardId: number;
+  title: string;
+  articles: ArticlePreviewInfo[];
+}
+
+export interface HomeApi {
+  totalFavorite: BoardPreviewInfo;
+  qnaRecent: BoardPreviewInfo;
+  totalViews: BoardPreviewInfo;
+  community: BoardPreviewInfo;
+  gathering: BoardPreviewInfo;
+  recruit: BoardPreviewInfo;
+}
+
 export interface ArticleDetailApi {
   options: string[];
   title: string;
