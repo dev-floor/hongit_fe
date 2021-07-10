@@ -1,6 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilValue } from 'recoil';
 import { viewBanner } from 'Atoms/atom';
 import { Segment } from 'semantic-ui-react';
 
