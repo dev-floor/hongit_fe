@@ -32,7 +32,6 @@
 }
 
 .subNav-active {
-  /* transition: 800ms ease all; */
   width: 200px;
 }
 
@@ -92,4 +91,8 @@
   transition: 800ms ease all;
   color: white;
   font-size: 12px;
+}
+
+.favorite-add-btn :hover {
+  background: black;
 }

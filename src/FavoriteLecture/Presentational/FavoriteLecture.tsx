@@ -1,7 +1,7 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 
 import { useRecoilState } from 'recoil';
-import { schoolYear, subjectName } from 'Atoms/atom';
+import { grade, subjectName } from 'Atoms/atom';
 
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
 import { FavoriteLectureProps } from '../../interface/ArgProps';
@@ -11,15 +11,15 @@ const FavortieLecture = ({
   finalFilteredData,
   onAddSiderBars,
 }: FavoriteLectureProps) => {
-  const [selectedSchoolYear, setSchoolYear] = useRecoilState(schoolYear);
+  const [selectedGrade, setGrade] = useRecoilState(grade);
   const [selectedSubject, setSubject] = useRecoilState(subjectName);
 
-  const [selectedProf, setProf] = useState<string>('');
+  const [selectedProfessor, setProfProfessor] = useState<string>('');
   const [selectedCombination, setCombination] = useState<string[]>([]);
 
   const onClickYear = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedYear = e.currentTarget.value;
-    setSchoolYear(clickedYear);
+    setGrade(clickedYear);
     e.currentTarget.classList.toggle('active');
   };
 
@@ -31,10 +31,10 @@ const FavortieLecture = ({
 
   const onClickProfessor = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedProf = e.currentTarget.value;
-    setProf(clickedProf);
+    setProfProfessor(clickedProf);
   };
 
-  const onRemove = (e: SyntheticEvent) => {
+  const onRemoveFavTag = (e: SyntheticEvent) => {
     const clickedValue = e.currentTarget.parentElement?.textContent;
     console.log(e.currentTarget.parentElement?.textContent);
     setCombination(() =>
@@ -47,17 +47,17 @@ const FavortieLecture = ({
   };
 
   useEffect(() => {
-    const addItem = `${selectedSubject} - ${selectedProf}`;
+    const addItem = `${selectedSubject} - ${selectedProfessor}`;
     console.log(addItem, selectedCombination);
     if (
       selectedSubject !== '' &&
-      selectedProf !== '' &&
+      selectedProfessor !== '' &&
       !selectedCombination.includes(addItem)
     ) {
       setCombination([...selectedCombination, addItem]);
     }
-    setProf('');
-  }, [selectedProf]);
+    setProfProfessor('');
+  }, [selectedProfessor]);
 
   return (
     <Grid container style={{ padding: '2em 0em' }}>
@@ -68,7 +68,7 @@ const FavortieLecture = ({
           <Grid className="grid-tmp" columns={5}>
             <Grid.Column width={2} textAlign="center">
               <Button.Group labeled toggle vertical size="large">
-                {selectedSchoolYear.includes('1학년') ? (
+                {selectedGrade.includes('1학년') ? (
                   <Button value="1학년" color="red" onClick={onClickYear}>
                     1학년
                   </Button>
@@ -82,7 +82,7 @@ const FavortieLecture = ({
                     1학년
                   </Button>
                 )}
-                {selectedSchoolYear.includes('2학년') ? (
+                {selectedGrade.includes('2학년') ? (
                   <Button value="2학년" color="blue" onClick={onClickYear}>
                     2학년
                   </Button>
@@ -96,7 +96,7 @@ const FavortieLecture = ({
                     2학년
                   </Button>
                 )}
-                {selectedSchoolYear.includes('3학년') ? (
+                {selectedGrade.includes('3학년') ? (
                   <Button value="3학년" color="green" onClick={onClickYear}>
                     3학년
                   </Button>
@@ -110,7 +110,7 @@ const FavortieLecture = ({
                     3학년
                   </Button>
                 )}
-                {selectedSchoolYear.includes('4학년') ? (
+                {selectedGrade.includes('4학년') ? (
                   <Button value="4학년" color="purple" onClick={onClickYear}>
                     4학년
                   </Button>
@@ -154,7 +154,7 @@ const FavortieLecture = ({
                 : selectedCombination.map((combi) => (
                     <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
                       {combi}
-                      <Icon name="delete" onClick={onRemove} />
+                      <Icon name="delete" onClick={onRemoveFavTag} />
                     </Label>
                   ))}
             </Grid.Column>

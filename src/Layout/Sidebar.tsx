@@ -13,6 +13,17 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
   const showAllLectureSubNav = () => setallLectureSubNav(!allLectureSubNav);
   const showFavLectureSubNav = () => setFavLectureSubNav(!favLectureSubNav);
 
+  /* 다연님께서 요청하신 주석 부분.
+  const courseBoard = sideBarData.filter(
+    (board) => board.type.id === 'COURSE_BOARD'
+  );
+  console.log(courseBoard);
+  const otherBoards = sideBarData.filter(
+    (board) => board.type.id !== 'COURSE_BOARD'
+  );
+  console.log(otherBoards);
+  */
+
   const favoriteLectures = useRecoilValue(selectedFavorites);
 
   return (

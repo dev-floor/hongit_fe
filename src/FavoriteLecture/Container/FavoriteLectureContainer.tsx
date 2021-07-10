@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { schoolYear, subjectName, selectedFavorites } from 'Atoms/atom';
+import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 
 import { allLectureAPI } from 'api/api';
 import { FavoriteLectureApi } from 'api/ApiProps';
@@ -14,7 +14,7 @@ const FavoriteLectureContainer = () => {
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
   const [finalFilteredData, setFinalFilteredData] = useState<string[]>([]);
 
-  const selectedSchoolYear = useRecoilValue(schoolYear);
+  const selectedGrade = useRecoilValue(grade);
   const selectedSubject = useRecoilValue(subjectName);
   const setFavorites = useSetRecoilState(selectedFavorites);
 
@@ -37,14 +37,14 @@ const FavoriteLectureContainer = () => {
     const lecturesSet = [] as string[];
     for (let i = 0; i < allLectureData.length; i += 1) {
       if (
-        selectedSchoolYear === allLectureData[i].grade.text &&
+        selectedGrade === allLectureData[i].grade.text &&
         !lecturesSet.includes(allLectureData[i].subject)
       ) {
         lecturesSet.push(allLectureData[i].subject);
       }
     }
     setYearFilteredData(lecturesSet);
-  }, [selectedSchoolYear, allLectureData]);
+  }, [selectedGrade, allLectureData]);
 
   useEffect(() => {
     const professorSet = [] as string[];
