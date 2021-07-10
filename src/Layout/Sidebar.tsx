@@ -22,7 +22,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
 
   return (
     <nav className="sidebar">
-      <Link to ="/" className="big-category-btn" type="button">
+      <Link to="/" className="big-category-btn" type="button">
         메인화면가기
       </Link>
       <button className="big-category-btn" type="button">
@@ -35,7 +35,11 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
       <nav className={subNav ? 'subNav-active' : 'subNav'}>
         {courseBoard.map((course) => (
           // <Link to={`/board/${course.id}`} className="small-category-btn">
-          <Link to="/board" className="small-category-btn" onClick={removeBanner}>
+          <Link
+            to="/board"
+            className="small-category-btn"
+            onClick={removeBanner}
+          >
             {course.title}
           </Link>
         ))}

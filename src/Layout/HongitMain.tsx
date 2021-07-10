@@ -3,9 +3,9 @@ import { Grid, Segment } from 'semantic-ui-react';
 import { homeAPI } from 'api/api';
 import { HomeApi } from 'api/ApiProps';
 import BoardPreview from 'Board/presentational/BoardPreview';
-import 'css/BoardDetail.css';
 import { useSetRecoilState } from 'recoil';
 import { viewBanner } from 'Atoms/atom';
+import 'css/BoardDetail.css';
 
 const HongitMain = () => {
   const [data, setData] = useState<HomeApi>({
@@ -51,7 +51,7 @@ const HongitMain = () => {
   }, []);
 
   const showBanner = useSetRecoilState(viewBanner);
-  
+
   useEffect(() => {
     showBanner(true);
   }, []);
