@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-import { isFullSize } from 'Atoms/atom';
-import { useSetRecoilState } from 'recoil'
+import { isFullSize, viewBanner } from 'Atoms/atom';
+import { useSetRecoilState } from 'recoil';
 import {
   Button,
   Container,
@@ -12,9 +12,14 @@ import {
 
 const HongitMain = () => {
   const setFullSize = useSetRecoilState(isFullSize);
+  const showBanner = useSetRecoilState(viewBanner);
 
   useEffect(() => {
     setFullSize(false);
+  }, []);
+
+  useEffect(() => {
+    showBanner(true);
   }, []);
 
   return (
@@ -45,10 +50,10 @@ const HongitMain = () => {
             Hello Hello Hongit Main Page!
           </Header>
           <p style={{ fontSize: '1.33em' }}>
-            Instead of focusing on content creation and hard work, we have learned
-            how to master the art of doing nothing by providing massive amounts of
-            whitespace and generic content that can seem massive, monolithic and
-            worth your attention
+            Instead of focusing on content creation and hard work, we have
+            learned how to master the art of doing nothing by providing massive
+            amounts of whitespace and generic content that can seem massive,
+            monolithic and worth your attention
           </p>
           <Button as="a" size="large">
             Read More
@@ -65,9 +70,10 @@ const HongitMain = () => {
             Did We Tell You About Our Bananas?
           </Header>
           <p style={{ fontSize: '1.33em' }}>
-            Yes I know you probably disregarded the earlier boasts as non-sequitur
-            filler content, but its really true. It took years of gene splicing
-            and combinatory DNA research, but our bananas can really dance.
+            Yes I know you probably disregarded the earlier boasts as
+            non-sequitur filler content, but its really true. It took years of
+            gene splicing and combinatory DNA research, but our bananas can
+            really dance.
           </p>
           <Button as="a" size="large">
             Button Test
@@ -80,9 +86,9 @@ const HongitMain = () => {
             Hongit Main Layout
           </Header>
           <p style={{ fontSize: '1.23em' }}>
-            Instead of focusing on content creation and hard work, we have learned
-            Yes I know you probably disregarded the earlier boasts as non-sequitur
-            how to master th 홍잇 메인화면 레이아웃 테스트
+            Instead of focusing on content creation and hard work, we have
+            learned Yes I know you probably disregarded the earlier boasts as
+            non-sequitur how to master th 홍잇 메인화면 레이아웃 테스트
           </p>
           <Button as="a" size="large">
             Read More

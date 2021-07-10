@@ -18,6 +18,9 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
 
   return (
     <nav className="sidebar">
+      <Link to ="/" className="big-category-btn" type="button">
+        메인화면가기
+      </Link>
       <button className="big-category-btn" type="button">
         즐겨찾기 추가
       </button>
