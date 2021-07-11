@@ -57,6 +57,11 @@ export const NewCommentId = atom<number>({
   default: 0,
 });
 
+export const viewBanner = atom<boolean>({
+  key: 'viewBanner',
+  default: false,
+});
+
 export const isFullSize = atom<boolean>({
   key: 'isfullSize',
   default: false,
