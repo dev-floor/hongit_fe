@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react';
-import { Grid, Segment } from 'semantic-ui-react';
+import { useSetRecoilState } from 'recoil';
+import { viewBanner } from 'Atoms/atom';
 import { homeAPI } from 'api/api';
 import { HomeApi } from 'api/ApiProps';
 import BoardPreview from 'Board/presentational/BoardPreview';
-import { useSetRecoilState } from 'recoil';
-import { viewBanner } from 'Atoms/atom';
+import { Grid, Segment } from 'semantic-ui-react';
 import 'css/BoardDetail.css';
 
 const HongitMain = () => {
