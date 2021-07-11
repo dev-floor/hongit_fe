@@ -119,3 +119,12 @@ export interface SideBarDetailApi {
     text: string;
   };
 }
+
+export interface SignInApi {
+  userId: string;
+  password: string;
+  nickname: string;
+  sutdentNum: string;
+  email: string;
+  confirmNum: number;
+}
