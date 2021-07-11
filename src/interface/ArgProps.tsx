@@ -7,6 +7,8 @@ import {
   BoardDetailApi,
   SideBarDetailApi,
   FavoriteLectureApi,
+  BoardPreviewInfo,
+  ArticlePreviewInfo,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -51,4 +53,12 @@ export interface FavoriteLectureProps {
   yearFilteredData: string[];
   finalFilteredData: string[];
   onAddSiderBars: (lectures: string[]) => void;
+}
+
+export interface BoardPreviewProp {
+  previewData: BoardPreviewInfo;
+}
+    
+export interface ArticlePreviewProp {
+  previewData: ArticlePreviewInfo;
 }

@@ -5,6 +5,7 @@ import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';
 import articleInfoDummyData from '../data/ArticleInfoDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
+import homeDummyData from '../data/HomeDummyData';
 import sidebarDummyData from '../data/SideBarDummyData';
 import allLectureDummyData from '../data/AllLectureDummyData';
 
@@ -111,5 +112,12 @@ export const allLectureAPI = {
   get: () => {
     const allLectureResponse = allLectureDummyData;
     return allLectureResponse;
+  }
+}
+
+export const homeAPI = {
+  get: () => {
+    const homeResponse = homeDummyData;
+    return homeResponse;
   },
 };

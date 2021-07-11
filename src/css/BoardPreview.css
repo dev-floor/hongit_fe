@@ -1,0 +1,73 @@
+@import url('./common.css');
+.board-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  letter-spacing: 0.05rem;
+  padding: 0.5rem;
+  margin-top: 0.7rem;
+  /* color:white; */
+}
+
+.hot-icon {
+  margin-right: 10px;
+}
+
+.board-preview-detail {
+  background-color: rgba(136, 134, 134, 0.089);
+  padding: 7px;
+  /* margin-left: 10px; */
+  border-radius: 5px;
+}
+
+.preview-container {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(255, 255, 255);
+  padding: 0px 7px 0px 7px;
+  margin: 7px;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.preview-container:hover {
+  background-color: rgba(255, 188, 188, 0.527);
+}
+
+.title-link {
+  color: black;
+}
+
+.title-link:hover {
+  color: crimson;
+}
+
+.preview-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0.7rem 0rem 0.2rem 0rem;
+  margin-left: 3px;
+}
+
+.preview-time {
+  display: flex;
+  margin: auto;
+  margin-left: 0px;
+  justify-content: flex-start;
+}
+
+.preview-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  margin-left: 3px;
+}
+.preview-detail .preview-time {
+  margin-left: px;
+  align-items: flex-start;
+  color: gray;
+  font-size: 0.6rem;
+}
+.preview-detail .preview-response {
+  margin-left: auto;
+  display: flex;
+}

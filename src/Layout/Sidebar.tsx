@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useRecoilValue } from 'recoil';
-import { selectedFavorites } from 'Atoms/atom';
+import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { selectedFavorites, viewBanner } from 'Atoms/atom';
 
 import { SideBarProps } from 'interface/ArgProps';
 import 'css/Sidebar.css';
@@ -12,6 +12,8 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
   const [favLectureSubNav, setFavLectureSubNav] = useState(false);
   const showAllLectureSubNav = () => setallLectureSubNav(!allLectureSubNav);
   const showFavLectureSubNav = () => setFavLectureSubNav(!favLectureSubNav);
+
+  const removeBanner = useResetRecoilState(viewBanner);
 
   /* 다연님께서 요청하신 주석 부분.
   const courseBoard = sideBarData.filter(
@@ -68,7 +70,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         {sideBarData
           .filter((board) => board.type.id === 'COURSE_BOARD')
           .map((course) => (
-            <Link to="/board" className="small-category-btn">
+            <Link to="/board" className="small-category-btn" onClick={removeBanner}>
               {course.title}
             </Link>
           ))}
@@ -80,6 +82,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
             to={`/board/${course.id}`}
             className="big-category-btn"
             type="button"
+            onClick={removeBanner}
           >
             <i className="chevron right icon" />
             {course.type.text}

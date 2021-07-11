@@ -70,6 +70,10 @@ export const subjectName = atom<string>({
 export const selectedFavorites = atom<FavoriteLectureApi[]>({
   key: 'finalFavoriteObj',
   default: [],
+
+export const viewBanner = atom<boolean>({
+  key: 'viewBanner',
+  default: false,
 });
 
 export const isFullSize = atom<boolean>({
