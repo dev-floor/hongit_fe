@@ -7,6 +7,7 @@ import BoardPreview from 'Board/presentational/BoardPreview';
 import { Grid, Segment } from 'semantic-ui-react';
 import 'css/BoardDetail.css';
 
+
 const HongitMain = () => {
   const [data, setData] = useState<HomeApi>({
     totalFavorite: {

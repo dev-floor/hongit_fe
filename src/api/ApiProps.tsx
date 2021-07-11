@@ -119,3 +119,12 @@ export interface SideBarDetailApi {
     text: string;
   };
 }
+
+export interface FavoriteLectureApi {
+  id: number;
+  title: string;
+  professor: ProfessorResponse;
+  subject: string;
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse;
+}

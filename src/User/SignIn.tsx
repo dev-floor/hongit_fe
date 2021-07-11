@@ -10,8 +10,8 @@ const SignIn = () => {
   ];
 
   const stuOptions = [
-    { key: 'senior', text: '재학생', value: '재학생' },
-    { key: 'junior', text: '신입생', value: '신입생' },
+    { key: 'junior', text: '재학생', value: '재학생' },
+    { key: 'senior', text: '졸업생', value: '졸업생' },
   ];
 
   // const [isFull, setFullSize] = useRecoilState(isFullSize);
