@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 import React, { useEffect, useState, useCallback, useRef } from 'react';
 import { isFullSize } from 'Atoms/atom';
 import { useSetRecoilState } from 'recoil';
@@ -8,6 +9,20 @@ const SignIn = (  ) => {
 
 
   const inputRef = useRef();
+=======
+import React, { useState, useEffect } from 'react';
+import { isFullSize } from 'Atoms/atom';
+import { useSetRecoilState } from 'recoil';
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Segment,
+  Select,
+  Label,
+} from 'semantic-ui-react';
+>>>>>>> 63504db69a91c0ee076ec446555a0224d3d802d2
 
   const mailOptions = [
     { key: 'g', text: '@g.hongik.ac.kr', value: '@g.hongik.ac.kr' },
@@ -18,6 +33,11 @@ const SignIn = (  ) => {
     { key: 'senior', text: '졸업생', value: '졸업생' },
     { key: 'junior', text: '재학생', value: '재학생' },
   ];
+
+  const [initialPwd, setInitialPwd] = useState<string>('');
+  const [pwdInputStart, setPwdInputState] = useState<boolean>(false);
+  const [checkPwd, setCheckPwd] = useState<string>('');
+  const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
 
   // const [isFull, setFullSize] = useRecoilState(isFullSize);
   const setFullSize = useSetRecoilState(isFullSize);
@@ -76,10 +96,58 @@ const SignIn = (  ) => {
         </Header>
         <Form size="large">
           <Segment stacked>
+<<<<<<< HEAD
             <Form.Input fluid placeholder="아이디"/>
             <Form.Input fluid placeholder="비밀번호" type="password" />
             <Form.Input fluid placeholder="비밀번호 확인" type="password" />
             <Form.Input fluid placeholder="닉네임" /* onMouseOut={(event)=>{checkOverlap}} *//>
+=======
+            <Form.Input fluid placeholder="아이디" />
+            <Form.Field>
+              <Form.Input
+                fluid
+                placeholder="비밀번호"
+                type="password"
+                onChange={(e) => {
+                  setPwdInputState(true);
+                  setInitialPwd(e.target.value);
+                }}
+                onBlur={() => setPwdInputState(false)}
+              />
+              {pwdInputStart
+                ? (initialPwd.length < 6 || initialPwd.length > 15) && (
+                    <Label basic color="red" pointing>
+                      비밀번호는 6자리 이상 15자리 이하이여야 합니다.
+                    </Label>
+                  )
+                : ``}
+            </Form.Field>
+            <Form.Field>
+              <Form.Input
+                success
+                fluid
+                placeholder="비밀번호 확인"
+                type="password"
+                onChange={(e) => {
+                  setChkPwdState(true);
+                  setCheckPwd(e.target.value);
+                }}
+                onBlur={() => setPwdInputState(false)}
+              />
+              {initialPwd === checkPwd && checkPwd.length > 0
+                ? chkPwdInputStart && (
+                    <Label basic color="green" pointing>
+                      일치합니다. 😃
+                    </Label>
+                  )
+                : chkPwdInputStart && (
+                    <Label basic color="red" pointing>
+                      비밀번호가 같지 않습니다. 🤔
+                    </Label>
+                  )}
+            </Form.Field>
+            <Form.Input fluid placeholder="닉네임" />
+>>>>>>> 63504db69a91c0ee076ec446555a0224d3d802d2
             <Form.Input fluid type="text" placeholder="학번" action>
               <input />
               <Select options={stuOptions} defaultValue="재학생" />
@@ -92,9 +160,17 @@ const SignIn = (  ) => {
               </Button>
             </Form.Input>
             <Form.Input fluid placeholder="인증번호" />
-            <Button color="teal" fluid size="large">
-              회원가입
-            </Button>
+            {initialPwd === checkPwd &&
+            initialPwd.length >= 6 &&
+            initialPwd.length <= 15 ? (
+              <Button color="teal" fluid size="large">
+                회원가입
+              </Button>
+            ) : (
+              <Button color="teal" fluid size="large" disabled>
+                회원가입
+              </Button>
+            )}
           </Segment>
         </Form>
       </Grid.Column>

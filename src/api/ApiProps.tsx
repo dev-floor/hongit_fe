@@ -120,11 +120,11 @@ export interface SideBarDetailApi {
   };
 }
 
-export interface SignInApi {
-  userId: string;
-  password: string;
-  nickname: string;
-  sutdentNum: string;
-  email: string;
-  confirmNum: number;
+export interface FavoriteLectureApi {
+  id: number;
+  title: string;
+  professor: ProfessorResponse;
+  subject: string;
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse;
 }

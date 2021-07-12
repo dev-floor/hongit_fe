@@ -32,7 +32,6 @@
 }
 
 .subNav-active {
-  transition: 800ms ease all;
   width: 200px;
 }
 
@@ -57,7 +56,9 @@
 }
 
 .small-category-btn {
+  font-weight: 600;
   background: lightgrey;
+  padding-left: 1rem;
   height: 40px;
   margin: 0.2rem;
   display: flex;
@@ -74,4 +75,24 @@
   background: lightslategray;
   color: black;
   cursor: pointer;
+}
+
+.favorite-add-btn {
+  background: crimson;
+  font-weight: 600;
+  padding-left: 0.5rem;
+  height: 40px;
+  margin: 0.2rem;
+  display: flex;
+  align-items: center;
+  border: none;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 800ms ease all;
+  color: white;
+  font-size: 12px;
+}
+
+.favorite-add-btn :hover {
+  background: black;
 }

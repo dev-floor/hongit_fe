@@ -7,6 +7,7 @@ import articleInfoDummyData from '../data/ArticleInfoDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
 import sidebarDummyData from '../data/SideBarDummyData';
+import allLectureDummyData from '../data/AllLectureDummyData';
 
 // const END_POINT = 'www.NotUsedYet.com';
 
@@ -106,6 +107,13 @@ export const sidebarAPI = {
     return sideBarResponse;
   },
 };
+
+export const allLectureAPI = {
+  get: () => {
+    const allLectureResponse = allLectureDummyData;
+    return allLectureResponse;
+  }
+}
 
 export const homeAPI = {
   get: () => {
