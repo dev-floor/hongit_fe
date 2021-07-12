@@ -24,8 +24,10 @@ const SignIn = (/* {}: 새로운 타입 */) => {
 
   const [initialPwd, setInitialPwd] = useState<string>('');
   const [pwdInputStart, setPwdInputState] = useState<boolean>(false);
+  const [pwdInputEnd, setPwdInputEndState] = useState<boolean>(false);
   const [checkPwd, setCheckPwd] = useState<string>('');
   const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
+  const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
 
   // const [isFull, setFullSize] = useRecoilState(isFullSize);
   const setFullSize = useSetRecoilState(isFullSize);
@@ -52,11 +54,39 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                   setPwdInputState(true);
                   setInitialPwd(e.target.value);
                 }}
-                onBlur={() => setPwdInputState(false)}
+                onBlur={() => {
+                  setPwdInputState(false);
+                  setPwdInputEndState(true);
+                }}
               />
               {pwdInputStart
                 ? (initialPwd.length < 6 || initialPwd.length > 15) && (
-                    <Label basic color="red" pointing>
+                    <Label
+                      style={{
+                        position: 'absolute',
+                        zIndex: '9',
+                        left: '5rem',
+                      }}
+                      basic
+                      color="red"
+                      pointing
+                    >
+                      비밀번호는 6자리 이상 15자리 이하이여야 합니다.
+                    </Label>
+                  )
+                : ``}
+              {pwdInputEnd
+                ? (initialPwd.length < 6 || initialPwd.length > 15) && (
+                    <Label
+                      style={{
+                        position: 'absolute',
+                        zIndex: '9',
+                        left: '5rem',
+                      }}
+                      basic
+                      color="red"
+                      pointing
+                    >
                       비밀번호는 6자리 이상 15자리 이하이여야 합니다.
                     </Label>
                   )
@@ -72,19 +102,56 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                   setChkPwdState(true);
                   setCheckPwd(e.target.value);
                 }}
-                onBlur={() => setPwdInputState(false)}
+                onBlur={() => {
+                  setChkPwdState(false);
+                  setChkPwdEndState(true);
+                }}
               />
               {initialPwd === checkPwd && checkPwd.length > 0
                 ? chkPwdInputStart && (
-                    <Label basic color="green" pointing>
+                    <Label
+                      style={{
+                        position: 'absolute',
+                        zIndex: '9',
+                        left: '11rem',
+                      }}
+                      basic
+                      color="green"
+                      pointing
+                    >
                       일치합니다. 😃
                     </Label>
                   )
                 : chkPwdInputStart && (
-                    <Label basic color="red" pointing>
+                    <Label
+                      style={{
+                        position: 'absolute',
+                        zIndex: '9',
+                        left: '8rem',
+                      }}
+                      basic
+                      color="red"
+                      pointing
+                    >
                       비밀번호가 같지 않습니다. 🤔
                     </Label>
                   )}
+              {chkPwdInputEnd && initialPwd !== checkPwd ? (
+                <Label
+                  style={{
+                    position: 'absolute',
+                    zIndex: '9',
+                    left: '8rem',
+                  }}
+                  basic
+                  color="red"
+                  pointing
+                >
+                  비밀번호가 같지 않습니다. 🤔
+                </Label>
+              ) : (
+                ``
+              )}
             </Form.Field>
             <Form.Input fluid placeholder="닉네임" />
             <Form.Input fluid type="text" placeholder="학번" action>

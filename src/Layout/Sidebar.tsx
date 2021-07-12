@@ -70,7 +70,11 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         {sideBarData
           .filter((board) => board.type.id === 'COURSE_BOARD')
           .map((course) => (
-            <Link to="/board" className="small-category-btn" onClick={removeBanner}>
+            <Link
+              to="/board"
+              className="small-category-btn"
+              onClick={removeBanner}
+            >
               {course.title}
             </Link>
           ))}
