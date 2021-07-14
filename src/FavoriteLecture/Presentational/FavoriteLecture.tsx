@@ -6,6 +6,8 @@ import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
 import { FavoriteLectureProps } from '../../interface/ArgProps';
 
+import '../../css/favoriteLecture.css';
+
 const FavortieLecture = ({
   yearFilteredData,
   finalFilteredData,
@@ -21,13 +23,11 @@ const FavortieLecture = ({
   const onClickYear = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedYear = e.currentTarget.value;
     setGrade(clickedYear);
-    e.currentTarget.classList.toggle('active');
   };
 
   const onClickSubject = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedSubject = e.currentTarget.value;
     setSubject(clickedSubject);
-    // e.currentTarget.classList.toggle('active');
   };
 
   const onClickProfessor = (e: React.MouseEvent<HTMLButtonElement>) => {
@@ -75,82 +75,68 @@ const FavortieLecture = ({
           <Divider />
           <Grid className="grid-tmp" columns={5}>
             <Grid.Column width={2} textAlign="center">
-              <Button.Group labeled toggle vertical size="large">
-                {selectedGrade.includes('1학년') ? (
-                  <Button value="1학년" color="red" onClick={onClickYear}>
-                    1학년
-                  </Button>
-                ) : (
-                  <Button
-                    value="1학년"
-                    inverted
-                    color="red"
-                    onClick={onClickYear}
-                  >
-                    1학년
-                  </Button>
-                )}
-                {selectedGrade.includes('2학년') ? (
-                  <Button value="2학년" color="blue" onClick={onClickYear}>
-                    2학년
-                  </Button>
-                ) : (
-                  <Button
-                    value="2학년"
-                    inverted
-                    color="blue"
-                    onClick={onClickYear}
-                  >
-                    2학년
-                  </Button>
-                )}
-                {selectedGrade.includes('3학년') ? (
-                  <Button value="3학년" color="green" onClick={onClickYear}>
-                    3학년
-                  </Button>
-                ) : (
-                  <Button
-                    value="3학년"
-                    inverted
-                    color="green"
-                    onClick={onClickYear}
-                  >
-                    3학년
-                  </Button>
-                )}
-                {selectedGrade.includes('4학년') ? (
-                  <Button value="4학년" color="purple" onClick={onClickYear}>
-                    4학년
-                  </Button>
-                ) : (
-                  <Button
-                    value="4학년"
-                    inverted
-                    color="purple"
-                    onClick={onClickYear}
-                  >
-                    4학년
-                  </Button>
-                )}
+              <Button.Group
+                className="fav-btn-group"
+                labeled
+                toggle
+                vertical
+                size="large"
+              >
+                <Button
+                  value="1학년"
+                  className="fav-grade"
+                  onClick={onClickYear}
+                >
+                  1학년
+                </Button>
+                <Button
+                  value="2학년"
+                  className="fav-grade"
+                  onClick={onClickYear}
+                >
+                  2학년
+                </Button>
+                <Button
+                  value="3학년"
+                  className="fav-grade"
+                  onClick={onClickYear}
+                >
+                  3학년
+                </Button>
+                <Button
+                  value="4학년"
+                  className="fav-grade"
+                  onClick={onClickYear}
+                >
+                  4학년
+                </Button>
               </Button.Group>
             </Grid.Column>
             <Grid.Column width={3} textAlign="center">
-              <Button.Group vertical>
+              <Button.Group className="fav-btn-group" vertical>
                 {yearFilteredData.length === 0
                   ? ``
                   : yearFilteredData.map((data) => (
-                      <Button value={data} onClick={onClickSubject}>
+                      <Button
+                        className="fav-subject"
+                        value={data}
+                        onClick={onClickSubject}
+                      >
                         {data}
                       </Button>
                     ))}
               </Button.Group>
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
-              <Button.Group toggle vertical>
+              <Button.Group className="fav-btn-group" toggle vertical>
                 {finalFilteredData.length === 0
                   ? ``
                   : finalFilteredData.map((data) => (
-                      <Button value={data} onClick={onClickProfessor}>
+                      <Button
+                        className="fav-professor"
+                        value={data}
+                        onClick={onClickProfessor}
+                      >
                         {data}
                       </Button>
                     ))}
@@ -160,7 +146,12 @@ const FavortieLecture = ({
               {selectedCombination.length === 0
                 ? ``
                 : selectedCombination.map((combi) => (
-                    <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
+                    <Label
+                      className="tmptmp"
+                      style={{ margin: '0.5rem 0' }}
+                      tag
+                      value={combi}
+                    >
                       {combi}
                       <Icon name="delete" onClick={onRemoveFavTag} />
                     </Label>
@@ -168,9 +159,19 @@ const FavortieLecture = ({
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
               {selectedCombination.length === 0 ? (
-                <Button disabled>추가</Button>
+                <Button
+                  style={{ backgroundColor: 'slategray', color: 'white' }}
+                  disabled
+                >
+                  추가
+                </Button>
               ) : (
-                <Button onClick={onRegisterFavorite}>추가</Button>
+                <Button
+                  style={{ backgroundColor: 'black', color: 'white' }}
+                  onClick={onRegisterFavorite}
+                >
+                  추가
+                </Button>
               )}
             </Grid.Column>
           </Grid>
