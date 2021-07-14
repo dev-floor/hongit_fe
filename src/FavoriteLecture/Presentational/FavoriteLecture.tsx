@@ -1,7 +1,7 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 
-import { useRecoilState } from 'recoil';
-import { grade, subjectName } from 'Atoms/atom';
+import { useRecoilState, useRecoilValue } from 'recoil';
+import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
 import { FavoriteLectureProps } from '../../interface/ArgProps';
@@ -13,6 +13,7 @@ const FavortieLecture = ({
 }: FavoriteLectureProps) => {
   const [selectedGrade, setGrade] = useRecoilState(grade);
   const [selectedSubject, setSubject] = useRecoilState(subjectName);
+  const alreadyFavoritesSidebar = useRecoilValue(selectedFavorites);
 
   const [selectedProfessor, setProfProfessor] = useState<string>('');
   const [selectedCombination, setCombination] = useState<string[]>([]);
@@ -36,7 +37,6 @@ const FavortieLecture = ({
 
   const onRemoveFavTag = (e: SyntheticEvent) => {
     const clickedValue = e.currentTarget.parentElement?.textContent;
-    console.log(e.currentTarget.parentElement?.textContent);
     setCombination(() =>
       selectedCombination.filter((combi) => combi !== clickedValue)
     );
@@ -57,7 +57,15 @@ const FavortieLecture = ({
       setCombination([...selectedCombination, addItem]);
     }
     setProfProfessor('');
-  }, [selectedProfessor]);
+  }, [selectedProfessor, selectedCombination, selectedSubject]);
+
+  useEffect(() => {
+    if (alreadyFavoritesSidebar.length > 0) {
+      setCombination(() =>
+        alreadyFavoritesSidebar.map((favLecture) => `${favLecture.title}`)
+      );
+    }
+  }, [alreadyFavoritesSidebar]);
 
   return (
     <Grid container style={{ padding: '2em 0em' }}>
