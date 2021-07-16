@@ -9,6 +9,7 @@ import {
   Segment,
   Select,
   Label,
+  Icon,
 } from 'semantic-ui-react';
 
 const SignIn = (/* {}: 새로운 타입 */) => {
@@ -29,54 +30,14 @@ const SignIn = (/* {}: 새로운 타입 */) => {
   const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
   const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
 
+  const [id, setId] = useState<string>('');
+  const [nickname, setNickname] = useState<string>('');
   // const [isFull, setFullSize] = useRecoilState(isFullSize);
   const setFullSize = useSetRecoilState(isFullSize);
 
   useEffect(() => {
     setFullSize(true);
   }, []);
-
-  // const useInput = (initValue : string) => {
-  //   const [value, setValue] = useState<string>(initValue);
-  //   const handler = useCallback((e : React.ChangeEvent<HTMLFormElement>) => {
-  //     setValue(e.target.value);
-  //   },[]);
-  //   return [value, handler];
-  // }
-
-  // const [id, onChangeId] = useInput('');
-  // const [nick, onChangeNick] = useInput('');
-  // const [authObj, setAuthObj] = useState({
-  //     nickname: "",
-  //     userId: "",
-  // });
-
-  // const [nickCheck, setNickCheck] = useState(false);
-  // const [checkError, setCheckError] = useState("");
-  // const [error, setError] = useState("");
-
-  // const checkOverlap = async (event) => {
-  //     const { target: { name, value } } = event;
-  //     setAuthObj(authObj => ({ ...authObj, [userId]: nickname }))
-
-  //     if (name == "displayName") {
-  //         const IDcheck = await dbService
-  //             .collection("User_Profile")
-  //             .where("displayName", "==", value)
-  //             .get();
-  //         if (IDcheck.docs.length == 0 && value.length > 0) {
-  //             setCheckError("사용가능");
-  //             setNickCheck(true);
-  //         }
-  //         else {
-  //             if (value.length != 0) setCheckError("이미 다른 사용자가 사용 중 입니다.");
-  //             else setCheckError("");
-  //             setNickCheck(false);
-
-  //         }
-  //     }
-  // };
-  
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
@@ -86,7 +47,28 @@ const SignIn = (/* {}: 새로운 타입 */) => {
         </Header>
         <Form size="large">
           <Segment stacked>
-            <Form.Input fluid placeholder="아이디" />
+            {id === ''
+              ?<Form.Input 
+                icon="check"
+                fluid placeholder="아이디"
+                style={{color: 'red'}}
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
+                />
+              :<Form.Input 
+                icon="check" 
+                fluid placeholder="아이디"
+                style={{color: 'teal'}} 
+                onChange={(e) => {
+                  setId(e.target.value);
+                }}
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log("mouse is out");
+                }}  
+                />
+            }
             <Form.Field>
               <Form.Input
                 fluid
@@ -195,7 +177,10 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 ``
               )}
             </Form.Field>
-            <Form.Input fluid placeholder="닉네임" />
+            {nickname === ''
+              ? <Form.Input icon="check" style={{color: 'red'}} fluid placeholder="닉네임" />
+               :<Form.Input icon="check" style={{color: 'teal'}} fluid placeholder="닉네임" />
+            }
             <Form.Input fluid type="text" placeholder="학번" action>
               <input />
               <Select options={stuOptions} defaultValue="재학생" />
