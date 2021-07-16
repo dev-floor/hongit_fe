@@ -6,7 +6,7 @@ import {
   ArticleListApi,
   BoardDetailApi,
   SideBarDetailApi,
-  FavoriteLectureApi,
+  AllLectureApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
 } from 'api/ApiProps';
@@ -50,7 +50,7 @@ export interface SideBarProps {
 }
 
 export interface AllLectureMenuProp {
-  allLectureData: FavoriteLectureApi[];
+  allLectureData: AllLectureApi[];
 }
 export interface FavoriteLectureProps {
   yearFilteredData: string[];

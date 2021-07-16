@@ -120,7 +120,7 @@ export interface SideBarDetailApi {
   };
 }
 
-export interface FavoriteLectureApi {
+export interface AllLectureApi {
   id: number;
   title: string;
   professor: ProfessorResponse;

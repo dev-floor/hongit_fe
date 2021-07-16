@@ -4,11 +4,11 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 
 import { allLectureAPI } from 'api/api';
-import { FavoriteLectureApi } from 'api/ApiProps';
+import { AllLectureApi } from 'api/ApiProps';
 import FavortieLecture from '../Presentational/FavoriteLecture';
 
 const FavoriteLectureContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<FavoriteLectureApi[]>(
+  const [allLectureData, setAllLectureData] = useState<AllLectureApi[]>(
     []
   );
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
