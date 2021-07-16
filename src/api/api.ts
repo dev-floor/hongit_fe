@@ -112,8 +112,8 @@ export const allLectureAPI = {
   get: () => {
     const allLectureResponse = allLectureDummyData;
     return allLectureResponse;
-  }
-}
+  },
+};
 
 export const homeAPI = {
   get: () => {
