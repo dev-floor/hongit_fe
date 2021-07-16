@@ -1,0 +1,18 @@
+.grade {
+    height: 40px;
+    border-radius: 5px;
+    padding-top: 10px;
+    color: crimson;
+    cursor: pointer;
+    align-items: center;
+    font-family: 'Noto Sans KR';
+    font-size: 20px;
+}
+
+.lecture {
+    height: 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-family: 'Noto Sans KR';
+    font-size: 14px;
+}

@@ -49,6 +49,9 @@ export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
 }
 
+export interface AllLectureMenuProp {
+  allLectureData: FavoriteLectureApi[];
+}
 export interface FavoriteLectureProps {
   yearFilteredData: string[];
   finalFilteredData: string[];

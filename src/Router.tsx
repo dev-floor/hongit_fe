@@ -10,6 +10,7 @@ import FavoriteLectureContainer from './FavoriteLecture/Container/FavoriteLectur
 import HongitMain from './Layout/HongitMain';
 import HongitHeader from './Layout/HongitHeader';
 import HongitFooter from './Layout/HongitFooter';
+import AllLectureMenuContainer from './Board/container/AllLectureMenuContainer';
 import LoginContainer from './User/Container/LoginContainer';
 import SignInContainer from './User/Container/SignInContainer';
 import 'css/Router.css';
@@ -31,6 +32,7 @@ const Router = () => (
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
         <Route path="/write" component={ArticleCreatePageContainer} exact />
         <Route path="/board" component={BoardDetailContainer} exact />
+        <Route path="/AllLectureMenu" component={AllLectureMenuContainer} exact />
         <Route
           path="/favoriteRegister"
           component={FavoriteLectureContainer}

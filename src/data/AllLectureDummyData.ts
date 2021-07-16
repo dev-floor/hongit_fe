@@ -273,23 +273,6 @@ const allLectureDummyData = [
   },
   {
     id: 17,
-    title: '창직설계 - 하란',
-    professor: {
-      name: '하란',
-      email: 'hello@world.com',
-    },
-    subject: '창직설계',
-    type: {
-      id: 'COURSE_BOARD',
-      text: '수업게시판',
-    },
-    grade: {
-      id: 'SENIOR',
-      text: '4학년',
-    },
-  },
-  {
-    id: 18,
     title: '창직설계 - 정균락',
     professor: {
       name: '정균락',
@@ -306,7 +289,7 @@ const allLectureDummyData = [
     },
   },
   {
-    id: 19,
+    id: 18,
     title: '인공지능 - 권건우',
     professor: {
       name: '권건우',
@@ -323,7 +306,7 @@ const allLectureDummyData = [
     },
   },
   {
-    id: 20,
+    id: 19,
     title: '창직설계 - 윤영',
     professor: {
       name: '윤영',
