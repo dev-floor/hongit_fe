@@ -61,7 +61,7 @@ export interface FavoriteLectureProps {
 export interface BoardPreviewProp {
   previewData: BoardPreviewInfo;
 }
-    
+
 export interface ArticlePreviewProp {
   previewData: ArticlePreviewInfo;
 }
