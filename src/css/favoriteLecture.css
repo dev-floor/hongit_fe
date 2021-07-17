@@ -22,10 +22,6 @@ Button.fav-professor:nth-child(2n) {
   background-color: #c9e4c5;
 }
 
-Label.tmptmp {
-  background-color: teal;
-}
-
 .fav-btn-group {
   border: 1px solid white;
 }

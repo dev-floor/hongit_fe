@@ -1,6 +1,6 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 
-import { useRecoilState, useRecoilValue } from 'recoil';
+import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
 import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
@@ -13,7 +13,7 @@ const FavortieLecture = ({
   finalFilteredData,
   onAddSiderBars,
 }: FavoriteLectureProps) => {
-  const [selectedGrade, setGrade] = useRecoilState(grade);
+  const setGrade = useSetRecoilState(grade);
   const [selectedSubject, setSubject] = useRecoilState(subjectName);
   const alreadyFavoritesSidebar = useRecoilValue(selectedFavorites);
 
@@ -146,12 +146,7 @@ const FavortieLecture = ({
               {selectedCombination.length === 0
                 ? ``
                 : selectedCombination.map((combi) => (
-                    <Label
-                      className="tmptmp"
-                      style={{ margin: '0.5rem 0' }}
-                      tag
-                      value={combi}
-                    >
+                    <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
                       {combi}
                       <Icon name="delete" onClick={onRemoveFavTag} />
                     </Label>
