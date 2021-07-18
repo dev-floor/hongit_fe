@@ -38,7 +38,7 @@ const Main = () => (
       </div>
     </div>
     <HongitFooter />
-  </div >
+  </div>
 );
 
 export default Main;

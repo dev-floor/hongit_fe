@@ -117,14 +117,14 @@ const FavortieLecture = ({
                 {yearFilteredData.length === 0
                   ? ``
                   : yearFilteredData.map((data) => (
-                    <Button
-                      className="fav-subject"
-                      value={data}
-                      onClick={onClickSubject}
-                    >
-                      {data}
-                    </Button>
-                  ))}
+                      <Button
+                        className="fav-subject"
+                        value={data}
+                        onClick={onClickSubject}
+                      >
+                        {data}
+                      </Button>
+                    ))}
               </Button.Group>
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
@@ -132,25 +132,25 @@ const FavortieLecture = ({
                 {finalFilteredData.length === 0
                   ? ``
                   : finalFilteredData.map((data) => (
-                    <Button
-                      className="fav-professor"
-                      value={data}
-                      onClick={onClickProfessor}
-                    >
-                      {data}
-                    </Button>
-                  ))}
+                      <Button
+                        className="fav-professor"
+                        value={data}
+                        onClick={onClickProfessor}
+                      >
+                        {data}
+                      </Button>
+                    ))}
               </Button.Group>
             </Grid.Column>
             <Grid.Column centered width={4} textAlign="center">
               {selectedCombination.length === 0
                 ? ``
                 : selectedCombination.map((combi) => (
-                  <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
-                    {combi}
-                    <Icon name="delete" onClick={onRemoveFavTag} />
-                  </Label>
-                ))}
+                    <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
+                      {combi}
+                      <Icon name="delete" onClick={onRemoveFavTag} />
+                    </Label>
+                  ))}
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
               {selectedCombination.length === 0 ? (
