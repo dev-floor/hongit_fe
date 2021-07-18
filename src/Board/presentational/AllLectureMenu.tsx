@@ -7,7 +7,7 @@ import 'css/AllLectureMenu.css';
 
 const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
   <Grid textAlign="center" columns={4}>
-    <Grid.Row className="column">
+    <Grid.Row>
       <Grid.Column>
         <h3 className="ui block header">1학년</h3>
         {allLectureData
