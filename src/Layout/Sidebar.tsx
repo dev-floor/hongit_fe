@@ -31,10 +31,8 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         수업 즐겨찾기 게시판
       </button>
       <nav className={favLectureSubNav ? 'subNav-active' : 'subNav'}>
-        <Link to="/favoriteRegister">
-          <button className="favorite-add-btn" type="button">
-            즐겨찾기 추가
-          </button>
+        <Link to="/favoriteRegister" className="favorite-add-btn">
+          즐겨찾기 추가
         </Link>
         {favoriteLectures.map((lecture) => (
           <Link to={`/board/${lecture.id}`} className="small-category-btn">
