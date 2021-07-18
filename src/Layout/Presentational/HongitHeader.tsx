@@ -8,7 +8,6 @@ import 'css/Layout.css';
 
 const HongitHeader = () => {
   const banner = useRecoilValue(viewBanner);
-
   return (
     <div>
       <Segment
@@ -18,7 +17,10 @@ const HongitHeader = () => {
         style={{ padding: '2em' }}
       >
         <Link className="hongit-link" to="/">
-          HONGIT
+          <div>
+            <div className="header-hong">HONG</div>
+            <div className="header-it">IT</div>
+          </div>
         </Link>
         <Link className="login-link" to="/login">
           로그인

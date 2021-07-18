@@ -2,8 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
-// import reportWebVitals from './reportWebVitals';
-import Router from './Router';
+import Root from './Root';
 import 'css/index.css';
 import 'semantic-ui-css/semantic.min.css';
 
@@ -11,7 +10,7 @@ ReactDOM.render(
   <React.StrictMode>
     <RecoilRoot>
       <BrowserRouter>
-        <Router />
+        <Root />
       </BrowserRouter>
     </RecoilRoot>
   </React.StrictMode>,

@@ -76,8 +76,3 @@ export const viewBanner = atom<boolean>({
   key: 'viewBanner',
   default: false,
 });
-
-export const isFullSize = atom<boolean>({
-  key: 'isfullSize',
-  default: false,
-});

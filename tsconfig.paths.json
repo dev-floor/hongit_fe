@@ -1,17 +1,43 @@
 {
-    "compilerOptions": {
-      "baseUrl": ".",
-      "paths": {
-        "css/*": ["src/css/*"],
-        "@interface/*": ["src/interface/*"],
-        "@api/*": ["src/api/*"],
-        "@Atoms/*": ["src/Atoms/*"],
-        "@Commons/*":["src/Commons/*"],
-        "@Article/*":["src/Article/*"],
-        "@ArticleList/*":["src/ArticleList/*"],
-        "@Board/*":["src/Board/*"]
-      }
-      
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "css/*": [
+        "src/css/*"
+      ],
+      "@interface/*": [
+        "src/interface/*"
+      ],
+      "@api/*": [
+        "src/api/*"
+      ],
+      "@Atoms/*": [
+        "src/Atoms/*"
+      ],
+      "@Commons/*": [
+        "src/Commons/*"
+      ],
+      "@Article/*": [
+        "src/Article/*"
+      ],
+      "@ArticleList/*": [
+        "src/ArticleList/*"
+      ],
+      "@Board/*": [
+        "src/Board/*"
+      ],
+      "@Layout/*": [
+        "src/Layout/*"
+      ],
+      "@FavoriteLecture/*": [
+        "src/FavoriteLecture/*"
+      ],
+      "@User/*": [
+        "src/User/*"
+      ],
+      "@Data/*": [
+        "src/data/*"
+      ],
     }
   }
-  
+}

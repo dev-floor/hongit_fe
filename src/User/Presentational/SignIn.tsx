@@ -1,6 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { isFullSize } from 'Atoms/atom';
-import { useSetRecoilState } from 'recoil';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -28,13 +27,6 @@ const SignIn = (/* {}: 새로운 타입 */) => {
   const [checkPwd, setCheckPwd] = useState<string>('');
   const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
   const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
-
-  // const [isFull, setFullSize] = useRecoilState(isFullSize);
-  const setFullSize = useSetRecoilState(isFullSize);
-
-  useEffect(() => {
-    setFullSize(true);
-  }, []);
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
@@ -178,6 +170,13 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               </Button>
             )}
           </Segment>
+          <Link to="/" className="return-home">
+            <span>
+              이미가입했어요
+              <br />
+              홈으로
+            </span>
+          </Link>
         </Form>
       </Grid.Column>
     </Grid>

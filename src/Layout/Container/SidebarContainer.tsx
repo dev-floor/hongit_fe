@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { sidebarAPI } from 'api/api';
 import { SideBarDetailApi } from 'api/ApiProps';
-import Sidebar from 'Layout/Sidebar';
+import Sidebar from 'Layout/Presentational/Sidebar';
 
 import 'css/Sidebar.css';
 
