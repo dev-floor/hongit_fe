@@ -1,0 +1,27 @@
+Button.fav-grade:nth-child(2n + 1) {
+  background-color: whitesmoke;
+}
+
+Button.fav-grade:nth-child(2n) {
+  background-color: #cdf0ea;
+}
+
+Button.fav-subject:nth-child(2n + 1) {
+  background-color: #a2dbf9;
+}
+
+Button.fav-subject:nth-child(2n) {
+  background-color: white;
+}
+
+Button.fav-professor:nth-child(2n + 1) {
+  background-color: #e9f6ef;
+}
+
+Button.fav-professor:nth-child(2n) {
+  background-color: #c9e4c5;
+}
+
+.fav-btn-group {
+  border: 1px solid white;
+}
