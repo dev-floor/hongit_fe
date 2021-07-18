@@ -114,10 +114,6 @@ export interface SideBarDetailApi {
     id: string;
     text: string;
   };
-  grade: {
-    id: string;
-    text: string;
-  };
 }
 
 export interface AllLectureApi {

@@ -1,54 +1,63 @@
-import React from 'react'
+import React from 'react';
 import { Link } from 'react-router-dom';
 import { AllLectureMenuProp } from 'interface/ArgProps';
-import { Grid, Menu } from 'semantic-ui-react'
+import { Grid } from 'semantic-ui-react';
 
 import 'css/AllLectureMenu.css';
 
-const AllLectureMenu = ({allLectureData}: AllLectureMenuProp) => (
-  <Grid textAlign='center' columns={4}>
-    <Grid.Row>
+const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
+  <Grid textAlign="center" columns={4}>
+    <Grid.Row className="column">
       <Grid.Column>
-        <Menu fluid vertical>
-          <div className="grade">1학년</div>
-        </Menu>
-        <div className="ui divider"/>
+        <h3 className="ui block header">1학년</h3>
         {allLectureData
-          .filter((lecture) => lecture.grade.id ==="FRESHMAN")
+          .filter((lecture) => lecture.grade.id === 'FRESHMAN')
           .map((freshman) => (
-            <Link to={`/board/${freshman.id}`} className="lecture" type="button">
+            <Link
+              to={`/board/${freshman.id}`}
+              className="lecture"
+              type="button"
+            >
               {freshman.title}
             </Link>
-        ))}
+          ))}
       </Grid.Column>
       <Grid.Column>
-        <h3 className="ui dividing header">2학년</h3>        
+        <h3 className="ui block header">2학년</h3>
         {allLectureData
-          .filter((lecture) => lecture.grade.id ==="SOPHOMORE")
+          .filter((lecture) => lecture.grade.id === 'SOPHOMORE')
           .map((sophomore) => (
-            <Menu.Item className="lecture">{sophomore.title}</Menu.Item>
-        ))}
+            <Link
+              to={`/board/${sophomore.id}`}
+              className="lecture"
+              type="button"
+            >
+              {sophomore.title}
+            </Link>
+          ))}
+      </Grid.Column>
+      <Grid.Column className="column">
+        <h3 className="ui block header">3학년</h3>
+        {allLectureData
+          .filter((lecture) => lecture.grade.id === 'JUNIOR')
+          .map((junior) => (
+            <Link to={`/board/${junior.id}`} className="lecture" type="button">
+              {junior.title}
+            </Link>
+          ))}
       </Grid.Column>
       <Grid.Column>
-          <h3 className="ui block header">3학년</h3>
-        <Menu fluid vertical>
-          {allLectureData
-            .filter((lecture) => lecture.grade.id ==="JUNIOR")
-            .map((junior) => (
-              <Menu.Item className="lecture">{junior.title}</Menu.Item>
-            ))}
-        </Menu>
-      </Grid.Column>
-      <Grid.Column>
-          <h3 className="ui block header">4학년</h3>
-          {allLectureData
-            .filter((lecture) => lecture.grade.id ==="SENIOR")
-            .map((senior) => (
-              <Menu.Item className="lecture">{senior.title}</Menu.Item>
-            ))}
+        <h3 className="ui block header">4학년</h3>
+        {allLectureData
+          .filter((lecture) => lecture.grade.id === 'SENIOR')
+          .map((senior) => (
+            <Link to={`/board/${senior.id}`} className="lecture" type="button">
+              {senior.title}
+            </Link>
+          ))}
       </Grid.Column>
     </Grid.Row>
   </Grid>
-)
+);
 
 export default AllLectureMenu;

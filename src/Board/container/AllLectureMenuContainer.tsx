@@ -5,9 +5,7 @@ import { AllLectureApi } from 'api/ApiProps';
 import AllLectureMenu from '../presentational/AllLectureMenu';
 
 const AllLectureMenuContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<AllLectureApi[]>(
-    []
-  );
+  const [allLectureData, setAllLectureData] = useState<AllLectureApi[]>([]);
 
   const loadData = async () => {
     const totalLectureInfo = await allLectureAPI.get();
@@ -18,9 +16,7 @@ const AllLectureMenuContainer = () => {
     loadData();
   }, []);
 
-  return(
-    <AllLectureMenu allLectureData={allLectureData}/>
-  )
-}
+  return <AllLectureMenu allLectureData={allLectureData} />;
+};
 
 export default AllLectureMenuContainer;

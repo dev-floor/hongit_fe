@@ -32,16 +32,20 @@ const Router = () => (
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
         <Route path="/write" component={ArticleCreatePageContainer} exact />
         <Route path="/board" component={BoardDetailContainer} exact />
-        <Route path="/AllLectureMenu" component={AllLectureMenuContainer} exact />
+        <Route
+          path="/AllLectureMenu"
+          component={AllLectureMenuContainer}
+          exact
+        />
         <Route
           path="/favoriteRegister"
           component={FavoriteLectureContainer}
           exact
         />
-        <Route path="/board/1" render={() => <h1>질문게시판</h1>} />
-        <Route path="/board/2" render={() => <h1>커뮤니티게시판</h1>} />
-        <Route path="/board/3" render={() => <h1>구인게시판</h1>} />
-        <Route path="/board/4" render={() => <h1>채용게시판</h1>} />
+        <Route path="/board/9" render={() => <h1>질문게시판</h1>} />
+        <Route path="/board/10" render={() => <h1>커뮤니티게시판</h1>} />
+        <Route path="/board/11" render={() => <h1>구인게시판</h1>} />
+        <Route path="/board/12" render={() => <h1>채용게시판</h1>} />
       </div>
     </div>
     <HongitFooter />

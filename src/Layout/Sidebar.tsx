@@ -40,12 +40,13 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
           </Link>
         ))}
       </nav>
-      <Link to ="/AllLectureMenu"
+      <Link
+        to="/AllLectureMenu"
         className="big-category-btn"
         type="button"
         onClick={removeBanner}
       >
-        <i className="chevron right icon"/>
+        <i className="chevron right icon" />
         전체 수업게시판
       </Link>
       <nav className={allLectureSubNav ? 'subNav-active' : 'subNav'}>

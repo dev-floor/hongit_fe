@@ -89,7 +89,7 @@
 }
 
 .favorite-add-btn:hover {
-  background:crimson;
+  background: crimson;
   transform: scale(1.1);
   color: white;
 }

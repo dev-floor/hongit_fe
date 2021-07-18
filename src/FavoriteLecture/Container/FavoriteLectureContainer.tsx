@@ -8,9 +8,7 @@ import { AllLectureApi } from 'api/ApiProps';
 import FavortieLecture from '../Presentational/FavoriteLecture';
 
 const FavoriteLectureContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<AllLectureApi[]>(
-    []
-  );
+  const [allLectureData, setAllLectureData] = useState<AllLectureApi[]>([]);
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
   const [finalFilteredData, setFinalFilteredData] = useState<string[]>([]);
 
