@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { AllLectureDetailApi } from 'api/api';
+import { AllLectureApi } from 'api/api';
 import { AllLectureDetailApi } from 'api/ApiProps';
 import AllLectureMenu from '../presentational/AllLectureMenu';
 
@@ -10,7 +10,7 @@ const AllLectureMenuContainer = () => {
   );
 
   const loadData = async () => {
-    const totalLectureInfo = await AllLectureDetailApi.get();
+    const totalLectureInfo = await AllLectureApi.get();
     setAllLectureData(totalLectureInfo);
   };
 

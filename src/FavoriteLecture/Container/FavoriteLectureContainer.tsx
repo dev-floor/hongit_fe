@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
 
-import { AllLectureDetailApi } from 'api/api';
+import { AllLectureApi } from 'api/api';
 import { AllLectureDetailApi } from 'api/ApiProps';
 import FavortieLecture from '../Presentational/FavoriteLecture';
 
@@ -19,7 +19,7 @@ const FavoriteLectureContainer = () => {
   const setFavorites = useSetRecoilState(selectedFavorites);
 
   const loadData = async () => {
-    const totalLectureInfo = await AllLectureDetailApi.get();
+    const totalLectureInfo = await AllLectureApi.get();
     setAllLectureData(totalLectureInfo);
   };
 
