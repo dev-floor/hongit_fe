@@ -116,7 +116,7 @@ export interface SideBarDetailApi {
   };
 }
 
-export interface AllLectureApi {
+export interface AllLectureDetailApi {
   id: number;
   title: string;
   professor: ProfessorResponse;
