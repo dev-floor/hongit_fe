@@ -14,18 +14,6 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
   const showFavLectureSubNav = () => setFavLectureSubNav(!favLectureSubNav);
 
   const removeBanner = useResetRecoilState(viewBanner);
-
-  /* 다연님께서 요청하신 주석 부분.
-  const courseBoard = sideBarData.filter(
-    (board) => board.type.id === 'COURSE_BOARD'
-  );
-  console.log(courseBoard);
-  const otherBoards = sideBarData.filter(
-    (board) => board.type.id !== 'COURSE_BOARD'
-  );
-  console.log(otherBoards);
-  */
-
   const favoriteLectures = useRecoilValue(selectedFavorites);
 
   return (
@@ -52,18 +40,15 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
           </Link>
         ))}
       </nav>
-      <button
+      <Link
+        to="/AllLectureMenu"
         className="big-category-btn"
         type="button"
-        onClick={showAllLectureSubNav}
+        onClick={removeBanner}
       >
-        <i
-          className={
-            allLectureSubNav ? 'chevron down icon' : 'chevron right icon'
-          }
-        />
+        <i className="chevron right icon" />
         전체 수업게시판
-      </button>
+      </Link>
       <nav className={allLectureSubNav ? 'subNav-active' : 'subNav'}>
         {sideBarData
           .filter((board) => board.type.id === 'COURSE_BOARD')

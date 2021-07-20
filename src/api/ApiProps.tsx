@@ -114,13 +114,9 @@ export interface SideBarDetailApi {
     id: string;
     text: string;
   };
-  grade: {
-    id: string;
-    text: string;
-  };
 }
 
-export interface FavoriteLectureApi {
+export interface AllLectureDetailApi {
   id: number;
   title: string;
   professor: ProfessorResponse;
