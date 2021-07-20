@@ -1,9 +1,9 @@
 .error-message {
-    border: 1px solid black;
-    color: crimson;
+  border: 1px solid black;
+  color: crimson;
 }
 
 .correct-message {
-    border: 1px solid black;
-    color: teal;
+  border: 1px solid black;
+  color: teal;
 }
