@@ -108,7 +108,7 @@ export const sidebarAPI = {
   },
 };
 
-export const allLectureApi = {
+export const allLectureAPI = {
   get: () => {
     const allLectureResponse = allLectureDummyData;
     return allLectureResponse;
