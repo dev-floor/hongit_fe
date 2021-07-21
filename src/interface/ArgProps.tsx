@@ -6,7 +6,7 @@ import {
   ArticleListApi,
   BoardDetailApi,
   SideBarDetailApi,
-  FavoriteLectureApi,
+  AllLectureDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
   HomeApi,
@@ -54,7 +54,11 @@ export interface HongitMainProps {
   mainData: HomeApi;
 }
 
-export interface FavoriteLectureProps {
+export interface AllLectureMenuProp {
+  allLectureData: AllLectureDetailApi[];
+}
+
+export interface MyLectureProps {
   yearFilteredData: string[];
   finalFilteredData: string[];
   onAddSiderBars: (lectures: string[]) => void;
