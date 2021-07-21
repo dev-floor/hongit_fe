@@ -2,46 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useRecoilValue, useResetRecoilState } from 'recoil';
-import { selectedFavorites, viewBanner } from 'Atoms/atom';
+import { selectedMyLectures, viewBanner } from 'Atoms/atom';
 
 import { SideBarProps } from 'interface/ArgProps';
 import 'css/Sidebar.css';
 
 const Sidebar = ({ sideBarData }: SideBarProps) => {
-  const [allLectureSubNav, setallLectureSubNav] = useState(false);
-  const [favLectureSubNav, setFavLectureSubNav] = useState(false);
-  const showAllLectureSubNav = () => setallLectureSubNav(!allLectureSubNav);
-  const showFavLectureSubNav = () => setFavLectureSubNav(!favLectureSubNav);
+  const [myLectureSubNav, setMyLectureSubNav] = useState(false);
+  const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 
   const removeBanner = useResetRecoilState(viewBanner);
-  const favoriteLectures = useRecoilValue(selectedFavorites);
+  const myLectures = useRecoilValue(selectedMyLectures);
 
   return (
     <nav className="sidebar">
-      <button
-        className="big-category-btn"
-        type="button"
-        onClick={showFavLectureSubNav}
-      >
-        <i
-          className={
-            favLectureSubNav ? 'chevron down icon' : 'chevron right icon'
-          }
-        />
-        수업 즐겨찾기 게시판
-      </button>
-      <nav className={favLectureSubNav ? 'subNav-active' : 'subNav'}>
-        <Link to="/favoriteRegister" className="favorite-add-btn">
-          즐겨찾기 추가
-        </Link>
-        {favoriteLectures.map((lecture) => (
-          <Link to={`/board/${lecture.id}`} className="small-category-btn">
-            {lecture.title}
-          </Link>
-        ))}
-      </nav>
       <Link
-        to="/AllLectureMenu"
+        to="/allLectureMenu"
         className="big-category-btn"
         type="button"
         onClick={removeBanner}
@@ -49,18 +25,36 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         <i className="chevron right icon" />
         전체 수업게시판
       </Link>
-      <nav className={allLectureSubNav ? 'subNav-active' : 'subNav'}>
-        {sideBarData
-          .filter((board) => board.type.id === 'COURSE_BOARD')
-          .map((course) => (
-            <Link
-              to="/board"
-              className="small-category-btn"
-              onClick={removeBanner}
-            >
-              {course.title}
-            </Link>
-          ))}
+      <button
+        className="big-category-btn"
+        type="button"
+        onClick={showMyLectureSubNav}
+      >
+        <i
+          className={
+            myLectureSubNav ? 'chevron down icon' : 'chevron right icon'
+          }
+        />
+        내 수업게시판
+      </button>
+      <nav className={myLectureSubNav ? 'subNav-active' : 'subNav'}>
+        {myLectures.map((lecture) => (
+          <Link
+            to={`/board/${lecture.id}`}
+            className="small-category-btn"
+            onClick={removeBanner}
+          >
+            {lecture.title}
+          </Link>
+        ))}
+        <Link
+          to="/myLectureRegister"
+          className="lecture-add-btn"
+          type="button"
+          onClick={removeBanner}
+        >
+          <i className="small plus icon" />내 수업 추가하기
+        </Link>
       </nav>
       {sideBarData
         .filter((board) => board.type.id !== 'COURSE_BOARD')

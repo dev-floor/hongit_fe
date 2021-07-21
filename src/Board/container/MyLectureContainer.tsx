@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react';
 
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
+import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
 import { allLectureAPI } from 'api/api';
 import { AllLectureDetailApi } from 'api/ApiProps';
-import FavortieLecture from '../Presentational/FavoriteLecture';
+import MyLecture from '../presentational/MyLecture';
 
-const FavoriteLectureContainer = () => {
+const MyLectureContainer = () => {
   const [allLectureData, setAllLectureData] = useState<AllLectureDetailApi[]>(
     []
   );
@@ -16,7 +16,7 @@ const FavoriteLectureContainer = () => {
 
   const selectedGrade = useRecoilValue(grade);
   const selectedSubject = useRecoilValue(subjectName);
-  const setFavorites = useSetRecoilState(selectedFavorites);
+  const setMyLectures = useSetRecoilState(selectedMyLectures);
 
   const loadData = async () => {
     const totalLectureInfo = await allLectureAPI.get();
@@ -24,7 +24,7 @@ const FavoriteLectureContainer = () => {
   };
 
   const onAddSiderBars = (lectures: string[]) => {
-    setFavorites(() =>
+    setMyLectures(() =>
       allLectureData.filter((data) => lectures.includes(data.title))
     );
   };
@@ -60,7 +60,7 @@ const FavoriteLectureContainer = () => {
   }, [selectedSubject, allLectureData]);
 
   return (
-    <FavortieLecture
+    <MyLecture
       yearFilteredData={yearFilteredData}
       finalFilteredData={finalFilteredData}
       onAddSiderBars={onAddSiderBars}
@@ -68,4 +68,4 @@ const FavoriteLectureContainer = () => {
   );
 };
 
-export default FavoriteLectureContainer;
+export default MyLectureContainer;
