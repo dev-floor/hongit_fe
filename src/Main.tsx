@@ -1,23 +1,19 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
-import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
-import ArticleListContainer from './ArticleList/container/ArticleListContainer';
-import BoardDetailContainer from './Board/container/BoardDetailContainer';
-import SidebarContainer from './Layout/SidebarContainer';
-import MyLectureContainer from './Board/container/MyLectureContainer';
-import HongitMain from './Layout/HongitMain';
-import HongitHeader from './Layout/HongitHeader';
-import HongitFooter from './Layout/HongitFooter';
-import AllLectureMenuContainer from './Board/container/AllLectureMenuContainer';
-import LoginContainer from './User/Container/LoginContainer';
-import SignInContainer from './User/Container/SignInContainer';
-import 'css/Router.css';
+import ArticleDetailContainer from 'Article/container/ArticleDetailContainer';
+import ArticleCreatePageContainer from 'Article/container/ArticleCreatePageContainer';
+import ArticleListContainer from 'ArticleList/container/ArticleListContainer';
+import BoardDetailContainer from 'Board/container/BoardDetailContainer';
+import SidebarContainer from 'Layout/Container/SidebarContainer';
+import AllLectureMenuContainer from 'Board/container/AllLectureMenuContainer';
+import MyLectureContainer from 'Board/container/MyLectureContainer';
+import HongitMainContainer from 'Layout/Container/HongitMainContainer';
+import HongitHeader from 'Layout/Presentational/HongitHeader';
+import HongitFooter from 'Layout/Presentational/HongitFooter';
+import 'css/Main.css';
 
-const Router = () => (
+const Main = () => (
   <div>
-    <Route path="/login" component={LoginContainer} exact />
-    <Route path="/SignIn" component={SignInContainer} exact />
     <HongitHeader />
     <div className="total-main">
       <div className="side-contents">
@@ -25,7 +21,7 @@ const Router = () => (
       </div>
       <section className="vertical"> </section>
       <div className="total-contents">
-        <Route path="/" component={HongitMain} exact />
+        <Route path="/" component={HongitMainContainer} exact />
         <Route path="/detail" component={ArticleDetailContainer} exact />
         <Route path="/articleList" component={ArticleListContainer} exact />
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
@@ -47,4 +43,4 @@ const Router = () => (
   </div>
 );
 
-export default Router;
+export default Main;

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -221,6 +222,13 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               </Button>
             )}
           </Segment>
+          <Link to="/" className="return-home">
+            <span>
+              이미가입했어요
+              <br />
+              홈으로
+            </span>
+          </Link>
         </Form>
       </Grid.Column>
     </Grid>

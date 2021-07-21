@@ -9,6 +9,7 @@ import {
   AllLectureDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
+  HomeApi,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -47,6 +48,10 @@ export interface BoardDetailProp {
 
 export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
+}
+
+export interface HongitMainProps {
+  mainData: HomeApi;
 }
 
 export interface AllLectureMenuProp {
