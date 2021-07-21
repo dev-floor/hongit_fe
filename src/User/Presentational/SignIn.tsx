@@ -28,6 +28,9 @@ const SignIn = (/* {}: 새로운 타입 */) => {
   const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
   const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
 
+  const [id, setId] = useState<string>('');
+  const [nickname, setNickname] = useState<string>('');
+
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
@@ -36,28 +39,31 @@ const SignIn = (/* {}: 새로운 타입 */) => {
         </Header>
         <Form size="large">
           <Segment stacked>
-            {id === ''
-              ?<Form.Input 
+            {id === '' ? (
+              <Form.Input
                 icon="check"
-                fluid placeholder="아이디"
-                style={{color: 'red'}}
+                fluid
+                placeholder="아이디"
+                style={{ color: 'red' }}
                 onChange={(e) => {
                   setId(e.target.value);
                 }}
-                />
-              :<Form.Input 
-                icon="check" 
-                fluid placeholder="아이디"
-                style={{color: 'teal'}} 
+              />
+            ) : (
+              <Form.Input
+                icon="check"
+                fluid
+                placeholder="아이디"
+                style={{ color: 'teal' }}
                 onChange={(e) => {
                   setId(e.target.value);
                 }}
                 onBlur={() => {
                   /* Api Call 날려야 함 */
-                  console.log("mouse is out");
-                }}  
-                />
-            }
+                  console.log('mouse is out');
+                }}
+              />
+            )}
             <Form.Field>
               <Form.Input
                 fluid
@@ -166,10 +172,31 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 ``
               )}
             </Form.Field>
-            {nickname === ''
-              ? <Form.Input icon="check" style={{color: 'red'}} fluid placeholder="닉네임" />
-               :<Form.Input icon="check" style={{color: 'teal'}} fluid placeholder="닉네임" />
-            }
+            {nickname === '' ? (
+              <Form.Input
+                icon="check"
+                fluid
+                placeholder="닉네임"
+                style={{ color: 'red' }}
+                onChange={(e) => {
+                  setNickname(e.target.value);
+                }}
+              />
+            ) : (
+              <Form.Input
+                icon="check"
+                fluid
+                placeholder="닉네임"
+                style={{ color: 'teal' }}
+                onChange={(e) => {
+                  setNickname(e.target.value);
+                }}
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log('mouse is out');
+                }}
+              />
+            )}
             <Form.Input fluid type="text" placeholder="학번" action>
               <input />
               <Select options={stuOptions} defaultValue="재학생" />
