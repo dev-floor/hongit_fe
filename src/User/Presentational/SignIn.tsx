@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { isFullSize } from 'Atoms/atom';
-import { useSetRecoilState } from 'recoil';
+import React, { useState } from 'react';
 import {
   Button,
   Form,
@@ -29,15 +27,6 @@ const SignIn = (/* {}: 새로운 타입 */) => {
   const [checkPwd, setCheckPwd] = useState<string>('');
   const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
   const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
-
-  const [id, setId] = useState<string>('');
-  const [nickname, setNickname] = useState<string>('');
-  // const [isFull, setFullSize] = useRecoilState(isFullSize);
-  const setFullSize = useSetRecoilState(isFullSize);
-
-  useEffect(() => {
-    setFullSize(true);
-  }, []);
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">

@@ -63,21 +63,16 @@ export const grade = atom<string>({
 });
 
 export const subjectName = atom<string>({
-  key: 'favortieLectureSubject',
+  key: 'myLectureSubject',
   default: '',
 });
 
-export const selectedFavorites = atom<AllLectureDetailApi[]>({
-  key: 'finalFavoriteObj',
+export const selectedMyLectures = atom<AllLectureDetailApi[]>({
+  key: 'finalMyLectureObj',
   default: [],
 });
 
 export const viewBanner = atom<boolean>({
   key: 'viewBanner',
-  default: false,
-});
-
-export const isFullSize = atom<boolean>({
-  key: 'isfullSize',
   default: false,
 });

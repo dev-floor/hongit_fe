@@ -25,9 +25,8 @@
 
 .big-category-btn {
   width: 200px;
-  height: 30px;
   padding: 6px;
-  margin: 2px 0;
+  margin: 0.2rem 0;
   background-color: rgba(27, 27, 27, 0.7);
   color: white;
   font-family: 'Noto Sans KR';
@@ -46,36 +45,10 @@
 }
 
 .small-category-btn {
-  width: 200px;
-  height: 30px;
-  font-weight: 600;
-  background: lightgrey;
-  padding-left: 1rem;
-  height: 40px;
-  margin: 0.2rem;
-  display: flex;
-  align-items: center;
-  border: none;
-  cursor: pointer;
-  border-radius: 7px;
-  transition: 800ms ease all;
-  color: black;
-  font-family: 'Noto Sans KR';
-  font-size: 15px;
-}
-
-.small-category-btn:hover {
-  background: lightslategray;
-  color: black;
-  cursor: pointer;
-}
-
-.favorite-add-btn {
   width: 190px;
-  height: 20px;
-  background: rgba(220, 20, 60, 0.7);
-  font-weight: 600;
-  padding-left: 1.3rem;
+  font-weight: 500;
+  background: lightgrey;
+  padding-left: 0.5rem;
   height: 40px;
   margin: 0.2rem 0 0.2rem 0.5rem;
   display: flex;
@@ -84,12 +57,34 @@
   cursor: pointer;
   border-radius: 7px;
   transition: 800ms ease all;
-  color: white;
-  font-size: 12px;
+  color: black;
+  font-family: 'Noto Sans KR';
+  font-size: 13px;
 }
 
-.favorite-add-btn:hover {
-  background: crimson;
-  transform: scale(1.1);
-  color: white;
+.small-category-btn:hover {
+  background: lightslategray;
+  color: black;
+  cursor: pointer;
+}
+
+.lecture-add-btn {
+  width: 190px;
+  font-weight: 600;
+  padding-left: 0.7rem;
+  height: 40px;
+  margin: 0.2rem 0 0.2rem 0.5rem;
+  display: flex;
+  align-items: center;
+  border: 1px dashed black;
+  cursor: pointer;
+  border-radius: 7px;
+  transition: 800ms ease all;
+  color: black;
+  font-size: 13px;
+}
+
+.lecture-add-btn:hover {
+  transform: scale(1.02);
+  color: black;
 }
