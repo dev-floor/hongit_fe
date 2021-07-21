@@ -82,32 +82,16 @@ const MyLecture = ({
                 vertical
                 size="large"
               >
-                <Button
-                  value="1학년"
-                  className="grade"
-                  onClick={onClickYear}
-                >
+                <Button value="1학년" className="grade" onClick={onClickYear}>
                   1학년
                 </Button>
-                <Button
-                  value="2학년"
-                  className="grade"
-                  onClick={onClickYear}
-                >
+                <Button value="2학년" className="grade" onClick={onClickYear}>
                   2학년
                 </Button>
-                <Button
-                  value="3학년"
-                  className="grade"
-                  onClick={onClickYear}
-                >
+                <Button value="3학년" className="grade" onClick={onClickYear}>
                   3학년
                 </Button>
-                <Button
-                  value="4학년"
-                  className="grade"
-                  onClick={onClickYear}
-                >
+                <Button value="4학년" className="grade" onClick={onClickYear}>
                   4학년
                 </Button>
               </Button.Group>
