@@ -2,22 +2,22 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { useRecoilValue, useResetRecoilState } from 'recoil';
-import { selectedFavorites, viewBanner } from 'Atoms/atom';
+import { selectedMyLectures, viewBanner } from 'Atoms/atom';
 
 import { SideBarProps } from 'interface/ArgProps';
 import 'css/Sidebar.css';
 
 const Sidebar = ({ sideBarData }: SideBarProps) => {
-  const [favLectureSubNav, setFavLectureSubNav] = useState(false);
-  const showFavLectureSubNav = () => setFavLectureSubNav(!favLectureSubNav);
+  const [myLectureSubNav, setMyLectureSubNav] = useState(false);
+  const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 
   const removeBanner = useResetRecoilState(viewBanner);
-  const favoriteLectures = useRecoilValue(selectedFavorites);
+  const myLectures = useRecoilValue(selectedMyLectures);
 
   return (
     <nav className="sidebar">
       <Link
-        to="/AllLectureMenu"
+        to="/allLectureMenu"
         className="big-category-btn"
         type="button"
         onClick={removeBanner}
@@ -28,17 +28,17 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
       <button
         className="big-category-btn"
         type="button"
-        onClick={showFavLectureSubNav}
+        onClick={showMyLectureSubNav}
       >
         <i
           className={
-            favLectureSubNav ? 'chevron down icon' : 'chevron right icon'
+            myLectureSubNav ? 'chevron down icon' : 'chevron right icon'
           }
         />
-        수업 즐겨찾기 게시판
+        내 수업게시판
       </button>
-      <nav className={favLectureSubNav ? 'subNav-active' : 'subNav'}>
-        {favoriteLectures.map((lecture) => (
+      <nav className={myLectureSubNav ? 'subNav-active' : 'subNav'}>
+        {myLectures.map((lecture) => (
           <Link
             to={`/board/${lecture.id}`}
             className="small-category-btn"
@@ -48,13 +48,12 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
           </Link>
         ))}
         <Link
-          to="/favoriteRegister"
-          className="favorite-add-btn"
+          to="/myLectureRegister"
+          className="lecture-add-btn"
           type="button"
           onClick={removeBanner}
         >
-          <i className="small plus icon" />
-          즐겨찾기 추가
+          <i className="small plus icon" />내 수업 추가하기
         </Link>
       </nav>
       {sideBarData

@@ -1,21 +1,21 @@
 import React, { useState, useEffect, SyntheticEvent } from 'react';
 
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
-import { grade, subjectName, selectedFavorites } from 'Atoms/atom';
+import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
-import { FavoriteLectureProps } from '../../interface/ArgProps';
+import { MyLectureProps } from '../../interface/ArgProps';
 
-import '../../css/favoriteLecture.css';
+import '../../css/myLecture.css';
 
-const FavortieLecture = ({
+const MyLecture = ({
   yearFilteredData,
   finalFilteredData,
   onAddSiderBars,
-}: FavoriteLectureProps) => {
+}: MyLectureProps) => {
   const setGrade = useSetRecoilState(grade);
   const [selectedSubject, setSubject] = useRecoilState(subjectName);
-  const alreadyFavoritesSidebar = useRecoilValue(selectedFavorites);
+  const alreadyInSidebar = useRecoilValue(selectedMyLectures);
 
   const [selectedProfessor, setProfProfessor] = useState<string>('');
   const [selectedCombination, setCombination] = useState<string[]>([]);
@@ -35,14 +35,14 @@ const FavortieLecture = ({
     setProfProfessor(clickedProf);
   };
 
-  const onRemoveFavTag = (e: SyntheticEvent) => {
+  const onRemoveMyTag = (e: SyntheticEvent) => {
     const clickedValue = e.currentTarget.parentElement?.textContent;
     setCombination(() =>
       selectedCombination.filter((combi) => combi !== clickedValue)
     );
   };
 
-  const onRegisterFavorite = () => {
+  const onRegisterMyLecture = () => {
     onAddSiderBars(selectedCombination);
   };
 
@@ -60,12 +60,12 @@ const FavortieLecture = ({
   }, [selectedProfessor, selectedCombination, selectedSubject]);
 
   useEffect(() => {
-    if (alreadyFavoritesSidebar.length > 0) {
+    if (alreadyInSidebar.length > 0) {
       setCombination(() =>
-        alreadyFavoritesSidebar.map((favLecture) => `${favLecture.title}`)
+        alreadyInSidebar.map((myLecture) => `${myLecture.title}`)
       );
     }
-  }, [alreadyFavoritesSidebar]);
+  }, [alreadyInSidebar]);
 
   return (
     <Grid container style={{ padding: '2em 0em' }}>
@@ -76,7 +76,7 @@ const FavortieLecture = ({
           <Grid className="grid-tmp" columns={5}>
             <Grid.Column width={2} textAlign="center">
               <Button.Group
-                className="fav-btn-group"
+                className="btn-group"
                 labeled
                 toggle
                 vertical
@@ -84,28 +84,28 @@ const FavortieLecture = ({
               >
                 <Button
                   value="1학년"
-                  className="fav-grade"
+                  className="grade"
                   onClick={onClickYear}
                 >
                   1학년
                 </Button>
                 <Button
                   value="2학년"
-                  className="fav-grade"
+                  className="grade"
                   onClick={onClickYear}
                 >
                   2학년
                 </Button>
                 <Button
                   value="3학년"
-                  className="fav-grade"
+                  className="grade"
                   onClick={onClickYear}
                 >
                   3학년
                 </Button>
                 <Button
                   value="4학년"
-                  className="fav-grade"
+                  className="grade"
                   onClick={onClickYear}
                 >
                   4학년
@@ -113,12 +113,12 @@ const FavortieLecture = ({
               </Button.Group>
             </Grid.Column>
             <Grid.Column width={3} textAlign="center">
-              <Button.Group className="fav-btn-group" vertical>
+              <Button.Group className="btn-group" vertical>
                 {yearFilteredData.length === 0
                   ? ``
                   : yearFilteredData.map((data) => (
                       <Button
-                        className="fav-subject"
+                        className="subject"
                         value={data}
                         onClick={onClickSubject}
                       >
@@ -128,12 +128,12 @@ const FavortieLecture = ({
               </Button.Group>
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
-              <Button.Group className="fav-btn-group" toggle vertical>
+              <Button.Group className="btn-group" toggle vertical>
                 {finalFilteredData.length === 0
                   ? ``
                   : finalFilteredData.map((data) => (
                       <Button
-                        className="fav-professor"
+                        className="professor"
                         value={data}
                         onClick={onClickProfessor}
                       >
@@ -148,7 +148,7 @@ const FavortieLecture = ({
                 : selectedCombination.map((combi) => (
                     <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
                       {combi}
-                      <Icon name="delete" onClick={onRemoveFavTag} />
+                      <Icon name="delete" onClick={onRemoveMyTag} />
                     </Label>
                   ))}
             </Grid.Column>
@@ -163,7 +163,7 @@ const FavortieLecture = ({
               ) : (
                 <Button
                   style={{ backgroundColor: 'black', color: 'white' }}
-                  onClick={onRegisterFavorite}
+                  onClick={onRegisterMyLecture}
                 >
                   추가
                 </Button>
@@ -176,4 +176,4 @@ const FavortieLecture = ({
   );
 };
 
-export default FavortieLecture;
+export default MyLecture;

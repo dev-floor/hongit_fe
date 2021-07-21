@@ -53,7 +53,7 @@ export interface AllLectureMenuProp {
   allLectureData: AllLectureDetailApi[];
 }
 
-export interface FavoriteLectureProps {
+export interface MyLectureProps {
   yearFilteredData: string[];
   finalFilteredData: string[];
   onAddSiderBars: (lectures: string[]) => void;

@@ -1,12 +1,11 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
-import { isFullSize } from 'Atoms/atom';
 import ArticleDetailContainer from './Article/container/ArticleDetailContainer';
 import ArticleCreatePageContainer from './Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from './ArticleList/container/ArticleListContainer';
 import BoardDetailContainer from './Board/container/BoardDetailContainer';
 import SidebarContainer from './Layout/SidebarContainer';
-import FavoriteLectureContainer from './FavoriteLecture/Container/FavoriteLectureContainer';
+import MyLectureContainer from './Board/container/MyLectureContainer';
 import HongitMain from './Layout/HongitMain';
 import HongitHeader from './Layout/HongitHeader';
 import HongitFooter from './Layout/HongitFooter';
@@ -33,15 +32,11 @@ const Router = () => (
         <Route path="/write" component={ArticleCreatePageContainer} exact />
         <Route path="/board" component={BoardDetailContainer} exact />
         <Route
-          path="/AllLectureMenu"
+          path="/allLectureMenu"
           component={AllLectureMenuContainer}
           exact
         />
-        <Route
-          path="/favoriteRegister"
-          component={FavoriteLectureContainer}
-          exact
-        />
+        <Route path="/myLectureRegister" component={MyLectureContainer} exact />
         <Route path="/board/9" render={() => <h1>질문게시판</h1>} />
         <Route path="/board/10" render={() => <h1>커뮤니티게시판</h1>} />
         <Route path="/board/11" render={() => <h1>구인게시판</h1>} />

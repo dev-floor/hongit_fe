@@ -68,7 +68,7 @@
   cursor: pointer;
 }
 
-.favorite-add-btn {
+.lecture-add-btn {
   width: 190px;
   font-weight: 600;
   padding-left: 0.7rem;
@@ -84,7 +84,7 @@
   font-size: 13px;
 }
 
-.favorite-add-btn:hover {
+.lecture-add-btn:hover {
   transform: scale(1.02);
   color: black;
 }
