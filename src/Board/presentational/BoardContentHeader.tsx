@@ -4,7 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { viewSort, viewFilter } from 'Atoms/atom';
 import { BoardDetailProp } from 'interface/ArgProps';
 import { RiEqualizerLine } from 'react-icons/ri';
-import FilterModal from '../../Commons/FilterModal';
+import FilterModal from 'Commons/FilterModal';
 import 'css/FilterModal.css';
 
 const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {

@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import {
   Button,
   Form,
@@ -7,14 +8,16 @@ import {
   Message,
   Segment,
 } from 'semantic-ui-react';
-
-import 'css/Layout.css';
+import 'css/User.css';
 
 const Login = () => (
   <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
     <Grid.Column style={{ maxWidth: 450 }}>
-      <Header as="h1" color="teal" textAlign="center">
-        HONGIT
+      <Header textAlign="center">
+        <div>
+          <div className="hong">HONG</div>
+          <div className="it">IT</div>
+        </div>
       </Header>
       <Form size="large">
         <Segment stacked>
@@ -37,8 +40,9 @@ const Login = () => (
         </Segment>
       </Form>
       <Message color="teal">
-        <a href="/SignIn">회원가입</a>
+        <a href="/signin">회원가입</a>
       </Message>
+      <Link to="/">홈으로</Link>
     </Grid.Column>
   </Grid>
 );

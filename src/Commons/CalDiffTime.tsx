@@ -1,7 +1,4 @@
-import React from 'react';
 import moment from 'moment';
-
-import 'css/TglBtn.css';
 
 export default function CalDiffTime(curTime: string) {
   const currentTime = moment();
