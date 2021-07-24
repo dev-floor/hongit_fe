@@ -46,7 +46,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 fluid
                 placeholder="아이디"
                 style={{ color: 'red' }}
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setId(e.target.value);
                 }}
               />
@@ -118,7 +118,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 fluid
                 placeholder="비밀번호 확인"
                 type="password"
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setChkPwdState(true);
                   setCheckPwd(e.target.value);
                 }}
