@@ -60,6 +60,27 @@ const Comment = ({
         ) : (
           <div className="comment-author-name"> {author.name} </div>
         )}
+        <div className="comment-func-area">
+          <div className="comment-btn-area">
+            <button
+              type="button"
+              className="default-btn"
+              value={id}
+              onClick={onClickUpdateComment}
+            >
+              수정
+            </button>
+            <button
+              type="button"
+              className="default-btn"
+              value={id}
+              onClick={onClickDeleteComment}
+            >
+              삭제
+            </button>
+          </div>
+          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
+        </div>
       </div>
       {commentId !== id ? (
         <div className="comment-content"> {content} </div>
@@ -74,27 +95,6 @@ const Comment = ({
           </button>
         </form>
       )}
-      <div className="comment-info-area">
-        <div className="comment-btn-area">
-          <button
-            type="button"
-            className="comment-btn-update default-btn"
-            value={id}
-            onClick={onClickUpdateComment}
-          >
-            수정
-          </button>
-          <button
-            type="button"
-            className="comment-btn-delete default-btn"
-            value={id}
-            onClick={onClickDeleteComment}
-          >
-            삭제
-          </button>
-        </div>
-        <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
-      </div>
     </div>
   );
 };
@@ -189,12 +189,15 @@ const CommentArea = ({
       <hr />
       <div>
         {commentsListProps.map((comment, index) => (
-          <Comment
-            onRegisterUpdateComment={onRegisterUpdateComment}
-            onClickUpdateComment={onClickUpdateComment}
-            onClickDeleteComment={onClickDeleteComment}
-            commentsProps={comment}
-          />
+          <div>
+            <Comment
+              onRegisterUpdateComment={onRegisterUpdateComment}
+              onClickUpdateComment={onClickUpdateComment}
+              onClickDeleteComment={onClickDeleteComment}
+              commentsProps={comment}
+            />
+            <hr />
+          </div>
         ))}
       </div>
       <Modal
