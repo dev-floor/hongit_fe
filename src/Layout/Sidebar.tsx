@@ -1,18 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-import { useRecoilValue, useResetRecoilState } from 'recoil';
+import { useRecoilState, useResetRecoilState } from 'recoil';
 import { selectedMyLectures, viewBanner } from 'Atoms/atom';
 
 import { SideBarProps } from 'interface/ArgProps';
 import 'css/Sidebar.css';
 
-const Sidebar = ({ sideBarData }: SideBarProps) => {
+const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
   const [myLectureSubNav, setMyLectureSubNav] = useState(false);
   const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 
   const removeBanner = useResetRecoilState(viewBanner);
-  const myLectures = useRecoilValue(selectedMyLectures);
+  const [myLectures, setMyLectures] = useRecoilState(selectedMyLectures);
+
+  useEffect(() => {
+    setMyLectures(() =>
+      sideBarData.filter((board) => board.type.id === 'COURSE_BOARD')
+    );
+  }, [sideBarData, setMyLectures]);
 
   return (
     <nav className="sidebar">

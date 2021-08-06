@@ -47,6 +47,7 @@ export interface BoardDetailProp {
 
 export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
+  onModifyMyLectures: (e: any) => void;
 }
 
 export interface AllLectureMenuProp {

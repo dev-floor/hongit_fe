@@ -24,9 +24,11 @@ const MyLectureContainer = () => {
   };
 
   const onAddSiderBars = (lectures: string[]) => {
-    setMyLectures(() =>
-      allLectureData.filter((data) => lectures.includes(data.title))
+    const selectedFavoriteLecture = allLectureData.filter((data) =>
+      lectures.includes(data.title)
     );
+    setMyLectures(selectedFavoriteLecture);
+    console.log(selectedFavoriteLecture.map((lec) => lec.id));
   };
 
   useEffect(() => {

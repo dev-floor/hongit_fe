@@ -48,7 +48,6 @@ const MyLecture = ({
 
   useEffect(() => {
     const addItem = `${selectedSubject} - ${selectedProfessor}`;
-    console.log(addItem, selectedCombination);
     if (
       selectedSubject !== '' &&
       selectedProfessor !== '' &&
@@ -137,21 +136,22 @@ const MyLecture = ({
                   ))}
             </Grid.Column>
             <Grid.Column centered width={2} textAlign="center">
-              {selectedCombination.length === 0 ? (
-                <Button
-                  style={{ backgroundColor: 'slategray', color: 'white' }}
-                  disabled
-                >
-                  추가
-                </Button>
-              ) : (
-                <Button
-                  style={{ backgroundColor: 'black', color: 'white' }}
-                  onClick={onRegisterMyLecture}
-                >
-                  추가
-                </Button>
-              )}
+              <Button
+                style={{
+                  backgroundColor: '#ed678c',
+                  color: 'white',
+                  marginBottom: '3rem',
+                }}
+                onClick={() => setCombination(() => [])}
+              >
+                모두 삭제
+              </Button>
+              <Button
+                style={{ backgroundColor: 'black', color: 'white' }}
+                onClick={onRegisterMyLecture}
+              >
+                저장
+              </Button>
             </Grid.Column>
           </Grid>
         </Grid.Column>

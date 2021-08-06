@@ -13,6 +13,11 @@ const SidebarContainer = () => {
     setSidebarData(response);
   };
 
+  const onModifyMyLectures = (e: any) => {
+    console.log('Modify data here.');
+    console.log(e.target.value);
+  };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -20,7 +25,10 @@ const SidebarContainer = () => {
   return (
     <div className="main">
       <section className="side-bar">
-        <Sidebar sideBarData={sidebarData} />
+        <Sidebar
+          sideBarData={sidebarData}
+          onModifyMyLectures={onModifyMyLectures}
+        />
       </section>
     </div>
   );
