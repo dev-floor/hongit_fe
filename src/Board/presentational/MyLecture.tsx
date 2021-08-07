@@ -67,16 +67,16 @@ const MyLecture = ({
   }, [alreadyInSidebar]);
 
   return (
-    <Grid container style={{ padding: '2em 0em',  }}>
+    <Grid container style={{ padding: '2em 0em' }}>
       <Grid.Row>
         <Grid.Column>
-          <header style = {{display:'flex', justifyContent: 'space-between'}}>
+          <header style={{ display: 'flex', justifyContent: 'space-between' }}>
             <Header as="h1">즐겨찾기 등록</Header>
             <section>
               <Button
                 style={{
                   backgroundColor: '#ed678c',
-                  color: 'white'
+                  color: 'white',
                 }}
                 onClick={() => setCombination(() => [])}
               >

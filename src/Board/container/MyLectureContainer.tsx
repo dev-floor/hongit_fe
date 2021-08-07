@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
-import { allLectureAPI } from 'api/api';
+import { allLectureAPI, sidebarAPI } from 'api/api';
 import { AllLectureDetailApi } from 'api/ApiProps';
 import MyLecture from '../presentational/MyLecture';
 
@@ -27,8 +27,9 @@ const MyLectureContainer = () => {
     const selectedFavoriteLecture = allLectureData.filter((data) =>
       lectures.includes(data.title)
     );
+    const selectedMyLectureIds = selectedFavoriteLecture.map((lec) => lec.id);
     setMyLectures(selectedFavoriteLecture);
-    console.log(selectedFavoriteLecture.map((lec) => lec.id));
+    sidebarAPI.putMyLecture(selectedMyLectureIds);
   };
 
   useEffect(() => {
