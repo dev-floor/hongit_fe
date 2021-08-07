@@ -23,7 +23,7 @@ const MyLectureContainer = () => {
     setAllLectureData(totalLectureInfo);
   };
 
-  const onAddSiderBars = (lectures: string[]) => {
+  const onAddMyLecture = (lectures: string[]) => {
     const selectedFavoriteLecture = allLectureData.filter((data) =>
       lectures.includes(data.title)
     );
@@ -66,7 +66,7 @@ const MyLectureContainer = () => {
     <MyLecture
       yearFilteredData={yearFilteredData}
       finalFilteredData={finalFilteredData}
-      onAddSiderBars={onAddSiderBars}
+      onAddSiderBars={onAddMyLecture}
     />
   );
 };
