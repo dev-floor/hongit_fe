@@ -1,19 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Source+Code+Pro&display=swap');
+
 .header-bar {
   display: flex;
   justify-content: space-between;
 }
 
-.hongit-link {
-  font-size: 30px;
-  color: white;
-  font-weight: 600;
-}
 .login-link {
   font-size: 20px;
   color: white;
   font-weight: 600;
 }
 
-.hongit-link:hover {
+.header-hong {
+  display: inline-block;
+  font-family: 'Source Code Pro', monospace;
+  color: whitesmoke;
+  font-size: 32px;
+}
+
+.hongit-link:hover .header-hong {
   color: crimson;
+}
+
+.header-it {
+  display: inline-block;
+  font-family: 'Source Code Pro', monospace;
+  color: crimson;
+  font-size: 32px;
+  font-weight: 400;
+}
+
+.hongit-link:hover .header-it {
+  color: whitesmoke;
 }

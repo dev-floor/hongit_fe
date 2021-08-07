@@ -6,7 +6,7 @@ import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
 import { MyLectureProps } from '../../interface/ArgProps';
 
-import '../../css/myLecture.css';
+import 'css/myLecture.css';
 
 const MyLecture = ({
   yearFilteredData,
