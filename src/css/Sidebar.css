@@ -20,7 +20,7 @@
 }
 
 .subNav-active {
-  width: 210px;
+  width: 200px;
 }
 
 .big-category-btn {
@@ -51,7 +51,7 @@
   padding: 0.1rem 0 0 0.5rem;
   margin-left: 10rem;
   height: 40px;
-  margin: 0.2rem 0 0.2rem 0.2rem;
+  margin: 0.2rem 0 0.2rem 0.5rem;
   display: flex;
   align-items: center;
   border: none;

@@ -70,7 +70,7 @@ const MyLecture = ({
     <Grid container style={{ padding: '2em 0em' }}>
       <Grid.Row>
         <Grid.Column>
-          <header style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <header className="my-lecture-header">
             <Header as="h1">즐겨찾기 등록</Header>
             <section>
               <Button
@@ -91,7 +91,7 @@ const MyLecture = ({
             </section>
           </header>
           <Divider />
-          <Grid className="grid-tmp" columns={4} divided>
+          <Grid columns={4} divided>
             <Grid.Column textAlign="center">
               <Button.Group
                 className="btn-group"
@@ -146,20 +146,8 @@ const MyLecture = ({
               </Button.Group>
             </Grid.Column>
             <Grid.Column centered textAlign="center">
-              <section
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                }}
-              >
-                <header
-                  style={{
-                    margin: '0.1rem 0 1.5rem 0',
-                    fontWeight: 'bold',
-                    fontSize: '16px',
-                  }}
-                >
+              <section className="selected-my-lectures">
+                <header className="selected-my-lectures-title">
                   <Icon name="star" style={{ color: 'crimson' }} />
                   선택한 내 수업 목록
                 </header>
