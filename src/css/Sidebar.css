@@ -48,7 +48,8 @@
   width: 190px;
   font-weight: 500;
   background: lightgrey;
-  padding-left: 0.5rem;
+  padding: 0.1rem 0 0 0.5rem;
+  margin-left: 10rem;
   height: 40px;
   margin: 0.2rem 0 0.2rem 0.5rem;
   display: flex;
@@ -59,12 +60,13 @@
   transition: 800ms ease all;
   color: black;
   font-family: 'Noto Sans KR';
-  font-size: 13px;
+  font-size: 11.5px;
+  font-weight: 600;
 }
 
 .small-category-btn:hover {
   background: lightslategray;
-  color: black;
+  color: white;
   cursor: pointer;
 }
 

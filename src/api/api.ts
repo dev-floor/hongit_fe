@@ -42,10 +42,7 @@ export const postArticleRequest = async (
   }
 };
 
-export const putCommentRequest = async (
-  url: string,
-  data: ArticleCommentApi[]
-) => {
+export const putRequest = async (url: string, data: any) => {
   try {
     const response = await axios.put(url, data);
     if (response.status === 404) {
@@ -89,8 +86,7 @@ export const commentsAPI = {
   },
   putComments: (data: ArticleCommentApi[]) => {
     // const commentPuts = await putRequest(`${END_POINT}/`, data);
-    console.log('========COMMENTS PUT API CALL======');
-    console.log(data);
+    console.log('========COMMENTS PUT API CALL========');
   },
 };
 
@@ -105,6 +101,12 @@ export const sidebarAPI = {
   get: () => {
     const sideBarResponse = sidebarDummyData;
     return sideBarResponse;
+  },
+
+  putMyLecture: (data: number[]) => {
+    // const response = await putRequest(`${END_POINT}/boards/myBoards`);
+    console.log('========My Lecture PUT API CALL========');
+    console.log(data);
   },
 };
 

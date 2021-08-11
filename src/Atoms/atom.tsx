@@ -1,5 +1,5 @@
 import { atom } from 'recoil';
-import { OptionResponse, AllLectureDetailApi } from 'api/ApiProps';
+import { OptionResponse, SideBarDetailApi } from 'api/ApiProps';
 
 export const selectedArticleId = atom<string>({
   key: 'selectedArticleId',
@@ -67,7 +67,7 @@ export const subjectName = atom<string>({
   default: '',
 });
 
-export const selectedMyLectures = atom<AllLectureDetailApi[]>({
+export const selectedMyLectures = atom<SideBarDetailApi[]>({
   key: 'finalMyLectureObj',
   default: [],
 });
