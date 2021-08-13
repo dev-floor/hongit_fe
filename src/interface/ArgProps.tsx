@@ -6,7 +6,6 @@ import {
   ArticleListApi,
   BoardDetailApi,
   SideBarDetailApi,
-  AllLectureDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
   HomeApi,
@@ -56,7 +55,7 @@ export interface HongitMainProps {
 }
 
 export interface AllLectureMenuProp {
-  allLectureData: AllLectureDetailApi[];
+  allLectureData: BoardDetailApi[];
 }
 
 export interface MyLectureProps {

@@ -15,6 +15,7 @@ const allLectureDummyData = [
       id: 'FRESHMAN',
       text: '1학년',
     },
+    options: [],
   },
   {
     id: 2,
@@ -32,6 +33,7 @@ const allLectureDummyData = [
       id: 'FRESHMAN',
       text: '1학년',
     },
+    options: [],
   },
   {
     id: 3,
@@ -49,6 +51,7 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
+    options: [],
   },
   {
     id: 4,
@@ -66,6 +69,7 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
+    options: [],
   },
   {
     id: 5,
@@ -83,6 +87,7 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
+    options: [],
   },
   {
     id: 6,
@@ -100,6 +105,7 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
+    options: [],
   },
   {
     id: 7,
@@ -117,6 +123,7 @@ const allLectureDummyData = [
       id: 'SOPHOMORE',
       text: '2학년',
     },
+    options: [],
   },
   {
     id: 8,
@@ -134,6 +141,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 9,
@@ -151,6 +159,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 10,
@@ -168,6 +177,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 11,
@@ -185,6 +195,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 12,
@@ -202,6 +213,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 13,
@@ -219,6 +231,7 @@ const allLectureDummyData = [
       id: 'JUNIOR',
       text: '3학년',
     },
+    options: [],
   },
   {
     id: 14,
@@ -236,6 +249,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
   {
     id: 15,
@@ -253,6 +267,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
   {
     id: 16,
@@ -270,6 +285,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
   {
     id: 17,
@@ -287,6 +303,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
   {
     id: 18,
@@ -304,6 +321,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
   {
     id: 19,
@@ -321,6 +339,7 @@ const allLectureDummyData = [
       id: 'SENIOR',
       text: '4학년',
     },
+    options: [],
   },
 ];
 

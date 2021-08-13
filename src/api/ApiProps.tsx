@@ -78,19 +78,19 @@ export interface ArticleCreateApi {
 
 export interface ArticleListApi {
   id: number;
-  options: string[];
+  options: OptionResponse[];
   title: string;
   anonymous: boolean;
-  author: {
-    name: string;
-  };
-  createdDate: string;
-  modifiedDate: string;
+  authorName: string;
   content: string;
-  favorites: number;
-  wonders: number;
-  clips: number;
+  favoriteCount: number;
+  wonderCount: number;
+  clipCount: number;
+  createdAt: string;
+  modifiedAt: string;
 }
+
+export type ArticleListApiPartial = Partial<ArticleListApi>;
 
 export interface BoardOption {
   name: string;
@@ -114,13 +114,4 @@ export interface SideBarDetailApi {
     id: string;
     text: string;
   };
-}
-
-export interface AllLectureDetailApi {
-  id: number;
-  title: string;
-  professor: ProfessorResponse;
-  subject: string;
-  type: BaseEnumResponse;
-  grade: BaseEnumResponse;
 }
