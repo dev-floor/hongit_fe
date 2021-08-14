@@ -1,0 +1,14 @@
+.success-message {
+  color: teal;
+  text-align: left;
+  margin: 1% 0 1% 2%;
+  /* border: 1px solid black; */
+}
+
+.error-message {
+  color: crimson;
+  text-align: left;
+margin: 1% 0 1% 2%;
+  /* border: 1px solid black; */
+}
+

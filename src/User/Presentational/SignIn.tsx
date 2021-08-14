@@ -1,15 +1,8 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import {
-  Button,
-  Form,
-  Grid,
-  Header,
-  Segment,
-  Select,
-  Label,
-  Icon,
-} from 'semantic-ui-react';
+import { Button, Form, Grid, Header, Segment, Select } from 'semantic-ui-react';
+
+import 'css/SignIn.css';
 
 const SignIn = (/* {}: 새로운 타입 */) => {
   const mailOptions = [
@@ -31,6 +24,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
 
   const [id, setId] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
+  const [code, setCode] = useState<string>('');
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
@@ -40,37 +34,26 @@ const SignIn = (/* {}: 새로운 타입 */) => {
         </Header>
         <Form size="large">
           <Segment stacked>
+            <input
+            placeholder="아이디"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setId(e.target.value);
+            }}
+            onBlur={() => {
+              /* Api Call 날려야 함 */
+              console.log('mouse is out');
+            }}
+            />
             {id === '' ? (
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="아이디"
-                style={{ color: 'red' }}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setId(e.target.value);
-                }}
-              />
+              <h6 className="error-message">이미 사용중인 아이디입니다 🤔</h6>
             ) : (
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="아이디"
-                style={{ color: 'teal' }}
-                onChange={(e) => {
-                  setId(e.target.value);
-                }}
-                onBlur={() => {
-                  /* Api Call 날려야 함 */
-                  console.log('mouse is out');
-                }}
-              />
+              <h6 className="success-message">사용 가능한 아이디입니다 😃</h6>
             )}
-            <Form.Field>
-              <Form.Input
-                fluid
+            <div className="field">
+              <input
                 placeholder="비밀번호"
                 type="password"
-                onChange={(e) => {
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setPwdInputState(true);
                   setInitialPwd(e.target.value);
                 }}
@@ -80,42 +63,21 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 }}
               />
               {pwdInputStart
-                ? (initialPwd.length < 6 || initialPwd.length > 15) && (
-                    <Label
-                      style={{
-                        position: 'absolute',
-                        zIndex: '9',
-                        left: '5rem',
-                      }}
-                      basic
-                      color="red"
-                      pointing
-                    >
-                      비밀번호는 6자리 이상 15자리 이하이여야 합니다.
-                    </Label>
+                ? (initialPwd.length < 6 || initialPwd.length > 16) && (
+                    <h6 className="error-message">
+                      비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
+                    </h6>
                   )
-                : ``}
+                : ''}
               {pwdInputEnd
-                ? (initialPwd.length < 6 || initialPwd.length > 15) && (
-                    <Label
-                      style={{
-                        position: 'absolute',
-                        zIndex: '9',
-                        left: '5rem',
-                      }}
-                      basic
-                      color="red"
-                      pointing
-                    >
-                      비밀번호는 6자리 이상 15자리 이하이여야 합니다.
-                    </Label>
+                ? (initialPwd.length < 6 || initialPwd.length > 16) && (
+                    <h6 className="error-message">
+                      비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
+                    </h6>
                   )
-                : ``}
-            </Form.Field>
-            <Form.Field>
-              <Form.Input
-                success
-                fluid
+                : ''}
+            </div>
+              <input
                 placeholder="비밀번호 확인"
                 type="password"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
@@ -129,74 +91,32 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               />
               {initialPwd === checkPwd && checkPwd.length > 0
                 ? chkPwdInputStart && (
-                    <Label
-                      style={{
-                        position: 'absolute',
-                        zIndex: '9',
-                        left: '11rem',
-                      }}
-                      basic
-                      color="green"
-                      pointing
-                    >
-                      일치합니다. 😃
-                    </Label>
+                    <h6 className="success-message">일치합니다 😃</h6>
                   )
                 : chkPwdInputStart && (
-                    <Label
-                      style={{
-                        position: 'absolute',
-                        zIndex: '9',
-                        left: '8rem',
-                      }}
-                      basic
-                      color="red"
-                      pointing
-                    >
-                      비밀번호가 같지 않습니다. 🤔
-                    </Label>
+                    <h6 className="error-message">
+                      비밀번호가 같지 않습니다 🤔
+                    </h6>
                   )}
               {chkPwdInputEnd && initialPwd !== checkPwd ? (
-                <Label
-                  style={{
-                    position: 'absolute',
-                    zIndex: '9',
-                    left: '8rem',
-                  }}
-                  basic
-                  color="red"
-                  pointing
-                >
-                  비밀번호가 같지 않습니다. 🤔
-                </Label>
+                <h6 className="error-message">비밀번호가 같지 않습니다 🤔</h6>
               ) : (
                 ``
               )}
-            </Form.Field>
+            <input
+              placeholder="닉네임"
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setNickname(e.target.value);
+              }}
+              onBlur={() => {
+                /* Api Call 날려야 함 */
+                console.log('mouse is out');
+              }}
+            />
             {nickname === '' ? (
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="닉네임"
-                style={{ color: 'red' }}
-                onChange={(e) => {
-                  setNickname(e.target.value);
-                }}
-              />
+              <h6 className="error-message">이미 사용중인 닉네임입니다 🤔</h6>
             ) : (
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="닉네임"
-                style={{ color: 'teal' }}
-                onChange={(e) => {
-                  setNickname(e.target.value);
-                }}
-                onBlur={() => {
-                  /* Api Call 날려야 함 */
-                  console.log('mouse is out');
-                }}
-              />
+              <h6 className="success-message">사용 가능한 닉네임입니다 😃</h6>
             )}
             <Form.Input fluid type="text" placeholder="학번" action>
               <input />
@@ -209,7 +129,27 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 전송하기
               </Button>
             </Form.Input>
-            <Form.Input fluid placeholder="인증번호" />
+            {code === '' ? (
+              <Form.Input
+                icon="check"
+                fluid
+                placeholder="인증번호"
+                style={{ color: 'red' }}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setCode(e.target.value);
+                }}
+              />
+            ) : (
+              <Form.Input
+                icon="check"
+                fluid
+                placeholder="인증번호"
+                style={{ color: 'teal' }}
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setCode(e.target.value);
+                }}
+              />
+            )}
             {initialPwd === checkPwd &&
             initialPwd.length >= 6 &&
             initialPwd.length <= 15 ? (
