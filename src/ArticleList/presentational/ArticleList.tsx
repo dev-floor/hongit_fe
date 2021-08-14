@@ -5,6 +5,7 @@ import { viewMode } from 'Atoms/atom';
 import { ArticleListApi, ArticleListApiPartial } from 'api/ApiProps';
 import { ArticleListProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
+import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
@@ -21,17 +22,6 @@ const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
     createdAt,
     modifiedAt,
   } = { ...articlePreview };
-
-  const createdTimeFormat =
-    createdAt === modifiedAt
-      ? `${createdAt?.slice(0, 4)}-${createdAt?.slice(5, 7)}-${createdAt?.slice(
-          7,
-          9
-        )}`
-      : `${modifiedAt?.slice(0, 4)}-${modifiedAt?.slice(
-          5,
-          7
-        )}-${modifiedAt?.slice(7, 9)}`;
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
@@ -56,7 +46,11 @@ const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
       <section className="article-preview-bar">
         <div className="article-preview-author">
           {anonymous ? `${authorName}` : `익명`}
-          <time className="article-created-time">{createdTimeFormat}</time>
+          <time className="article-created-time">
+            {createdAt === modifiedAt
+              ? TransferTimeFormat(createdAt as string)
+              : TransferTimeFormat(modifiedAt as string)}
+          </time>
         </div>
       </section>
       <section className="article-preview-content">{content}</section>
@@ -92,17 +86,6 @@ const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
     modifiedAt,
   } = { ...articlePreview };
 
-  const createdTimeFormat =
-    createdAt === modifiedAt
-      ? `${createdAt?.slice(0, 4)}-${createdAt?.slice(5, 7)}-${createdAt?.slice(
-          7,
-          9
-        )}`
-      : `${modifiedAt?.slice(0, 4)}-${modifiedAt?.slice(
-          5,
-          7
-        )}-${modifiedAt?.slice(7, 9)}`;
-
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('List View Favorites Button Clicked - Api Call');
   };
@@ -128,7 +111,10 @@ const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
       <section className="article-preview-list-detail">
         <div className="article-preview-author-time">
           {anonymous ? `${authorName}` : `익명`}
-          <time>{createdTimeFormat}</time>
+          <time>{createdAt === modifiedAt
+              ? TransferTimeFormat(createdAt as string)
+              : TransferTimeFormat(modifiedAt as string)}
+          </time>
         </div>
         <div className="article-preview-response">
           <TglBtn
