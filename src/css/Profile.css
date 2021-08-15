@@ -1,0 +1,36 @@
+@import url('./common.css');
+
+/*--- Profile User ---*/
+.info {
+  margin-bottom: 10px;
+}
+.icon {
+  margin-right: 5px;
+}
+.nick-name {
+  font-size: 30px;
+}
+.id {
+  font-size: 18px;
+  color: light-gray;
+}
+.description {
+  font-size: 15px;
+  line-height: 1.5em;
+  padding: 20px;
+  background-color: var(--back-color);
+  /* background-color: rgba(255, 218, 218, 0.233); */
+  border-radius: 8px;
+}
+
+.userinfo {
+  margin-left: 5%;
+  margin-right: 5%;
+  margin-top: 50px;
+  margin-bottom: 30px;
+}
+
+.tab {
+  margin-left: 3%;
+  margin-right: 3%;
+}

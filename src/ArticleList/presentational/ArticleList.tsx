@@ -2,29 +2,29 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
-import { ArticleListApi } from 'api/ApiProps';
-import { ArticleListProps } from 'interface/ArgProps';
+import { ArticleFeedDetailApi } from 'api/ApiProps';
+import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import 'css/ArticleList.css';
 
-const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
+const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
   const {
     id,
     options,
     title,
     anonymous,
-    author,
-    createdDate,
+    authorName,
     content,
-    favorites,
-    wonders,
-    clips,
-  } = { ...articlePreview };
+    favoriteCount,
+    wonderCount,
+    clipCount,
+    modifiedAt,
+  } = { ...article };
 
-  const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
+  const createdTimeFormat = `${modifiedAt.slice(0, 4)}-${modifiedAt.slice(
     4,
     6
-  )}-${createdDate.slice(6)}`;
+  )}-${modifiedAt.slice(6)}`;
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
@@ -42,13 +42,13 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
     <article className="article-preview-detail">
       <section className="option-area">
         {options.map((op) => (
-          <span className="option">{op}</span>
+          <span className="option">{op.text}</span>
         ))}
       </section>
       <section className="article-preview-title">{title}</section>
       <section className="article-preview-bar">
         <div className="article-preview-author">
-          {anonymous ? `${author.name}` : `익명`}
+          {anonymous ? `${authorName}` : `익명`}
           <time className="article-created-time">{createdTimeFormat}</time>
         </div>
       </section>
@@ -58,32 +58,36 @@ const ArticlePreviewCard = (articlePreview: ArticleListApi) => {
           Read more...
         </Link>
         <div className="article-preview-response">
-          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
-          <TglBtn type="wonder" count={wonders} handler={onToggleWonder} />
-          <TglBtn type="scrap" count={clips} handler={onToggleClips} />
+          <TglBtn
+            type="heart"
+            count={favoriteCount}
+            handler={onToggleFavorites}
+          />
+          <TglBtn type="wonder" count={wonderCount} handler={onToggleWonder} />
+          <TglBtn type="scrap" count={clipCount} handler={onToggleClips} />
         </div>
       </section>
     </article>
   );
 };
 
-const ArticlePreviewList = (articlePreview: ArticleListApi) => {
+const ArticlePreviewList = (article: ArticleFeedDetailApi) => {
   const {
     id,
     options,
     title,
     anonymous,
-    author,
-    createdDate,
-    favorites,
-    wonders,
-    clips,
-  } = { ...articlePreview };
+    authorName,
+    favoriteCount,
+    wonderCount,
+    clipCount,
+    modifiedAt,
+  } = { ...article };
 
-  const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
+  const createdTimeFormat = `${modifiedAt.slice(0, 4)}-${modifiedAt.slice(
     4,
     6
-  )}-${createdDate.slice(6)}`;
+  )}-${modifiedAt.slice(6)}`;
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('List View Favorites Button Clicked - Api Call');
@@ -109,61 +113,67 @@ const ArticlePreviewList = (articlePreview: ArticleListApi) => {
       </Link>
       <section className="article-preview-list-detail">
         <div className="article-preview-author-time">
-          {anonymous ? `${author.name}` : `익명`}
+          {anonymous ? `${authorName}` : `익명`}
           <time>{createdTimeFormat}</time>
         </div>
         <div className="article-preview-response">
-          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
-          <TglBtn type="wonder" count={wonders} handler={onToggleWonder} />
-          <TglBtn type="scrap" count={clips} handler={onToggleClips} />
+          <TglBtn
+            type="heart"
+            count={favoriteCount}
+            handler={onToggleFavorites}
+          />
+          <TglBtn type="wonder" count={wonderCount} handler={onToggleWonder} />
+          <TglBtn type="scrap" count={clipCount} handler={onToggleClips} />
         </div>
       </section>
     </article>
   );
 };
 
-const ArticleListArea = ({ articleListData }: ArticleListProps) => {
+const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
   const viewModeHistory = useRecoilValue<string>(viewMode);
 
-  const [articleListTmp, setArticleListData] = useState<ArticleListApi[]>([]);
+  const [articleListTmp, setArticleListData] = useState<ArticleFeedDetailApi[]>(
+    []
+  );
 
   useEffect(() => {
-    setArticleListData(articleListData);
+    setArticleListData(feedList);
     console.log('!');
-  }, [articleListData]);
+  }, [feedList]);
 
   return (
     <div className="article-preview">
       <section className="article-preview-area">
         {viewModeHistory === 'card'
-          ? articleListTmp.map((articlePreview) => (
+          ? articleListTmp.map((article) => (
               <ArticlePreviewCard
-                id={articlePreview.id}
-                options={articlePreview.options}
-                title={articlePreview.title}
-                anonymous={articlePreview.anonymous}
-                author={articlePreview.author}
-                createdDate={articlePreview.createdDate}
-                modifiedDate={articlePreview.modifiedDate}
-                content={articlePreview.content}
-                favorites={articlePreview.favorites}
-                wonders={articlePreview.wonders}
-                clips={articlePreview.clips}
+                id={article.id}
+                options={article.options}
+                title={article.title}
+                anonymous={article.anonymous}
+                authorName={article.authorName}
+                content={article.content}
+                favoriteCount={article.favoriteCount}
+                wonderCount={article.wonderCount}
+                clipCount={article.clipCount}
+                createdAt={article.createdAt}
+                modifiedAt={article.modifiedAt}
               />
             ))
-          : articleListTmp.map((articlePreview) => (
+          : articleListTmp.map((article) => (
               <ArticlePreviewList
-                id={articlePreview.id}
-                options={articlePreview.options}
-                title={articlePreview.title}
-                anonymous={articlePreview.anonymous}
-                author={articlePreview.author}
-                createdDate={articlePreview.createdDate}
-                modifiedDate={articlePreview.modifiedDate}
-                content={articlePreview.content}
-                favorites={articlePreview.favorites}
-                wonders={articlePreview.wonders}
-                clips={articlePreview.clips}
+                id={article.id}
+                options={article.options}
+                title={article.title}
+                anonymous={article.anonymous}
+                authorName={article.authorName}
+                content={article.content}
+                favoriteCount={article.favoriteCount}
+                wonderCount={article.wonderCount}
+                clipCount={article.clipCount}
+                createdAt={article.createdAt}
+                modifiedAt={article.modifiedAt}
               />
             ))}
       </section>

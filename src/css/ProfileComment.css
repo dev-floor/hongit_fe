@@ -1,0 +1,40 @@
+/*=============== Comment Area ==================*/
+
+.comment-area {
+  padding: 0.3rem;
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.comment-submit-area {
+  height: 80px;
+  display: flex;
+}
+
+.comment-time {
+  font-size: 1rem;
+  margin-left:10px;
+}
+
+.article-title-link {
+  margin-left: 1rem;
+  color: blueviolet;
+  margin: 10px 3px 10px 3px;
+}
+
+.profile-comment-area {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--my-color);
+  margin: 10px 0px;
+  padding: 10px;
+  padding-bottom: 0px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgba(166, 188, 206, 0.473);
+}
+
+.profile-comment-info{
+  display: flex;
+  justify-content: flex-start;
+}

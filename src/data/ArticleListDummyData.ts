@@ -1,79 +1,121 @@
+import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
+
 const articleListDummyData = [
   {
     id: 1,
-    options: ['하란', '알고리즘 분석', '2분반'],
-    title: '아니 과제 무슨 이따구임',
-    anonymous: true,
-    author: {
-      name: '이현주',
-    },
-    createdDate: '20210420',
-    modifiedDate: '',
+    options: [
+      {
+        id: 1,
+        text: '1분반/월2수45',
+        type: {
+          id: 'COURSE_GROUP',
+          text: '분반',
+        },
+      },
+      {
+        id: 2,
+        text: '질문',
+        type: {
+          id: 'ARTICLE_KIND',
+          text: '게시글 종류',
+        },
+      },
+    ],
+    title: '오늘 수업에서 이분탐색 관련',
+    anonymous: false,
+    authorName: '현주',
     content:
       '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래 아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래해오래 해오래 해오래 해오래 해오래  ...',
-    favorites: 1,
-    wonders: 1,
-    clips: 1,
+    favoriteCount: 1,
+    wonderCount: 1,
+    clipCount: 1,
+    createdAt: '2021-08-10T20:40:21',
+    modifiedAt: '2021-08-10T20:40:21',
   },
   {
     id: 2,
-    options: ['김선일', '운영체제', '1분반'],
-    title: '파일 시스템 과제 관련 질문해봅니다!',
+    options: [
+      {
+        id: 1,
+        text: '1분반/월2수45',
+        type: {
+          id: 'COURSE_GROUP',
+          text: '분반',
+        },
+      },
+    ],
+    title: '오늘 수업에서 파일시스템 관련',
     anonymous: false,
-    author: {
-      name: '홍석기',
-    },
-    createdDate: '20201103',
-    modifiedDate: '',
-    content: '저만 어렵나요 이 과제? ㅜㅜ',
-    favorites: 49,
-    wonders: 0,
-    clips: 1,
+    authorName: '현주',
+    content:
+      '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래 아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래해오래 해오래 해오래 해오래 해오래  ...',
+    favoriteCount: 1,
+    wonderCount: 1,
+    clipCount: 1,
+    createdAt: '2021-07-07T20:40:21',
+    modifiedAt: '2021-07-07T20:40:21',
   },
   {
     id: 3,
-    options: ['김선일', '운영체제', '1분반'],
-    title: '과제 관련 질문해봅니다!',
+    options: [
+      {
+        id: 1,
+        text: '1분반/월2수45',
+        type: {
+          id: 'COURSE_GROUP',
+          text: '분반',
+        },
+      },
+      {
+        id: 2,
+        text: '질문',
+        type: {
+          id: 'ARTICLE_KIND',
+          text: '게시글 종류',
+        },
+      },
+    ],
+    title: '오늘 수업에서 파일시스템 관련',
     anonymous: false,
-    author: {
-      name: '홍석기',
-    },
-    createdDate: '20201103',
-    modifiedDate: '',
-    content: '? ㅜㅜ',
-    favorites: 2,
-    wonders: 0,
-    clips: 1,
+    authorName: '다연',
+    content:
+      '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래 아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래해오래 해오래 해오래 해오래 해오래  ...',
+    favoriteCount: 1,
+    wonderCount: 1,
+    clipCount: 1,
+    createdAt: '2021-08-07T20:40:21',
+    modifiedAt: '2021-08-07T20:40:21',
   },
   {
     id: 4,
-    options: ['김선일', '운영체제', '1분반'],
-    title: '질문!',
+    options: [
+      {
+        id: 1,
+        text: '1분반/월2수45',
+        type: {
+          id: 'COURSE_GROUP',
+          text: '분반',
+        },
+      },
+      {
+        id: 2,
+        text: '질문',
+        type: {
+          id: 'ARTICLE_KIND',
+          text: '게시글 종류',
+        },
+      },
+    ],
+    title: '오늘 수업에서 파일시스템 관련',
     anonymous: false,
-    author: {
-      name: '홍석기',
-    },
-    createdDate: '20201103',
-    modifiedDate: '',
-    content: '저만 어렵나요 이 과제? ㅜㅜ',
-    favorites: 2,
-    wonders: 0,
-    clips: 1,
-  },
-  {
-    id: 5,
-    options: ['김선일', '운영체제', '1분반'],
-    title: '파일 시스템 과제 관련 질문해봅니다!',
-    anonymous: false,
-    author: {
-      name: '홍석기',
-    },
-    createdDate: '20201103',
-    modifiedDate: '',
-    content: '저만 어렵나요 이 과제? ㅜㅜ',
-    favorites: 2,
-    wonders: 0,
-    clips: 1,
+    authorName: '다연',
+    content:
+      '과제 개 헬 그자체아닌가욤? 아니 무슨 손코딩을 해오래 아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래아니 무슨 손코딩을 해오래해오래 해오래 해오래 해오래 해오래  ...',
+    favoriteCount: 1,
+    wonderCount: 1,
+    clipCount: 1,
+    createdAt: '2021-08-07T20:40:21',
+    modifiedAt: '2021-08-07T20:40:21',
   },
 ];
 

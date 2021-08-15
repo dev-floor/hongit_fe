@@ -4,7 +4,9 @@ import TglBtn from 'Commons/TglBtn';
 import 'css/Article.css';
 
 const ArticleBody = (dummyData: ArticleDetailApi) => {
-  const { content, hashtags, favorites, wonders, clips } = { ...dummyData };
+  const { content, hashtags, favoriteCount, wonderCount, clipCount } = {
+    ...dummyData,
+  };
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
@@ -32,9 +34,13 @@ const ArticleBody = (dummyData: ArticleDetailApi) => {
           ))}
         </div>
         <div className="tglbtn-area">
-          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
-          <TglBtn type="wonder" count={wonders} handler={onToggleWonder} />
-          <TglBtn type="scrap" count={clips} handler={onToggleClips} />
+          <TglBtn
+            type="heart"
+            count={favoriteCount}
+            handler={onToggleFavorites}
+          />
+          <TglBtn type="wonder" count={wonderCount} handler={onToggleWonder} />
+          <TglBtn type="scrap" count={clipCount} handler={onToggleClips} />
         </div>
       </section>
     </div>

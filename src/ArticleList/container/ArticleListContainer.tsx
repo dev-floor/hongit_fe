@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
 import { applyFilterFlag, viewSort, viewFilter } from 'Atoms/atom';
 import { articleAPI } from 'api/api';
-import { ArticleListApi } from 'api/ApiProps';
+import { ArticleFeedDetailApi } from 'api/ApiProps';
 import ArticleListArea from '../presentational/ArticleList';
 
 const ArticleListContainer = () => {
@@ -10,11 +10,11 @@ const ArticleListContainer = () => {
   const viewFilterValue = useRecoilValue(viewFilter);
   const applyFilterFlagValue = useRecoilValue(applyFilterFlag);
 
-  const [articleListData, setArticleListData] = useState<ArticleListApi[]>([]);
+  const [feedListData, setFeedList] = useState<ArticleFeedDetailApi[]>([]);
 
   const loadData = async () => {
-    const articleListResponse = await articleAPI.getByList();
-    setArticleListData(articleListResponse);
+    const response = await articleAPI.getByList();
+    setFeedList(response);
   };
 
   useEffect(() => {
@@ -26,7 +26,7 @@ const ArticleListContainer = () => {
     console.log(viewSortValue, viewFilterValue);
   }, [applyFilterFlagValue]);
 
-  return <ArticleListArea articleListData={articleListData} />;
+  return <ArticleListArea feedList={feedListData} />;
 };
 
 export default ArticleListContainer;

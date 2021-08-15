@@ -1,13 +1,10 @@
 import React, { useState, useEffect } from 'react';
-// import { useRecoilValue } from 'recoil';
-// import { selectedArticleId } from 'Atoms/atom';
 import { commentsAPI } from 'api/api';
-import { ArticleCommentApi } from 'api/ApiProps';
+import { CommentApi } from 'api/ApiProps';
 import CommentArea from '../presentational/CommentArea';
 
 const CommentContainer = () => {
-  // const articleId = useRecoilValue(selectedArticleId);
-  const [comments, setComments] = useState<ArticleCommentApi[]>([]);
+  const [comments, setComments] = useState<CommentApi[]>([]);
 
   const loadData = async () => {
     const response = await commentsAPI.get(/* articleId */);
@@ -18,21 +15,21 @@ const CommentContainer = () => {
     loadData();
   }, []);
 
-  const onPressFavorite = (targetComment: ArticleCommentApi) => {
+  const onPressFavorite = (targetComment: CommentApi) => {
     setComments((commentList) =>
       commentList.map((comment, index) =>
         comment === targetComment
-          ? { ...comment, favorites: comment.favorites + 1 }
+          ? { ...comment, favorites: comment.favoriteCount + 1 }
           : comment
       )
     );
   };
 
-  const onRegisterCreateComment = (newComment: ArticleCommentApi) => {
+  const onRegisterCreateComment = (newComment: CommentApi) => {
     setComments([...comments, newComment]);
   };
 
-  const onRegisterUpdateComment = (updateComment: ArticleCommentApi) => {
+  const onRegisterUpdateComment = (updateComment: CommentApi) => {
     const modify = comments.map((comment) =>
       comment.id === updateComment.id
         ? { ...comment, content: updateComment.content }

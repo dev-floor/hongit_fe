@@ -55,11 +55,13 @@ const BoardPreview = ({ previewData }: BoardPreviewProp) => {
   return (
     <div className="board-preview-detail">
       <section className="board-title">
-        <FontAwesomeIcon
-          className="hot-icon"
-          icon={faFireAlt}
-          style={{ color: 'crimson' }}
-        />
+        <a href="/board">
+          <FontAwesomeIcon
+            className="hot-icon"
+            icon={faFireAlt}
+            style={{ color: 'crimson' }}
+          />
+        </a>
         {title}
       </section>
       <hr />

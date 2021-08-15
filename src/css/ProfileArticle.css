@@ -1,0 +1,76 @@
+@import url('./common.css');
+
+.article-preview-detail {
+  display: flex;
+  flex-direction: column;
+  background-color: var(--my-color);
+  margin: 10px 0px;
+  padding: 10px;
+  padding-bottom: 0px;
+  cursor: pointer;
+  border-radius: 5px;
+  border: 1px solid rgba(166, 188, 206, 0.473);
+}
+
+.option-area {
+  display: flex;
+  flex-direction: row;
+}
+
+.option-area .option {
+  padding: 1px;
+  text-align: center;
+  border-width: 2px 2px;
+  border-radius: 40px;
+  background-color: var(--options-color);
+  color: white;
+  font-size: 0.8rem;
+}
+
+.article-preview-title {
+  font-size: 1.1em;
+  font-weight: bold;
+  margin: 0.7rem 0rem 0.2rem 0rem;
+  margin-left: 3px;
+}
+
+.article-preview-bar {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  color: gray;
+  font-size: 0.6rem;
+  margin-left: 3px;
+}
+.article-preview-author-time {
+  display: flex;
+  margin: auto;
+  margin-left: 0px;
+  justify-content: flex-start;
+}
+
+time {
+  margin-left: 5px;
+}
+
+.article-preview-content {
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-left: 3px;
+}
+
+.article-preview-card-detail {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.8em;
+  margin-left: 3px;
+}
+
+.article-preview-response {
+  display: flex;
+}
+
+.article-preview {
+  margin: 0px;
+  padding: 0px;
+}
