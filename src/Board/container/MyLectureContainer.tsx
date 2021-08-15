@@ -4,11 +4,13 @@ import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
 import { allLectureAPI, sidebarAPI } from 'api/api';
-import { AllLectureDetailApi } from 'api/ApiProps';
+import { BoardDetailApi as AllLectureInfosApi } from 'api/ApiProps';
 import MyLecture from '../presentational/MyLecture';
 
+import 'css/myLecture.css';
+
 const MyLectureContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<AllLectureDetailApi[]>(
+  const [allLectureData, setAllLectureData] = useState<AllLectureInfosApi[]>(
     []
   );
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
@@ -63,11 +65,13 @@ const MyLectureContainer = () => {
   }, [selectedSubject, allLectureData]);
 
   return (
-    <MyLecture
-      yearFilteredData={yearFilteredData}
-      finalFilteredData={finalFilteredData}
-      onAddSiderBars={onAddMyLecture}
-    />
+    <section className="my-lecture-wrapper">
+      <MyLecture
+        yearFilteredData={yearFilteredData}
+        finalFilteredData={finalFilteredData}
+        onAddSiderBars={onAddMyLecture}
+      />
+    </section>
   );
 };
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 import { allLectureAPI } from 'api/api';
-import { AllLectureDetailApi } from 'api/ApiProps';
+import { BoardDetailApi as AllLectureDetailApi } from 'api/ApiProps';
 import AllLectureMenu from '../presentational/AllLectureMenu';
 
 const AllLectureMenuContainer = () => {

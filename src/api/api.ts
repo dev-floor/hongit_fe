@@ -104,7 +104,7 @@ export const sidebarAPI = {
   },
 
   putMyLecture: (data: number[]) => {
-    // const response = await putRequest(`${END_POINT}/boards/myBoards`);
+    // const response = await putRequest(`${END_POINT}/boards/bookmarks`);
     console.log('========My Lecture PUT API CALL========');
     console.log(data);
   },
