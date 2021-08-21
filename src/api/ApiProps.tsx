@@ -1,4 +1,4 @@
-/*--Common InterFace--*/
+/* ----- Common InterFace ----- */
 export interface ProfessorResponse {
   name: string;
   email: string;
@@ -21,7 +21,7 @@ export interface AuthorInfo {
   description: string;
 }
 
-/*--- Article ---*/
+/* ----- Article ----- */
 export interface ArticleDetailApi {
   id: number;
   options: OptionResponse[];
@@ -51,6 +51,8 @@ export interface ArticleFeedDetailApi {
   modifiedAt: string;
 }
 
+export type ArticleFeedApiPartial = Partial<ArticleFeedDetailApi>;
+
 export interface CommentApi {
   id: number;
   authorName: string;
@@ -69,6 +71,7 @@ export interface ArticleCreateApi {
   hashtags: string[];
 }
 
+/* ----- Home ----- */
 export interface ArticlePreviewInfo {
   articleId: number;
   title: string;
@@ -94,6 +97,7 @@ export interface HomeApi {
   recruit: BoardPreviewInfo;
 }
 
+/* ----- Board ----- */
 export interface BoardOption {
   name: string;
   text: string;
@@ -127,6 +131,7 @@ export interface AllLectureDetailApi {
   grade: BaseEnumResponse;
 }
 
+/* ----- Profile ----- */
 export interface ProfileUserApi {
   username: string;
   nickname: string;

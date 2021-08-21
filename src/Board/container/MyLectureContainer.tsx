@@ -3,12 +3,14 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
-import { allLectureAPI } from 'api/api';
-import { AllLectureDetailApi } from 'api/ApiProps';
+import { allLectureAPI, sidebarAPI } from 'api/api';
+import { BoardDetailApi as AllLectureInfosApi } from 'api/ApiProps';
 import MyLecture from '../presentational/MyLecture';
 
+import 'css/myLecture.css';
+
 const MyLectureContainer = () => {
-  const [allLectureData, setAllLectureData] = useState<AllLectureDetailApi[]>(
+  const [allLectureData, setAllLectureData] = useState<AllLectureInfosApi[]>(
     []
   );
   const [yearFilteredData, setYearFilteredData] = useState<string[]>([]);
@@ -23,10 +25,13 @@ const MyLectureContainer = () => {
     setAllLectureData(totalLectureInfo);
   };
 
-  const onAddSiderBars = (lectures: string[]) => {
-    setMyLectures(() =>
-      allLectureData.filter((data) => lectures.includes(data.title))
+  const onAddMyLecture = (lectures: string[]) => {
+    const selectedFavoriteLecture = allLectureData.filter((data) =>
+      lectures.includes(data.title)
     );
+    const selectedMyLectureIds = selectedFavoriteLecture.map((lec) => lec.id);
+    setMyLectures(selectedFavoriteLecture);
+    sidebarAPI.putMyLecture(selectedMyLectureIds);
   };
 
   useEffect(() => {
@@ -60,11 +65,13 @@ const MyLectureContainer = () => {
   }, [selectedSubject, allLectureData]);
 
   return (
-    <MyLecture
-      yearFilteredData={yearFilteredData}
-      finalFilteredData={finalFilteredData}
-      onAddSiderBars={onAddSiderBars}
-    />
+    <section className="my-lecture-wrapper">
+      <MyLecture
+        yearFilteredData={yearFilteredData}
+        finalFilteredData={finalFilteredData}
+        onAddSiderBars={onAddMyLecture}
+      />
+    </section>
   );
 };
 

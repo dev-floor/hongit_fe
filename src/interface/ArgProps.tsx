@@ -6,7 +6,6 @@ import {
   ArticleFeedDetailApi,
   BoardDetailApi,
   SideBarDetailApi,
-  AllLectureDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
   HomeApi,
@@ -50,6 +49,7 @@ export interface BoardDetailProp {
 
 export interface SideBarProps {
   sideBarData: SideBarDetailApi[];
+  onModifyMyLectures: (e: any) => void;
 }
 
 export interface HongitMainProps {
@@ -57,7 +57,7 @@ export interface HongitMainProps {
 }
 
 export interface AllLectureMenuProp {
-  allLectureData: AllLectureDetailApi[];
+  allLectureData: BoardDetailApi[];
 }
 
 export interface MyLectureProps {

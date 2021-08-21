@@ -2,12 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
-import { ArticleFeedDetailApi } from 'api/ApiProps';
+import { ArticleFeedDetailApi, ArticleFeedApiPartial  } from 'api/ApiProps';
 import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
+import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import 'css/ArticleList.css';
 
-const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
+const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
   const {
     id,
     options,
@@ -18,14 +19,10 @@ const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
     favoriteCount,
     wonderCount,
     clipCount,
+    createdAt,
     modifiedAt,
   } = { ...article };
-
-  const createdTimeFormat = `${modifiedAt.slice(0, 4)}-${modifiedAt.slice(
-    4,
-    6
-  )}-${modifiedAt.slice(6)}`;
-
+  
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
   };
@@ -41,7 +38,7 @@ const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op) => (
+        {options?.map((op) => (
           <span className="option">{op.text}</span>
         ))}
       </section>
@@ -49,7 +46,11 @@ const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
       <section className="article-preview-bar">
         <div className="article-preview-author">
           {anonymous ? `${authorName}` : `익명`}
-          <time className="article-created-time">{createdTimeFormat}</time>
+          <time className="article-created-time">
+            {createdAt === modifiedAt
+              ? TransferTimeFormat(createdAt as string)
+              : TransferTimeFormat(modifiedAt as string)}
+          </time>
         </div>
       </section>
       <section className="article-preview-content">{content}</section>
@@ -71,7 +72,7 @@ const ArticlePreviewCard = (article: ArticleFeedDetailApi) => {
   );
 };
 
-const ArticlePreviewList = (article: ArticleFeedDetailApi) => {
+const ArticlePreviewList = (article: ArticleFeedApiPartial) => {
   const {
     id,
     options,
@@ -81,13 +82,9 @@ const ArticlePreviewList = (article: ArticleFeedDetailApi) => {
     favoriteCount,
     wonderCount,
     clipCount,
+    createdAt,
     modifiedAt,
   } = { ...article };
-
-  const createdTimeFormat = `${modifiedAt.slice(0, 4)}-${modifiedAt.slice(
-    4,
-    6
-  )}-${modifiedAt.slice(6)}`;
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('List View Favorites Button Clicked - Api Call');
@@ -104,8 +101,8 @@ const ArticlePreviewList = (article: ArticleFeedDetailApi) => {
   return (
     <article className="article-preview-detail">
       <section className="option-area">
-        {options.map((op) => (
-          <span className="option">{op}</span>
+        {options?.map((op) => (
+          <span className="option">{op.text}</span>
         ))}
       </section>
       <Link to={`/article/${id}`}>
@@ -114,7 +111,10 @@ const ArticlePreviewList = (article: ArticleFeedDetailApi) => {
       <section className="article-preview-list-detail">
         <div className="article-preview-author-time">
           {anonymous ? `${authorName}` : `익명`}
-          <time>{createdTimeFormat}</time>
+          <time>{createdAt === modifiedAt
+              ? TransferTimeFormat(createdAt as string)
+              : TransferTimeFormat(modifiedAt as string)}
+          </time>
         </div>
         <div className="article-preview-response">
           <TglBtn

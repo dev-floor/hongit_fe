@@ -48,7 +48,6 @@ const MyLecture = ({
 
   useEffect(() => {
     const addItem = `${selectedSubject} - ${selectedProfessor}`;
-    console.log(addItem, selectedCombination);
     if (
       selectedSubject !== '' &&
       selectedProfessor !== '' &&
@@ -71,16 +70,36 @@ const MyLecture = ({
     <Grid container style={{ padding: '2em 0em' }}>
       <Grid.Row>
         <Grid.Column>
-          <Header as="h1">즐겨찾기 등록</Header>
+          <header className="my-lecture-header">
+            <Header as="h1">즐겨찾기 등록</Header>
+            <section>
+              <Button
+                style={{
+                  backgroundColor: '#ed678c',
+                  color: 'white',
+                }}
+                onClick={() => setCombination(() => [])}
+              >
+                모두 삭제
+              </Button>
+              <Button
+                style={{ backgroundColor: 'black', color: 'white' }}
+                onClick={onRegisterMyLecture}
+              >
+                저장
+              </Button>
+            </section>
+          </header>
           <Divider />
-          <Grid className="grid-tmp" columns={5}>
-            <Grid.Column width={2} textAlign="center">
+          <Grid columns={4} divided>
+            <Grid.Column textAlign="center">
               <Button.Group
                 className="btn-group"
                 labeled
                 toggle
                 vertical
                 size="large"
+                fluid
               >
                 <Button value="1학년" className="grade" onClick={onClickYear}>
                   1학년
@@ -96,8 +115,8 @@ const MyLecture = ({
                 </Button>
               </Button.Group>
             </Grid.Column>
-            <Grid.Column width={3} textAlign="center">
-              <Button.Group className="btn-group" vertical>
+            <Grid.Column textAlign="center">
+              <Button.Group className="btn-group" vertical fluid>
                 {yearFilteredData.length === 0
                   ? ``
                   : yearFilteredData.map((data) => (
@@ -111,8 +130,8 @@ const MyLecture = ({
                     ))}
               </Button.Group>
             </Grid.Column>
-            <Grid.Column centered width={2} textAlign="center">
-              <Button.Group className="btn-group" toggle vertical>
+            <Grid.Column centered textAlign="center">
+              <Button.Group className="btn-group" toggle vertical fluid>
                 {finalFilteredData.length === 0
                   ? ``
                   : finalFilteredData.map((data) => (
@@ -126,32 +145,25 @@ const MyLecture = ({
                     ))}
               </Button.Group>
             </Grid.Column>
-            <Grid.Column centered width={4} textAlign="center">
-              {selectedCombination.length === 0
-                ? ``
-                : selectedCombination.map((combi) => (
-                    <Label style={{ margin: '0.5rem 0' }} tag value={combi}>
-                      {combi}
-                      <Icon name="delete" onClick={onRemoveMyTag} />
-                    </Label>
-                  ))}
-            </Grid.Column>
-            <Grid.Column centered width={2} textAlign="center">
-              {selectedCombination.length === 0 ? (
-                <Button
-                  style={{ backgroundColor: 'slategray', color: 'white' }}
-                  disabled
-                >
-                  추가
-                </Button>
-              ) : (
-                <Button
-                  style={{ backgroundColor: 'black', color: 'white' }}
-                  onClick={onRegisterMyLecture}
-                >
-                  추가
-                </Button>
-              )}
+            <Grid.Column centered textAlign="center">
+              <section className="selected-my-lectures">
+                <header className="selected-my-lectures-title">
+                  <Icon name="star" style={{ color: 'crimson' }} />
+                  선택한 내 수업 목록
+                </header>
+                {selectedCombination.length === 0
+                  ? ``
+                  : selectedCombination.map((combi) => (
+                      <Label
+                        style={{ margin: '0.5rem 0', width: '85%' }}
+                        tag
+                        value={combi}
+                      >
+                        {combi}
+                        <Icon name="delete" onClick={onRemoveMyTag} />
+                      </Label>
+                    ))}
+              </section>
             </Grid.Column>
           </Grid>
         </Grid.Column>
