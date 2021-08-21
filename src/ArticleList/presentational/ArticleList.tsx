@@ -111,7 +111,8 @@ const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
       <section className="article-preview-list-detail">
         <div className="article-preview-author-time">
           {anonymous ? `${authorName}` : `익명`}
-          <time>{createdAt === modifiedAt
+          <time>
+            {createdAt === modifiedAt
               ? TransferTimeFormat(createdAt as string)
               : TransferTimeFormat(modifiedAt as string)}
           </time>
