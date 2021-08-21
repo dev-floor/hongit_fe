@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
-import { ArticleFeedDetailApi, ArticleFeedApiPartial  } from 'api/ApiProps';
+import { ArticleFeedDetailApi, ArticleFeedApiPartial } from 'api/ApiProps';
 import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
@@ -22,7 +22,7 @@ const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
     createdAt,
     modifiedAt,
   } = { ...article };
-  
+
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
   };
@@ -111,7 +111,8 @@ const ArticlePreviewList = (article: ArticleFeedApiPartial) => {
       <section className="article-preview-list-detail">
         <div className="article-preview-author-time">
           {anonymous ? `${authorName}` : `익명`}
-          <time>{createdAt === modifiedAt
+          <time>
+            {createdAt === modifiedAt
               ? TransferTimeFormat(createdAt as string)
               : TransferTimeFormat(modifiedAt as string)}
           </time>

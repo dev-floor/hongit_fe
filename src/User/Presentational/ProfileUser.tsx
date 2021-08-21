@@ -18,7 +18,6 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
             <Item.Content>
               <Item.Meta className="info">
                 <span className="nick-name">{nickname}</span>
-                <span className="id">{username}</span>
               </Item.Meta>
               <Item.Extra>
                 <div>

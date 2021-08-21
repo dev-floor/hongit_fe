@@ -1,14 +1,12 @@
 @import url('./common.css');
 
-.article-preview-detail {
+.card-area {
   display: flex;
   flex-direction: column;
-  background-color: var(--my-color);
   margin: 10px 0px;
   padding: 10px;
-  padding-bottom: 0px;
-  cursor: pointer;
   border-radius: 5px;
+  background-color: var(--my-color);
   border: 1px solid rgba(166, 188, 206, 0.473);
 }
 
@@ -18,59 +16,53 @@
 }
 
 .option-area .option {
-  padding: 1px;
+  padding-left: 5px;
+  padding-right: 5px;
   text-align: center;
   border-width: 2px 2px;
   border-radius: 40px;
   background-color: var(--options-color);
   color: white;
-  font-size: 0.8rem;
+  font-size: 0.9rem;
+  min-width: fit-content;
 }
 
-.article-preview-title {
+.title {
   font-size: 1.1em;
   font-weight: bold;
   margin: 0.7rem 0rem 0.2rem 0rem;
   margin-left: 3px;
 }
 
-.article-preview-bar {
+.info {
   display: flex;
   justify-content: space-between;
   width: 100%;
   color: gray;
   font-size: 0.6rem;
-  margin-left: 3px;
+  margin: 0rem 0rem 0.2rem 0rem;
+  margin-left: 5px;
 }
-.article-preview-author-time {
+
+.author-time-info {
   display: flex;
-  margin: auto;
   margin-left: 0px;
-  justify-content: flex-start;
+  /* justify-content: flex-start; */
 }
 
 time {
   margin-left: 5px;
 }
 
-.article-preview-content {
+.content {
   font-size: 1rem;
-  margin-top: 0.5rem;
-  margin-left: 3px;
+  margin-left: 5px;
+}
+.link {
+  cursor: pointer;
+  margin-left: 5px;
 }
 
-.article-preview-card-detail {
-  display: flex;
-  justify-content: space-between;
-  font-size: 0.8em;
-  margin-left: 3px;
-}
-
-.article-preview-response {
-  display: flex;
-}
-
-.article-preview {
-  margin: 0px;
-  padding: 0px;
+.article-feed-area {
+  margin:0px;
 }

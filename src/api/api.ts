@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { ProfileCommentApi, CommentApi, ArticleCreateApi } from './ApiProps';
+import { CommentApi, ArticleCreateApi } from './ApiProps';
 
 import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';

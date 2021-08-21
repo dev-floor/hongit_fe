@@ -18,16 +18,15 @@
   font-size: 15px;
   line-height: 1.5em;
   padding: 20px;
-  background-color: var(--back-color);
-  /* background-color: rgba(255, 218, 218, 0.233); */
+  background-color: var(--my-color);
   border-radius: 8px;
 }
 
 .userinfo {
   margin-left: 5%;
   margin-right: 5%;
-  margin-top: 50px;
-  margin-bottom: 30px;
+  margin-top: 2rem;
+  margin-bottom: 1.5rem;
 }
 
 .tab {

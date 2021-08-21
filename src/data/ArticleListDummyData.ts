@@ -1,5 +1,3 @@
-import { faGalacticSenate } from '@fortawesome/free-brands-svg-icons';
-
 const articleListDummyData = [
   {
     id: 1,
@@ -84,8 +82,8 @@ const articleListDummyData = [
     ],
     title: '파일 시스템 과제 마감 언제?',
     anonymous: true,
-    authorName: '이현주',
-    content: '제곧내?',
+    authorName: '김세훈',
+    content: 'ㅈㄱㄴ',
     favoriteCount: 1,
     wonderCount: 18,
     clipCount: 2,

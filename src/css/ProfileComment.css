@@ -1,25 +1,7 @@
 /*=============== Comment Area ==================*/
 
-.comment-area {
-  padding: 0.3rem;
-  overflow: hidden;
-  border-radius: 5px;
-}
-
-.comment-submit-area {
-  height: 80px;
-  display: flex;
-}
-
-.comment-time {
-  font-size: 1rem;
-  margin-left:10px;
-}
-
-.article-title-link {
-  margin-left: 1rem;
-  color: blueviolet;
-  margin: 10px 3px 10px 3px;
+.comment-feed-area {
+  margin:0px;
 }
 
 .profile-comment-area {
@@ -27,14 +9,37 @@
   flex-direction: column;
   background-color: var(--my-color);
   margin: 10px 0px;
-  padding: 10px;
-  padding-bottom: 0px;
-  cursor: pointer;
+  padding: 5px;
   border-radius: 5px;
   border: 1px solid rgba(166, 188, 206, 0.473);
 }
 
-.profile-comment-info{
+.comment-time-info {
   display: flex;
-  justify-content: flex-start;
+  margin-left: 5px;
+  color: gray;
+  font-size: 0.8rem;
+  /* margin: 0rem 0rem 0.2rem 0rem; */
+  margin-left: 5px;
+}
+
+.comment-content {
+  font-size: 0.8rem;
+  margin-left: 5px;
+}
+
+.article-title-area {
+  display: flex;
+  flex-direction: row;
+  margin-left: 9px;
+  color: blueviolet;
+  cursor: pointer;
+}
+
+.title-link {
+  font-size:0.8rem;
+}
+
+.title-icon {
+  margin-top:5px;
 }
