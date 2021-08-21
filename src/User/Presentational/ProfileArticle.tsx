@@ -21,7 +21,7 @@ const CardView = (article: ArticleFeedDetailApi) => {
     modifiedAt,
   } = { ...article };
 
-   return (
+  return (
     <article className="card-area">
       <section className="option-area">
         {options.map((op) => (
@@ -36,31 +36,31 @@ const CardView = (article: ArticleFeedDetailApi) => {
         </div>
       </section>
       <section className="content">{content}</section>
-        <Link to={`/article/${id}`} className="link">
-          Read more...
-        </Link>
+      <Link to={`/article/${id}`} className="link">
+        Read more...
+      </Link>
     </article>
   );
 };
 
 const ProfileArticle = ({ feedList }: ArticleFeedProps) => (
-    <section className="article-feed-area">
-      {feedList.map((article) => (
-        <CardView
-          id={article.id}
-          options={article.options}
-          title={article.title}
-          anonymous={article.anonymous}
-          authorName={article.authorName}
-          content={article.content}
-          favoriteCount={article.favoriteCount}
-          wonderCount={article.wonderCount}
-          clipCount={article.clipCount}
-          createdAt={article.createdAt}
-          modifiedAt={article.modifiedAt}
-        />
-      ))}
-    </section>
+  <section className="article-feed-area">
+    {feedList.map((article) => (
+      <CardView
+        id={article.id}
+        options={article.options}
+        title={article.title}
+        anonymous={article.anonymous}
+        authorName={article.authorName}
+        content={article.content}
+        favoriteCount={article.favoriteCount}
+        wonderCount={article.wonderCount}
+        clipCount={article.clipCount}
+        createdAt={article.createdAt}
+        modifiedAt={article.modifiedAt}
+      />
+    ))}
+  </section>
 );
 
 export default ProfileArticle;

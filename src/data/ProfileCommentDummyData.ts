@@ -17,7 +17,7 @@ const profileCommentDummyData = [
       id: 2,
       authorName: '닉넴',
       anonymous: false,
-      content:'어렵네요',
+      content: '어렵네요',
       favoriteCount: 1,
       createdAt: '2021-06-03T00:00:00',
       modifiedAt: '2021-06-03T00:00:00',
