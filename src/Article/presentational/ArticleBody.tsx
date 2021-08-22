@@ -3,9 +3,16 @@ import { ArticleDetailApi } from 'api/ApiProps';
 import TglBtn from 'Commons/TglBtn';
 import 'css/Article.css';
 
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
+import { Viewer } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+
 const ArticleBody = (dummyData: ArticleDetailApi) => {
   const { content, hashtags, favorites, wonders, clips } = { ...dummyData };
-
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
   };
@@ -20,7 +27,15 @@ const ArticleBody = (dummyData: ArticleDetailApi) => {
 
   return (
     <div>
-      <section className="article-content">{content}</section>
+      <section className="article-content">
+        {content && (
+          <Viewer
+            initialValue={content}
+            plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
+          />
+        )}
+      </section>
+      <br />
       <img className="article-image" src={content} alt="첨부된 이미지 파일" />
 
       <section className="article-descriptions">

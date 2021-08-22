@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { useHistory } from 'react-router-dom';
 import { useRecoilValue, useRecoilState } from 'recoil';
 import {
@@ -11,11 +11,20 @@ import { RiEqualizerLine } from 'react-icons/ri';
 import ArticleOptionModal from 'Commons/ArticleOptionModal';
 import 'css/Article.css';
 
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
+import { Editor } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+
 const ArticleCreatePage = ({
   onRegisterArticle,
   modifiyTargetArticle,
 }: ArticleCreatePageProps) => {
   const history = useHistory();
+  const editorRef = useRef<Editor>(null);
 
   // modifiyTargetArticle 값이
   // undefined 이면 게시물을 새로 등록하는 것.
@@ -56,12 +65,19 @@ const ArticleCreatePage = ({
     setNewHashtags(e.target.value);
   };
 
-  const onChangeContent = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
-    setNewContent(e.target.value);
+  const onChangeContent = () => {
+    const editorInstance = editorRef.current?.getInstance();
+    const getContentMarkdown = editorInstance?.getMarkdown() as string;
+    setNewContent(getContentMarkdown);
   };
 
   const onChangeNewArticle = () => {
     setSelectedOptions(() => [] as string[]);
+    const newlinedArticle = newArticle.content.replaceAll('\n', '\\n');
+    setNewArticle(() => ({
+      ...newArticle,
+      content: newlinedArticle,
+    }));
     onRegisterArticle(newArticle);
   };
 
@@ -106,9 +122,7 @@ const ArticleCreatePage = ({
       (document.querySelector(
         '.hashtag-area input'
       ) as HTMLInputElement).value = modifiyTargetArticle.hashtags.join(',');
-      (document.querySelector(
-        '.contents-area textarea'
-      ) as HTMLTextAreaElement).value = modifiyTargetArticle.content;
+      console.log(modifiyTargetArticle);
     }
   }, [modifiyTargetArticle]);
 
@@ -174,15 +188,31 @@ const ArticleCreatePage = ({
           />
         </div>
         <hr />
-        툴바 추후 지원
-        <hr />
-        <div className="contents-area">
-          <textarea
-            placeholder="내용을 입력해주세요..."
+        {modifiyTargetArticle !== undefined ? (
+          modifiyTargetArticle.content && (
+            <Editor
+              initialValue={modifiyTargetArticle.content}
+              previewStyle="vertical"
+              height="600px"
+              initialEditType="markdown"
+              useCommandShortcut
+              onChange={onChangeContent}
+              ref={editorRef}
+              plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
+            />
+          )
+        ) : (
+          <Editor
+            initialValue="내용을 입력하세요!"
+            previewStyle="vertical"
+            height="600px"
+            initialEditType="markdown"
+            useCommandShortcut
             onChange={onChangeContent}
-            required
+            ref={editorRef}
+            plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
           />
-        </div>
+        )}
         <hr />
         <div className="btn-area">
           <button
