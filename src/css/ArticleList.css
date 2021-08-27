@@ -69,15 +69,13 @@
 }
 
 .option-area .option {
-  /* margin: 0 3px; */
   padding: 1px;
-  width: 80px;
   text-align: center;
   border-width: 2px 2px;
   border-radius: 40px;
   background-color: var(--options-color);
   color: white;
-  font-size: 5px;
+  font-size: 0.8rem;
 }
 
 .article-preview-title {
@@ -123,7 +121,7 @@ time {
 }
 
 .article-preview-content {
-  font-size: 0.8rem;
+  font-size: 1rem;
   margin-top: 0.5rem;
   margin-left: 3px;
 }
@@ -149,7 +147,7 @@ time {
 }
 .article-preview-list-detail .article-preview-author {
   color: gray;
-  font-size: 0.6rem;
+  font-size: 0.8rem;
 }
 .article-preview-list-detail .article-preview-response {
   margin-left: auto;

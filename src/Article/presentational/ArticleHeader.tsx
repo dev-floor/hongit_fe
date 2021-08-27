@@ -10,13 +10,13 @@ const ArticleHeader = ({
   onDeleteArticle,
   articleData,
 }: ArticleHeaderProps) => {
-  const { options, title, anonymous, createdDate, author } = {
+  const { options, title, anonymous, author, createdAt } = {
     ...articleData,
   };
-  const createdTimeFormat = `${createdDate.slice(0, 4)}-${createdDate.slice(
+  const createdTimeFormat = `${createdAt.slice(0, 4)}-${createdAt.slice(
     4,
     6
-  )}-${createdDate.slice(6)}`;
+  )}-${createdAt.slice(6)}`;
 
   const articleId = useRecoilValue(selectedArticleId);
   // const setArticleSelectedOptions = useSetRecoilState(articleCreateSelectedOptions);
@@ -44,13 +44,13 @@ const ArticleHeader = ({
     <header className="article-header">
       <section className="option-area">
         {options.map((op, index) => (
-          <span className="option">{op}</span>
+          <span className="option">{op.text}</span>
         ))}
       </section>
       <h2 className="article-title">{title}</h2>
       <section className="article-header-bar">
         <div className="article-info-area">
-          {anonymous ? <div>익명</div> : <div>{author.name}</div>}
+          {anonymous ? <div>익명</div> : <div>{author.nickname}</div>}
           <time className="article-created-time">{createdTimeFormat}</time>
         </div>
         <div className="article-btn-area">

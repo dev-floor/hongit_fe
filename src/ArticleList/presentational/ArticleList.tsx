@@ -2,13 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
 import { viewMode } from 'Atoms/atom';
-import { ArticleListApi, ArticleListApiPartial } from 'api/ApiProps';
-import { ArticleListProps } from 'interface/ArgProps';
+import { ArticleFeedDetailApi, ArticleFeedApiPartial } from 'api/ApiProps';
+import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import 'css/ArticleList.css';
 
-const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
+const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
   const {
     id,
     options,
@@ -21,7 +21,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
     clipCount,
     createdAt,
     modifiedAt,
-  } = { ...articlePreview };
+  } = { ...article };
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Card View Favorites Button Clicked - Api Call');
@@ -72,7 +72,7 @@ const ArticlePreviewCard = (articlePreview: ArticleListApiPartial) => {
   );
 };
 
-const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
+const ArticlePreviewList = (article: ArticleFeedApiPartial) => {
   const {
     id,
     options,
@@ -84,7 +84,7 @@ const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
     clipCount,
     createdAt,
     modifiedAt,
-  } = { ...articlePreview };
+  } = { ...article };
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('List View Favorites Button Clicked - Api Call');
@@ -131,47 +131,50 @@ const ArticlePreviewList = (articlePreview: ArticleListApiPartial) => {
   );
 };
 
-const ArticleListArea = ({ articleListData }: ArticleListProps) => {
+const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
   const viewModeHistory = useRecoilValue<string>(viewMode);
 
-  const [articleListTmp, setArticleListData] = useState<ArticleListApi[]>([]);
+  const [articleListTmp, setArticleListData] = useState<ArticleFeedDetailApi[]>(
+    []
+  );
 
   useEffect(() => {
-    setArticleListData(articleListData);
+    setArticleListData(feedList);
     console.log('!');
-  }, [articleListData]);
+  }, [feedList]);
 
   return (
     <div className="article-preview">
       <section className="article-preview-area">
         {viewModeHistory === 'card'
-          ? articleListTmp.map((articlePreview) => (
+          ? articleListTmp.map((article) => (
               <ArticlePreviewCard
-                id={articlePreview.id}
-                options={articlePreview.options}
-                title={articlePreview.title}
-                anonymous={articlePreview.anonymous}
-                authorName={articlePreview.authorName}
-                content={articlePreview.content}
-                favoriteCount={articlePreview.favoriteCount}
-                wonderCount={articlePreview.wonderCount}
-                clipCount={articlePreview.clipCount}
-                createdAt={articlePreview.createdAt}
-                modifiedAt={articlePreview.modifiedAt}
+                id={article.id}
+                options={article.options}
+                title={article.title}
+                anonymous={article.anonymous}
+                authorName={article.authorName}
+                content={article.content}
+                favoriteCount={article.favoriteCount}
+                wonderCount={article.wonderCount}
+                clipCount={article.clipCount}
+                createdAt={article.createdAt}
+                modifiedAt={article.modifiedAt}
               />
             ))
-          : articleListTmp.map((articlePreview) => (
+          : articleListTmp.map((article) => (
               <ArticlePreviewList
-                id={articlePreview.id}
-                options={articlePreview.options}
-                title={articlePreview.title}
-                anonymous={articlePreview.anonymous}
-                authorName={articlePreview.authorName}
-                favoriteCount={articlePreview.favoriteCount}
-                wonderCount={articlePreview.wonderCount}
-                clipCount={articlePreview.clipCount}
-                createdAt={articlePreview.createdAt}
-                modifiedAt={articlePreview.modifiedAt}
+                id={article.id}
+                options={article.options}
+                title={article.title}
+                anonymous={article.anonymous}
+                authorName={article.authorName}
+                content={article.content}
+                favoriteCount={article.favoriteCount}
+                wonderCount={article.wonderCount}
+                clipCount={article.clipCount}
+                createdAt={article.createdAt}
+                modifiedAt={article.modifiedAt}
               />
             ))}
       </section>

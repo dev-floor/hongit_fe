@@ -1,29 +1,32 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { articleAPI } from 'api/api';
-import { ArticleCreateApi } from 'api/ApiProps';
+import { ArticleCreateApi, OptionResponse } from 'api/ApiProps';
 import ArticleCreatePage from '../presentational/ArticleCreatePage';
 
 const ArticleCreatePageContainer = () => {
   const history = useHistory();
   const location = useLocation<{ modifyArticleId: string }>();
   const [modifyTargetArticle, setModifyTargetArticle] = useState({
-    options: [] as string[],
+    id: 0,
+    options: [] as OptionResponse[],
     title: '',
     anonymous: true,
     author: {
-      name: '',
+      nickname: '',
+      type: { id: '', text: '' },
       image: '',
       github: '',
       blog: '',
       description: '',
     },
-    createdDate: '',
     content: '',
     hashtags: [] as string[],
-    favorites: 0,
-    wonders: 0,
-    clips: 0,
+    favoriteCount: 0,
+    wonderCount: 0,
+    clipCount: 0,
+    createdAt: '',
+    modifiedAt: '',
   });
 
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {

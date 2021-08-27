@@ -8,22 +8,37 @@ import ArticleBody from '../presentational/ArticleBody';
 const ArticleBodyContainer = () => {
   // const articleId = useRecoilValue(selectedArticleId);
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
-    options: [''],
+    id: 0,
+    options: [
+      {
+        id: 0,
+        text: '',
+        type: {
+          id: '',
+          text: '',
+        },
+      },
+    ],
     title: '',
     anonymous: false,
     author: {
-      name: '',
+      nickname: '',
+      type: {
+        id: '',
+        text: '',
+      },
       image: '',
       github: '',
       blog: '',
       description: '',
     },
-    createdDate: '',
     content: '',
     hashtags: [''],
-    favorites: 0,
-    wonders: 0,
-    clips: 0,
+    favoriteCount: 0,
+    wonderCount: 0,
+    clipCount: 0,
+    createdAt: '',
+    modifiedAt: '',
   });
 
   const loadData = async () => {
@@ -37,16 +52,18 @@ const ArticleBodyContainer = () => {
 
   return (
     <ArticleBody
+      id={articleData.id}
       options={articleData.options}
       title={articleData.title}
       anonymous={articleData.anonymous}
-      createdDate={articleData.createdDate}
       author={articleData.author}
       content={articleData.content}
       hashtags={articleData.hashtags}
-      favorites={articleData.favorites}
-      wonders={articleData.wonders}
-      clips={articleData.clips}
+      favoriteCount={articleData.favoriteCount}
+      wonderCount={articleData.wonderCount}
+      clipCount={articleData.clipCount}
+      createdAt={articleData.createdAt}
+      modifiedAt={articleData.modifiedAt}
     />
   );
 };
