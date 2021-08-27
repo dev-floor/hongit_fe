@@ -1,6 +1,14 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { Button, Form, Grid, Header, Segment, Select } from 'semantic-ui-react';
+import {
+  Button,
+  Form,
+  Grid,
+  Header,
+  Segment,
+  Select,
+  Input,
+} from 'semantic-ui-react';
 
 import 'css/SignIn.css';
 
@@ -38,7 +46,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
             {id === '' ? (
               // 아이디 입력하기 전 초기 상태
               <div className="input-icons">
-                <input
+                <Input
                   className="input-field"
                   type="text"
                   placeholder="아이디"
@@ -49,13 +57,15 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                     /* Api Call 날려야 함 */
                     console.log('mouse is out');
                   }}
+                  icon={
+                    <i className="id-default check icon" />
+                  }
                 />
-                <i className="check icon" style={{ color: 'lightgrey' }} />
               </div>
             ) : (
               // 사용가능한 아이디일 경우
               <div className="input-icons">
-                <input
+                <Input
                   className="input-field"
                   type="text"
                   placeholder="아이디"
@@ -65,9 +75,11 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                   onBlur={() => {
                     /* Api Call 날려야 함 */
                     console.log('mouse is out');
-                  }}
+                  }} 
+                  icon={
+                    <i className="id-on check icon" />
+                  }
                 />
-                <i className="check icon" style={{ color: 'teal' }} />
               </div>
             )}
             {id === '' ? (
@@ -77,8 +89,9 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               // 아이디 중복 체크 api call 결과가 <중복 존재> 일 경우
               <h6 className="error-message">이미 사용중인 아이디입니다 🤔</h6>
             )}
+
             <div className="input-icons">
-              <input
+              <Input
                 className="input-field"
                 placeholder="비밀번호"
                 type="password"
@@ -87,9 +100,12 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                   setInitialPwd(e.target.value);
                   setPwd(e.target.value);
                 }}
+                icon={
+                  <i className="pwd-default check icon" />
+                }
               />
-              <i className="check icon" style={{ color: 'lightgrey' }} />
             </div>
+
             {pwd.length < 6 || pwd.length > 16 ? (
               // 비밀번호 자릿수 조건을 만족하지 않는 경우
               <h6 className="error-message">

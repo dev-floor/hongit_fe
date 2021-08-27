@@ -5,16 +5,20 @@
   /* border: 1px solid black; */
 }
 
-.input-icons i {
-  position: absolute;
-  top: 24px;
-  right: 20px;
-  /* border: 1px solid black; */
+.id-default {
+  color: lightgray;
+}
+
+.pwd-default {
+  color: lightgray;
+}
+
+.id-on {
+  color: teal;
 }
 
 .input-field {
   position: relative;
-  width: 70%;
-  padding: 10px;
-  /* border:1px solid black; */
+  padding: 0px;
+  width: 100%;
 }
