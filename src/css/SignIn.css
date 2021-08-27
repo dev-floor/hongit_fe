@@ -1,14 +1,20 @@
-.success-message {
-  color: teal;
+.error-message {
+  color: crimson;
   text-align: left;
   margin: 1% 0 1% 2%;
   /* border: 1px solid black; */
 }
 
-.error-message {
-  color: crimson;
-  text-align: left;
-margin: 1% 0 1% 2%;
+.input-icons i {
+  position: absolute;
+  top: 24px;
+  right: 20px;
   /* border: 1px solid black; */
 }
 
+.input-field {
+  position: relative;
+  width: 70%;
+  padding: 10px;
+  /* border:1px solid black; */
+}
