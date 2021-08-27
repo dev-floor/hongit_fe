@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Route } from 'react-router-dom';
+import { Route, useParams } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { boardDetailOptions } from 'Atoms/atom';
 import { boardAPI } from 'api/api';
@@ -11,6 +11,7 @@ import BoardContentHeader from '../presentational/BoardContentHeader';
 import 'css/BoardDetail.css';
 
 const BoardDetailContainer = () => {
+  const { id } = useParams<{ id: string }>();
   const [boardData, setboardData] = useState<BoardDetailApi>({
     id: 0,
     title: '',
