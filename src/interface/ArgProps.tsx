@@ -11,6 +11,7 @@ import {
   HomeApi,
   ProfileUserApi,
   ProfileCommentApi,
+  ArticleFeedApiPartial,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -43,6 +44,9 @@ export interface ArticleFeedProps {
   feedList: ArticleFeedDetailApi[];
 }
 
+export interface ProfileArticleFeedProps{
+  feedList: ArticleFeedApiPartial[];
+}
 export interface BoardDetailProp {
   boardDetailData: BoardDetailApi;
 }

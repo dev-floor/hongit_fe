@@ -27,8 +27,8 @@ const articleListDummyData = [
     favoriteCount: 2,
     wonderCount: 5,
     clipCount: 10,
-    createdAt: '2020-0807T20:40:21',
-    modifiedAt: '2020-0807T20:40:21',
+    createdAt: '2021-08-07T20:40:21',
+    modifiedAt: '2021-08-07T20:40:21',
   },
   {
     id: 2,
@@ -57,8 +57,8 @@ const articleListDummyData = [
     favoriteCount: 2,
     wonderCount: 5,
     clipCount: 10,
-    createdAt: '2020-0807T20:40:21',
-    modifiedAt: '2020-0807T20:40:21',
+    createdAt: '2021-08-19T20:40:21',
+    modifiedAt: '2021-08-19T20:40:21',
   },
   {
     id: 3,
@@ -87,8 +87,8 @@ const articleListDummyData = [
     favoriteCount: 1,
     wonderCount: 18,
     clipCount: 2,
-    createdAt: '2020-0812T20:40:21',
-    modifiedAt: '2020-0812T20:40:21',
+    createdAt: '2020-08-12T20:40:21',
+    modifiedAt: '2020-08-12T20:40:21',
   },
   {
     id: 4,
@@ -118,8 +118,8 @@ const articleListDummyData = [
     favoriteCount: 0,
     wonderCount: 1,
     clipCount: 3,
-    createdAt: '2020-0712T20:40:21',
-    modifiedAt: '2020-0712T20:40:21',
+    createdAt: '2020-07-12T20:40:21',
+    modifiedAt: '2020-07-12T20:40:21',
   },
   {
     id: 5,
@@ -148,8 +148,8 @@ const articleListDummyData = [
     favoriteCount: 1,
     wonderCount: 10,
     clipCount: 0,
-    createdAt: '2020-0821T20:40:21',
-    modifiedAt: '2020-0822T20:40:21',
+    createdAt: '2020-08-21T20:40:21',
+    modifiedAt: '2020-08-22T20:40:21',
   },
 ];
 
