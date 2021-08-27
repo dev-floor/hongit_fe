@@ -22,9 +22,14 @@ const HongitHeader = () => {
             <div className="header-it">IT</div>
           </div>
         </Link>
-        <Link className="login-link" to="/login">
-          로그인
-        </Link>
+        <div>
+          <Link className="login-link" to="/login">
+            로그인
+          </Link>
+          <Link className="profile-link" to="/profile">
+            프로필
+          </Link>
+        </div>
       </Segment>
       {banner && (
         <Segment

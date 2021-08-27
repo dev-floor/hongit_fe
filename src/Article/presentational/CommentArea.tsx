@@ -12,21 +12,19 @@ const Comment = ({
   onClickDeleteComment,
   commentsProps,
 }: CommentProps) => {
-  const { id, anonymous, author, content, favorites } = { ...commentsProps };
+  const { id, anonymous, authorName, content, favoriteCount } = {
+    ...commentsProps,
+  };
   const commentId = useRecoilValue(UpdateCommentId);
 
   const [updateComment, setUpdateComment] = useState({
     id: commentId,
+    authorName: '',
     anonymous: true,
-    author: {
-      name: '',
-      image: '',
-      github: '',
-      blog: '',
-      description: '',
-    },
     content: '',
-    favorites: 0,
+    favoriteCount: 0,
+    createdAt: '',
+    modifiedAt: '',
   });
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
 
@@ -41,9 +39,11 @@ const Comment = ({
     setUpdateComment({
       id: commentsProps.id,
       anonymous: commentsProps.anonymous,
-      author: commentsProps.author,
+      authorName: commentsProps.authorName,
       content: e.target.value,
-      favorites: commentsProps.favorites,
+      favoriteCount: commentsProps.favoriteCount,
+      createdAt: commentsProps.createdAt,
+      modifiedAt: commentsProps.modifiedAt, // NEED TO FIX
     }); // 현재 변경중인 Comment의 정보 변경
     console.log(`${updateComment.id}번째 댓글의 내용이 변경중입니다`);
   };
@@ -58,7 +58,7 @@ const Comment = ({
         {anonymous ? (
           <div className="comment-author-name"> 익명 </div>
         ) : (
-          <div className="comment-author-name"> {author.name} </div>
+          <div className="comment-author-name"> {authorName} </div>
         )}
         <div className="comment-func-area">
           <div className="comment-btn-area">
@@ -79,7 +79,11 @@ const Comment = ({
               삭제
             </button>
           </div>
-          <TglBtn type="heart" count={favorites} handler={onToggleFavorites} />
+          <TglBtn
+            type="heart"
+            count={favoriteCount}
+            handler={onToggleFavorites}
+          />
         </div>
       </div>
       {commentId !== id ? (
@@ -114,16 +118,12 @@ const CommentArea = ({
 
   const [newComment, setNewComment] = useState({
     id: newCommentId,
+    authorName: '',
     anonymous: true,
-    author: {
-      name: '',
-      image: '',
-      github: '',
-      blog: '',
-      description: '',
-    },
     content: '',
-    favorites: 0,
+    favoriteCount: 0,
+    createdAt: '',
+    modifiedAt: '',
   });
 
   const [open, setOpen] = useState(false);
@@ -136,15 +136,11 @@ const CommentArea = ({
     setNewComment({
       id: newCommentId,
       anonymous: true,
-      author: {
-        name: '',
-        image: '',
-        github: '',
-        blog: '',
-        description: '',
-      },
+      authorName: '',
       content: e.target.value,
-      favorites: 0,
+      favoriteCount: 0,
+      createdAt: '',
+      modifiedAt: '',
     });
   };
 

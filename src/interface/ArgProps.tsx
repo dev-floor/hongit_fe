@@ -1,29 +1,31 @@
 import React from 'react';
 import {
-  ArticleCommentApi,
+  CommentApi,
   ArticleCreateApi,
   ArticleDetailApi,
-  ArticleListApi,
+  ArticleFeedDetailApi,
   BoardDetailApi,
   SideBarDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
   HomeApi,
+  ProfileUserApi,
+  ProfileCommentApi,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
-  onRegisterCreateComment: (newComment: ArticleCommentApi) => void;
-  onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
+  onRegisterCreateComment: (newComment: CommentApi) => void;
+  onRegisterUpdateComment: (newComment: CommentApi) => void;
   onRegisterDeleteComment: (deleteId: number) => void;
-  onPressFavorite: (targetComment: ArticleCommentApi) => void;
-  commentsListProps: ArticleCommentApi[];
+  onPressFavorite: (targetComment: CommentApi) => void;
+  commentsListProps: CommentApi[];
 }
 
 export interface CommentProps {
-  onRegisterUpdateComment: (newComment: ArticleCommentApi) => void;
+  onRegisterUpdateComment: (newComment: CommentApi) => void;
   onClickUpdateComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
   onClickDeleteComment: (e: React.MouseEvent<HTMLButtonElement>) => void;
-  commentsProps: ArticleCommentApi;
+  commentsProps: CommentApi;
 }
 
 export interface ArticleCreatePageProps {
@@ -37,8 +39,8 @@ export interface ArticleHeaderProps {
   articleData: ArticleDetailApi;
 }
 
-export interface ArticleListProps {
-  articleListData: ArticleListApi[];
+export interface ArticleFeedProps {
+  feedList: ArticleFeedDetailApi[];
 }
 
 export interface BoardDetailProp {
@@ -70,4 +72,12 @@ export interface BoardPreviewProp {
 
 export interface ArticlePreviewProp {
   previewData: ArticlePreviewInfo;
+}
+
+export interface ProfileUserProp {
+  userData: ProfileUserApi;
+}
+
+export interface ProfileCommentProp {
+  commentList: ProfileCommentApi[];
 }

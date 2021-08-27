@@ -1,13 +1,13 @@
 .total-main {
   display: flex;
-  width: 80%;
-  margin-left: 10%;
-  margin-right: 10%;
+  margin-left: 5%;
+  margin-right: 5%;
 }
 
 .total-contents {
   margin: 1rem;
   width: 100%;
+  min-height: 1000px;
 }
 
 .side-contents {

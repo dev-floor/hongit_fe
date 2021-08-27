@@ -15,7 +15,7 @@ const AuthorInfo = (dummyData: ArticleDetailApi) => {
           {anonymous ? (
             <div className="author-name"> 익명 </div>
           ) : (
-            <div className="author-name"> {author.name} </div>
+            <div className="author-name"> {author.nickname} </div>
           )}
           <a href={author.github} target="_blank" rel="noreferrer">
             <AiFillGithub
