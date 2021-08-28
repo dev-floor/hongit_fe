@@ -4,6 +4,7 @@ import { useRecoilValue } from 'recoil';
 import { selectedArticleId } from 'Atoms/atom';
 import { ArticleHeaderProps } from 'interface/ArgProps';
 import Modal from 'Commons/Modal';
+import { v4 as uuidv4 } from 'uuid';
 
 const ArticleHeader = ({
   onUpdateArticle,
@@ -44,7 +45,9 @@ const ArticleHeader = ({
     <header className="article-header">
       <section className="option-area">
         {options.map((op, index) => (
-          <span className="option">{op.text}</span>
+          <span key={uuidv4()} className="option">
+            {op.text}
+          </span>
         ))}
       </section>
       <h2 className="article-title">{title}</h2>

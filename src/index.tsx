@@ -13,6 +13,7 @@ ReactDOM.render(
         <Root />
       </BrowserRouter>
     </RecoilRoot>
+    ,
   </React.StrictMode>,
   document.getElementById('root')
 );

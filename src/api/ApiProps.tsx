@@ -37,6 +37,10 @@ export interface ArticleDetailApi {
   modifiedAt: string;
 }
 
+export interface ArticleTmp {
+  articleWWW: ArticleDetailApi;
+}
+
 export interface ArticleFeedDetailApi {
   id: number;
   options: OptionResponse[];

@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
-// import { useRecoilValue } from 'recoil';
-// import { selectedArticleId } from 'Atoms/atom';
+
 import { articleAPI } from 'api/api';
 import { ArticleDetailApi } from 'api/ApiProps';
+import { ArticleDetailID } from 'interface/ArgProps';
 import ArticleBody from '../presentational/ArticleBody';
 
-const ArticleBodyContainer = () => {
-  // const articleId = useRecoilValue(selectedArticleId);
+const ArticleBodyContainer = ({ articleId }: ArticleDetailID) => {
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
     id: 0,
     options: [
@@ -42,6 +41,7 @@ const ArticleBodyContainer = () => {
   });
 
   const loadData = async () => {
+    console.log(articleId);
     const response = await articleAPI.get(/* articleId */);
     setArticleData(response);
   };
@@ -50,22 +50,7 @@ const ArticleBodyContainer = () => {
     loadData();
   }, []);
 
-  return (
-    <ArticleBody
-      id={articleData.id}
-      options={articleData.options}
-      title={articleData.title}
-      anonymous={articleData.anonymous}
-      author={articleData.author}
-      content={articleData.content}
-      hashtags={articleData.hashtags}
-      favoriteCount={articleData.favoriteCount}
-      wonderCount={articleData.wonderCount}
-      clipCount={articleData.clipCount}
-      createdAt={articleData.createdAt}
-      modifiedAt={articleData.modifiedAt}
-    />
-  );
+  return <ArticleBody articleDetailData={articleData} />;
 };
 
 export default ArticleBodyContainer;

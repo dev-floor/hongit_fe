@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { AllLectureMenuProp } from 'interface/ArgProps';
 import { Grid } from 'semantic-ui-react';
 
+import { v4 as uuidv4 } from 'uuid';
 import 'css/AllLectureMenu.css';
 
 const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
@@ -14,6 +15,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
           .filter((lecture) => lecture.grade.id === 'FRESHMAN')
           .map((freshman) => (
             <Link
+              key={uuidv4()}
               to={`/board/${freshman.id}`}
               className="lecture"
               type="button"
@@ -28,6 +30,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
           .filter((lecture) => lecture.grade.id === 'SOPHOMORE')
           .map((sophomore) => (
             <Link
+              key={uuidv4()}
               to={`/board/${sophomore.id}`}
               className="lecture"
               type="button"
@@ -41,7 +44,12 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'JUNIOR')
           .map((junior) => (
-            <Link to={`/board/${junior.id}`} className="lecture" type="button">
+            <Link
+              key={uuidv4()}
+              to={`/board/${junior.id}`}
+              className="lecture"
+              type="button"
+            >
               {junior.title}
             </Link>
           ))}
@@ -51,7 +59,12 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'SENIOR')
           .map((senior) => (
-            <Link to={`/board/${senior.id}`} className="lecture" type="button">
+            <Link
+              key={uuidv4()}
+              to={`/board/${senior.id}`}
+              className="lecture"
+              type="button"
+            >
               {senior.title}
             </Link>
           ))}

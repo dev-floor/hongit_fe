@@ -33,6 +33,14 @@ export interface ArticleCreatePageProps {
   modifiyTargetArticle?: ArticleDetailApi;
 }
 
+export interface ArticleDetailID {
+  articleId: string;
+}
+
+export interface ArticleDetailInfos {
+  articleDetailData: ArticleDetailApi;
+}
+
 export interface ArticleHeaderProps {
   onUpdateArticle: (id: string) => void;
   onDeleteArticle: (id: string) => void;

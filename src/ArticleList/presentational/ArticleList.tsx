@@ -6,6 +6,7 @@ import { ArticleFeedDetailApi, ArticleFeedApiPartial } from 'api/ApiProps';
 import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
+import { v4 as uuidv4 } from 'uuid';
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
@@ -39,7 +40,9 @@ const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
     <article className="article-preview-detail">
       <section className="option-area">
         {options?.map((op) => (
-          <span className="option">{op.text}</span>
+          <span key={uuidv4()} className="option">
+            {op.text}
+          </span>
         ))}
       </section>
       <section className="article-preview-title">{title}</section>
@@ -102,7 +105,9 @@ const ArticlePreviewList = (article: ArticleFeedApiPartial) => {
     <article className="article-preview-detail">
       <section className="option-area">
         {options?.map((op) => (
-          <span className="option">{op.text}</span>
+          <span key={uuidv4()} className="option">
+            {op.text}
+          </span>
         ))}
       </section>
       <Link to={`/article/${id}`}>
@@ -140,7 +145,6 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
 
   useEffect(() => {
     setArticleListData(feedList);
-    console.log('!');
   }, [feedList]);
 
   return (
@@ -149,6 +153,7 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
         {viewModeHistory === 'card'
           ? articleListTmp.map((article) => (
               <ArticlePreviewCard
+                key={uuidv4()}
                 id={article.id}
                 options={article.options}
                 title={article.title}
@@ -164,6 +169,7 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
             ))
           : articleListTmp.map((article) => (
               <ArticlePreviewList
+                key={uuidv4()}
                 id={article.id}
                 options={article.options}
                 title={article.title}
