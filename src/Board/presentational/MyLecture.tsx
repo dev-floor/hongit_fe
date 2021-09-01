@@ -3,6 +3,7 @@ import React, { useState, useEffect, SyntheticEvent } from 'react';
 import { useRecoilState, useSetRecoilState, useRecoilValue } from 'recoil';
 import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
+import { v4 as uuidv4 } from 'uuid';
 import { Grid, Header, Divider, Button, Label, Icon } from 'semantic-ui-react';
 import { MyLectureProps } from '../../interface/ArgProps';
 
@@ -121,6 +122,7 @@ const MyLecture = ({
                   ? ``
                   : yearFilteredData.map((data) => (
                       <Button
+                        key={uuidv4()}
                         className="subject"
                         value={data}
                         onClick={onClickSubject}
@@ -130,12 +132,13 @@ const MyLecture = ({
                     ))}
               </Button.Group>
             </Grid.Column>
-            <Grid.Column centered textAlign="center">
+            <Grid.Column centered="true" textAlign="center">
               <Button.Group className="btn-group" toggle vertical fluid>
                 {finalFilteredData.length === 0
                   ? ``
                   : finalFilteredData.map((data) => (
                       <Button
+                        key={uuidv4()}
                         className="professor"
                         value={data}
                         onClick={onClickProfessor}
@@ -145,7 +148,7 @@ const MyLecture = ({
                     ))}
               </Button.Group>
             </Grid.Column>
-            <Grid.Column centered textAlign="center">
+            <Grid.Column centered="true" textAlign="center">
               <section className="selected-my-lectures">
                 <header className="selected-my-lectures-title">
                   <Icon name="star" style={{ color: 'crimson' }} />
@@ -155,6 +158,7 @@ const MyLecture = ({
                   ? ``
                   : selectedCombination.map((combi) => (
                       <Label
+                        key={uuidv4()}
                         style={{ margin: '0.5rem 0', width: '85%' }}
                         tag
                         value={combi}

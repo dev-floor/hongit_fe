@@ -1,13 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
-// import { useRecoilValue } from 'recoil';
-// import { selectedArticleId } from 'Atoms/atom';
+
 import { articleAPI } from 'api/api';
 import { ArticleDetailApi, OptionResponse } from 'api/ApiProps';
+import { ArticleDetailID } from 'interface/ArgProps';
 import ArticleHeader from '../presentational/ArticleHeader';
 
-const ArticleHeaderContainer = () => {
-  // const articleId = useRecoilValue(selectedArticleId);
+const ArticleHeaderContainer = ({ articleId }: ArticleDetailID) => {
   const history = useHistory();
   const [articleData, setArticleData] = useState<ArticleDetailApi>({
     id: 0,
@@ -32,6 +31,7 @@ const ArticleHeaderContainer = () => {
   });
 
   const loadData = async () => {
+    console.log(articleId);
     const response = await articleAPI.get(/* articleId */);
     setArticleData(response);
   };

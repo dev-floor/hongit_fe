@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import { BoardPreviewProp, ArticlePreviewProp } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import CalDiffTime from 'Commons/CalDiffTime';
+import { v4 as uuidv4 } from 'uuid';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFireAlt } from '@fortawesome/free-solid-svg-icons';
 import 'css/BoardPreview.css';
@@ -67,7 +68,7 @@ const BoardPreview = ({ previewData }: BoardPreviewProp) => {
       <hr />
       <section className="article-area">
         {articles.map((article) => (
-          <ArticlePreview previewData={article} />
+          <ArticlePreview key={uuidv4()} previewData={article} />
         ))}
       </section>
     </div>

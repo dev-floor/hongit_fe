@@ -2,6 +2,8 @@ import React from 'react';
 import { useRecoilState, useSetRecoilState } from 'recoil';
 import { viewMode, viewSort, viewFilter, applyFilterFlag } from 'Atoms/atom';
 
+import { v4 as uuidv4 } from 'uuid';
+
 import 'css/FilterModal.css';
 
 const FilterModal = (props: any) => {
@@ -61,6 +63,7 @@ const FilterModal = (props: any) => {
             {courseGroup.map((course) =>
               viewFilterState.includes(course.text) ? (
                 <button
+                  key={uuidv4()}
                   className="selected default-btn"
                   type="button"
                   value={course.text}
@@ -70,6 +73,7 @@ const FilterModal = (props: any) => {
                 </button>
               ) : (
                 <button
+                  key={uuidv4()}
                   className="default-btn"
                   type="button"
                   value={course.text}
@@ -85,6 +89,7 @@ const FilterModal = (props: any) => {
             {articleKind.map((kind) =>
               viewFilterState.includes(kind.text) ? (
                 <button
+                  key={uuidv4()}
                   className="selected default-btn"
                   type="button"
                   value={kind.text}
@@ -94,6 +99,7 @@ const FilterModal = (props: any) => {
                 </button>
               ) : (
                 <button
+                  key={uuidv4()}
                   className="default-btn"
                   type="button"
                   value={kind.text}

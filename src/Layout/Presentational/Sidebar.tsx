@@ -5,6 +5,7 @@ import { useRecoilState, useResetRecoilState } from 'recoil';
 import { selectedMyLectures, viewBanner } from 'Atoms/atom';
 
 import { SideBarProps } from 'interface/ArgProps';
+import { v4 as uuidv4 } from 'uuid';
 import 'css/Sidebar.css';
 
 const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
@@ -46,6 +47,7 @@ const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
       <nav className={myLectureSubNav ? 'subNav-active' : 'subNav'}>
         {myLectures.map((lecture) => (
           <Link
+            key={uuidv4()}
             to={`/board/${lecture.id}`}
             className="small-category-btn"
             onClick={removeBanner}
@@ -66,6 +68,7 @@ const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
         .filter((board) => board.type.id !== 'COURSE_BOARD')
         .map((course) => (
           <Link
+            key={uuidv4()}
             to={`/board/${course.id}`}
             className="big-category-btn"
             type="button"
