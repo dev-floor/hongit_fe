@@ -23,16 +23,12 @@ const SignIn = (/* {}: 새로운 타입 */) => {
     { key: 'junior', text: '재학생', value: '재학생' },
   ];
 
-  const [initialPwd, setInitialPwd] = useState<string>('');
-  // const [pwdInputStart, setPwdInputState] = useState<boolean>(false);
-  // const [pwdInputEnd, setPwdInputEndState] = useState<boolean>(false);
-  const [checkPwd, setCheckPwd] = useState<string>('');
-  const [chkPwdInputStart, setChkPwdState] = useState<boolean>(false);
-  const [chkPwdInputEnd, setChkPwdEndState] = useState<boolean>(false);
-
   const [id, setId] = useState<string>('');
-  const [pwd, setPwd] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
+  const [pwd, setPwd] = useState<string>('');
+  const [checkPwd, setCheckPwd] = useState<string>('');
+  const [studentId, setStudentId] = useState<string>('');
+  const [mail, setMail] = useState<string>('');
   const [code, setCode] = useState<string>('');
 
   return (
@@ -45,42 +41,34 @@ const SignIn = (/* {}: 새로운 타입 */) => {
           <Segment stacked>
             {id === '' ? (
               // 아이디 입력하기 전 초기 상태
-              <div className="input-icons">
-                <Input
-                  className="input-field"
-                  type="text"
-                  placeholder="아이디"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setId(e.target.value);
-                  }}
-                  onBlur={() => {
-                    /* Api Call 날려야 함 */
-                    console.log('mouse is out');
-                  }}
-                  icon={
-                    <i className="id-default check icon" />
-                  }
-                />
-              </div>
+              <Input
+                className="input-field"
+                type="text"
+                placeholder="아이디"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setId(e.target.value);
+                }}
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log('mouse is out');
+                }}
+                icon={<i className="default check icon" />}
+              />
             ) : (
               // 사용가능한 아이디일 경우
-              <div className="input-icons">
-                <Input
-                  className="input-field"
-                  type="text"
-                  placeholder="아이디"
-                  onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                    setId(e.target.value);
-                  }}
-                  onBlur={() => {
-                    /* Api Call 날려야 함 */
-                    console.log('mouse is out');
-                  }} 
-                  icon={
-                    <i className="id-on check icon" />
-                  }
-                />
-              </div>
+              <Input
+                className="input-field"
+                type="text"
+                placeholder="아이디"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setId(e.target.value);
+                }}
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log('mouse is out');
+                }}
+                icon={<i className="on check icon" />}
+              />
             )}
             {id === '' ? (
               // 아이디 중복 체크 api call 결과가 <중복 없음> 일 경우
@@ -89,90 +77,122 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               // 아이디 중복 체크 api call 결과가 <중복 존재> 일 경우
               <h6 className="error-message">이미 사용중인 아이디입니다 🤔</h6>
             )}
-
-            <div className="input-icons">
+            {nickname === '' ? (
               <Input
                 className="input-field"
-                placeholder="비밀번호"
-                type="password"
+                placeholder="닉네임"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  // setPwdInputState(true);
-                  setInitialPwd(e.target.value);
-                  setPwd(e.target.value);
+                  setNickname(e.target.value);
                 }}
-                icon={
-                  <i className="pwd-default check icon" />
-                }
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log('mouse is out');
+                }}
+                icon={<i className="default check icon" />}
               />
-            </div>
-
-            {pwd.length < 6 || pwd.length > 16 ? (
-              // 비밀번호 자릿수 조건을 만족하지 않는 경우
-              <h6 className="error-message">
-                비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
-              </h6>
             ) : (
-              // 비밀번호 자릿수 조건을 만족하는 경우
-              <h6> </h6>
+              <Input
+                className="input-field"
+                placeholder="닉네임"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setNickname(e.target.value);
+                }}
+                onBlur={() => {
+                  /* Api Call 날려야 함 */
+                  console.log('mouse is out');
+                }}
+                icon={<i className="on check icon" />}
+              />
             )}
-            {/* {pwdInputStart
-                ? (initialPwd.length < 6 || initialPwd.length > 16) && (
-                    <h6 className="error-message">
-                      비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
-                    </h6>
-                  )
-                : ''}
-              {pwdInputEnd
-                ? (initialPwd.length < 6 || initialPwd.length > 16) && (
-                    <h6 className="error-message">
-                      비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
-                    </h6>
-                  )
-                : ''} */}
-            <input
-              placeholder="비밀번호 확인"
-              type="password"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setChkPwdState(true);
-                setCheckPwd(e.target.value);
-              }}
-              onBlur={() => {
-                setChkPwdState(false);
-                setChkPwdEndState(true);
-              }}
-            />
-            {initialPwd === checkPwd && checkPwd.length > 0
-              ? chkPwdInputStart && (
-                  <h6 className="success-message">일치합니다 😃</h6>
-                )
-              : chkPwdInputStart && (
-                  <h6 className="error-message">비밀번호가 같지 않습니다 🤔</h6>
-                )}
-            {chkPwdInputEnd && initialPwd !== checkPwd ? (
-              <h6 className="error-message">비밀번호가 같지 않습니다 🤔</h6>
-            ) : (
-              <h6> </h6>
-            )}
-            <input
-              placeholder="닉네임"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNickname(e.target.value);
-              }}
-              onBlur={() => {
-                /* Api Call 날려야 함 */
-                console.log('mouse is out');
-              }}
-            />
             {nickname === '' ? (
               <h6> </h6>
             ) : (
               <h6 className="error-message">이미 사용중인 닉네임입니다 🤔</h6>
             )}
-            <Form.Input fluid type="text" placeholder="학번" action>
+            {pwd.length < 6 || pwd.length > 15 ? (
+              // 비밀번호 자릿수 조건을 만족하지 않을 경우
+              <Input
+                className="input-field"
+                placeholder="비밀번호"
+                type="password"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setPwd(e.target.value);
+                }}
+                icon={<i className="default check icon" />}
+              />
+            ) : (
+              // 비밀번호 자릿수 조건을 만족할 경우
+              <Input
+                className="input-field"
+                placeholder="비밀번호"
+                type="password"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setPwd(e.target.value);
+                }}
+                icon={<i className="on check icon" />}
+              />
+            )}
+            {pwd.length < 6 || pwd.length > 15 ? (
+              // 비밀번호 자릿수 조건을 만족하지 않을 경우
+              <h6 className="error-message">
+                비밀번호는 6자리 이상 15자리 이하여야 합니다 🤔
+              </h6>
+            ) : (
+              // 비밀번호 자릿수 조건을 만족할 경우
+              <h6> </h6>
+            )}
+            {checkPwd.length === 0 || pwd !== checkPwd ? (
+              <Input
+                className="input-field"
+                placeholder="비밀번호 확인"
+                type="password"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setCheckPwd(e.target.value);
+                }}
+                icon={<i className="default check icon" />}
+              />
+            ) : (
+              <Input
+                className="input-field"
+                placeholder="비밀번호 확인"
+                type="password"
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setCheckPwd(e.target.value);
+                }}
+                icon={<i className="on check icon" />}
+              />
+            )}
+            {pwd !== checkPwd ? (
+              <h6 className="error-message">비밀번호가 같지 않습니다 🤔</h6>
+            ) : (
+              <h6> </h6>
+            )}
+            <Input
+              fluid
+              type="text"
+              placeholder="학번"
+              action
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setStudentId(e.target.value);
+              }}
+            >
               <input />
               <Select options={stuOptions} defaultValue="재학생" />
-            </Form.Input>
-            <Form.Input fluid type="text" placeholder="학교메일" action>
+            </Input>
+            {studentId === '' ? (
+              <h6> </h6>
+            ) : (
+              <h6 className="error-message">이미 사용중인 학번입니다 🤔</h6>
+            )}
+            <Form.Input
+              fluid
+              type="text"
+              placeholder="학교메일"
+              action
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                setMail(e.target.value);
+              }}
+            >
               <input />
               <Select options={mailOptions} defaultValue="@g.hongik.ac.kr" />
               <Button type="submit" color="teal">
@@ -180,6 +200,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               </Button>
             </Form.Input>
             {code === '' ? (
+              // 인증번호가 일치하지 않을 때
               <Form.Input
                 icon="check"
                 fluid
@@ -190,6 +211,7 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 }}
               />
             ) : (
+              // 인증번호가 일치할 때
               <Form.Input
                 icon="check"
                 fluid
@@ -200,9 +222,14 @@ const SignIn = (/* {}: 새로운 타입 */) => {
                 }}
               />
             )}
-            {initialPwd === checkPwd &&
-            initialPwd.length >= 6 &&
-            initialPwd.length <= 15 ? (
+            {id !== '' &&
+            nickname !== '' &&
+            pwd.length > 5 &&
+            pwd.length < 16 &&
+            pwd === checkPwd &&
+            studentId !== '' &&
+            mail !== '' &&
+            code !== '' ? (
               <Button color="teal" fluid size="large">
                 회원가입
               </Button>

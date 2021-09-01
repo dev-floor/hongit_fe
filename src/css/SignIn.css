@@ -2,18 +2,13 @@
   color: crimson;
   text-align: left;
   margin: 1% 0 1% 2%;
-  /* border: 1px solid black; */
 }
 
-.id-default {
+.default {
   color: lightgray;
 }
 
-.pwd-default {
-  color: lightgray;
-}
-
-.id-on {
+.on {
   color: teal;
 }
 
