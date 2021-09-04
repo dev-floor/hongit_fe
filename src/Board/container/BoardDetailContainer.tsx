@@ -32,11 +32,11 @@ const BoardDetailContainer = () => {
   });
   const setBoardDetailOption = useSetRecoilState(boardDetailOptions);
 
-  const loadData = useCallback (async () => {
+  const loadData = useCallback(async () => {
     const response = await boardAPI.getById(id);
     setboardData(response);
     setBoardDetailOption(response.options);
-  }, [id] );
+  }, [id]);
 
   useEffect(() => {
     loadData();

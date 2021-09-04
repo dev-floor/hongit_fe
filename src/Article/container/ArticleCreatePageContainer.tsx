@@ -34,18 +34,20 @@ const ArticleCreatePageContainer = () => {
     articleAPI.postArticle(newArticle); // api 호출로 post 날리고
     console.log(newArticle);
     history.push('/article/1');
-    // history.push('/article/${newid}'); // 새롭게 등록된 게시물 id를 알수 있는지? 
+    // history.push('/article/${newid}'); // 새롭게 등록된 게시물 id를 알수 있는지?
   };
 
-  const loadData = useCallback( async () => {
-    if( location.state !== undefined ){
-    const articleData = await articleAPI.getById(location.state.modifyArticleId);
-    setModifyTargetArticle(articleData);
+  const loadData = useCallback(async () => {
+    if (location.state !== undefined) {
+      const articleData = await articleAPI.getById(
+        location.state.modifyArticleId
+      );
+      setModifyTargetArticle(articleData);
     }
-  },[location.state] );
+  }, [location.state]);
 
   useEffect(() => {
-      loadData();
+    loadData();
   }, [loadData]);
 
   return location.state === undefined ? (

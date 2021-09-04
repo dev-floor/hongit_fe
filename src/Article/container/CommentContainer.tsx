@@ -7,12 +7,12 @@ import CommentArea from '../presentational/CommentArea';
 const CommentContainer = ({ articleId }: ArticleDetailID) => {
   const [comments, setComments] = useState<CommentApi[]>([]);
 
-  const loadData = useCallback( async () => {
+  const loadData = useCallback(async () => {
     console.log(articleId);
     // FIX ME
     const response = await commentsAPI.get(/* articleId */);
     setComments([...response]);
-  },[articleId]);
+  }, [articleId]);
 
   useEffect(() => {
     loadData();

@@ -10,7 +10,7 @@ const ProfileArticleContainer = () => {
 
   const loadData = async () => {
     // FIX ME
-    const response = await articleAPI.getFeedByBoardId("1"); 
+    const response = await articleAPI.getFeedByBoardId('1');
     setFeedList(response);
   };
 

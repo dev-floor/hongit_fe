@@ -8,7 +8,7 @@ import Modal from 'Commons/Modal';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import { v4 as uuidv4 } from 'uuid';
 
-const ArticleHeader = ({ data }: ArticleProps ) => {
+const ArticleHeader = ({ data }: ArticleProps) => {
   const { options, title, anonymous, author, createdAt } = {
     ...data,
   };
@@ -51,7 +51,9 @@ const ArticleHeader = ({ data }: ArticleProps ) => {
       <section className="article-header-bar">
         <div className="article-info-area">
           {anonymous ? <div>익명</div> : <div>{author.nickname}</div>}
-          <time className="article-created-time">{TransferTimeFormat(createdAt as string)}</time>
+          <time className="article-created-time">
+            {TransferTimeFormat(createdAt as string)}
+          </time>
         </div>
         <div className="article-btn-area">
           <button
