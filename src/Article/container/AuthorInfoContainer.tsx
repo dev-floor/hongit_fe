@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from 'react';
-// import { useRecoilValue } from 'recoil';
-// import { selectedArticleId } from 'Atoms/atom';
+
 import { articleAPI } from 'api/api';
 import { ArticleDetailApi, OptionResponse } from 'api/ApiProps';
+import { ArticleDetailID } from 'interface/ArgProps';
+
 import AuthorInfo from '../presentational/AuthorInfo';
 
-const AuthorInfoContainer = () => {
-  // const articleId = useRecoilValue(selectedArticleId);
+const AuthorInfoContainer = ({ articleId }: ArticleDetailID) => {
   const [data, setArticleData] = useState<ArticleDetailApi>({
     id: 0,
     options: [] as OptionResponse[],
@@ -30,6 +30,7 @@ const AuthorInfoContainer = () => {
   });
 
   const loadData = async () => {
+    console.log(articleId);
     const response = await articleAPI.get(/* articleId */);
     setArticleData(response);
   };
@@ -38,22 +39,7 @@ const AuthorInfoContainer = () => {
     loadData();
   }, []);
 
-  return (
-    <AuthorInfo
-      id={data.id}
-      options={data.options}
-      title={data.title}
-      anonymous={data.anonymous}
-      author={data.author}
-      content={data.content}
-      hashtags={data.hashtags}
-      favoriteCount={data.favoriteCount}
-      wonderCount={data.wonderCount}
-      clipCount={data.clipCount}
-      createdAt={data.createdAt}
-      modifiedAt={data.modifiedAt}
-    />
-  );
+  return <AuthorInfo articleDetailData={data} />;
 };
 
 export default AuthorInfoContainer;

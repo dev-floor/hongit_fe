@@ -1,10 +1,10 @@
 import React from 'react';
-import { ArticleDetailApi } from 'api/ApiProps';
+import { ArticleDetailInfos } from 'interface/ArgProps';
 import { AiFillGithub } from 'react-icons/ai';
 import { SiNotion } from 'react-icons/si';
 
-const AuthorInfo = (dummyData: ArticleDetailApi) => {
-  const { anonymous, author } = { ...dummyData };
+const AuthorInfo = ({ articleDetailData }: ArticleDetailInfos) => {
+  const { anonymous, author } = { ...articleDetailData };
   return (
     <div className="author-area">
       <div className="author-image">

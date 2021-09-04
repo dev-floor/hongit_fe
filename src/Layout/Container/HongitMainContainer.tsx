@@ -48,7 +48,7 @@ const HongitMainContainer = () => {
   useEffect(() => {
     loadData();
     showBanner(true);
-  }, []);
+  }, [showBanner]);
 
   return <HongitMain mainData={data} />;
 };

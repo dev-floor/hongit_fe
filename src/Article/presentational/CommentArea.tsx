@@ -4,6 +4,7 @@ import { UpdateCommentId, DeleteCommentId, NewCommentId } from 'Atoms/atom';
 import { CommentAreaProps, CommentProps } from 'interface/ArgProps';
 import Modal from 'Commons/Modal';
 import TglBtn from 'Commons/TglBtn';
+import { v4 as uuidv4 } from 'uuid';
 import 'css/Article.css';
 
 const Comment = ({
@@ -29,8 +30,8 @@ const Comment = ({
   const setUpdateCommentId = useSetRecoilState(UpdateCommentId);
 
   const onUpdateSubmit = (e: React.FormEvent<HTMLFormElement>) => {
-    onRegisterUpdateComment(updateComment);
     e.preventDefault();
+    onRegisterUpdateComment(updateComment);
     console.log(`${updateComment.id}번째 댓글의 내용 Update Submit`);
     setUpdateCommentId(0); // Update후 선택한 댓글 id reset
   };
@@ -185,7 +186,7 @@ const CommentArea = ({
       <hr />
       <div>
         {commentsListProps.map((comment, index) => (
-          <div>
+          <div key={uuidv4()}>
             <Comment
               onRegisterUpdateComment={onRegisterUpdateComment}
               onClickUpdateComment={onClickUpdateComment}

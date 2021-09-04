@@ -1,7 +1,6 @@
 import React from 'react';
 import { useParams } from 'react-router-dom';
-import { useSetRecoilState } from 'recoil';
-import { selectedArticleId } from 'Atoms/atom';
+
 import FloatingButton from 'Commons/FloatingButton';
 import AuthorInfoContainer from './AuthorInfoContainer';
 import ArticleHeaderContainer from './ArticleHeaderContainer';
@@ -11,20 +10,19 @@ import 'css/Article.css';
 
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
-  const setSelectedArticleId = useSetRecoilState(selectedArticleId);
-  setSelectedArticleId(id);
+
   return (
     <div className="article-detail">
       <section className="article-detail-left">
-        <ArticleHeaderContainer />
+        <ArticleHeaderContainer articleId={id} />
         <hr />
         <section className="article-detail-body">
-          <ArticleBodyContainer />
-          <AuthorInfoContainer />
+          <ArticleBodyContainer articleId={id} />
+          <AuthorInfoContainer articleId={id} />
         </section>
         <hr />
         <section className="article-detail-comment">
-          <CommentContainer />
+          <CommentContainer articleId={id} />
         </section>
       </section>
       <section className="vertical"> </section>

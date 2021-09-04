@@ -1,12 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { commentsAPI } from 'api/api';
 import { CommentApi } from 'api/ApiProps';
+import { ArticleDetailID } from 'interface/ArgProps';
 import CommentArea from '../presentational/CommentArea';
 
-const CommentContainer = () => {
+const CommentContainer = ({ articleId }: ArticleDetailID) => {
   const [comments, setComments] = useState<CommentApi[]>([]);
 
   const loadData = async () => {
+    console.log(articleId);
     const response = await commentsAPI.get(/* articleId */);
     setComments([...response]);
   };
