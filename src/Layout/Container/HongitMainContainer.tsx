@@ -40,6 +40,7 @@ const HongitMainContainer = () => {
   });
 
   const loadData = async () => {
+    // FIX ME
     const response = await homeAPI.get(/* boardId */);
     setData(response);
   };

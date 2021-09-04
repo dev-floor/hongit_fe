@@ -1,9 +1,6 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi } from './ApiProps';
-
-import articleListDummyData from '../data/ArticleListDummyData';
 import commentListDummyData from '../data/CommentListDummyData';
-import articleInfoDummyData from '../data/ArticleInfoDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
 import sidebarDummyData from '../data/SideBarDummyData';
@@ -11,7 +8,9 @@ import allLectureDummyData from '../data/AllLectureDummyData';
 import profileUserDummyData from '../data/ProfileUserDummyData';
 import profileCommentDummyData from '../data/ProfileCommentDummyData';
 
-// const END_POINT = 'www.NotUsedYet.com';
+const API_URL = 'http://34.64.111.91:8080/api';
+const ARTICLE_URL = API_URL.concat('/articles');
+const BOARD_URL = API_URL.concat('/boards');
 
 export const getRequest = async (url: string) => {
   try {
@@ -59,19 +58,17 @@ export const putRequest = async (url: string, data: any) => {
 };
 
 export const articleAPI = {
-  get: () => {
-    // const articleInfo = await getRequest(`${END_POINT}/articles/${articleId}`);
-    const articleDetailResponse = articleInfoDummyData;
-    return articleDetailResponse;
+  getById: async (articleId: string) => {
+    const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
+    return res;
   },
-  getByList: () => {
-    // const articleByList = await getRequest(`${END_POINT}/articles`);
-    const articleByListResponse = articleListDummyData;
-    return articleByListResponse;
+  getFeedByBoardId: async (boardId: string) => {
+    console.log(`feed:: ${boardId}`);
+    const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}`);
+    return res;
   },
   postArticle: (data: ArticleCreateApi) => {
     // const articlePost = await postRequest(`${END_POINT}/`, data);
-
     console.log(data);
   },
   delete: (/* id: string */) => {
@@ -96,6 +93,14 @@ export const boardAPI = {
   get: () => {
     const boardDetailResponse = boardDetailDummyData;
     return boardDetailResponse;
+  },
+  getList: async () => {
+    const res = await getRequest(BOARD_URL);
+    return res;
+  },
+  getById: async (boardId: string) => {
+    const res = await getRequest(`${BOARD_URL}/${boardId}`);
+    return res;
   },
 };
 

@@ -1,10 +1,10 @@
 import moment from 'moment';
 
-export default function CalDiffTime(curTime: string|undefined) {
-  if( curTime === undefined ){
+export default function CalDiffTime(curTime: string | undefined) {
+  if (curTime === undefined) {
     return '알수 없음';
   }
-  
+
   const currentTime = moment();
   const diffTime = currentTime.diff(moment(curTime, moment.ISO_8601));
 

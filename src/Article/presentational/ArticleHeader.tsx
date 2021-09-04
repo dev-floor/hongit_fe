@@ -2,28 +2,24 @@ import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { useRecoilValue } from 'recoil';
 import { selectedArticleId } from 'Atoms/atom';
-import { ArticleHeaderProps } from 'interface/ArgProps';
+import { articleAPI } from 'api/api';
+import { ArticleProps } from 'interface/ArgProps';
 import Modal from 'Commons/Modal';
+import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import { v4 as uuidv4 } from 'uuid';
 
-const ArticleHeader = ({
-  onUpdateArticle,
-  onDeleteArticle,
-  articleData,
-}: ArticleHeaderProps) => {
+const ArticleHeader = ({ data }: ArticleProps ) => {
   const { options, title, anonymous, author, createdAt } = {
-    ...articleData,
+    ...data,
   };
-  const createdTimeFormat = `${createdAt.slice(0, 4)}-${createdAt.slice(
-    4,
-    6
-  )}-${createdAt.slice(6)}`;
 
-  const articleId = useRecoilValue(selectedArticleId);
   // const setArticleSelectedOptions = useSetRecoilState(articleCreateSelectedOptions);
   // setArticleSelectedOptions(options);
   const onClickArticleUpdate = () => {
-    onUpdateArticle(articleId);
+    history.push({
+      pathname: '/write',
+      state: { modifyArticleId: data.id },
+    });
   };
 
   const [open, setOpen] = useState(false);
@@ -37,7 +33,8 @@ const ArticleHeader = ({
   const history = useHistory();
 
   const onModalClickArticleDelete = () => {
-    onDeleteArticle(articleId);
+    // FIX ME
+    articleAPI.delete(/* articleId */);
     history.push('/articleList');
   };
 
@@ -54,7 +51,7 @@ const ArticleHeader = ({
       <section className="article-header-bar">
         <div className="article-info-area">
           {anonymous ? <div>익명</div> : <div>{author.nickname}</div>}
-          <time className="article-created-time">{createdTimeFormat}</time>
+          <time className="article-created-time">{TransferTimeFormat(createdAt as string)}</time>
         </div>
         <div className="article-btn-area">
           <button

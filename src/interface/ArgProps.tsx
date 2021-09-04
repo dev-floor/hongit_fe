@@ -38,21 +38,18 @@ export interface ArticleDetailID {
   articleId: string;
 }
 
-export interface ArticleDetailInfos {
-  articleDetailData: ArticleDetailApi;
+export interface ParamsIdProps {
+  id: string;
 }
 
-export interface ArticleHeaderProps {
-  onUpdateArticle: (id: string) => void;
-  onDeleteArticle: (id: string) => void;
-  articleData: ArticleDetailApi;
+export interface ArticleProps {
+  data: ArticleDetailApi;
 }
-
 export interface ArticleFeedProps {
   feedList: ArticleFeedDetailApi[];
 }
 
-export interface ProfileArticleFeedProps{
+export interface ProfileArticleFeedProps {
   feedList: ArticleFeedApiPartial[];
 }
 export interface BoardDetailProp {

@@ -21,6 +21,7 @@ const MyLectureContainer = () => {
   const setMyLectures = useSetRecoilState(selectedMyLectures);
 
   const loadData = async () => {
+    // FIX ME
     const totalLectureInfo = await allLectureAPI.get();
     setAllLectureData(totalLectureInfo);
   };
@@ -31,6 +32,7 @@ const MyLectureContainer = () => {
     );
     const selectedMyLectureIds = selectedFavoriteLecture.map((lec) => lec.id);
     setMyLectures(selectedFavoriteLecture);
+    // FIX ME
     sidebarAPI.putMyLecture(selectedMyLectureIds);
   };
 

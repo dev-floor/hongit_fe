@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import { articleAPI } from 'api/api';
 import { ArticleCreateApi, OptionResponse } from 'api/ApiProps';
@@ -30,23 +30,23 @@ const ArticleCreatePageContainer = () => {
   });
 
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {
-    // api 호출로 post 날리고
-    articleAPI.postArticle(newArticle);
+    // FIX ME
+    articleAPI.postArticle(newArticle); // api 호출로 post 날리고
     console.log(newArticle);
-    // 새롭게 등록된 게시물 id를 알수 있는지? 아래 원래는 push('/article/${newid}')
-    history.push('/article/3');
+    history.push('/article/1');
+    // history.push('/article/${newid}'); // 새롭게 등록된 게시물 id를 알수 있는지? 
   };
 
-  const loadData = async () => {
-    const articleData = await articleAPI.get(/* location.state.modifyArticleId */);
+  const loadData = useCallback( async () => {
+    if( location.state !== undefined ){
+    const articleData = await articleAPI.getById(location.state.modifyArticleId);
     setModifyTargetArticle(articleData);
-  };
+    }
+  },[location.state] );
 
   useEffect(() => {
-    if (location.state !== undefined) {
       loadData();
-    }
-  }, [location.state]);
+  }, [loadData]);
 
   return location.state === undefined ? (
     <ArticleCreatePage onRegisterArticle={onRegisterArticle} />

@@ -7,14 +7,9 @@ import CalDiffTime from 'Commons/CalDiffTime';
 import 'css/ProfileArticle.css';
 
 const CardView = (article: ArticleFeedApiPartial) => {
-  const {
-    id,
-    options,
-    title,
-    authorName,
-    content,
-    modifiedAt,
-  } = { ...article };
+  const { id, options, title, authorName, content, modifiedAt } = {
+    ...article,
+  };
 
   return (
     <article className="card-area">

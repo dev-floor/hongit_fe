@@ -2,11 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { profileUserAPI } from 'api/api';
 import { ProfileUserApi } from 'api/ApiProps';
 import { Tab } from 'semantic-ui-react';
-
 import ProfileUser from 'User/Presentational/ProfileUser';
 import ProfileArticleContainer from './ProfileArticleContainer';
 import ProfileCommentContainer from './ProfileCommentContainer';
-
 import 'css/Profile.css';
 
 const panes = [
@@ -32,6 +30,7 @@ const ProfileContainer = () => {
   });
 
   const loadData = async () => {
+    // FIX ME
     const response = await profileUserAPI.get(/* boardId */);
     setUserData(response);
   };

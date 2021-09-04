@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArticleDetailInfos } from 'interface/ArgProps';
+import { ArticleProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 
 import { v4 as uuidv4 } from 'uuid';
@@ -13,9 +13,9 @@ import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 
-const ArticleBody = ({ articleDetailData }: ArticleDetailInfos) => {
+const ArticleBody = ({ data }: ArticleProps) => {
   const { content, hashtags, favoriteCount, wonderCount, clipCount } = {
-    ...articleDetailData,
+    ...data,
   };
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,8 +41,6 @@ const ArticleBody = ({ articleDetailData }: ArticleDetailInfos) => {
         )}
       </section>
       <br />
-      <img className="article-image" src={content} alt="첨부된 이미지 파일" />
-
       <section className="article-descriptions">
         <div className="hashtag-area">
           {hashtags.map((tags) => (

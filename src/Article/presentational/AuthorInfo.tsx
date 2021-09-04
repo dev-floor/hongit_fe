@@ -1,14 +1,14 @@
 import React from 'react';
-import { ArticleDetailInfos } from 'interface/ArgProps';
+import { ArticleProps } from 'interface/ArgProps';
 import { AiFillGithub } from 'react-icons/ai';
 import { SiNotion } from 'react-icons/si';
 
-const AuthorInfo = ({ articleDetailData }: ArticleDetailInfos) => {
-  const { anonymous, author } = { ...articleDetailData };
+const AuthorInfo = ({ data }: ArticleProps) => {
+  const { anonymous, author } = { ...data };
   return (
     <div className="author-area">
-      <div className="author-image">
-        <img src={author.image} alt="authorimage" />
+      <div className="author-image-area">
+        <img className="author-image" src={author.image} alt="authorimage" />
       </div>
       <div className="author-info ">
         <div className="author-info-header">

@@ -9,6 +9,7 @@ const SidebarContainer = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
   const loadData = async () => {
+    // FIX ME
     const response = await sidebarAPI.get(/* sidebar */);
     setSidebarData(response);
   };
