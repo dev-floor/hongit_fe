@@ -8,8 +8,8 @@ const sidebarDummyData = [
     },
     grade: {
       id: 'FRESHMAN',
-      text: '1학년'
-    }
+      text: '1학년',
+    },
   },
   {
     id: 2,
@@ -20,8 +20,8 @@ const sidebarDummyData = [
     },
     grade: {
       id: 'FRESHMAN',
-      text: '1학년'
-    }
+      text: '1학년',
+    },
   },
   {
     id: 3,
@@ -32,8 +32,8 @@ const sidebarDummyData = [
     },
     grade: {
       id: 'SOPHOMORE',
-      text: '2학년'
-    }
+      text: '2학년',
+    },
   },
   {
     id: 4,
@@ -45,7 +45,7 @@ const sidebarDummyData = [
     grade: {
       id: 'SOPHOMORE',
       text: '2학년',
-    }
+    },
   },
   {
     id: 5,
@@ -57,7 +57,7 @@ const sidebarDummyData = [
     grade: {
       id: 'JUNIOR',
       text: '3학년',
-    }
+    },
   },
   {
     id: 6,
@@ -69,7 +69,7 @@ const sidebarDummyData = [
     grade: {
       id: 'JUNIOR',
       text: '3학년',
-    }
+    },
   },
   {
     id: 7,
@@ -81,7 +81,7 @@ const sidebarDummyData = [
     grade: {
       id: 'SENIOR',
       text: '4학년',
-    }
+    },
   },
   {
     id: 8,
@@ -93,7 +93,7 @@ const sidebarDummyData = [
     grade: {
       id: 'SENIOR',
       text: '4학년',
-    }
+    },
   },
   {
     id: 9,
@@ -105,7 +105,7 @@ const sidebarDummyData = [
     grade: {
       id: '',
       text: '',
-    }
+    },
   },
   {
     id: 10,
@@ -117,7 +117,7 @@ const sidebarDummyData = [
     grade: {
       id: '',
       text: '',
-    }
+    },
   },
   {
     id: 11,
@@ -129,7 +129,7 @@ const sidebarDummyData = [
     grade: {
       id: '',
       text: '',
-    }
+    },
   },
   {
     id: 12,
@@ -141,7 +141,7 @@ const sidebarDummyData = [
     grade: {
       id: '',
       text: '',
-    }
+    },
   },
 ];
 

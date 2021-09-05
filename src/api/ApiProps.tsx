@@ -123,7 +123,7 @@ export interface SideBarDetailApi {
   grade: {
     id: string;
     text: string;
-  }
+  };
 }
 
 export interface AllLectureDetailApi {
