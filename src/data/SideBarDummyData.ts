@@ -6,6 +6,10 @@ const sidebarDummyData = [
       id: 'COURSE_BOARD',
       text: '수업게시판',
     },
+    grade: {
+      id: 'FRESHMAN',
+      text: '1학년',
+    },
   },
   {
     id: 2,
@@ -13,6 +17,10 @@ const sidebarDummyData = [
     type: {
       id: 'COURSE_BOARD',
       text: '수업게시판',
+    },
+    grade: {
+      id: 'FRESHMAN',
+      text: '1학년',
     },
   },
   {
@@ -22,6 +30,10 @@ const sidebarDummyData = [
       id: 'COURSE_BOARD',
       text: '수업게시판',
     },
+    grade: {
+      id: 'SOPHOMORE',
+      text: '2학년',
+    },
   },
   {
     id: 4,
@@ -29,6 +41,10 @@ const sidebarDummyData = [
     type: {
       id: 'COURSE_BOARD',
       text: '수업게시판',
+    },
+    grade: {
+      id: 'SOPHOMORE',
+      text: '2학년',
     },
   },
   {
@@ -38,6 +54,10 @@ const sidebarDummyData = [
       id: 'COURSE_BOARD',
       text: '수업게시판',
     },
+    grade: {
+      id: 'JUNIOR',
+      text: '3학년',
+    },
   },
   {
     id: 6,
@@ -45,6 +65,10 @@ const sidebarDummyData = [
     type: {
       id: 'COURSE_BOARD',
       text: '수업게시판',
+    },
+    grade: {
+      id: 'JUNIOR',
+      text: '3학년',
     },
   },
   {
@@ -54,6 +78,10 @@ const sidebarDummyData = [
       id: 'COURSE_BOARD',
       text: '수업게시판',
     },
+    grade: {
+      id: 'SENIOR',
+      text: '4학년',
+    },
   },
   {
     id: 8,
@@ -61,6 +89,10 @@ const sidebarDummyData = [
     type: {
       id: 'COURSE_BOARD',
       text: '수업게시판',
+    },
+    grade: {
+      id: 'SENIOR',
+      text: '4학년',
     },
   },
   {
@@ -70,6 +102,7 @@ const sidebarDummyData = [
       id: 'QNA_BOARD',
       text: '질문게시판',
     },
+    grade: null,
   },
   {
     id: 10,
@@ -78,6 +111,7 @@ const sidebarDummyData = [
       id: 'COMMUNITY_BOARD',
       text: '커뮤니티게시판',
     },
+    grade: null,
   },
   {
     id: 11,
@@ -86,6 +120,7 @@ const sidebarDummyData = [
       id: 'GATHERING_BOARD',
       text: '구인게시판',
     },
+    grade: null,
   },
   {
     id: 12,
@@ -94,6 +129,7 @@ const sidebarDummyData = [
       id: 'RECRUIT_BOARD',
       text: '채용게시판',
     },
+    grade: null,
   },
 ];
 
