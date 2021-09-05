@@ -102,10 +102,7 @@ const sidebarDummyData = [
       id: 'QNA_BOARD',
       text: '질문게시판',
     },
-    grade: {
-      id: '',
-      text: '',
-    },
+    grade: null,
   },
   {
     id: 10,
@@ -114,10 +111,7 @@ const sidebarDummyData = [
       id: 'COMMUNITY_BOARD',
       text: '커뮤니티게시판',
     },
-    grade: {
-      id: '',
-      text: '',
-    },
+    grade: null,
   },
   {
     id: 11,
@@ -126,10 +120,7 @@ const sidebarDummyData = [
       id: 'GATHERING_BOARD',
       text: '구인게시판',
     },
-    grade: {
-      id: '',
-      text: '',
-    },
+    grade: null,
   },
   {
     id: 12,
@@ -138,10 +129,7 @@ const sidebarDummyData = [
       id: 'RECRUIT_BOARD',
       text: '채용게시판',
     },
-    grade: {
-      id: '',
-      text: '',
-    },
+    grade: null,
   },
 ];
 
