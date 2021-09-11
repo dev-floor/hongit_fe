@@ -216,7 +216,7 @@ const ArticleCreatePage = ({
         <hr />
         <div className="btn-area">
           <button
-            className="btn-cancle"
+            className="btn-cancel"
             type="button"
             onClick={onConfirmCancel}
           >
