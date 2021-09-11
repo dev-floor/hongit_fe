@@ -244,6 +244,7 @@
 } */
 
 .floating-btn-area {
+  padding-bottom: 100px;
   display: flex;
   justify-content: flex-end;
   flex-direction: column;
@@ -254,11 +255,13 @@
 .floating-btn-area .btn-top {
   background-color: transparent;
   color: black;
+  /* border: solid 1px blue; */
 }
 
 .floating-btn-area .btn-bottom {
   background-color: transparent;
   color: black;
+  /* border: solid 1px blue; */
 }
 
 /*=============== ArticleCreatePage ==================*/
@@ -337,7 +340,7 @@ select {
 }
 
 .btn-area {
-  text-align: right;
+  float: right;
 }
 
 .btn-area .btn-register {
@@ -346,7 +349,6 @@ select {
   border: none;
   margin: 1px;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  position: relative;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
@@ -360,13 +362,12 @@ select {
   border-radius: 4px;
 }
 
-.btn-area .btn-cancle {
+.btn-area .btn-cancel {
   background: var(--btn-color);
   color: #fff;
   border: none;
   margin: 1px;
   padding: 0.5rem 1rem 0.5rem 1rem;
-  position: relative;
   font-size: 1rem;
   cursor: pointer;
   border-radius: 4px;
@@ -374,7 +375,7 @@ select {
   outline: none;
 }
 
-.btn-area .btn-cancle :hover {
+.btn-area .btn-cancel :hover {
   background: var(--btn-hover-color);
   color: white;
   border-radius: 4px;
