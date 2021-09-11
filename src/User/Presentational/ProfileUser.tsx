@@ -6,7 +6,7 @@ import { FcCloseUpMode, FcDocument } from 'react-icons/fc';
 import 'css/Profile.css';
 
 const ProfileUser = ({ userData }: ProfileUserProp) => {
-  const { username, nickname, type, image, github, blog, description } = {
+  const { nickname, type, image, github, blog, description } = {
     ...userData,
   };
   return (

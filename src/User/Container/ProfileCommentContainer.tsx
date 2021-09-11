@@ -9,6 +9,7 @@ const ProfileCommentContainer = () => {
   const [data, setFeedList] = useState<ProfileCommentApi[]>([]);
 
   const loadData = async () => {
+    // FIX ME
     const response = await profileCommentAPI.get();
     setFeedList(response);
   };

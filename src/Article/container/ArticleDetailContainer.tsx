@@ -1,24 +1,55 @@
-import React from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useParams } from 'react-router-dom';
-
+import { articleAPI } from 'api/api';
+import { ArticleDetailApi, OptionResponse } from 'api/ApiProps';
 import FloatingButton from 'Commons/FloatingButton';
-import AuthorInfoContainer from './AuthorInfoContainer';
-import ArticleHeaderContainer from './ArticleHeaderContainer';
 import CommentContainer from './CommentContainer';
-import ArticleBodyContainer from './ArticleBodyContainer';
+import ArticleBody from '../presentational/ArticleBody';
+import AuthorInfo from '../presentational/AuthorInfo';
+import ArticleHeader from '../presentational/ArticleHeader';
 import 'css/Article.css';
 
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
+  const [data, setArticleData] = useState<ArticleDetailApi>({
+    id: 0,
+    options: [] as OptionResponse[],
+    title: '',
+    anonymous: false,
+    author: {
+      nickname: '',
+      type: { id: '', text: '' },
+      image: '',
+      github: '',
+      blog: '',
+      description: '',
+    },
+    content: '',
+    hashtags: [] as string[],
+    favoriteCount: 0,
+    wonderCount: 0,
+    clipCount: 0,
+    createdAt: '',
+    modifiedAt: '',
+  });
+
+  const loadData = useCallback(async () => {
+    const response = await articleAPI.getById(id);
+    setArticleData(response);
+  }, [id]);
+
+  useEffect(() => {
+    loadData();
+  }, [loadData]);
 
   return (
     <div className="article-detail">
       <section className="article-detail-left">
-        <ArticleHeaderContainer articleId={id} />
+        <ArticleHeader data={data} />
         <hr />
         <section className="article-detail-body">
-          <ArticleBodyContainer articleId={id} />
-          <AuthorInfoContainer articleId={id} />
+          <ArticleBody data={data} />
+          <AuthorInfo data={data} />
         </section>
         <hr />
         <section className="article-detail-comment">

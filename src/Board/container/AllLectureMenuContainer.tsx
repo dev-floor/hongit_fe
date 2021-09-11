@@ -10,6 +10,7 @@ const AllLectureMenuContainer = () => {
   );
 
   const loadData = async () => {
+    // FIX ME
     const totalLectureInfo = await allLectureAPI.get();
     setAllLectureData(totalLectureInfo);
   };

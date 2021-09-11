@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Route, useParams } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { boardDetailOptions } from 'Atoms/atom';
@@ -32,15 +32,15 @@ const BoardDetailContainer = () => {
   });
   const setBoardDetailOption = useSetRecoilState(boardDetailOptions);
 
-  const loadData = async () => {
-    const response = await boardAPI.get(/* boardId */);
+  const loadData = useCallback(async () => {
+    const response = await boardAPI.getById(id);
     setboardData(response);
     setBoardDetailOption(response.options);
-  };
+  }, [id]);
 
   useEffect(() => {
     loadData();
-  }, []);
+  }, [loadData]);
 
   return (
     <div className="board-detail">
@@ -50,7 +50,7 @@ const BoardDetailContainer = () => {
         </header>
         <hr />
         <div className="article-area">
-          <ArticleListContainer />
+          <ArticleListContainer id={id} />
         </div>
       </section>
       <Route path="/board/write" component={ArticleCreatePageContainer} exact />
