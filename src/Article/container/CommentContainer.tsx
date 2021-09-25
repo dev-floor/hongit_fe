@@ -1,7 +1,8 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { commentsAPI } from 'api/api';
+import { API_URL, commentsAPI } from 'api/api';
 import { CommentApi } from 'api/ApiProps';
 import { ArticleDetailID } from 'interface/ArgProps';
+import axios from 'axios';
 import CommentArea from '../presentational/CommentArea';
 
 const CommentContainer = ({ articleId }: ArticleDetailID) => {
@@ -28,11 +29,39 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
     );
   };
 
-  const onRegisterCreateComment = (newComment: CommentApi) => {
+  const onRegisterCreateComment = async (newComment: CommentApi) => {
+    const token = window.localStorage.getItem('token');
+    await axios.post(
+      `${API_URL}/comments`,
+      {
+        articleId,
+        anonymous: newComment.anonymous,
+        content: newComment.content,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
     setComments([...comments, newComment]);
   };
 
-  const onRegisterUpdateComment = (updateComment: CommentApi) => {
+  const onRegisterUpdateComment = async (updateComment: CommentApi) => {
+    const token = window.localStorage.getItem('token');
+    await axios.post(
+      `${API_URL}/comments/${updateComment.id}`,
+      {
+        content: updateComment.content,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+
     const modify = comments.map((comment) =>
       comment.id === updateComment.id
         ? { ...comment, content: updateComment.content }
@@ -41,13 +70,22 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
     setComments(modify);
   };
 
+  const onRegisterDeleteComment = async (deleteId: number) => {
+    const token = window.localStorage.getItem('token');
+    await axios.delete(
+      `${API_URL}/comments/${deleteId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    );
+    setComments(comments.filter((comment) => comment.id !== deleteId));
+  };
+
   useEffect(() => {
     commentsAPI.putComments(comments);
   }, [comments]);
-
-  const onRegisterDeleteComment = (deleteId: number) => {
-    setComments(comments.filter((comment) => comment.id !== deleteId));
-  };
 
   return (
     <CommentArea

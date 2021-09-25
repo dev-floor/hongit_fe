@@ -8,7 +8,7 @@ import allLectureDummyData from '../data/AllLectureDummyData';
 import profileUserDummyData from '../data/ProfileUserDummyData';
 import profileCommentDummyData from '../data/ProfileCommentDummyData';
 
-const API_URL = 'http://34.64.111.91:8080/api';
+export const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 
