@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { API_URL, commentsAPI } from 'api/api';
+import { commentsAPI } from 'api/api';
 import { CommentApi } from 'api/ApiProps';
 import { ArticleDetailID } from 'interface/ArgProps';
-import axios from 'axios';
 import CommentArea from '../presentational/CommentArea';
 
 const CommentContainer = ({ articleId }: ArticleDetailID) => {
@@ -30,37 +29,12 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   };
 
   const onRegisterCreateComment = async (newComment: CommentApi) => {
-    const token = window.localStorage.getItem('token');
-    await axios.post(
-      `${API_URL}/comments`,
-      {
-        articleId,
-        anonymous: newComment.anonymous,
-        content: newComment.content,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
-
+    commentsAPI.registerNewComment(newComment, articleId);
     setComments([...comments, newComment]);
   };
 
   const onRegisterUpdateComment = async (updateComment: CommentApi) => {
-    const token = window.localStorage.getItem('token');
-    await axios.post(
-      `${API_URL}/comments/${updateComment.id}`,
-      {
-        content: updateComment.content,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    commentsAPI.registerUpdateComment(updateComment);
 
     const modify = comments.map((comment) =>
       comment.id === updateComment.id
@@ -71,15 +45,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   };
 
   const onRegisterDeleteComment = async (deleteId: number) => {
-    const token = window.localStorage.getItem('token');
-    await axios.delete(
-      `${API_URL}/comments/${deleteId}`,
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    commentsAPI.registerDeleteComment(deleteId)
     setComments(comments.filter((comment) => comment.id !== deleteId));
   };
 
