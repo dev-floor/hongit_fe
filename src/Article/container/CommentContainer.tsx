@@ -28,11 +28,14 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
     );
   };
 
-  const onRegisterCreateComment = (newComment: CommentApi) => {
+  const onRegisterCreateComment = async (newComment: CommentApi) => {
+    commentsAPI.registerNewComment(newComment, articleId);
     setComments([...comments, newComment]);
   };
 
-  const onRegisterUpdateComment = (updateComment: CommentApi) => {
+  const onRegisterUpdateComment = async (updateComment: CommentApi) => {
+    commentsAPI.registerUpdateComment(updateComment);
+
     const modify = comments.map((comment) =>
       comment.id === updateComment.id
         ? { ...comment, content: updateComment.content }
@@ -41,13 +44,14 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
     setComments(modify);
   };
 
+  const onRegisterDeleteComment = async (deleteId: number) => {
+    commentsAPI.registerDeleteComment(deleteId)
+    setComments(comments.filter((comment) => comment.id !== deleteId));
+  };
+
   useEffect(() => {
     commentsAPI.putComments(comments);
   }, [comments]);
-
-  const onRegisterDeleteComment = (deleteId: number) => {
-    setComments(comments.filter((comment) => comment.id !== deleteId));
-  };
 
   return (
     <CommentArea
