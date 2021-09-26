@@ -103,6 +103,61 @@ export const commentsAPI = {
     // const commentPuts = await putRequest(`${END_POINT}/`, data);
     // console.log('=======x=COMMENTS PUT API CALL========');
   },
+  registerNewComment: async(newComment: CommentApi, articleID: string) => {
+    const token = window.localStorage.getItem('token');
+
+    try{
+      await axios.post(
+        `${API_URL}/comments`,
+        {
+          articleId: Number(articleID),
+          anonymous: newComment.anonymous,
+          content: newComment.content,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch(e) {
+      console.log(e);
+    }
+  },
+  registerUpdateComment: async(updateComment: CommentApi) => {
+    const token = window.localStorage.getItem('token');
+
+    try{
+      await axios.post(
+        `${API_URL}/comments/${updateComment.id}`,
+        {
+          content: updateComment.content,
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch(e){
+      console.log(e);
+    }
+  },
+  registerDeleteComment: async(deleteId: number) => {
+    const token = window.localStorage.getItem('token');
+    try {
+      await axios.delete(
+        `${API_URL}/comments/${deleteId}`,
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+    } catch(e){
+      console.log(e);
+    }
+  }
 };
 
 export const boardAPI = {
