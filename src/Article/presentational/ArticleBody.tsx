@@ -43,7 +43,7 @@ const ArticleBody = ({ data }: ArticleProps) => {
       <br />
       <section className="article-descriptions">
         <div className="hashtag-area">
-          {hashtags.map((tags) => (
+          {hashtags?.map((tags) => (
             <button key={uuidv4()} className="hashtag" type="button">
               {tags}
             </button>

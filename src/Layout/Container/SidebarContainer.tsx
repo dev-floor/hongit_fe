@@ -11,6 +11,7 @@ const SidebarContainer = () => {
   const loadData = async () => {
     // FIX ME
     const response = await sidebarAPI.get(/* sidebar */);
+    // const response = await sidebarAPI.getList();
     setSidebarData(response);
   };
 

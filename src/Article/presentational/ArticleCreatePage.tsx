@@ -90,7 +90,7 @@ const ArticleCreatePage = ({
     if (newHashtags.length > 0) {
       if (newHashtags.includes(',')) {
         modifiedHashTags = newHashtags.split(',');
-        modifiedHashTags = modifiedHashTags.map((splitHashtag) =>
+        modifiedHashTags = modifiedHashTags?.map((splitHashtag) =>
           splitHashtag.trim()
         );
       } else {
@@ -148,7 +148,7 @@ const ArticleCreatePage = ({
       {selectedOptionsApplyFlag && (
         <header className="article-create-header">
           <section className="article-create-option-area">
-            {selectedOptions.map((op) => (
+            {selectedOptions?.map((op) => (
               <span className="option">{op}</span>
             ))}
           </section>

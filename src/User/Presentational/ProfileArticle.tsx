@@ -35,7 +35,7 @@ const CardView = (article: ArticleFeedApiPartial) => {
 
 const ProfileArticle = ({ feedList }: ProfileArticleFeedProps) => (
   <section className="article-feed-area">
-    {feedList.map((article) => (
+    {feedList?.map((article) => (
       <CardView
         id={article.id}
         options={article.options}

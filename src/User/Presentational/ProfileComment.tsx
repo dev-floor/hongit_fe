@@ -31,7 +31,7 @@ const Comment = (data: ProfileCommentApi) => {
 
 const ProfileComment = ({ commentList }: ProfileCommentProp) => (
   <section className="comment-feed-area">
-    {commentList.map((comment) => (
+    {commentList?.map((comment) => (
       <Comment
         comment={comment.comment}
         articleId={comment.articleId}

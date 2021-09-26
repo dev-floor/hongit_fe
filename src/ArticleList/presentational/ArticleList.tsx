@@ -151,7 +151,7 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
     <div className="article-preview">
       <section className="article-preview-area">
         {viewModeHistory === 'card'
-          ? articleListTmp.map((article) => (
+          ? articleListTmp?.map((article) => (
               <ArticlePreviewCard
                 key={uuidv4()}
                 id={article.id}
@@ -167,7 +167,7 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
                 modifiedAt={article.modifiedAt}
               />
             ))
-          : articleListTmp.map((article) => (
+          : articleListTmp?.map((article) => (
               <ArticlePreviewList
                 key={uuidv4()}
                 id={article.id}

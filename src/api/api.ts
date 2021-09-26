@@ -9,8 +9,23 @@ import profileUserDummyData from '../data/ProfileUserDummyData';
 import profileCommentDummyData from '../data/ProfileCommentDummyData';
 
 const API_URL = 'http://34.64.111.91:8080/api';
+// const API_URL = '/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
+
+// export const getRequest = async (url: string) => {
+  // try {
+  //   const response = await axios.get(url);
+  //   if (response.status === 404) {
+  //     throw Error('There would be error in requesting.');
+  //   }
+  //   const result = response.data;
+  //   return result;
+  // } catch (e) {
+  //   console.error(e);
+  //   return e;
+  // }
+// };
 
 export const getRequest = async (url: string) => {
   try {
@@ -60,6 +75,7 @@ export const putRequest = async (url: string, data: any) => {
 export const articleAPI = {
   getById: async (articleId: string) => {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
+    console.log(res);
     return res;
   },
   getFeedByBoardId: async (boardId: string) => {
@@ -85,7 +101,7 @@ export const commentsAPI = {
   },
   putComments: (data: CommentApi[]) => {
     // const commentPuts = await putRequest(`${END_POINT}/`, data);
-    console.log('========COMMENTS PUT API CALL========');
+    // console.log('=======x=COMMENTS PUT API CALL========');
   },
 };
 
@@ -107,9 +123,14 @@ export const boardAPI = {
 export const sidebarAPI = {
   get: () => {
     const sideBarResponse = sidebarDummyData;
+    console.log(sideBarResponse);
     return sideBarResponse;
   },
-
+  getList: async () => {
+    const res = await getRequest(BOARD_URL);
+    console.log(res);
+    return res;
+  },
   putMyLecture: (data: number[]) => {
     // const response = await putRequest(`${END_POINT}/boards/bookmarks`);
     console.log('========My Lecture PUT API CALL========');

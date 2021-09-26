@@ -13,7 +13,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         <h3 className="ui block header">1학년</h3>
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'FRESHMAN')
-          .map((freshman) => (
+          ?.map((freshman) => (
             <Link
               key={uuidv4()}
               to={`/board/${freshman.id}`}
@@ -28,7 +28,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         <h3 className="ui block header">2학년</h3>
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'SOPHOMORE')
-          .map((sophomore) => (
+          ?.map((sophomore) => (
             <Link
               key={uuidv4()}
               to={`/board/${sophomore.id}`}
@@ -43,7 +43,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         <h3 className="ui block header">3학년</h3>
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'JUNIOR')
-          .map((junior) => (
+          ?.map((junior) => (
             <Link
               key={uuidv4()}
               to={`/board/${junior.id}`}
@@ -58,7 +58,7 @@ const AllLectureMenu = ({ allLectureData }: AllLectureMenuProp) => (
         <h3 className="ui block header">4학년</h3>
         {allLectureData
           .filter((lecture) => lecture.grade.id === 'SENIOR')
-          .map((senior) => (
+          ?.map((senior) => (
             <Link
               key={uuidv4()}
               to={`/board/${senior.id}`}

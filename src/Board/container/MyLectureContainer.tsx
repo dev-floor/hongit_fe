@@ -30,7 +30,7 @@ const MyLectureContainer = () => {
     const selectedFavoriteLecture = allLectureData.filter((data) =>
       lectures.includes(data.title)
     );
-    const selectedMyLectureIds = selectedFavoriteLecture.map((lec) => lec.id);
+    const selectedMyLectureIds = selectedFavoriteLecture?.map((lec) => lec.id);
     setMyLectures(selectedFavoriteLecture);
     // FIX ME
     sidebarAPI.putMyLecture(selectedMyLectureIds);

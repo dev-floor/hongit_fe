@@ -116,14 +116,8 @@ export interface BoardDetailApi {
 export interface SideBarDetailApi {
   id: number;
   title: string;
-  type: {
-    id: string;
-    text: string;
-  };
-  grade: {
-    id: string;
-    text: string;
-  } | null;
+  type: BaseEnumResponse;
+  grade: BaseEnumResponse | null;
 }
 
 export interface AllLectureDetailApi {
