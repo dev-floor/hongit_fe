@@ -19,7 +19,9 @@ const MyLecture = ({
   const alreadyInSidebar = useRecoilValue(selectedMyLectures);
 
   const [selectedProfessor, setProfProfessor] = useState<string>('');
-  const [selectedCombination, setCombination] = useState<string[]>([]);
+  const [selectedCombination, setCombination] = useState<string[]>(
+    alreadyInSidebar.map((lec) => lec.title)
+  );
 
   const onClickYear = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedYear = e.currentTarget.value;

@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import { grade, subjectName, selectedMyLectures } from 'Atoms/atom';
 
-import { allLectureAPI, sidebarAPI } from 'api/api';
+import { boardAPI, sidebarAPI } from 'api/api';
 import { BoardDetailApi as AllLectureInfosApi } from 'api/ApiProps';
 import MyLecture from '../presentational/MyLecture';
 
@@ -21,8 +21,8 @@ const MyLectureContainer = () => {
   const setMyLectures = useSetRecoilState(selectedMyLectures);
 
   const loadData = async () => {
-    // FIX ME
-    const totalLectureInfo = await allLectureAPI.get();
+    // FIX ME - FIXED
+    const totalLectureInfo = await boardAPI.getAllLectures();
     setAllLectureData(totalLectureInfo);
   };
 

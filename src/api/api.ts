@@ -154,6 +154,15 @@ export const boardAPI = {
     const res = await getRequest(`${BOARD_URL}/${boardId}`);
     return res;
   },
+  getAllLectures: async () => {
+    try {
+      const res = await getRequest(`${BOARD_URL}/?type=COURSE_BOARD`);
+      return res;
+    } catch (e) {
+      console.log(e);
+      return undefined;
+    }
+  },
 };
 
 export const sidebarAPI = {
@@ -177,7 +186,7 @@ export const sidebarAPI = {
   putMyLecture: async (data: number[]) => {
     const token = window.localStorage.getItem('token');
     try {
-      const response = await putRequest(`${BOARD_URL}`, data, {
+      const response = await putRequest(`${BOARD_URL}/bookmarks`, data, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
