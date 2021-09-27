@@ -9,9 +9,12 @@ const SidebarContainer = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
   const loadData = async () => {
-    // FIX ME
-    const response = await sidebarAPI.get(/* sidebar */);
-    setSidebarData(response);
+    const response = await sidebarAPI.getSidebarInfos(/* sidebar */);
+    if(response === undefined) {
+      console.error('Error in getting user board infos');
+    } else {
+      setSidebarData(response);
+    }
   };
 
   const onModifyMyLectures = (e: any) => {

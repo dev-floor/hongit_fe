@@ -32,7 +32,7 @@ const MyLectureContainer = () => {
     );
     const selectedMyLectureIds = selectedFavoriteLecture.map((lec) => lec.id);
     setMyLectures(selectedFavoriteLecture);
-    // FIX ME
+    // FIX ME - FIXED.
     sidebarAPI.putMyLecture(selectedMyLectureIds);
   };
 
