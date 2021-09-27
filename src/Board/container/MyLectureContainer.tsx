@@ -23,7 +23,7 @@ const MyLectureContainer = () => {
   const loadData = async () => {
     // FIX ME - FIXED
     const totalLectureInfo = await boardAPI.getAllLectures();
-    setAllLectureData(totalLectureInfo);
+    totalLectureInfo && setAllLectureData(totalLectureInfo);
   };
 
   const onAddMyLecture = (lectures: string[]) => {
