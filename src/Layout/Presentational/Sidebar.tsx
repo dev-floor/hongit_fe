@@ -8,7 +8,7 @@ import { SideBarProps } from 'interface/ArgProps';
 import { v4 as uuidv4 } from 'uuid';
 import 'css/Sidebar.css';
 
-const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
+const Sidebar = ({ sideBarData }: SideBarProps) => {
   const [myLectureSubNav, setMyLectureSubNav] = useState(false);
   const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 

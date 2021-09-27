@@ -183,7 +183,7 @@ export const sidebarAPI = {
         },
       });
       console.log(response.data);
-    } catch(e){
+    } catch (e) {
       console.log(e);
     }
   },

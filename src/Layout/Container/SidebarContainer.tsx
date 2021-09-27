@@ -10,16 +10,11 @@ const SidebarContainer = () => {
 
   const loadData = async () => {
     const response = await sidebarAPI.getSidebarInfos(/* sidebar */);
-    if(response === undefined) {
+    if (response === undefined) {
       console.error('Error in getting user board infos');
     } else {
       setSidebarData(response);
     }
-  };
-
-  const onModifyMyLectures = (e: any) => {
-    console.log('Modify data here.');
-    console.log(e.target.value);
   };
 
   useEffect(() => {
@@ -29,10 +24,7 @@ const SidebarContainer = () => {
   return (
     <div className="main">
       <section className="side-bar">
-        <Sidebar
-          sideBarData={sidebarData}
-          onModifyMyLectures={onModifyMyLectures}
-        />
+        <Sidebar sideBarData={sidebarData} />
       </section>
     </div>
   );
