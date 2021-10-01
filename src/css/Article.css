@@ -107,15 +107,23 @@
   flex-direction: row;
   align-items: center;
 }
+
 .author-image-area {
   width: 25%;
-  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   margin: 0;
   padding: 10px;
   padding-right: 0px;
 }
+
 .author-image {
   width: 100%;
+}
+
+.author-image-empty {
+  width: 70%;
 }
 
 .author-info {

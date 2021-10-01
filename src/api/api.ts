@@ -87,10 +87,10 @@ export const commentsAPI = {
     // const commentPuts = await putRequest(`${END_POINT}/`, data);
     console.log('========COMMENTS PUT API CALL========');
   },
-  registerNewComment: async(newComment: CommentApi, articleID: string) => {
+  registerNewComment: async (newComment: CommentApi, articleID: string) => {
     const token = window.localStorage.getItem('token');
 
-    try{
+    try {
       await axios.post(
         `${API_URL}/comments`,
         {
@@ -104,14 +104,14 @@ export const commentsAPI = {
           },
         }
       );
-    } catch(e) {
+    } catch (e) {
       console.log(e);
     }
   },
-  registerUpdateComment: async(updateComment: CommentApi) => {
+  registerUpdateComment: async (updateComment: CommentApi) => {
     const token = window.localStorage.getItem('token');
 
-    try{
+    try {
       await axios.post(
         `${API_URL}/comments/${updateComment.id}`,
         {
@@ -123,25 +123,22 @@ export const commentsAPI = {
           },
         }
       );
-    } catch(e){
+    } catch (e) {
       console.log(e);
     }
   },
-  registerDeleteComment: async(deleteId: number) => {
+  registerDeleteComment: async (deleteId: number) => {
     const token = window.localStorage.getItem('token');
     try {
-      await axios.delete(
-        `${API_URL}/comments/${deleteId}`,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        }
-      );
-    } catch(e){
+      await axios.delete(`${API_URL}/comments/${deleteId}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+    } catch (e) {
       console.log(e);
     }
-  }
+  },
 };
 
 export const boardAPI = {
