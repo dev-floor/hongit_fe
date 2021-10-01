@@ -120,10 +120,12 @@
 
 .author-image {
   width: 100%;
+  max-width: 150px;
 }
 
 .author-image-empty {
-  width: 70%;
+  width: 60%;
+  max-width: 150px;
 }
 
 .author-info {
