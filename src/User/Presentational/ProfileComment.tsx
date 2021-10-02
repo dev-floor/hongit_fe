@@ -31,13 +31,19 @@ const Comment = (data: ProfileCommentApi) => {
 
 const ProfileComment = ({ commentList }: ProfileCommentProp) => (
   <section className="comment-feed-area">
-    {commentList?.map((comment) => (
-      <Comment
-        comment={comment.comment}
-        articleId={comment.articleId}
-        articleTitle={comment.articleTitle}
-      />
-    ))}
+    {commentList.length === 0 ? (
+      <div className="empty-msg">작성한 댓글이 없습니다.</div>
+    ) : (
+      <div>
+        {commentList?.map((comment) => (
+          <Comment
+            comment={comment.comment}
+            articleId={comment.articleId}
+            articleTitle={comment.articleTitle}
+          />
+        ))}
+      </div>
+    )}
   </section>
 );
 

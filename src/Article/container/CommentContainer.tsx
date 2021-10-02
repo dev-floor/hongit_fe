@@ -45,7 +45,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   };
 
   const onRegisterDeleteComment = async (deleteId: number) => {
-    commentsAPI.registerDeleteComment(deleteId)
+    commentsAPI.registerDeleteComment(deleteId);
     setComments(comments.filter((comment) => comment.id !== deleteId));
   };
 

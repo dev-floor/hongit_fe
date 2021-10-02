@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { allLectureAPI } from 'api/api';
+import { lectureAPI } from 'api/api';
 import { BoardDetailApi as AllLectureDetailApi } from 'api/ApiProps';
 import AllLectureMenu from '../presentational/AllLectureMenu';
 
@@ -11,7 +11,7 @@ const AllLectureMenuContainer = () => {
 
   const loadData = async () => {
     // FIX ME
-    const totalLectureInfo = await allLectureAPI.get();
+    const totalLectureInfo = await lectureAPI.getAll();
     setAllLectureData(totalLectureInfo);
   };
 

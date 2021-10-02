@@ -47,24 +47,24 @@ const ArticleDetailContainer = () => {
   return (
     <div>
       {data && (
-    <div className="article-detail">
-      <section className="article-detail-left">
-        <ArticleHeader data={data} />
-        <hr />
-        <section className="article-detail-body">
-          <ArticleBody data={data} />
-          <AuthorInfo data={data} />
-        </section>
-        <hr />
-        <section className="article-detail-comment">
-          <CommentContainer articleId={id} />
-        </section>
-      </section>
-      <section className="vertical"> </section>
-      <section className="article-detail-right">
-        <FloatingButton />
-      </section>
-    </div>
+        <div className="article-detail">
+          <section className="article-detail-left">
+            <ArticleHeader data={data} />
+            <hr />
+            <section className="article-detail-body">
+              <ArticleBody data={data} />
+              <AuthorInfo data={data} />
+            </section>
+            <hr />
+            <section className="article-detail-comment">
+              <CommentContainer articleId={id} />
+            </section>
+          </section>
+          <section className="vertical"> </section>
+          <section className="article-detail-right">
+            <FloatingButton />
+          </section>
+        </div>
       )}
     </div>
   );

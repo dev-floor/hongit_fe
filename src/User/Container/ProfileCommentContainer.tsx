@@ -9,8 +9,8 @@ const ProfileCommentContainer = () => {
   const [data, setFeedList] = useState<ProfileCommentApi[]>([]);
 
   const loadData = async () => {
-    // FIX ME
-    const response = await profileCommentAPI.get();
+    // const response = await profileCommentAPI.getByDummy();
+    const response = await profileCommentAPI.getByNickName('nick1');
     setFeedList(response);
   };
 

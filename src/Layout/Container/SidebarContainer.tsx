@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { sidebarAPI } from 'api/api';
+import { boardAPI } from 'api/api';
 import { SideBarDetailApi } from 'api/ApiProps';
 import Sidebar from 'Layout/Presentational/Sidebar';
 
@@ -9,9 +9,7 @@ const SidebarContainer = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
   const loadData = async () => {
-    // FIX ME
-    const response = await sidebarAPI.get(/* sidebar */);
-    // const response = await sidebarAPI.getList();
+    const response = await boardAPI.getList();
     setSidebarData(response);
   };
 

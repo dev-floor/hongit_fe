@@ -31,7 +31,8 @@ const ProfileContainer = () => {
 
   const loadData = async () => {
     // FIX ME
-    const response = await profileUserAPI.get(/* boardId */);
+    // const response = await profileUserAPI.getByDummy();
+    const response = await profileUserAPI.getByNickName('nick1');
     setUserData(response);
   };
 

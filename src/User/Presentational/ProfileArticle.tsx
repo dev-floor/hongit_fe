@@ -35,7 +35,11 @@ const CardView = (article: ArticleFeedApiPartial) => {
 
 const ProfileArticle = ({ feedList }: ProfileArticleFeedProps) => (
   <section className="article-feed-area">
-    {feedList?.map((article) => (
+    {feedList.length === 0 ? (
+      <div className="empty-msg">작성한 게시글이 없습니다.</div>
+    ) : ( 
+      <div>
+      {feedList?.map((article) => (
       <CardView
         id={article.id}
         options={article.options}
@@ -45,6 +49,7 @@ const ProfileArticle = ({ feedList }: ProfileArticleFeedProps) => (
         modifiedAt={article.modifiedAt}
       />
     ))}
+    </div>)}
   </section>
 );
 

@@ -8,7 +8,7 @@ import { SideBarProps } from 'interface/ArgProps';
 import { v4 as uuidv4 } from 'uuid';
 import 'css/Sidebar.css';
 
-const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps ) => {
+const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps) => {
   const [myLectureSubNav, setMyLectureSubNav] = useState(false);
   const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 
@@ -17,11 +17,10 @@ const Sidebar = ({ sideBarData, onModifyMyLectures }: SideBarProps ) => {
 
   useEffect(() => {
     setMyLectures(() =>
-    // Object.values(sideBarData).filter((board)=>board.type.id === 'COURSE_BOARD' )
       sideBarData.filter((board) => board.type.id === 'COURSE_BOARD')
     );
   }, [sideBarData, setMyLectures]);
-  
+
   return (
     <nav className="sidebar">
       <Link
