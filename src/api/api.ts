@@ -1,10 +1,7 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi } from './ApiProps';
-import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
 import allLectureDummyData from '../data/AllLectureDummyData';
-import profileUserDummyData from '../data/ProfileUserDummyData';
-import profileCommentDummyData from '../data/ProfileCommentDummyData';
 
 const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
@@ -144,10 +141,6 @@ export const commentsAPI = {
 };
 
 export const boardAPI = {
-  get: () => {
-    const boardDetailResponse = boardDetailDummyData;
-    return boardDetailResponse;
-  },
   getList: async () => {
     const res = await getRequest(BOARD_URL);
     return res;
@@ -178,10 +171,6 @@ export const homeAPI = {
 };
 
 export const profileUserAPI = {
-  getByDummy: () => {
-    const profileUserResponse = profileUserDummyData;
-    return profileUserResponse;
-  },
   getByNickName: async (nickName: string) => {
     const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
     return res;
