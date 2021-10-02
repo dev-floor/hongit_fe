@@ -1,6 +1,5 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi } from './ApiProps';
-import commentListDummyData from '../data/CommentListDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
 import allLectureDummyData from '../data/AllLectureDummyData';
@@ -61,7 +60,6 @@ export const putRequest = async (url: string, data: any) => {
 export const articleAPI = {
   getById: async (articleId: string) => {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
-    console.log(res);
     return res;
   },
   getFeedByBoardId: async (boardId: string) => {
@@ -83,14 +81,13 @@ export const articleAPI = {
 };
 
 export const commentsAPI = {
-  get: () => {
-    // const commentList = await getRequest(`${END_POINT}/~`);
-    const commentListResponse = commentListDummyData;
-    return commentListResponse;
+  getByArticleId: async (articleId: string) => {
+    const res = await getRequest(`${COMMENT_URL}?articleId=${articleId}`);
+    return res;
   },
-  putComments: (data: CommentApi[]) => {
-    // const commentPuts = await putRequest(`${END_POINT}/`, data);
-    // console.log('=======x=COMMENTS PUT API CALL========');
+  getByNickName: async (nickName: string) => {
+    const res = await getRequest(`${COMMENT_URL}?nickname=${nickName}`);
+    return res;
   },
   registerNewComment: async (newComment: CommentApi, articleID: string) => {
     const token = window.localStorage.getItem('token');
@@ -187,17 +184,6 @@ export const profileUserAPI = {
   },
   getByNickName: async (nickName: string) => {
     const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
-    return res;
-  },
-};
-
-export const profileCommentAPI = {
-  getByDummy: () => {
-    const profileCommentResponse = profileCommentDummyData;
-    return profileCommentResponse;
-  },
-  getByNickName: async (nickName: string) => {
-    const res = await getRequest(`${COMMENT_URL}?nickname=${nickName}`);
     return res;
   },
 };

@@ -8,9 +8,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   const [comments, setComments] = useState<CommentApi[]>([]);
 
   const loadData = useCallback(async () => {
-    // console.log(articleId);
-    // FIX ME
-    const response = await commentsAPI.get(/* articleId */);
+    const response = await commentsAPI.getByArticleId(articleId);
     setComments([...response]);
   }, [articleId]);
 

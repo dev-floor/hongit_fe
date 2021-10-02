@@ -32,7 +32,7 @@ const ProfileContainer = () => {
   const loadData = async () => {
     // FIX ME
     // const response = await profileUserAPI.getByDummy();
-    const response = await profileUserAPI.getByNickName('nick1');
+    const response = await profileUserAPI.getByNickName('lxxjn0');
     setUserData(response);
   };
 

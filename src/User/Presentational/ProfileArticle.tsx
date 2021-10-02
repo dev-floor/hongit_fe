@@ -37,19 +37,20 @@ const ProfileArticle = ({ feedList }: ProfileArticleFeedProps) => (
   <section className="article-feed-area">
     {feedList.length === 0 ? (
       <div className="empty-msg">작성한 게시글이 없습니다.</div>
-    ) : ( 
+    ) : (
       <div>
-      {feedList?.map((article) => (
-      <CardView
-        id={article.id}
-        options={article.options}
-        title={article.title}
-        authorName={article.authorName}
-        content={article.content}
-        modifiedAt={article.modifiedAt}
-      />
-    ))}
-    </div>)}
+        {feedList?.map((article) => (
+          <CardView
+            id={article.id}
+            options={article.options}
+            title={article.title}
+            authorName={article.authorName}
+            content={article.content}
+            modifiedAt={article.modifiedAt}
+          />
+        ))}
+      </div>
+    )}
   </section>
 );
 
