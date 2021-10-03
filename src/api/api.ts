@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CommentApi, ArticleCreateApi } from './ApiProps';
+import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 import allLectureDummyData from '../data/AllLectureDummyData';
 
@@ -40,9 +40,9 @@ export const postArticleRequest = async (
   }
 };
 
-export const putRequest = async (url: string, data: any) => {
+export const putRequest = async (url: string, data: any, headers: any) => {
   try {
-    const response = await axios.put(url, data);
+    const response = await axios.put(url, data, headers);
     if (response.status === 404) {
       throw Error('There would be error in requesting.');
     }
@@ -141,25 +141,50 @@ export const commentsAPI = {
 };
 
 export const boardAPI = {
-  getList: async () => {
-    const res = await getRequest(BOARD_URL);
-    return res;
+  getAll: async (): Promise<SideBarDetailApi[] | undefined> => {
+    const token = window.localStorage.getItem('token');
+    try {
+      const response = await axios.get(`${BOARD_URL}`, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      const { data } = response;
+      console.log(data);
+      return data;
+    } catch (e) {
+      console.log(e);
+      return undefined;
+    }
+  },
+  getAllLectures: async () => {
+    try {
+      const res = await getRequest(`${BOARD_URL}/?type=COURSE_BOARD`);
+      return res;
+    } catch (e) {
+      console.log(e);
+      return undefined;
+    }
+  },
+  putMyLecture: async (data: number[]) => {
+    // const response = await putRequest(`${END_POINT}/boards/bookmarks`);
+    console.log('========My Lecture PUT API CALL========');
+    console.log(data);
+    const token = window.localStorage.getItem('token');
+    try {
+      const response = await putRequest(`${BOARD_URL}/bookmarks`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.log(e);
+    }
   },
   getById: async (boardId: string) => {
     const res = await getRequest(`${BOARD_URL}/${boardId}`);
     return res;
-  },
-};
-
-export const lectureAPI = {
-  getAll: () => {
-    const allLectureResponse = allLectureDummyData;
-    return allLectureResponse;
-  },
-  putMyLecture: (data: number[]) => {
-    // const response = await putRequest(`${END_POINT}/boards/bookmarks`);
-    console.log('========My Lecture PUT API CALL========');
-    console.log(data);
   },
 };
 
