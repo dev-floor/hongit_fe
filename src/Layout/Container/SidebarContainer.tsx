@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { sidebarAPI } from 'api/api';
+import { boardAPI } from 'api/api';
 import { SideBarDetailApi } from 'api/ApiProps';
 import Sidebar from 'Layout/Presentational/Sidebar';
 
@@ -9,14 +9,12 @@ const SidebarContainer = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
   const loadData = async () => {
-    // FIX ME
-    const response = await sidebarAPI.get(/* sidebar */);
-    setSidebarData(response);
-  };
-
-  const onModifyMyLectures = (e: any) => {
-    console.log('Modify data here.');
-    console.log(e.target.value);
+    const response = await boardAPI.getAll();
+    if (response === undefined) {
+      console.error('Error in getting user board infos');
+    } else {
+      setSidebarData(response);
+    }
   };
 
   useEffect(() => {
@@ -26,10 +24,7 @@ const SidebarContainer = () => {
   return (
     <div className="main">
       <section className="side-bar">
-        <Sidebar
-          sideBarData={sidebarData}
-          onModifyMyLectures={onModifyMyLectures}
-        />
+        <Sidebar sideBarData={sidebarData} />
       </section>
     </div>
   );

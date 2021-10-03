@@ -19,7 +19,9 @@ const MyLecture = ({
   const alreadyInSidebar = useRecoilValue(selectedMyLectures);
 
   const [selectedProfessor, setProfProfessor] = useState<string>('');
-  const [selectedCombination, setCombination] = useState<string[]>([]);
+  const [selectedCombination, setCombination] = useState<string[]>(
+    alreadyInSidebar.map((lec) => lec.title)
+  );
 
   const onClickYear = (e: React.MouseEvent<HTMLButtonElement>) => {
     const clickedYear = e.currentTarget.value;
@@ -62,7 +64,7 @@ const MyLecture = ({
   useEffect(() => {
     if (alreadyInSidebar.length > 0) {
       setCombination(() =>
-        alreadyInSidebar.map((myLecture) => `${myLecture.title}`)
+        alreadyInSidebar?.map((myLecture) => `${myLecture.title}`)
       );
     }
   }, [alreadyInSidebar]);
@@ -120,7 +122,7 @@ const MyLecture = ({
               <Button.Group className="btn-group" vertical fluid>
                 {yearFilteredData.length === 0
                   ? ``
-                  : yearFilteredData.map((data) => (
+                  : yearFilteredData?.map((data) => (
                       <Button
                         key={uuidv4()}
                         className="subject"
@@ -136,7 +138,7 @@ const MyLecture = ({
               <Button.Group className="btn-group" toggle vertical fluid>
                 {finalFilteredData.length === 0
                   ? ``
-                  : finalFilteredData.map((data) => (
+                  : finalFilteredData?.map((data) => (
                       <Button
                         key={uuidv4()}
                         className="professor"
@@ -156,7 +158,7 @@ const MyLecture = ({
                 </header>
                 {selectedCombination.length === 0
                   ? ``
-                  : selectedCombination.map((combi) => (
+                  : selectedCombination?.map((combi) => (
                       <Label
                         key={uuidv4()}
                         style={{ margin: '0.5rem 0', width: '85%' }}

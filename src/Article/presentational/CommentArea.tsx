@@ -185,7 +185,7 @@ const CommentArea = ({
       </form>
       <hr />
       <div>
-        {commentsListProps.map((comment, index) => (
+        {commentsListProps?.map((comment, index) => (
           <div key={uuidv4()}>
             <Comment
               onRegisterUpdateComment={onRegisterUpdateComment}

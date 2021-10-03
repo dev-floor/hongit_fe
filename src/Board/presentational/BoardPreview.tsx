@@ -67,7 +67,7 @@ const BoardPreview = ({ previewData }: BoardPreviewProp) => {
       </section>
       <hr />
       <section className="article-area">
-        {articles.map((article) => (
+        {articles?.map((article) => (
           <ArticlePreview key={uuidv4()} previewData={article} />
         ))}
       </section>

@@ -1,4 +1,4 @@
-import { postRequest } from 'api/api';
+import { postArticleRequest } from 'api/api';
 import React from 'react';
 import SignUp from '../Presentational/SignUp';
 

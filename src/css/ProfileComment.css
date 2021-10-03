@@ -43,3 +43,10 @@
 .title-icon {
   margin-top: 5px;
 }
+
+.empty-msg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: gray;
+}

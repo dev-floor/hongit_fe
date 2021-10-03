@@ -35,7 +35,9 @@ const ArticleDetailContainer = () => {
 
   const loadData = useCallback(async () => {
     const response = await articleAPI.getById(id);
+    console.log(`id ${id}`);
     setArticleData(response);
+    console.log(response);
   }, [id]);
 
   useEffect(() => {
@@ -43,23 +45,27 @@ const ArticleDetailContainer = () => {
   }, [loadData]);
 
   return (
-    <div className="article-detail">
-      <section className="article-detail-left">
-        <ArticleHeader data={data} />
-        <hr />
-        <section className="article-detail-body">
-          <ArticleBody data={data} />
-          <AuthorInfo data={data} />
-        </section>
-        <hr />
-        <section className="article-detail-comment">
-          <CommentContainer articleId={id} />
-        </section>
-      </section>
-      <section className="vertical"> </section>
-      <section className="article-detail-right">
-        <FloatingButton />
-      </section>
+    <div>
+      {data && (
+        <div className="article-detail">
+          <section className="article-detail-left">
+            <ArticleHeader data={data} />
+            <hr />
+            <section className="article-detail-body">
+              <ArticleBody data={data} />
+              <AuthorInfo data={data} />
+            </section>
+            <hr />
+            <section className="article-detail-comment">
+              <CommentContainer articleId={id} />
+            </section>
+          </section>
+          <section className="vertical"> </section>
+          <section className="article-detail-right">
+            <FloatingButton />
+          </section>
+        </div>
+      )}
     </div>
   );
 };
