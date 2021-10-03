@@ -40,7 +40,7 @@ const Login = () => (
         </Segment>
       </Form>
       <Message color="teal">
-        <a href="/signin">회원가입</a>
+        <a href="/authemail">회원가입</a>
       </Message>
       <Link to="/">홈으로</Link>
     </Grid.Column>

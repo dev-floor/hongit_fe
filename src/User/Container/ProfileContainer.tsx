@@ -40,19 +40,19 @@ const ProfileContainer = () => {
 
   return (
     <div>
-      { userData === undefined || userData.type.id === '-1' ? (
+      {userData === undefined || userData.type.id === '-1' ? (
         <div>Profile Loading...</div>
       ) : (
         <div>
-      <div className="userinfo">
-        <ProfileUser userData={userData} />
-      </div>
-      <Tab
-        className="tab"
-        menu={{ secondary: true, pointing: true }}
-        panes={panes}
-      />
-      </div>
+          <div className="userinfo">
+            <ProfileUser userData={userData} />
+          </div>
+          <Tab
+            className="tab"
+            menu={{ secondary: true, pointing: true }}
+            panes={panes}
+          />
+        </div>
       )}
     </div>
   );
