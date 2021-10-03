@@ -60,7 +60,7 @@ const FilterModal = (props: any) => {
         <section className="filter-modal-section">
           <header className="filter-option">분반</header>
           <section>
-            {courseGroup.map((course) =>
+            {courseGroup?.map((course) =>
               viewFilterState.includes(course.text) ? (
                 <button
                   key={uuidv4()}
@@ -86,7 +86,7 @@ const FilterModal = (props: any) => {
           </section>
           <header className="filter-option">질문 유형</header>
           <section>
-            {articleKind.map((kind) =>
+            {articleKind?.map((kind) =>
               viewFilterState.includes(kind.text) ? (
                 <button
                   key={uuidv4()}

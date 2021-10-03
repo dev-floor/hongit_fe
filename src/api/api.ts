@@ -1,16 +1,12 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
-import commentListDummyData from '../data/CommentListDummyData';
-import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
-import sidebarDummyData from '../data/SideBarDummyData';
-import allLectureDummyData from '../data/AllLectureDummyData';
-import profileUserDummyData from '../data/ProfileUserDummyData';
-import profileCommentDummyData from '../data/ProfileCommentDummyData';
 
 const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
+const COMMENT_URL = API_URL.concat('/comments');
+const USER_URL = API_URL.concat('/users');
 
 export const getRequest = async (url: string) => {
   try {
@@ -63,8 +59,11 @@ export const articleAPI = {
     return res;
   },
   getFeedByBoardId: async (boardId: string) => {
-    console.log(`feed:: ${boardId}`);
     const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}`);
+    return res;
+  },
+  getFeedByNickName: async (nickname: string) => {
+    const res = await getRequest(`${ARTICLE_URL}?nickname=${nickname}`);
     return res;
   },
   postArticle: (data: ArticleCreateApi) => {
@@ -78,14 +77,13 @@ export const articleAPI = {
 };
 
 export const commentsAPI = {
-  get: () => {
-    // const commentList = await getRequest(`${END_POINT}/~`);
-    const commentListResponse = commentListDummyData;
-    return commentListResponse;
+  getByArticleId: async (articleId: string) => {
+    const res = await getRequest(`${COMMENT_URL}?articleId=${articleId}`);
+    return res;
   },
-  putComments: (data: CommentApi[]) => {
-    // const commentPuts = await putRequest(`${END_POINT}/`, data);
-    console.log('========COMMENTS PUT API CALL========');
+  getByNickName: async (nickName: string) => {
+    const res = await getRequest(`${COMMENT_URL}?nickname=${nickName}`);
+    return res;
   },
   registerNewComment: async (newComment: CommentApi, articleID: string) => {
     const token = window.localStorage.getItem('token');
@@ -142,31 +140,7 @@ export const commentsAPI = {
 };
 
 export const boardAPI = {
-  get: () => {
-    const boardDetailResponse = boardDetailDummyData;
-    return boardDetailResponse;
-  },
-  getList: async () => {
-    const res = await getRequest(BOARD_URL);
-    return res;
-  },
-  getById: async (boardId: string) => {
-    const res = await getRequest(`${BOARD_URL}/${boardId}`);
-    return res;
-  },
-  getAllLectures: async () => {
-    try {
-      const res = await getRequest(`${BOARD_URL}/?type=COURSE_BOARD`);
-      return res;
-    } catch (e) {
-      console.log(e);
-      return undefined;
-    }
-  },
-};
-
-export const sidebarAPI = {
-  getSidebarInfos: async (): Promise<SideBarDetailApi[] | undefined> => {
+  getAll: async (): Promise<SideBarDetailApi[] | undefined> => {
     const token = window.localStorage.getItem('token');
     try {
       const response = await axios.get(`${BOARD_URL}`, {
@@ -182,8 +156,19 @@ export const sidebarAPI = {
       return undefined;
     }
   },
-
+  getAllLectures: async () => {
+    try {
+      const res = await getRequest(`${BOARD_URL}/?type=COURSE_BOARD`);
+      return res;
+    } catch (e) {
+      console.log(e);
+      return undefined;
+    }
+  },
   putMyLecture: async (data: number[]) => {
+    // const response = await putRequest(`${END_POINT}/boards/bookmarks`);
+    console.log('========My Lecture PUT API CALL========');
+    console.log(data);
     const token = window.localStorage.getItem('token');
     try {
       const response = await putRequest(`${BOARD_URL}/bookmarks`, data, {
@@ -196,12 +181,9 @@ export const sidebarAPI = {
       console.log(e);
     }
   },
-};
-
-export const allLectureAPI = {
-  get: () => {
-    const allLectureResponse = allLectureDummyData;
-    return allLectureResponse;
+  getById: async (boardId: string) => {
+    const res = await getRequest(`${BOARD_URL}/${boardId}`);
+    return res;
   },
 };
 
@@ -213,15 +195,8 @@ export const homeAPI = {
 };
 
 export const profileUserAPI = {
-  get: () => {
-    const profileUserResponse = profileUserDummyData;
-    return profileUserResponse;
-  },
-};
-
-export const profileCommentAPI = {
-  get: () => {
-    const profileCommentResponse = profileCommentDummyData;
-    return profileCommentResponse;
+  getByNickName: async (nickName: string) => {
+    const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
+    return res;
   },
 };

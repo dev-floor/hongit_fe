@@ -45,7 +45,7 @@ const ArticleOptionModal = (props: any) => {
             옵션을 선택해주세요
           </h3>
           <header className="course-group">분반</header>
-          {courseGroup.map((course) =>
+          {courseGroup?.map((course) =>
             selectedOptions.includes(course.text) ? (
               <button
                 className="selected"
@@ -67,7 +67,7 @@ const ArticleOptionModal = (props: any) => {
           )}
           <hr />
           <header className="article-kind">질문 유형</header>
-          {articleKind.map((kind) =>
+          {articleKind?.map((kind) =>
             selectedOptions.includes(kind.text) ? (
               <button
                 className="selected"

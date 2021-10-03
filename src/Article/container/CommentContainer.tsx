@@ -8,9 +8,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   const [comments, setComments] = useState<CommentApi[]>([]);
 
   const loadData = useCallback(async () => {
-    console.log(articleId);
-    // FIX ME
-    const response = await commentsAPI.get(/* articleId */);
+    const response = await commentsAPI.getByArticleId(articleId);
     setComments([...response]);
   }, [articleId]);
 
@@ -20,7 +18,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
 
   const onPressFavorite = (targetComment: CommentApi) => {
     setComments((commentList) =>
-      commentList.map((comment, index) =>
+      commentList?.map((comment, index) =>
         comment === targetComment
           ? { ...comment, favorites: comment.favoriteCount + 1 }
           : comment
@@ -36,7 +34,7 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
   const onRegisterUpdateComment = async (updateComment: CommentApi) => {
     commentsAPI.registerUpdateComment(updateComment);
 
-    const modify = comments.map((comment) =>
+    const modify = comments?.map((comment) =>
       comment.id === updateComment.id
         ? { ...comment, content: updateComment.content }
         : comment
@@ -48,10 +46,6 @@ const CommentContainer = ({ articleId }: ArticleDetailID) => {
     commentsAPI.registerDeleteComment(deleteId);
     setComments(comments.filter((comment) => comment.id !== deleteId));
   };
-
-  useEffect(() => {
-    commentsAPI.putComments(comments);
-  }, [comments]);
 
   return (
     <CommentArea

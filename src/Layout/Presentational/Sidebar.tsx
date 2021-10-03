@@ -45,7 +45,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         내 수업게시판
       </button>
       <nav className={myLectureSubNav ? 'subNav-active' : 'subNav'}>
-        {myLectures.map((lecture) => (
+        {myLectures?.map((lecture) => (
           <Link
             key={uuidv4()}
             to={`/board/${lecture.id}`}
@@ -66,7 +66,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
       </nav>
       {sideBarData
         .filter((board) => board.type.id !== 'COURSE_BOARD')
-        .map((course) => (
+        ?.map((course) => (
           <Link
             key={uuidv4()}
             to={`/board/${course.id}`}

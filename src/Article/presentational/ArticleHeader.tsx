@@ -41,7 +41,7 @@ const ArticleHeader = ({ data }: ArticleProps) => {
   return (
     <header className="article-header">
       <section className="option-area">
-        {options.map((op, index) => (
+        {options?.map((op, index) => (
           <span key={uuidv4()} className="option">
             {op.text}
           </span>

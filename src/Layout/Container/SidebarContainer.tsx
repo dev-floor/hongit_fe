@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { sidebarAPI } from 'api/api';
+import { boardAPI } from 'api/api';
 import { SideBarDetailApi } from 'api/ApiProps';
 import Sidebar from 'Layout/Presentational/Sidebar';
 
@@ -9,7 +9,7 @@ const SidebarContainer = () => {
   const [sidebarData, setSidebarData] = useState<SideBarDetailApi[]>([]);
 
   const loadData = async () => {
-    const response = await sidebarAPI.getSidebarInfos(/* sidebar */);
+    const response = await boardAPI.getAll();
     if (response === undefined) {
       console.error('Error in getting user board infos');
     } else {
