@@ -22,7 +22,7 @@ const ProfileContainer = () => {
   const [userData, setUserData] = useState<ProfileUserApi>({
     username: '',
     nickname: '',
-    type: { id: '', text: '' },
+    type: { id: '-1', text: '' },
     image: '',
     github: '',
     blog: '',
@@ -30,8 +30,6 @@ const ProfileContainer = () => {
   });
 
   const loadData = async () => {
-    // FIX ME
-    // const response = await profileUserAPI.getByDummy();
     const response = await profileUserAPI.getByNickName('lxxjn0');
     setUserData(response);
   };
@@ -42,6 +40,10 @@ const ProfileContainer = () => {
 
   return (
     <div>
+      { userData === undefined || userData.type.id === '-1' ? (
+        <div>Profile Loading...</div>
+      ) : (
+        <div>
       <div className="userinfo">
         <ProfileUser userData={userData} />
       </div>
@@ -50,6 +52,8 @@ const ProfileContainer = () => {
         menu={{ secondary: true, pointing: true }}
         panes={panes}
       />
+      </div>
+      )}
     </div>
   );
 };

@@ -41,11 +41,13 @@ const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
           </button>
         </Link>
       </div>
-      <FilterModal
-        open={filterOpenState}
-        close={onCloseFilterModal}
-        options={options}
-      />
+      {options.length !== 0 && (
+        <FilterModal
+          open={filterOpenState}
+          close={onCloseFilterModal}
+          options={options}
+        />
+      )}
     </div>
   );
 };

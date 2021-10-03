@@ -12,7 +12,7 @@ import 'css/Article.css';
 const ArticleDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
   const [data, setArticleData] = useState<ArticleDetailApi>({
-    id: 0,
+    id: -1,
     options: [] as OptionResponse[],
     title: '',
     anonymous: false,
@@ -35,7 +35,6 @@ const ArticleDetailContainer = () => {
 
   const loadData = useCallback(async () => {
     const response = await articleAPI.getById(id);
-    console.log(`id ${id}`);
     setArticleData(response);
     console.log(response);
   }, [id]);
@@ -46,7 +45,9 @@ const ArticleDetailContainer = () => {
 
   return (
     <div>
-      {data && (
+      {data === undefined || data.id === -1 ? (
+        <div>Loading...</div>
+      ) : (
         <div className="article-detail">
           <section className="article-detail-left">
             <ArticleHeader data={data} />

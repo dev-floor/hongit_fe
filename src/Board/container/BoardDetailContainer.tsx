@@ -13,7 +13,7 @@ import 'css/BoardDetail.css';
 const BoardDetailContainer = () => {
   const { id } = useParams<{ id: string }>();
   const [boardData, setboardData] = useState<BoardDetailApi>({
-    id: 0,
+    id: -1,
     title: '',
     professor: {
       name: '',
@@ -34,26 +34,40 @@ const BoardDetailContainer = () => {
 
   const loadData = useCallback(async () => {
     const response = await boardAPI.getById(id);
-    setboardData(response);
-    setBoardDetailOption(response.options);
-  }, [id]);
+    if (response === undefined) {
+      console.error('Error in getting user board infos');
+    } else {
+      setboardData(response);
+      setBoardDetailOption(response.options);
+    }
+  }, [id, setBoardDetailOption]);
 
   useEffect(() => {
     loadData();
   }, [loadData]);
 
   return (
-    <div className="board-detail">
-      <section className="content">
-        <header className="contents-header">
-          <BoardContentHeader boardDetailData={boardData} />
-        </header>
-        <hr />
-        <div className="article-area">
-          <ArticleListContainer id={id} />
+    <div>
+      {boardData === undefined || boardData.id === -1 ? (
+        <div>Board Loading...</div>
+      ) : (
+        <div className="board-detail">
+          <section className="content">
+            <header className="contents-header">
+              <BoardContentHeader boardDetailData={boardData} />
+            </header>
+            <hr />
+            <div className="article-area">
+              <ArticleListContainer id={id} />
+            </div>
+          </section>
+          <Route
+            path="/board/write"
+            component={ArticleCreatePageContainer}
+            exact
+          />
         </div>
-      </section>
-      <Route path="/board/write" component={ArticleCreatePageContainer} exact />
+      )}
     </div>
   );
 };
