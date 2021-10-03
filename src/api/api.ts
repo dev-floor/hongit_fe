@@ -1,5 +1,5 @@
 import axios from 'axios';
-import { CommentApi, ArticleCreateApi } from './ApiProps';
+import { CommentApi, ArticleCreateApi, SignUpApi } from './ApiProps';
 import commentListDummyData from '../data/CommentListDummyData';
 import boardDetailDummyData from '../data/BoardDetailDummyData';
 import homeDummyData from '../data/HomeDummyData';
@@ -11,6 +11,7 @@ import profileCommentDummyData from '../data/ProfileCommentDummyData';
 const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
+const USER_URL = API_URL.concat('/users');
 
 export const getRequest = async (url: string) => {
   try {
@@ -26,9 +27,9 @@ export const getRequest = async (url: string) => {
   }
 };
 
-export const postArticleRequest = async (
+export const postRequest = async (
   url: string,
-  data: ArticleCreateApi
+  data: ArticleCreateApi | SignUpApi
 ) => {
   try {
     const response = await axios.post(url, data);

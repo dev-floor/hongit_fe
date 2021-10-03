@@ -150,3 +150,13 @@ export interface ProfileCommentApi {
   articleId: number;
   articleTitle: string;
 }
+export interface SignUpApi {
+  username: string;
+  nickname: string;
+  password: string;
+  checkedPassword: string;
+  email: string;
+  type: string;
+  classOf: string;
+  approved: boolean;
+}

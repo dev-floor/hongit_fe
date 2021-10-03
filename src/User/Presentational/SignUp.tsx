@@ -12,7 +12,7 @@ import {
 
 import 'css/SignIn.css';
 
-const SignIn = (/* {}: 새로운 타입 */) => {
+const SignUp = (/* {}: 새로운 타입 */) => {
   const mailOptions = [
     { key: 'g', text: '@g.hongik.ac.kr', value: '@g.hongik.ac.kr' },
     { key: 'mail', text: '@mail.hongik.ac.kr', value: '@mail.hongik.ac.kr' },
@@ -28,14 +28,14 @@ const SignIn = (/* {}: 새로운 타입 */) => {
   const [pwd, setPwd] = useState<string>('');
   const [checkPwd, setCheckPwd] = useState<string>('');
   const [studentId, setStudentId] = useState<string>('');
+  // fix된 메일을 불러올 것이므로 수정 후 지워야함
   const [mail, setMail] = useState<string>('');
-  const [code, setCode] = useState<string>('');
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
       <Grid.Column style={{ maxWidth: 450 }}>
         <Header color="teal" as="h2" textAlign="center">
-          회원가입
+          STEP 2
         </Header>
         <Form size="large">
           <Segment stacked>
@@ -187,49 +187,16 @@ const SignIn = (/* {}: 새로운 타입 */) => {
             <Form.Input
               fluid
               type="text"
-              placeholder="학교메일"
-              action
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setMail(e.target.value);
-              }}
-            >
-              <input />
-              <Select options={mailOptions} defaultValue="@g.hongik.ac.kr" />
-              <Button type="submit" color="teal">
-                전송하기
-              </Button>
-            </Form.Input>
-            {code === '' ? (
-              // 인증번호가 일치하지 않을 때
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="인증번호"
-                style={{ color: 'grey' }}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setCode(e.target.value);
-                }}
-              />
-            ) : (
-              // 인증번호가 일치할 때
-              <Form.Input
-                icon="check"
-                fluid
-                placeholder="인증번호"
-                style={{ color: 'teal' }}
-                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setCode(e.target.value);
-                }}
-              />
-            )}
+              placeholder="//인증된 메일 넣어두기//"
+              icon={<i className="on check icon" />}
+            />
             {id !== '' &&
             nickname !== '' &&
             pwd.length > 5 &&
             pwd.length < 16 &&
             pwd === checkPwd &&
             studentId !== '' &&
-            mail !== '' &&
-            code !== '' ? (
+            mail !== '' ? (
               <Button color="teal" fluid size="large">
                 회원가입
               </Button>
@@ -246,10 +213,16 @@ const SignIn = (/* {}: 새로운 타입 */) => {
               홈으로
             </span>
           </Link>
+          <br />
+          <Link to="/adduserinfo" className="return-home">
+            <span>
+              프로필 추가하기 페이지로 가기
+            </span>
+          </Link>
         </Form>
       </Grid.Column>
     </Grid>
   );
 };
 
-export default SignIn;
+export default SignUp;
