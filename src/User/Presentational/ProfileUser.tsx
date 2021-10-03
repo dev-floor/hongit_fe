@@ -20,10 +20,11 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
                 <span className="nick-name">{nickname}</span>
               </Item.Meta>
               <Item.Extra>
-                <div>
+                { type && (<div>
                   <FcCloseUpMode className="icon" size="20" color="black" />
                   {type.text}
                 </div>
+                )}
                 {blog && (
                   <div>
                     <a href={blog} target="_blank" rel="noreferrer">
