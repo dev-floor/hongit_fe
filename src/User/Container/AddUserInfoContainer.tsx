@@ -2,11 +2,11 @@ import React from 'react';
 import AddUserInfo from '../Presentational/AddUserInfo';
 
 const AddUserInfoContainer = () => {
-  const addUserInfo = () => {};
+  const onAddUserInfo = () => {};
 
   return (
     <AddUserInfo
-    // addUserInfo = {addUserInfo}
+    // onAddUserInfo = {onAddUserInfo}
     />
   );
 };

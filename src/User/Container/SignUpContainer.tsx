@@ -4,13 +4,13 @@ import SignUp from '../Presentational/SignUp';
 
 const SignUpContainer = () => {
   // 아이디 input 에 아웃포커싱되면 동작.
-  const validCheckID = () => {};
+  const onValidCheckID = () => {};
 
   // 닉네임 input 에 아웃포커싱되면 동작.
-  const validCheckNickName = () => {};
+  const onValidCheckNickName = () => {};
 
   // 학번 input 에 아웃포커싱되면 동작.
-  const validCheckClassOf = () => {};
+  const onValidCheckClassOf = () => {};
 
   // 인증한 메일을 불러오는 api (?)
 
@@ -21,9 +21,9 @@ const SignUpContainer = () => {
 
   return (
     <SignUp
-    /* validCheckID = {validCheckID}
-       validCheckNickName = {validCheckNickName}
-       validCheckClassOf = {validCheckClassOf}
+    /* onValidCheckID = {onValidCheckID}
+       onValidCheckNickName = {onValidCheckNickName}
+       onValidCheckClassOf = {onValidCheckClassOf}
        onRegisterUser = {onRegisterUser} */
     />
   );

@@ -2,11 +2,11 @@ import React from 'react';
 import AuthEmail from '../Presentational/AuthEmail';
 
 const AuthEmailContainer = () => {
-  const authEmail = () => {};
+  const onAauthEmail = () => {};
 
   return (
     <AuthEmail
-    // authEmail = {authEmail}
+    // onAuthEmail = {onAuthEmail}
     />
   );
 };
