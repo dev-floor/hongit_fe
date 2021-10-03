@@ -6,7 +6,7 @@ const AddUserInfoContainer = () => {
 
   return (
     <AddUserInfo
-      // addUserInfo = {addUserInfo}
+    // addUserInfo = {addUserInfo}
     />
   );
 };

@@ -6,7 +6,7 @@ const AuthEmailContainer = () => {
 
   return (
     <AuthEmail
-      // authEmail = {authEmail}
+    // authEmail = {authEmail}
     />
   );
 };

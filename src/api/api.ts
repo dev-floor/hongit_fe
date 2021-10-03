@@ -24,7 +24,7 @@ export const getRequest = async (url: string) => {
 
 export const postArticleRequest = async (
   url: string,
-  data: ArticleCreateApi 
+  data: ArticleCreateApi
 ) => {
   try {
     const response = await axios.post(url, data);

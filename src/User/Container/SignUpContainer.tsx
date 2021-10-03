@@ -6,7 +6,7 @@ const SignUpContainer = () => {
   // 아이디 input 에 아웃포커싱되면 동작.
   const validCheckID = () => {};
 
-  // 닉네임 input 에 아웃포커싱되면 동작. 
+  // 닉네임 input 에 아웃포커싱되면 동작.
   const validCheckNickName = () => {};
 
   // 학번 input 에 아웃포커싱되면 동작.

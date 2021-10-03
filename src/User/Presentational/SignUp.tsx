@@ -197,12 +197,14 @@ const SignUp = (/* {}: 새로운 타입 */) => {
             pwd === checkPwd &&
             studentId !== '' &&
             mail !== '' ? (
-              <Button color="teal" fluid size="large">
-                회원가입
-              </Button>
+              <Link to="/adduserinfo">
+                <Button color="teal" fluid size="large">
+                  다음 단계로
+                </Button>
+              </Link>
             ) : (
               <Button color="teal" fluid size="large" disabled>
-                회원가입
+                다음 단계로
               </Button>
             )}
           </Segment>
@@ -215,9 +217,7 @@ const SignUp = (/* {}: 새로운 타입 */) => {
           </Link>
           <br />
           <Link to="/adduserinfo" className="return-home">
-            <span>
-              프로필 추가하기 페이지로 가기
-            </span>
+            <span>프로필 추가하기 페이지로 가기</span>
           </Link>
         </Form>
       </Grid.Column>
