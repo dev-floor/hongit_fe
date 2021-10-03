@@ -12,6 +12,9 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
   const [myLectureSubNav, setMyLectureSubNav] = useState(false);
   const showMyLectureSubNav = () => setMyLectureSubNav(!myLectureSubNav);
 
+  const [myPageSubNav, setMyPageSubNav] = useState(false);
+  const showMyPageSubNav = () => setMyPageSubNav(!myPageSubNav);
+
   const removeBanner = useResetRecoilState(viewBanner);
   const [myLectures, setMyLectures] = useRecoilState(selectedMyLectures);
 
@@ -78,6 +81,27 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
             {course.type.text}
           </Link>
         ))}
+      <button
+        className="big-category-btn"
+        type="button"
+        onClick={showMyPageSubNav}
+      >
+        <i
+          className={myPageSubNav ? 'chevron down icon' : 'chevron right icon'}
+        />
+        마이페이지
+      </button>
+      <nav className={myPageSubNav ? 'subNav-active' : 'subNav'}>
+        <Link to="/" className="small-category-btn" onClick={removeBanner}>
+          프로필
+        </Link>
+        <Link to="/" className="small-category-btn" onClick={removeBanner}>
+          개인정보 수정
+        </Link>
+        <Link to="/" className="small-category-btn" onClick={removeBanner}>
+          비밀번호 수정
+        </Link>
+      </nav>
     </nav>
   );
 };
