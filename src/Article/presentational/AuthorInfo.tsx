@@ -3,12 +3,18 @@ import { ArticleProps } from 'interface/ArgProps';
 import { AiFillGithub } from 'react-icons/ai';
 import { SiNotion } from 'react-icons/si';
 
+import { Profile } from 'svg';
+
 const AuthorInfo = ({ data }: ArticleProps) => {
   const { anonymous, author } = { ...data };
   return (
     <div className="author-area">
       <div className="author-image-area">
-        <img className="author-image" src={author.image} alt="authorimage" />
+        {author.image && !anonymous ? (
+          <img className="author-image" src={author.image} alt="authorimage" />
+        ) : (
+          <Profile className="author-image-empty" />
+        )}
       </div>
       <div className="author-info ">
         <div className="author-info-header">
