@@ -1,7 +1,6 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
-import allLectureDummyData from '../data/AllLectureDummyData';
 
 const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
