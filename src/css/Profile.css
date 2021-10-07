@@ -34,3 +34,11 @@
   margin-left: 3%;
   margin-right: 3%;
 }
+
+.profile-edit-input-nickname {
+  font-size: 30px;
+}
+
+.profile-edit-option {
+  margin-bottom: 10px;
+}
