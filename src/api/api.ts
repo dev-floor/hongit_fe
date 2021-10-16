@@ -2,7 +2,7 @@ import axios from 'axios';
 import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 
-const API_URL = 'http://15.164.77.205:8080/api';
+const API_URL = 'http://34.64.111.91:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');

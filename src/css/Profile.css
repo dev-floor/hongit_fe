@@ -37,6 +37,19 @@
 
 .profile-edit-input-nickname {
   font-size: 30px;
+  border: none;
+  background-color: var(--my-color);
+}
+
+.profile-edit-input,
+.profile-edit-input {
+  border: none;
+  background-color: var(--my-color);
+  width: 80%;
+}
+
+.profile-edit-image {
+  margin: 7px 0px;
 }
 
 .profile-edit-option {
