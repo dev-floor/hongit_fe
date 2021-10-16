@@ -6,7 +6,6 @@ import 'css/Profile.css';
 
 const ProfileEditContainer = () => {
   const [userData, setUserData] = useState<ProfileUserApi>({
-    username: '',
     nickname: '',
     type: { id: '-1', text: '' },
     image: '',

@@ -20,7 +20,6 @@ const panes = [
 
 const ProfileContainer = () => {
   const [userData, setUserData] = useState<ProfileUserApi>({
-    username: '',
     nickname: '',
     type: { id: '-1', text: '' },
     image: '',
@@ -30,9 +29,10 @@ const ProfileContainer = () => {
   });
 
   const loadData = async () => {
+    console.log(`fetching...========`)
     const response = await profileUserAPI.getByNickName('lxxjn0');
-
-    setUserData(response);
+    console.log(response)
+    setUserData(response)
   };
 
   useEffect(() => {
