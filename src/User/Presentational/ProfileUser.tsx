@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ProfileUserProp } from 'interface/ArgProps';
 import { Item, Container } from 'semantic-ui-react';
 import { AiFillGithub } from 'react-icons/ai';
@@ -9,6 +9,15 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
   const { nickname, type, image, github, blog, description } = {
     ...userData,
   };
+
+  const [selectedFile, setFile] = useState('');
+
+  const onHandleFileUpload = (event: any) => {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setFile(imageUrl);
+  }
+
   return (
     <div>
       <Container>
@@ -42,6 +51,8 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
                     {github}
                   </div>
                 )}
+                {selectedFile && <img src={selectedFile} />}
+                <input type='file' onChange={onHandleFileUpload} />
               </Item.Extra>
             </Item.Content>
           </Item>
