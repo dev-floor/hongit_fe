@@ -92,7 +92,7 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         마이페이지
       </button>
       <nav className={myPageSubNav ? 'subNav-active' : 'subNav'}>
-        <Link to="/" className="small-category-btn" onClick={removeBanner}>
+        <Link to="/profile" className="small-category-btn" onClick={removeBanner}>
           프로필
         </Link>
         <Link to="/" className="small-category-btn" onClick={removeBanner}>
