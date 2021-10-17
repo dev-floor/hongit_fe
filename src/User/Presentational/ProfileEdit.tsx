@@ -107,7 +107,9 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   />
                 </div>
                 <div>
-                  <button className='profile-edit-image' type='button'>이미지 수정</button>
+                  <button className="profile-edit-image" type="button">
+                    이미지 수정
+                  </button>
                 </div>
               </Item.Extra>
             </Item.Content>

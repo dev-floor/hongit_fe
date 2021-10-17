@@ -29,10 +29,10 @@ const ProfileContainer = () => {
   });
 
   const loadData = async () => {
-    console.log(`fetching...========`)
+    console.log(`fetching...========`);
     const response = await profileUserAPI.getByNickName('lxxjn0');
-    console.log(response)
-    setUserData(response)
+    console.log(response);
+    setUserData(response);
   };
 
   useEffect(() => {
