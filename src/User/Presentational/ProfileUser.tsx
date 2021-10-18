@@ -31,7 +31,7 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
               <Item.Extra>
                 <div>
                   <FcCloseUpMode className="icon" size="20" color="black" />
-                  {type}
+                  {type.text}
                 </div>
                 <div>
                   <a href={blog} target="_blank" rel="noreferrer">
