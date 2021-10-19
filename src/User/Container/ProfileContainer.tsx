@@ -29,9 +29,7 @@ const ProfileContainer = () => {
   });
 
   const loadData = async () => {
-    console.log(`fetching...========`);
     const response = await profileUserAPI.getByNickName('lxxjn0');
-    console.log(response);
     setUserData(response);
   };
 
