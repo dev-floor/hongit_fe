@@ -5,6 +5,14 @@ import { AiFillGithub } from 'react-icons/ai';
 import { FcCloseUpMode, FcDocument } from 'react-icons/fc';
 import 'css/Profile.css';
 
+import Prism from 'prismjs';
+import 'prismjs/themes/prism.css';
+import { Viewer } from '@toast-ui/react-editor';
+import '@toast-ui/editor/dist/toastui-editor.css';
+import '@toast-ui/editor/dist/toastui-editor-viewer.css';
+import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
+import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
+
 const ProfileUser = ({ userData }: ProfileUserProp) => {
   const { nickname, type, image, github, blog, description } = {
     ...userData,
@@ -57,9 +65,10 @@ const ProfileUser = ({ userData }: ProfileUserProp) => {
             </Item.Content>
           </Item>
           {description && (
-            <Item.Description className="description">
-              {description}
-            </Item.Description>
+            <Viewer
+              initialValue={description}
+              plugins={[[codeSyntaxHighlight, { highlighter: Prism }]]}
+            />
           )}
         </Item.Group>
       </Container>
