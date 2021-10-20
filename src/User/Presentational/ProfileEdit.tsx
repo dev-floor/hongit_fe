@@ -21,11 +21,18 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
   const [isValidNickName, setValidNickName] = useState<boolean>(false);
 
   const [newNickName, setNewNickName] = useState<string>('');
-  const [newImg, setNewImg] = useState<string>('');
   const [newType, setNewType] = useState<string>('');
   const [newContent, setNewContent] = useState<string>('');
   const [newBlog, setNewBlog] = useState<string>('');
   const [newGithub, setNewGithub] = useState<string>('');
+
+  const [selectedFile, setFile] = useState('');
+
+  const onHandleFileUpload = (event: any) => {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setFile(imageUrl);
+  };
 
   const editorRef = useRef<Editor>(null);
 
@@ -43,14 +50,15 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
 
   const onSubmitChanges = () => {
     console.log(
-      `수정한 내용은 ${newNickName}, ${newImg}, ${newType}, ${newContent}, ${newBlog}, ${newGithub}`
+      `수정한 내용은 ${newNickName}, ${newType}, ${newContent}, ${newBlog}, ${newGithub} 이다.`
     );
+    console.log(`새로 올라가는 이미지는 ${selectedFile}`);
     // api calls.
   };
 
   useEffect(() => {
     setNewNickName(nickname);
-    setNewImg(image);
+    setFile(image);
     setNewType(type.text);
     setNewBlog(blog);
     setNewGithub(github);
@@ -62,7 +70,10 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
       <Container>
         <Item.Group divided>
           <Item>
-            <Item.Image src={newImg} />
+            {selectedFile && (
+              <Item.Image alt="userProfileImg" src={selectedFile} />
+            )}
+            {/* <Item.Image src={selectedFile} /> */}
             <Item.Content>
               <Item.Meta className="info">
                 <input
@@ -70,7 +81,11 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   defaultValue={newNickName}
                   onChange={(e) => setNewNickName(e.target.value)}
                 />
-                <button onClick={onValidCheck} type="button">
+                <button
+                  onClick={onValidCheck}
+                  type="button"
+                  className="default-btn"
+                >
                   중복확인
                 </button>
               </Item.Meta>
@@ -107,9 +122,7 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   />
                 </div>
                 <div>
-                  <button className="profile-edit-image" type="button">
-                    이미지 수정
-                  </button>
+                  <input type="file" onChange={onHandleFileUpload} />
                 </div>
               </Item.Extra>
             </Item.Content>
@@ -128,11 +141,20 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
           )}
         </Item.Group>
         {isValidNickName ? (
-          <button onClick={onSubmitChanges} type="button">
+          <button
+            onClick={onSubmitChanges}
+            className="default-btn"
+            type="button"
+          >
             수정 완료
           </button>
         ) : (
-          <button disabled onClick={onSubmitChanges} type="button">
+          <button
+            disabled
+            onClick={onSubmitChanges}
+            className="default-btn"
+            type="button"
+          >
             수정 완료
           </button>
         )}

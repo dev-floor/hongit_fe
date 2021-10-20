@@ -16,6 +16,7 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
 
   const loadData = useCallback(async () => {
     const res = await articleAPI.getFeedByBoardId(id);
+    console.log(`=========Fetched, ${res}===========`);
     setFeedList(res);
   }, [id]);
 

@@ -45,6 +45,7 @@
   border: none;
   background-color: var(--my-color);
   width: 80%;
+  margin: 7px 0;
 }
 
 .profile-edit-image {
