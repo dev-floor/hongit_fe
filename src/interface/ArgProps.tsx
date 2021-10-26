@@ -10,6 +10,7 @@ import {
   ArticlePreviewInfo,
   HomeApi,
   ProfileUserApi,
+  ProfileUserEditApi,
   ProfileCommentApi,
   ArticleFeedApiPartial,
 } from 'api/ApiProps';
@@ -84,6 +85,7 @@ export interface ArticlePreviewProp {
 
 export interface ProfileUserProp {
   userData: ProfileUserApi;
+  onHandleEditProfile?: (profileData: ProfileUserEditApi) => void;
 }
 
 export interface ProfileCommentProp {

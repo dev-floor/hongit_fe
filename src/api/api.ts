@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
+import {
+  CommentApi,
+  ArticleCreateApi,
+  SideBarDetailApi,
+  ProfileUserEditApi,
+} from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 
 const API_URL = 'http://34.64.100.216:8080/api';
@@ -203,5 +208,18 @@ export const profileUserAPI = {
   getByNickName: async (nickName: string) => {
     const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
     return res;
+  },
+  editProfile: async (data: ProfileUserEditApi) => {
+    const token = window.localStorage.getItem('token');
+    try {
+      const response = await putRequest(`${API_URL}/me`, data, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
   },
 };

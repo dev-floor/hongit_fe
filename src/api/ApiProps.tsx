@@ -138,6 +138,16 @@ export interface ProfileUserApi {
   blog: string;
   description: string;
 }
+
+export interface ProfileUserEditApi {
+  nickname: string;
+  userType: string;
+  image: FormData;
+  github: string;
+  blog: string;
+  description: string;
+}
+
 export interface ProfileCommentApi {
   comment: CommentApi;
   articleId: number;
