@@ -11,6 +11,7 @@ import HongitMainContainer from 'Layout/Container/HongitMainContainer';
 import HongitHeader from 'Layout/Presentational/HongitHeader';
 import HongitFooter from 'Layout/Presentational/HongitFooter';
 import ProfileContainer from 'User/Container/ProfileContainer';
+import PasswordEditContainer from 'User/Container/PasswordEditContainer';
 import 'css/Main.css';
 
 const Main = () => (
@@ -35,10 +36,7 @@ const Main = () => (
           exact
         />
         <Route path="/myLectureRegister" component={MyLectureContainer} exact />
-        <Route path="/board/9" render={() => <h1>질문게시판</h1>} />
-        <Route path="/board/10" render={() => <h1>커뮤니티게시판</h1>} />
-        <Route path="/board/11" render={() => <h1>구인게시판</h1>} />
-        <Route path="/board/12" render={() => <h1>채용게시판</h1>} />
+        <Route path="/passwordEdit" component={PasswordEditContainer} exact />
       </div>
     </div>
     <HongitFooter />

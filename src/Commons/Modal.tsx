@@ -1,7 +1,7 @@
 import React from 'react';
 import 'css/Modal.css';
 
-const Modal = (props: any) => {
+const Modal = (props?: any) => {
   const {
     open,
     close,
@@ -28,19 +28,21 @@ const Modal = (props: any) => {
           </header>
           <main>{info}</main>
           <footer>
+            {cancelBtnStr && (
+              <button
+                className="btn-cancel default-btn"
+                onClick={cancelBtnFunc}
+                type="button"
+              >
+                {cancelBtnStr}
+              </button>
+            )}
             <button
               className="btn-register default-btn"
               onClick={registerBtnFunc}
               type="button"
             >
               {registerBtnStr}
-            </button>
-            <button
-              className="btn-cancel default-btn"
-              onClick={cancelBtnFunc}
-              type="button"
-            >
-              {cancelBtnStr}
             </button>
           </footer>
         </section>
