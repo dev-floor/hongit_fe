@@ -141,6 +141,7 @@ const PasswordEdit = () => {
           </p>
           <Input
             type="password"
+            placeholder="비밀번호를 입력해주세요."
             onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
               setDeletePwd(e.target.value);
             }}
