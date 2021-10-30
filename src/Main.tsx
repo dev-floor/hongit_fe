@@ -12,6 +12,7 @@ import HongitHeader from 'Layout/Presentational/HongitHeader';
 import HongitFooter from 'Layout/Presentational/HongitFooter';
 import ProfileContainer from 'User/Container/ProfileContainer';
 import PasswordEditContainer from 'User/Container/PasswordEditContainer';
+import ProfileEditContainer from 'User/Container/ProfileEditContainer';
 import 'css/Main.css';
 
 const Main = () => (
@@ -25,6 +26,7 @@ const Main = () => (
       <div className="total-contents">
         <Route path="/" component={HongitMainContainer} exact />
         <Route path="/profile" component={ProfileContainer} exact />
+        <Route path="/profileEdit" component={ProfileEditContainer} exact />
         <Route path="/detail" component={ArticleDetailContainer} exact />
         <Route path="/articleList" component={ArticleListContainer} exact />
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
