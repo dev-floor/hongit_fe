@@ -22,7 +22,6 @@ export const getRequest = async (url: string) => {
     if (response.status === 500) {
       throw Error('Internal Server Error :: 500 .');
     }
-    console.log(response.status);
     const result = response.data;
     return result;
   } catch (e) {
@@ -52,6 +51,20 @@ export const postArticleRequest = async (
 export const putRequest = async (url: string, data: any, headers: any) => {
   try {
     const response = await axios.put(url, data, headers);
+    if (response.status === 404) {
+      throw Error('There would be error in requesting.');
+    }
+    const result = response.data;
+    return result;
+  } catch (e) {
+    console.error(e);
+    return e;
+  }
+};
+
+export const patchRequest = async (url: string, data: any, headers: any) => {
+  try {
+    const response = await axios.patch(url, data, headers);
     if (response.status === 404) {
       throw Error('There would be error in requesting.');
     }
@@ -159,7 +172,6 @@ export const boardAPI = {
         },
       });
       const { data } = response;
-      console.log(data);
       return data;
     } catch (e) {
       console.log(e);
@@ -212,8 +224,9 @@ export const profileUserAPI = {
   editProfile: async (data: ProfileUserEditApi) => {
     const token = window.localStorage.getItem('token');
     try {
-      const response = await putRequest(`${API_URL}/me`, data, {
+      const response = await patchRequest(`${API_URL}/me`, data, {
         headers: {
+          'Content-Type': 'multipart/form-data',
           Authorization: `Bearer ${token}`,
         },
       });

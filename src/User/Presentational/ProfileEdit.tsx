@@ -30,16 +30,17 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
   const [previewImg, setPreviewImg] = useState<string>('');
   const [selectedFile, setFile] = useState<File>();
 
+  const editorRef = useRef<Editor>(null);
+
   const onHandleFileUpload = (event: any) => {
     const imageFile = event.target.files[0];
     const imageUrl = URL.createObjectURL(imageFile);
-    setFile(imageFile);
-
-    // 미리보기 설정.
     setPreviewImg(imageUrl);
-  };
 
-  const editorRef = useRef<Editor>(null);
+    // image file setting.
+    setFile(imageFile);
+    setEditStart(true);
+  };
 
   const onSetContent = () => {
     const editorInstance = editorRef.current?.getInstance();
@@ -58,18 +59,25 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
     const formData = new FormData();
     if (selectedFile) {
       formData.append('multipartFiles', selectedFile);
-      console.log(formData);
+      onHandleEditProfile &&
+        onHandleEditProfile({
+          nickname: newNickName,
+          userType: newType,
+          image: formData,
+          github: newGithub,
+          blog: newBlog,
+          description: newContent,
+        });
+    } else {
+      onHandleEditProfile &&
+        onHandleEditProfile({
+          nickname: newNickName,
+          userType: newType,
+          github: newGithub,
+          blog: newBlog,
+          description: newContent,
+        });
     }
-
-    onHandleEditProfile &&
-      onHandleEditProfile({
-        nickname: newNickName,
-        userType: newType,
-        image: formData,
-        github: newGithub,
-        blog: newBlog,
-        description: newContent,
-      });
   };
 
   useEffect(() => {
@@ -151,14 +159,18 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
                   />
                 </div>
                 <div>
-                  <input type="file" onChange={onHandleFileUpload} />
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={onHandleFileUpload}
+                  />
                 </div>
               </Item.Extra>
             </Item.Content>
           </Item>
-          {newContent && (
+          {description && (
             <Editor
-              initialValue={newContent}
+              initialValue={description}
               previewStyle="vertical"
               height="300px"
               initialEditType="markdown"
