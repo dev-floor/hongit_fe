@@ -10,27 +10,27 @@ const PasswordEdit = () => {
   const [newPwdChk, setNewPwdChk] = useState<string>('');
   const [deletePwd, setDeletePwd] = useState<string>('');
 
-  const [openFirst, setOpenFirst] = useState<boolean>(false);
-  const [openSecond, setOpenSecond] = useState<boolean>(false);
-  const [openThird, setOpenThird] = useState<boolean>(false);
+  const [openPwdChange, setOpenPwdChange] = useState<boolean>(false);
+  const [openDeleteAccount, setOpenDeleteAccount] = useState<boolean>(false);
+  const [openWrongPwd, setOpenWrongPwd] = useState<boolean>(false);
 
-  const closeFirstModal = () => {
-    setOpenFirst(false);
+  const closePwdChangeModal = () => {
+    setOpenPwdChange(false);
     window.location.reload();
   };
   const onChangePassword = () => {
-    setOpenFirst(true);
+    setOpenPwdChange(true);
     // 비밀번호를 수정하는 api call
   };
 
-  const openSecondModal = () => setOpenSecond(true);
-  const closeSecondModal = () => {
-    setOpenSecond(false);
+  const openDeleteAccountModal = () => setOpenDeleteAccount(true);
+  const closeDeleteAccountModal = () => {
+    setOpenDeleteAccount(false);
     window.location.reload();
   };
-  const openThirdModal = () => setOpenThird(true);
-  const closeThirdModal = () => {
-    setOpenThird(false);
+  const openWrongPwdModal = () => setOpenWrongPwd(true);
+  const closeWrongPwdModal = () => {
+    setOpenWrongPwd(false);
     window.location.reload();
   };
   const onValidCheckPwd = () => {
@@ -61,56 +61,40 @@ const PasswordEdit = () => {
             style={{ width: '500px' }}
           />
         </Form.Field>
-        {newPwd.length === 0 || (newPwd.length > 5 && newPwd.length < 16) ? (
-          <Form.Field inline>
-            <h5>새 비밀번호</h5>
-            <Input
-              type="password"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewPwd(e.target.value);
-              }}
-              style={{ width: '500px' }}
-            />
-          </Form.Field>
-        ) : (
-          <Form.Field inline>
-            <h5>새 비밀번호</h5>
-            <Input
-              type="password"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewPwd(e.target.value);
-              }}
-              style={{ width: '500px' }}
-            />
-            <Label pointing="left">
+        <Form.Field inline>
+          <h5>새 비밀번호</h5>
+          <Input
+            type="password"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setNewPwd(e.target.value);
+            }}
+            style={{ width: '500px' }}
+          />
+          {newPwd.length === 0 || (newPwd.length > 5 && newPwd.length < 16) ? (
+            ' '
+          ) : (
+            <Label basic color="red" pointing="left">
               비밀번호 자릿수 조건을 만족하지 않습니다!
             </Label>
-          </Form.Field>
-        )}
-        {newPwdChk.length === 0 || newPwdChk === newPwd ? (
-          <Form.Field inline>
-            <h5>비밀번호 확인</h5>
-            <Input
-              type="password"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewPwdChk(e.target.value);
-              }}
-              style={{ width: '500px' }}
-            />
-          </Form.Field>
-        ) : (
-          <Form.Field inline>
-            <h5>비밀번호 확인</h5>
-            <Input
-              type="password"
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setNewPwdChk(e.target.value);
-              }}
-              style={{ width: '500px' }}
-            />
-            <Label pointing="left">비밀번호가 일치하지 않습니다!</Label>
-          </Form.Field>
-        )}
+          )}
+        </Form.Field>
+        <Form.Field inline>
+          <h5>비밀번호 확인</h5>
+          <Input
+            type="password"
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+              setNewPwdChk(e.target.value);
+            }}
+            style={{ width: '500px' }}
+          />
+          {newPwdChk.length === 0 || newPwdChk === newPwd ? (
+            ' '
+          ) : (
+            <Label basic color="red" pointing="left">
+              비밀번호가 일치하지 않습니다!
+            </Label>
+          )}
+        </Form.Field>
         <h5 style={{ color: 'gray' }}>
           ❗ 비밀번호는 6자리 이상 15자리 이하여야 합니다.
         </h5>
@@ -163,7 +147,9 @@ const PasswordEdit = () => {
               style={{ color: 'crimson' }}
               // onValidCheckPwd 의 response가 조건에 와야함
               // 비밀번호가 맞다면 openSecondModal, 틀리다면 openThirdModal
-              onClick={deletePwd === '0' ? openSecondModal : openThirdModal}
+              onClick={
+                deletePwd === '0' ? openDeleteAccountModal : openWrongPwdModal
+              }
             >
               계정 삭제하기
             </Button>
@@ -171,28 +157,28 @@ const PasswordEdit = () => {
         </Message>
       </Form>
       <Modal
-        open={openFirst}
-        close={closeFirstModal}
+        open={openPwdChange}
+        close={closePwdChangeModal}
         registerBtnStr="변경완료!"
-        registerBtnFunc={closeFirstModal}
+        registerBtnFunc={closePwdChangeModal}
         header="비밀번호 변경 완료"
         info="비밀번호가 정상적으로 변경되었습니다😆"
       />
       <Modal
-        open={openSecond}
-        close={closeSecondModal}
+        open={openDeleteAccount}
+        close={closeDeleteAccountModal}
         registerBtnStr="삭제하기"
         registerBtnFunc={onDeleteAccount}
         cancelBtnStr="취소하기"
-        cancelBtnFunc={closeSecondModal}
+        cancelBtnFunc={closeDeleteAccountModal}
         header="계정 삭제하기"
         info="계정을 정말로 삭제하시겠습니까?😢"
       />
       <Modal
-        open={openThird}
-        close={closeThirdModal}
+        open={openWrongPwd}
+        close={closeWrongPwdModal}
         registerBtnStr="다시 입력하기"
-        registerBtnFunc={closeThirdModal}
+        registerBtnFunc={closeWrongPwdModal}
         header="계정 삭제하기"
         info="입력하신 비밀번호가 옳지 않습니다😦"
       />

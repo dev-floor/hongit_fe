@@ -28,6 +28,13 @@ const Modal = (props?: any) => {
           </header>
           <main>{info}</main>
           <footer>
+            <button
+              className="btn-register default-btn"
+              onClick={registerBtnFunc}
+              type="button"
+            >
+              {registerBtnStr}
+            </button>
             {cancelBtnStr && (
               <button
                 className="btn-cancel default-btn"
@@ -37,13 +44,6 @@ const Modal = (props?: any) => {
                 {cancelBtnStr}
               </button>
             )}
-            <button
-              className="btn-register default-btn"
-              onClick={registerBtnFunc}
-              type="button"
-            >
-              {registerBtnStr}
-            </button>
           </footer>
         </section>
       )}
