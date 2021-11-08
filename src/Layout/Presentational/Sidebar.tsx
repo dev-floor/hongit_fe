@@ -106,7 +106,11 @@ const Sidebar = ({ sideBarData }: SideBarProps) => {
         >
           개인정보 수정
         </Link>
-        <Link to="/" className="small-category-btn" onClick={removeBanner}>
+        <Link
+          to="/passwordEdit"
+          className="small-category-btn"
+          onClick={removeBanner}
+        >
           비밀번호 수정
         </Link>
       </nav>
