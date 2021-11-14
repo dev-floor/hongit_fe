@@ -1,18 +1,35 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router';
 import { Link, useHistory } from 'react-router-dom';
 import Modal from 'Commons/Modal';
 import { Grid, Header, Form, Segment } from 'semantic-ui-react';
 
 import 'css/SignIn.css';
+import { SignUpProp } from 'interface/ArgProps';
 
-const AddUserInfo = () => {
+const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
   // 프로필사진, 깃헙주소, 블로그주소
   const [githubAddress, setGithubAddress] = useState<string>('');
   const [blogAddress, setBlogAddress] = useState<string>('');
 
   const [open, setOpen] = useState(false);
 
-  const completeSignUp = () => setOpen(true);
+  const [newUser, setNewUser] = useState({
+    username: '',
+    nickname: '',
+    password: '',
+    checkedPassword: '',
+    email: '',
+    type: '',
+    classOf: '',
+    approved: true,
+  });
+
+  const completeSignUp = () => {
+    setOpen(true);
+    onRegisterUser(newUser);
+    console.log('completeSignUp is called');
+  };
 
   const closeModal = () => {
     setOpen(false);
@@ -20,8 +37,13 @@ const AddUserInfo = () => {
 
   const history = useHistory();
   const goHome = () => {
-    history.push('./');
+    history.push('/');
   };
+
+  const location = useLocation();
+  useEffect(() => {
+    console.log(location);
+  }, [location]);
 
   return (
     <div>
@@ -88,15 +110,11 @@ const AddUserInfo = () => {
                   size="large"
                   onClick={completeSignUp}
                 >
-                  <Link to="/" style={{ color: 'white' }}>
-                    회원가입 완료
-                  </Link>
+                  회원가입 완료
                 </Form.Button>
               ) : (
                 <Form.Button color="teal" fluid size="large" disabled>
-                  <Link to="/" style={{ color: 'lightgray' }}>
-                    회원가입 완료
-                  </Link>
+                  회원가입 완료
                 </Form.Button>
               )}
               <Form.Button
@@ -105,9 +123,7 @@ const AddUserInfo = () => {
                 size="large"
                 onClick={completeSignUp}
               >
-                <Link to="/" style={{ color: 'white' }}>
-                  건너뛰기
-                </Link>
+                건너뛰기
               </Form.Button>
             </Segment>
             <Link to="/" className="return-home">
@@ -123,10 +139,8 @@ const AddUserInfo = () => {
       <Modal
         open={open}
         close={closeModal}
-        registerBtnStr="홈으로!"
+        registerBtnStr="홈으로 가기!"
         registerBtnFunc={goHome}
-        cancelBtnStr="가기!"
-        cancelBtnFunc={goHome}
         header="회원가입 완료"
         info="회원가입이 완료되었습니다😆"
       />

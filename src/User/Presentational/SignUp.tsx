@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
 import {
   Button,
@@ -18,13 +19,21 @@ const SignUp = (/* {}: 새로운 타입 */) => {
     { key: 'junior', text: '재학생', value: '재학생' },
   ];
 
-  const [id, setId] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
   const [nickname, setNickname] = useState<string>('');
   const [pwd, setPwd] = useState<string>('');
   const [checkPwd, setCheckPwd] = useState<string>('');
-  const [studentId, setStudentId] = useState<string>('');
+  const [classOf, setClassOf] = useState<string>('');
   // fix된 메일을 불러올 것이므로 수정 후 지워야함
-  const [mail, setMail] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
+
+  const history = useHistory();
+  const onClickNextStep = () => {
+    history.push({
+      pathname: '/adduserinfo',
+      state: { username, nickname, pwd, checkPwd, classOf, email },
+    });
+  };
 
   return (
     <Grid textAlign="center" style={{ height: '100vh' }} verticalAlign="middle">
@@ -34,14 +43,14 @@ const SignUp = (/* {}: 새로운 타입 */) => {
         </Header>
         <Form size="large">
           <Segment stacked>
-            {id === '' ? (
+            {username === '' ? (
               // 아이디 입력하기 전 초기 상태
               <Input
                 className="input-field"
                 type="text"
                 placeholder="아이디"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setId(e.target.value);
+                  setUsername(e.target.value);
                 }}
                 onBlur={() => {
                   /* Api Call 날려야 함 */
@@ -56,7 +65,7 @@ const SignUp = (/* {}: 새로운 타입 */) => {
                 type="text"
                 placeholder="아이디"
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                  setId(e.target.value);
+                  setUsername(e.target.value);
                 }}
                 onBlur={() => {
                   /* Api Call 날려야 함 */
@@ -65,7 +74,7 @@ const SignUp = (/* {}: 새로운 타입 */) => {
                 icon={<i className="on check icon" />}
               />
             )}
-            {id === '' ? (
+            {username === '' ? (
               // 아이디 중복 체크 api call 결과가 <중복 없음> 일 경우
               <h6> </h6>
             ) : (
@@ -168,13 +177,13 @@ const SignUp = (/* {}: 새로운 타입 */) => {
               placeholder="학번"
               action
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setStudentId(e.target.value);
+                setClassOf(e.target.value);
               }}
             >
               <input />
               <Select options={stuOptions} defaultValue="재학생" />
             </Input>
-            {studentId === '' ? (
+            {classOf === '' ? (
               <h6> </h6>
             ) : (
               <h6 className="error-message">이미 사용중인 학번입니다 🤔</h6>
@@ -185,18 +194,10 @@ const SignUp = (/* {}: 새로운 타입 */) => {
               placeholder="//인증된 메일 넣어두기//"
               icon={<i className="on check icon" />}
             />
-            {id !== '' &&
-            nickname !== '' &&
-            pwd.length > 5 &&
-            pwd.length < 16 &&
-            pwd === checkPwd &&
-            studentId !== '' &&
-            mail !== '' ? (
-              <Link to="/adduserinfo">
-                <Button color="teal" fluid size="large">
-                  다음 단계로
-                </Button>
-              </Link>
+            {username !== '' ? (
+              <Button color="teal" fluid size="large" onClick={onClickNextStep}>
+                다음 단계로
+              </Button>
             ) : (
               <Button color="teal" fluid size="large" disabled>
                 다음 단계로
