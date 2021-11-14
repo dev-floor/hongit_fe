@@ -12,6 +12,7 @@ import {
   ProfileUserApi,
   ProfileCommentApi,
   ArticleFeedApiPartial,
+  SignUpApi,
 } from 'api/ApiProps';
 
 export interface CommentAreaProps {
@@ -88,4 +89,8 @@ export interface ProfileUserProp {
 
 export interface ProfileCommentProp {
   commentList: ProfileCommentApi[];
+}
+
+export interface SignUpProp {
+  onRegisterUser: (newUser: SignUpApi) => void;
 }

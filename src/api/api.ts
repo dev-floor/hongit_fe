@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
+import {
+  CommentApi,
+  ArticleCreateApi,
+  SideBarDetailApi,
+  SignUpApi,
+} from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 
 const API_URL = 'http://34.64.100.216:8080/api';
@@ -7,6 +12,7 @@ const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');
 const USER_URL = API_URL.concat('/users');
+const SIGNUP_URL = API_URL.concat('/signup');
 
 export const getRequest = async (url: string) => {
   try {
@@ -208,5 +214,24 @@ export const profileUserAPI = {
   getByNickName: async (nickName: string) => {
     const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
     return res;
+  },
+};
+
+export const signupAPI = {
+  registerNewUser: async (newUser: SignUpApi) => {
+    try {
+      await axios.post(`${SIGNUP_URL}`, {
+        username: newUser.username,
+        nickname: newUser.nickname,
+        password: newUser.password,
+        checkedPassword: newUser.password,
+        email: newUser.email,
+        type: newUser.type,
+        classOf: newUser.classOf,
+        approved: newUser.approved,
+      });
+    } catch (e) {
+      console.log(e);
+    }
   },
 };
