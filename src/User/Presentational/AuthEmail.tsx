@@ -11,7 +11,7 @@ import {
 } from 'semantic-ui-react';
 
 const AuthEmail = () => {
-  const [mail, setMail] = useState<string>('');
+  const [email, setEmail] = useState<string>('');
   const mailOptions = [
     { key: 'g', text: '@g.hongik.ac.kr', value: '@g.hongik.ac.kr' },
     { key: 'mail', text: '@mail.hongik.ac.kr', value: '@mail.hongik.ac.kr' },
@@ -31,12 +31,12 @@ const AuthEmail = () => {
               placeholder="학교메일"
               action
               onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setMail(e.target.value);
+                setEmail(e.target.value);
               }}
             >
               <input />
               <Select options={mailOptions} defaultValue="@g.hongik.ac.kr" />
-              {mail.length === 0 ? (
+              {email.length === 0 ? (
                 <Button disabled type="submit" color="teal">
                   메일인증
                 </Button>

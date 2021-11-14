@@ -13,7 +13,7 @@ import {
 
 import 'css/SignIn.css';
 
-const SignUp = (/* {}: 새로운 타입 */) => {
+const SignUp = () => {
   const stuOptions = [
     { key: 'senior', text: '졸업생', value: '졸업생' },
     { key: 'junior', text: '재학생', value: '재학생' },
