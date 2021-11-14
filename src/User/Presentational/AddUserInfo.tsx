@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import Modal from 'Commons/Modal';
-import { Grid, Header, Form, Segment, Input, Button } from 'semantic-ui-react';
+import { Grid, Header, Form, Segment } from 'semantic-ui-react';
 
 import 'css/SignIn.css';
 

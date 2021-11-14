@@ -9,7 +9,7 @@ const ProfileArticleContainer = () => {
   const [feedListData, setFeedList] = useState<ArticleFeedDetailApi[]>([]);
 
   const loadData = async () => {
-    const response = await articleAPI.getFeedByNickName('lxxjn0');
+    const response = await articleAPI.getFeedByNickName('pjh',1,10);
     setFeedList(response);
   };
 
