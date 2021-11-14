@@ -40,8 +40,7 @@ const HongitMainContainer = () => {
   });
 
   const loadData = async () => {
-    // FIX ME
-    const response = await homeAPI.get(/* boardId */);
+    const response = await homeAPI.getByDummy();
     setData(response);
   };
   const showBanner = useSetRecoilState(viewBanner);
