@@ -13,11 +13,6 @@ import {
 import 'css/SignIn.css';
 
 const SignUp = (/* {}: 새로운 타입 */) => {
-  const mailOptions = [
-    { key: 'g', text: '@g.hongik.ac.kr', value: '@g.hongik.ac.kr' },
-    { key: 'mail', text: '@mail.hongik.ac.kr', value: '@mail.hongik.ac.kr' },
-  ];
-
   const stuOptions = [
     { key: 'senior', text: '졸업생', value: '졸업생' },
     { key: 'junior', text: '재학생', value: '재학생' },

@@ -131,7 +131,6 @@ export interface AllLectureDetailApi {
 
 /* ----- Profile ----- */
 export interface ProfileUserApi {
-  username: string;
   nickname: string;
   type: BaseEnumResponse;
   image: string;
