@@ -12,6 +12,7 @@ const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');
 const USER_URL = API_URL.concat('/users');
+const IMG_URL = API_URL.concat('/image');
 
 export const getRequest = async (url: string) => {
   try {
@@ -81,12 +82,20 @@ export const articleAPI = {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
     return res;
   },
-  getFeedByBoardId: async (boardId: string, page : number, pageSize : number ) => {
-    const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`);
+  getFeedByBoardId: async (boardId: string, page: number, pageSize: number) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
-  getFeedByNickName: async (nickname: string, page :number, pageSize: number) => {
-    const res = await getRequest(`${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`);
+  getFeedByNickName: async (
+    nickname: string,
+    page: number,
+    pageSize: number
+  ) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
   postArticle: (data: ArticleCreateApi) => {
@@ -214,7 +223,7 @@ export const homeAPI = {
     const res = await getRequest(`${ARTICLE_URL}/home`);
     return res;
   },
-  
+
   getByDummy: () => {
     const homeResponse = homeDummyData;
     return homeResponse;
@@ -239,5 +248,21 @@ export const profileUserAPI = {
     } catch (e) {
       console.error(e);
     }
+  },
+};
+
+export const imgAPI = {
+  profile: async (img: FormData) => {
+    const res = await axios.post<string>(
+      `${IMG_URL}/type="PROFILE"`,
+      { img },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    console.log(res);
+    return res.data;
   },
 };

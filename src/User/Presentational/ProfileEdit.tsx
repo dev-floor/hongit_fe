@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ProfileUserProp } from 'interface/ArgProps';
+import { imgAPI } from 'api/api';
 import { Item, Container, Dropdown } from 'semantic-ui-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcCloseUpMode, FcDocument } from 'react-icons/fc';
@@ -37,7 +38,6 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
     const imageUrl = URL.createObjectURL(imageFile);
     setPreviewImg(imageUrl);
 
-    // image file setting.
     setFile(imageFile);
     setEditStart(true);
   };
@@ -55,15 +55,16 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
     setValidNickName(true);
   };
 
-  const onSubmitChanges = () => {
+  const onSubmitChanges = async () => {
     const formData = new FormData();
     if (selectedFile) {
       formData.append('multipartFiles', selectedFile);
+      const imgUrl = await imgAPI.profile(formData);
       onHandleEditProfile &&
         onHandleEditProfile({
           nickname: newNickName,
           userType: newType,
-          image: formData,
+          image: imgUrl,
           github: newGithub,
           blog: newBlog,
           description: newContent,
@@ -190,12 +191,7 @@ const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
             수정 완료
           </button>
         ) : (
-          <button
-            disabled
-            onClick={onSubmitChanges}
-            className="default-btn"
-            type="button"
-          >
+          <button disabled className="default-btn" type="button">
             수정 완료
           </button>
         )}

@@ -142,7 +142,7 @@ export interface ProfileUserApi {
 export interface ProfileUserEditApi {
   nickname: string;
   userType: string;
-  image?: FormData;
+  image?: string;
   github: string;
   blog: string;
   description: string;

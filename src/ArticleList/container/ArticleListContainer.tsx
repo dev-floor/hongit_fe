@@ -15,7 +15,7 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
   const [feedListData, setFeedList] = useState<ArticleFeedDetailApi[]>([]);
 
   const loadData = useCallback(async () => {
-    const res = await articleAPI.getFeedByBoardId(id,1,10);
+    const res = await articleAPI.getFeedByBoardId(id, 0, 10);
     setFeedList(res);
   }, [id]);
 
