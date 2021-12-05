@@ -47,6 +47,9 @@ export interface ArticleProps {
 }
 export interface ArticleFeedProps {
   feedList: ArticleFeedDetailApi[];
+  curPage: number;
+  totalPage: number;
+  onHandlePageChange: (newPageIndex: number) => void;
 }
 
 export interface ProfileArticleFeedProps {

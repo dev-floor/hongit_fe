@@ -13,11 +13,16 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
   const applyFilterFlagValue = useRecoilValue(applyFilterFlag);
 
   const [feedListData, setFeedList] = useState<ArticleFeedDetailApi[]>([]);
+  const [curPage, setCurPage] = useState<number>(0);
 
   const loadData = useCallback(async () => {
-    const res = await articleAPI.getFeedByBoardId(id,1,10);
+    const res = await articleAPI.getFeedByBoardId(id, curPage, 10);
     setFeedList(res);
-  }, [id]);
+  }, [id, curPage]);
+
+  const onHandlePageChange = (newPageIndex: number) => {
+    setCurPage(() => newPageIndex)
+  }
 
   useEffect(() => {
     loadData();
@@ -29,7 +34,7 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
     console.log(viewSortValue, viewFilterValue);
   }, [applyFilterFlagValue]);
 
-  return <ArticleListArea feedList={feedListData} />;
+  return <ArticleListArea feedList={feedListData} curPage={curPage} totalPage={2} onHandlePageChange={onHandlePageChange} />;
 };
 
 export default ArticleListContainer;

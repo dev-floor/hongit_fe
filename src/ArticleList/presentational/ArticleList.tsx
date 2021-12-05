@@ -7,6 +7,7 @@ import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import { v4 as uuidv4 } from 'uuid';
+import { Pagination } from 'semantic-ui-react'
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
@@ -136,12 +137,17 @@ const ArticlePreviewList = (article: ArticleFeedApiPartial) => {
   );
 };
 
-const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
+const ArticleListArea = ({ feedList, curPage, totalPage, onHandlePageChange }: ArticleFeedProps) => {
   const viewModeHistory = useRecoilValue<string>(viewMode);
 
   const [articleListTmp, setArticleListData] = useState<ArticleFeedDetailApi[]>(
     []
   );
+
+  const onPageChange = (event: any, data: object) => {
+    const clickedPageIndex = Number(event.target.innerHTML) - 1
+    onHandlePageChange(clickedPageIndex);
+  }
 
   useEffect(() => {
     setArticleListData(feedList);
@@ -184,6 +190,7 @@ const ArticleListArea = ({ feedList }: ArticleFeedProps) => {
               />
             ))}
       </section>
+      <Pagination onPageChange={onPageChange} defaultActivePage = {curPage} style={{marginLeft : '20vw'}} totalPages={totalPage} />
     </div>
   );
 };
