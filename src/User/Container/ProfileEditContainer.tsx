@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { profileUserAPI } from 'api/api';
-import { ProfileUserApi } from 'api/ApiProps';
+import { ProfileUserApi, ProfileUserEditApi } from 'api/ApiProps';
 import ProfileEdit from 'User/Presentational/ProfileEdit';
 import 'css/Profile.css';
 
@@ -19,6 +19,11 @@ const ProfileEditContainer = () => {
     setUserData(response);
   };
 
+  const onHandleEditProfile = (profileInfo: ProfileUserEditApi) => {
+    console.log(profileInfo);
+    profileUserAPI.editProfile(profileInfo);
+  };
+
   useEffect(() => {
     loadData();
   }, []);
@@ -30,7 +35,10 @@ const ProfileEditContainer = () => {
       ) : (
         <div>
           <div className="userinfo">
-            <ProfileEdit userData={userData} />
+            <ProfileEdit
+              userData={userData}
+              onHandleEditProfile={onHandleEditProfile}
+            />
           </div>
         </div>
       )}

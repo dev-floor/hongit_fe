@@ -1,5 +1,10 @@
 import axios from 'axios';
-import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
+import {
+  CommentApi,
+  ArticleCreateApi,
+  SideBarDetailApi,
+  ProfileUserEditApi,
+} from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 
 const API_URL = 'http://34.64.100.216:8080/api';
@@ -7,6 +12,7 @@ const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');
 const USER_URL = API_URL.concat('/users');
+const IMG_URL = API_URL.concat('/image');
 
 export const getRequest = async (url: string) => {
   try {
@@ -17,7 +23,6 @@ export const getRequest = async (url: string) => {
     if (response.status === 500) {
       throw Error('Internal Server Error :: 500 .');
     }
-    console.log(response.status);
     const result = response.data;
     return result;
   } catch (e) {
@@ -58,17 +63,39 @@ export const putRequest = async (url: string, data: any, headers: any) => {
   }
 };
 
+export const patchRequest = async (url: string, data: any, headers: any) => {
+  try {
+    const response = await axios.patch(url, data, headers);
+    if (response.status === 404) {
+      throw Error('There would be error in requesting.');
+    }
+    const result = response.data;
+    return result;
+  } catch (e) {
+    console.error(e);
+    return e;
+  }
+};
+
 export const articleAPI = {
   getById: async (articleId: string) => {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
     return res;
   },
-  getFeedByBoardId: async (boardId: string, page : number, pageSize : number ) => {
-    const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`);
+  getFeedByBoardId: async (boardId: string, page: number, pageSize: number) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
-  getFeedByNickName: async (nickname: string, page :number, pageSize: number) => {
-    const res = await getRequest(`${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`);
+  getFeedByNickName: async (
+    nickname: string,
+    page: number,
+    pageSize: number
+  ) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
   postArticle: (data: ArticleCreateApi) => {
@@ -154,7 +181,6 @@ export const boardAPI = {
         },
       });
       const { data } = response;
-      console.log(data);
       return data;
     } catch (e) {
       console.log(e);
@@ -197,7 +223,7 @@ export const homeAPI = {
     const res = await getRequest(`${ARTICLE_URL}/home`);
     return res;
   },
-  
+
   getByDummy: () => {
     const homeResponse = homeDummyData;
     return homeResponse;
@@ -208,5 +234,35 @@ export const profileUserAPI = {
   getByNickName: async (nickName: string) => {
     const res = await getRequest(`${USER_URL}?nickname=${nickName}`);
     return res;
+  },
+  editProfile: async (data: ProfileUserEditApi) => {
+    const token = window.localStorage.getItem('token');
+    try {
+      const response = await patchRequest(`${API_URL}/me`, data, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+          Authorization: `Bearer ${token}`,
+        },
+      });
+      console.log(response.data);
+    } catch (e) {
+      console.error(e);
+    }
+  },
+};
+
+export const imgAPI = {
+  profile: async (img: FormData) => {
+    const res = await axios.post<string>(
+      `${IMG_URL}/type="PROFILE"`,
+      { img },
+      {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      }
+    );
+    console.log(res);
+    return res.data;
   },
 };

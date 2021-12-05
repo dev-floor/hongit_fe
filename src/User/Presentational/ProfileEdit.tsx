@@ -1,5 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { ProfileUserProp } from 'interface/ArgProps';
+import { imgAPI } from 'api/api';
 import { Item, Container, Dropdown } from 'semantic-ui-react';
 import { AiFillGithub } from 'react-icons/ai';
 import { FcCloseUpMode, FcDocument } from 'react-icons/fc';
@@ -13,26 +14,39 @@ import '@toast-ui/editor/dist/toastui-editor-viewer.css';
 import '@toast-ui/editor-plugin-code-syntax-highlight/dist/toastui-editor-plugin-code-syntax-highlight.css';
 import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 
-const ProfileEdit = ({ userData }: ProfileUserProp) => {
+const ProfileEdit = ({ userData, onHandleEditProfile }: ProfileUserProp) => {
   const { nickname, type, image, github, blog, description } = {
     ...userData,
   };
 
-  const [isValidNickName, setValidNickName] = useState<boolean>(false);
+  const [isEditStart, setEditStart] = useState<boolean>(false);
+  const [isValidNickName, setValidNickName] = useState<boolean>(true);
 
   const [newNickName, setNewNickName] = useState<string>('');
-  const [newImg, setNewImg] = useState<string>('');
   const [newType, setNewType] = useState<string>('');
   const [newContent, setNewContent] = useState<string>('');
   const [newBlog, setNewBlog] = useState<string>('');
   const [newGithub, setNewGithub] = useState<string>('');
 
+  const [previewImg, setPreviewImg] = useState<string>('');
+  const [selectedFile, setFile] = useState<File>();
+
   const editorRef = useRef<Editor>(null);
+
+  const onHandleFileUpload = (event: any) => {
+    const imageFile = event.target.files[0];
+    const imageUrl = URL.createObjectURL(imageFile);
+    setPreviewImg(imageUrl);
+
+    setFile(imageFile);
+    setEditStart(true);
+  };
 
   const onSetContent = () => {
     const editorInstance = editorRef.current?.getInstance();
     const getContentMarkdown = editorInstance?.getMarkdown() as string;
     setNewContent(getContentMarkdown);
+    setEditStart(true);
   };
 
   const onValidCheck = () => {
@@ -41,16 +55,35 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
     setValidNickName(true);
   };
 
-  const onSubmitChanges = () => {
-    console.log(
-      `수정한 내용은 ${newNickName}, ${newImg}, ${newType}, ${newContent}, ${newBlog}, ${newGithub}`
-    );
-    // api calls.
+  const onSubmitChanges = async () => {
+    const formData = new FormData();
+    if (selectedFile) {
+      formData.append('multipartFiles', selectedFile);
+      const imgUrl = await imgAPI.profile(formData);
+      onHandleEditProfile &&
+        onHandleEditProfile({
+          nickname: newNickName,
+          userType: newType,
+          image: imgUrl,
+          github: newGithub,
+          blog: newBlog,
+          description: newContent,
+        });
+    } else {
+      onHandleEditProfile &&
+        onHandleEditProfile({
+          nickname: newNickName,
+          userType: newType,
+          github: newGithub,
+          blog: newBlog,
+          description: newContent,
+        });
+    }
   };
 
   useEffect(() => {
     setNewNickName(nickname);
-    setNewImg(image);
+    setPreviewImg(image);
     setNewType(type.text);
     setNewBlog(blog);
     setNewGithub(github);
@@ -62,15 +95,23 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
       <Container>
         <Item.Group divided>
           <Item>
-            <Item.Image src={newImg} />
+            {previewImg && <Item.Image alt="userProfileImg" src={previewImg} />}
             <Item.Content>
               <Item.Meta className="info">
                 <input
                   className="profile-edit-input-nickname"
                   defaultValue={newNickName}
-                  onChange={(e) => setNewNickName(e.target.value)}
+                  onChange={(e) => {
+                    setNewNickName(e.target.value);
+                    setEditStart(true);
+                    setValidNickName(false);
+                  }}
                 />
-                <button onClick={onValidCheck} type="button">
+                <button
+                  onClick={onValidCheck}
+                  type="button"
+                  className="default-btn"
+                >
                   중복확인
                 </button>
               </Item.Meta>
@@ -80,11 +121,17 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   <Dropdown text={newType}>
                     <Dropdown.Menu content={newType}>
                       <Dropdown.Item
-                        onClick={(e) => setNewType(e.currentTarget.innerText)}
+                        onClick={(e) => {
+                          setNewType(e.currentTarget.innerText);
+                          setEditStart(true);
+                        }}
                         text="재학생"
                       />
                       <Dropdown.Item
-                        onClick={(e) => setNewType(e.currentTarget.innerText)}
+                        onClick={(e) => {
+                          setNewType(e.currentTarget.innerText);
+                          setEditStart(true);
+                        }}
                         text="졸업생"
                       />
                     </Dropdown.Menu>
@@ -95,7 +142,10 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   <input
                     className="profile-edit-input"
                     defaultValue={newBlog}
-                    onChange={(e) => setNewBlog(e.target.value)}
+                    onChange={(e) => {
+                      setNewBlog(e.target.value);
+                      setEditStart(true);
+                    }}
                   />
                 </div>
                 <div>
@@ -103,20 +153,25 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
                   <input
                     className="profile-edit-input"
                     defaultValue={newGithub}
-                    onChange={(e) => setNewGithub(e.target.value)}
+                    onChange={(e) => {
+                      setNewGithub(e.target.value);
+                      setEditStart(true);
+                    }}
                   />
                 </div>
                 <div>
-                  <button className="profile-edit-image" type="button">
-                    이미지 수정
-                  </button>
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={onHandleFileUpload}
+                  />
                 </div>
               </Item.Extra>
             </Item.Content>
           </Item>
-          {newContent && (
+          {description && (
             <Editor
-              initialValue={newContent}
+              initialValue={description}
               previewStyle="vertical"
               height="300px"
               initialEditType="markdown"
@@ -127,12 +182,16 @@ const ProfileEdit = ({ userData }: ProfileUserProp) => {
             />
           )}
         </Item.Group>
-        {isValidNickName ? (
-          <button onClick={onSubmitChanges} type="button">
+        {isEditStart && isValidNickName ? (
+          <button
+            onClick={onSubmitChanges}
+            className="default-btn"
+            type="button"
+          >
             수정 완료
           </button>
         ) : (
-          <button disabled onClick={onSubmitChanges} type="button">
+          <button disabled className="default-btn" type="button">
             수정 완료
           </button>
         )}

@@ -121,3 +121,12 @@ button[type='submit']:hover {
   color: white;
   border-radius: 4px;
 }
+
+.default-btn:disabled {
+  background-color: var(--text-area-color);
+  color: black;
+}
+
+.default-btn:disabled:hover {
+  cursor: default;
+}
