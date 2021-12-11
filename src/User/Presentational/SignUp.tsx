@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router';
 import { Link } from 'react-router-dom';
+import { SignUpProp } from 'interface/ArgProps';
 import {
   Button,
   Form,
@@ -13,7 +14,7 @@ import {
 
 import 'css/SignIn.css';
 
-const SignUp = () => {
+const SignUp = ({ onRegisterUser }: SignUpProp) => {
   const stuOptions = [
     { key: 'senior', text: '졸업생', value: '졸업생' },
     { key: 'junior', text: '재학생', value: '재학생' },
@@ -26,13 +27,21 @@ const SignUp = () => {
   const [classOf, setClassOf] = useState<string>('');
   // fix된 메일을 불러올 것이므로 수정 후 지워야함
   const [email, setEmail] = useState<string>('');
-
+  const [newUser, setNewUser] = useState({
+    username: '',
+    nickname: '',
+    password: '',
+    checkedPassword: '',
+    email: '',
+    type: '',
+    classOf: '',
+    approved: true,
+  });
   const history = useHistory();
-  const onClickNextStep = () => {
-    history.push({
-      pathname: '/adduserinfo',
-      state: { username, nickname, pwd, checkPwd, classOf, email },
-    });
+
+  const completeSignUp = () => {
+    history.push('/adduserinfo');
+    onRegisterUser(newUser);
   };
 
   return (
@@ -195,7 +204,7 @@ const SignUp = () => {
               icon={<i className="on check icon" />}
             />
             {username !== '' ? (
-              <Button color="teal" fluid size="large" onClick={onClickNextStep}>
+              <Button color="teal" fluid size="large" onClick={completeSignUp}>
                 가입하기
               </Button>
             ) : (

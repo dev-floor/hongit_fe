@@ -69,12 +69,20 @@ export const articleAPI = {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
     return res;
   },
-  getFeedByBoardId: async (boardId: string, page : number, pageSize : number ) => {
-    const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`);
+  getFeedByBoardId: async (boardId: string, page: number, pageSize: number) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
-  getFeedByNickName: async (nickname: string, page :number, pageSize: number) => {
-    const res = await getRequest(`${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`);
+  getFeedByNickName: async (
+    nickname: string,
+    page: number,
+    pageSize: number
+  ) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
   postArticle: (data: ArticleCreateApi) => {
@@ -203,7 +211,7 @@ export const homeAPI = {
     const res = await getRequest(`${ARTICLE_URL}/home`);
     return res;
   },
-  
+
   getByDummy: () => {
     const homeResponse = homeDummyData;
     return homeResponse;

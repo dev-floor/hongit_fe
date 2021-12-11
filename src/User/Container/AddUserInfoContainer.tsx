@@ -1,14 +1,17 @@
+import React from 'react';
 import { signupAPI } from 'api/api';
 import { SignUpApi } from 'api/ApiProps';
-import React from 'react';
 import AddUserInfo from '../Presentational/AddUserInfo';
 
 const AddUserInfoContainer = () => {
-  const onRegisterUser = async (newUser: SignUpApi) => {
-    signupAPI.registerNewUser(newUser);
-  };
+  // 개인정보 수정하기 api 추가하기
+  const addUserInfo = () => {};
 
-  return <AddUserInfo onRegisterUser={onRegisterUser} />;
+  return (
+    <AddUserInfo
+    //
+    />
+  );
 };
 
 export default AddUserInfoContainer;

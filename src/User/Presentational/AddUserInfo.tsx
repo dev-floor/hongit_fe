@@ -5,9 +5,8 @@ import Modal from 'Commons/Modal';
 import { Grid, Header, Form, Segment } from 'semantic-ui-react';
 
 import 'css/SignIn.css';
-import { SignUpProp } from 'interface/ArgProps';
 
-const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
+const AddUserInfo = () => {
   const history = useHistory();
   const location = useLocation();
   // 프로필사진, 깃헙주소, 블로그주소
@@ -21,16 +20,14 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
     nickname: '',
     password: '',
     checkedPassword: '',
-    email: '', 
+    email: '',
     type: '',
     classOf: '',
     approved: true,
   });
 
-  const completeSignUp = () => {
+  const addUserInfo = () => {
     setOpen(true);
-    onRegisterUser(newUser);
-    console.log('completeSignUp is called');
   };
 
   const closeModal = () => {
@@ -54,7 +51,7 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
           </Header>
           <Header color="grey" as="h5" textAlign="center">
             아래 정보들은 꼭 지금 작성하지 않아도 괜찮습니다.
-            <br/>
+            <br />
             마이페이지에서도 작성 및 수정이 가능합니다.
           </Header>
           <Form size="large">
@@ -106,7 +103,7 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
                   color="teal"
                   fluid
                   size="large"
-                  onClick={completeSignUp}
+                  onClick={addUserInfo}
                 >
                   저장하기
                 </Form.Button>
@@ -119,7 +116,7 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
                 color="teal"
                 fluid
                 size="large"
-                onClick={completeSignUp}
+                onClick={addUserInfo}
               >
                 나중에 할래요!
               </Form.Button>
