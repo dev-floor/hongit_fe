@@ -196,11 +196,11 @@ const SignUp = () => {
             />
             {username !== '' ? (
               <Button color="teal" fluid size="large" onClick={onClickNextStep}>
-                다음 단계로
+                가입하기
               </Button>
             ) : (
               <Button color="teal" fluid size="large" disabled>
-                다음 단계로
+                가입하기
               </Button>
             )}
           </Segment>

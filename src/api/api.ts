@@ -7,7 +7,7 @@ import {
 } from './ApiProps';
 import homeDummyData from '../data/HomeDummyData';
 
-const API_URL = 'http://34.64.100.216:8080/api';
+const API_URL = 'http://34.64.101.17:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');

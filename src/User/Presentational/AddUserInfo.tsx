@@ -8,6 +8,8 @@ import 'css/SignIn.css';
 import { SignUpProp } from 'interface/ArgProps';
 
 const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
+  const history = useHistory();
+  const location = useLocation();
   // 프로필사진, 깃헙주소, 블로그주소
   const [githubAddress, setGithubAddress] = useState<string>('');
   const [blogAddress, setBlogAddress] = useState<string>('');
@@ -19,7 +21,7 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
     nickname: '',
     password: '',
     checkedPassword: '',
-    email: '',
+    email: '', 
     type: '',
     classOf: '',
     approved: true,
@@ -35,15 +37,9 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
     setOpen(false);
   };
 
-  const history = useHistory();
   const goHome = () => {
     history.push('/');
   };
-
-  const location = useLocation();
-  useEffect(() => {
-    console.log(location);
-  }, [location]);
 
   return (
     <div>
@@ -110,11 +106,11 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
                   size="large"
                   onClick={completeSignUp}
                 >
-                  회원가입 완료
+                  저장하기
                 </Form.Button>
               ) : (
                 <Form.Button color="teal" fluid size="large" disabled>
-                  회원가입 완료
+                  저장하기
                 </Form.Button>
               )}
               <Form.Button
@@ -123,7 +119,7 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
                 size="large"
                 onClick={completeSignUp}
               >
-                건너뛰기
+                나중에 할래요!
               </Form.Button>
             </Segment>
             <Link to="/" className="return-home">
