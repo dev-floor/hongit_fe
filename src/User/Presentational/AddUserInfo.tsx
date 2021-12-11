@@ -53,7 +53,9 @@ const AddUserInfo = ({ onRegisterUser }: SignUpProp) => {
             STEP 3
           </Header>
           <Header color="grey" as="h5" textAlign="center">
-            아래 정보들은 가입 완료 후 나중에 설정이 가능합니다.
+            아래 정보들은 꼭 지금 작성하지 않아도 괜찮습니다.
+            <br/>
+            마이페이지에서도 작성 및 수정이 가능합니다.
           </Header>
           <Form size="large">
             <Segment stacked>
