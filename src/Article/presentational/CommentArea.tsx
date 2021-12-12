@@ -147,9 +147,11 @@ const CommentArea = ({
 
   const onHandleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     onRegisterCreateComment(newComment);
-    (document.querySelector(
-      '.comment-submit-area textarea'
-    ) as HTMLTextAreaElement).value = '';
+    (
+      document.querySelector(
+        '.comment-submit-area textarea'
+      ) as HTMLTextAreaElement
+    ).value = '';
     e.preventDefault();
     console.log(`${newComment.id}번째 댓글을 추가`);
     setNewCommentId(newCommentId + 1);

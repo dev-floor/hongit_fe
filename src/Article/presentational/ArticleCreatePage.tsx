@@ -119,9 +119,9 @@ const ArticleCreatePage = ({
     if (modifiyTargetArticle !== undefined) {
       (document.querySelector('.title-area .title') as HTMLInputElement).value =
         modifiyTargetArticle.title;
-      (document.querySelector(
-        '.hashtag-area input'
-      ) as HTMLInputElement).value = modifiyTargetArticle.hashtags.join(',');
+      (
+        document.querySelector('.hashtag-area input') as HTMLInputElement
+      ).value = modifiyTargetArticle.hashtags.join(',');
       console.log(modifiyTargetArticle);
     }
   }, [modifiyTargetArticle]);

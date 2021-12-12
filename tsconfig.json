@@ -13,11 +13,7 @@
     "keyofStringsOnly": true,
     "skipLibCheck": true,
     "baseUrl": "./src",
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "esModuleInterop": true,
     "strict": true,
     "forceConsistentCasingInFileNames": true,
@@ -26,10 +22,7 @@
     "isolatedModules": true,
     "noEmit": true
   },
-  "typeRoots": [
-    "node_modules/@types",
-    "src/@type"
-  ],
+  "typeRoots": ["node_modules/@types", "src/@type"],
   "exclude": [
     "node_modules",
     "build",
@@ -41,10 +34,5 @@
     "./node_modules/**/*"
   ],
   "extends": "./tsconfig.paths.json",
-  "include": [
-    "./src/**/*",
-    "@type",
-    "src",
-    "craco.config.js"
-  ]
+  "include": ["./src/**/*", "@type", "src", "craco.config.js"]
 }
