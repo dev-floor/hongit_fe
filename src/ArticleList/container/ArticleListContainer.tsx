@@ -20,18 +20,18 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
   const loadData = useCallback(async () => {
     const res = await articleAPI.getFeedByBoardId(id, curPage, 10);
     setFeedList(res);
-    if(res) {
-      setTotalPage(Math.ceil(res[0].totalArticleCount/10))
+    if (res) {
+      setTotalPage(Math.ceil(res[0].totalArticleCount / 10));
     }
   }, [id, curPage]);
 
   const onHandlePageChange = (newPageIndex: number) => {
-    setCurPage(() => newPageIndex)
-  }
+    setCurPage(() => newPageIndex);
+  };
 
   useEffect(() => {
-    setCurPage(() => 0)
-  }, [id])
+    setCurPage(() => 0);
+  }, [id]);
 
   useEffect(() => {
     loadData();
@@ -43,7 +43,14 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
     console.log(viewSortValue, viewFilterValue);
   }, [applyFilterFlagValue]);
 
-  return <ArticleListArea feedList={feedListData} curPage={curPage} totalPage={totalPage} onHandlePageChange={onHandlePageChange} />;
+  return (
+    <ArticleListArea
+      feedList={feedListData}
+      curPage={curPage}
+      totalPage={totalPage}
+      onHandlePageChange={onHandlePageChange}
+    />
+  );
 };
 
 export default ArticleListContainer;

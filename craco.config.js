@@ -10,6 +10,6 @@ module.exports = {
         tsConfigPath: 'tsconfig.paths.json',
       },
     },
-  { plugin: require('@semantic-ui-react/craco-less') }
+    { plugin: require('@semantic-ui-react/craco-less') },
   ],
 };

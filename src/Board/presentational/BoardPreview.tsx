@@ -9,14 +9,8 @@ import { faFireAlt } from '@fortawesome/free-solid-svg-icons';
 import 'css/BoardPreview.css';
 
 const ArticlePreview = ({ previewData }: ArticlePreviewProp) => {
-  const {
-    articleId,
-    title,
-    favoriteCount,
-    wonderCount,
-    clipCount,
-    createdAt,
-  } = { ...previewData };
+  const { articleId, title, favoriteCount, wonderCount, clipCount, createdAt } =
+    { ...previewData };
 
   const onToggleFavorites = (e: React.FormEvent<HTMLFormElement>) => {
     console.log('Main View Favorites Button Clicked - Api Call');

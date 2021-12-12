@@ -11,9 +11,8 @@ const FilterModal = (props: any) => {
 
   const [viewModeValue, setViewMode] = useRecoilState<string>(viewMode);
   const [viewSortValue, setViewSort] = useRecoilState<string>(viewSort);
-  const [viewFilterState, setViewFilterState] = useRecoilState<string[]>(
-    viewFilter
-  );
+  const [viewFilterState, setViewFilterState] =
+    useRecoilState<string[]>(viewFilter);
   const setApplyFilterFlag = useSetRecoilState(applyFilterFlag);
 
   const courseGroup = options.filter((op) => op.type.id === 'COURSE_GROUP');
