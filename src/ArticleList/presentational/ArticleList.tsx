@@ -7,7 +7,7 @@ import { ArticleFeedProps } from 'interface/ArgProps';
 import TglBtn from 'Commons/TglBtn';
 import TransferTimeFormat from 'Commons/TransferTimeFormat';
 import { v4 as uuidv4 } from 'uuid';
-import { Pagination } from 'semantic-ui-react'
+import { Pagination, Grid } from 'semantic-ui-react'
 import 'css/ArticleList.css';
 
 const ArticlePreviewCard = (article: ArticleFeedApiPartial) => {
@@ -190,7 +190,9 @@ const ArticleListArea = ({ feedList, curPage, totalPage, onHandlePageChange }: A
               />
             ))}
       </section>
-      <Pagination onPageChange={onPageChange} defaultActivePage = {curPage} style={{marginLeft : '20vw'}} totalPages={totalPage} />
+      <Grid centered>
+        <Pagination onPageChange={onPageChange} activePage = {curPage + 1} style={{margin: "5% 0"}} totalPages={totalPage} />
+      </Grid>      
     </div>
   );
 };
