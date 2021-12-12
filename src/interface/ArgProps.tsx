@@ -93,4 +93,7 @@ export interface ProfileCommentProp {
 
 export interface SignUpProp {
   onRegisterUser: (newUser: SignUpApi) => void;
+  onValidCheckUsername: (username: string) => void;
+  onValidCheckNickname: (nickname: string) => void;
+  onValidCheckClassOf: (classOf: string) => void;
 }

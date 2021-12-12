@@ -153,3 +153,5 @@ export interface SignUpApi {
   classOf: string;
   approved: boolean;
 }
+
+export type SignUpApiPartial = Partial<SignUpApi>

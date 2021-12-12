@@ -14,7 +14,12 @@ import {
 
 import 'css/SignIn.css';
 
-const SignUp = ({ onRegisterUser }: SignUpProp) => {
+const SignUp = ({
+  onRegisterUser,
+  onValidCheckUsername,
+  onValidCheckNickname,
+  onValidCheckClassOf,
+}: SignUpProp) => {
   const stuOptions = [
     { key: 'senior', text: '졸업생', value: '졸업생' },
     { key: 'junior', text: '재학생', value: '재학생' },
@@ -38,10 +43,23 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
     approved: true,
   });
   const history = useHistory();
-
+  
+  const checkUsername = () => {
+    onValidCheckUsername(username);
+  };
+  
+  const checkNickname = () => {
+    onValidCheckNickname(nickname);
+  };
+  
+  const checkClassOf = () => {
+    onValidCheckClassOf(classOf);
+  };
+  
   const completeSignUp = () => {
     history.push('/adduserinfo');
     onRegisterUser(newUser);
+    // 로그인하는 api까지 연결해줘야 step3에서 개인정보 수정 api를 call할 수 있음
   };
 
   return (
@@ -61,8 +79,8 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
                 onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
                   setUsername(e.target.value);
                 }}
-                onBlur={() => {
-                  /* Api Call 날려야 함 */
+                onBlur={async() => {
+                  await checkUsername();
                   console.log('mouse is out');
                 }}
                 icon={<i className="default check icon" />}
@@ -77,7 +95,7 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
                   setUsername(e.target.value);
                 }}
                 onBlur={() => {
-                  /* Api Call 날려야 함 */
+                  checkUsername();
                   console.log('mouse is out');
                 }}
                 icon={<i className="on check icon" />}
@@ -98,7 +116,7 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
                   setNickname(e.target.value);
                 }}
                 onBlur={() => {
-                  /* Api Call 날려야 함 */
+                  checkNickname();
                   console.log('mouse is out');
                 }}
                 icon={<i className="default check icon" />}
@@ -111,7 +129,7 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
                   setNickname(e.target.value);
                 }}
                 onBlur={() => {
-                  /* Api Call 날려야 함 */
+                  checkNickname();
                   console.log('mouse is out');
                 }}
                 icon={<i className="on check icon" />}
@@ -180,18 +198,41 @@ const SignUp = ({ onRegisterUser }: SignUpProp) => {
             ) : (
               <h6> </h6>
             )}
-            <Input
-              fluid
-              type="text"
-              placeholder="학번"
-              action
-              onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
-                setClassOf(e.target.value);
-              }}
-            >
-              <input />
-              <Select options={stuOptions} defaultValue="재학생" />
-            </Input>
+            {classOf === '' ? (
+              <Input
+                fluid
+                type="text"
+                placeholder="학번"
+                action
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setClassOf(e.target.value);
+                }}
+                onBlur={() => {
+                  checkClassOf();
+                  console.log('mouse is out');
+                }}
+              >
+                <input />
+                <Select options={stuOptions} defaultValue="재학생" />
+              </Input>
+            ) : (
+              <Input
+                fluid
+                type="text"
+                placeholder="학번"
+                action
+                onChange={(e: React.ChangeEvent<HTMLInputElement>) => {
+                  setClassOf(e.target.value);
+                }}
+                onBlur={() => {
+                  checkClassOf();
+                  console.log('mouse is out');
+                }}
+              >
+                <input />
+                <Select options={stuOptions} defaultValue="재학생" />
+              </Input>
+            )}
             {classOf === '' ? (
               <h6> </h6>
             ) : (

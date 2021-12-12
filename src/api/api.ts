@@ -13,6 +13,7 @@ const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');
 const USER_URL = API_URL.concat('/users');
 const SIGNUP_URL = API_URL.concat('/signup');
+const SIGNUP_AUTH_URL = API_URL.concat('/auth/users');
 
 export const getRequest = async (url: string) => {
   try {
@@ -241,5 +242,21 @@ export const signupAPI = {
     } catch (e) {
       console.log(e);
     }
+  },
+
+  getByUsername: async (username: string) => {
+      console.log(username);
+      const res = await getRequest(`${SIGNUP_AUTH_URL}?username=${username}`);
+      console.log(res);
+  },
+
+  getByNickname: async (nickname: string) => {
+    const res = await getRequest(`${SIGNUP_AUTH_URL}?nickname=${nickname}`);
+    return res;
+  },
+
+  getByClassOf: async (classOf: string) => {
+    const res = await getRequest(`${SIGNUP_AUTH_URL}?classOf=${classOf}`);
+    return res;
   },
 };
