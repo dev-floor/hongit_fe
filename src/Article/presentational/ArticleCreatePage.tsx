@@ -21,6 +21,7 @@ import codeSyntaxHighlight from '@toast-ui/editor-plugin-code-syntax-highlight';
 
 const ArticleCreatePage = ({
   onRegisterArticle,
+  boardId,
   modifiyTargetArticle,
 }: ArticleCreatePageProps) => {
   const history = useHistory();
@@ -38,7 +39,8 @@ const ArticleCreatePage = ({
     title: '',
     anonymous: true,
     content: '',
-    hashtags: [] as string[],
+    hashtagNames: [] as string[],
+    boardId: -1,
   });
   const [filterOpenState, setFilterOpenState] = useState<boolean>(false);
 
@@ -105,7 +107,8 @@ const ArticleCreatePage = ({
       title: newTitle,
       anonymous: $anonymous.checked,
       content: newContent,
-      hashtags: modifiedHashTags,
+      hashtagNames: modifiedHashTags,
+      boardId: Number(boardId),
     }));
   }, [
     newTitle,
@@ -113,6 +116,7 @@ const ArticleCreatePage = ({
     newContent,
     selectedOptions,
     selectedOptionsApplyFlag,
+    boardId
   ]);
 
   useEffect(() => {

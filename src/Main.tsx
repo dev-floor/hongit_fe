@@ -30,7 +30,7 @@ const Main = () => (
         <Route path="/detail" component={ArticleDetailContainer} exact />
         <Route path="/articleList" component={ArticleListContainer} exact />
         <Route path="/article/:id" component={ArticleDetailContainer} exact />
-        <Route path="/write" component={ArticleCreatePageContainer} exact />
+        <Route path="/write/:id" component={ArticleCreatePageContainer} exact />
         <Route path="/board/:id" component={BoardDetailContainer} exact />
         <Route
           path="/allLectureMenu"

@@ -36,7 +36,6 @@ const ArticleDetailContainer = () => {
   const loadData = useCallback(async () => {
     const response = await articleAPI.getById(id);
     setArticleData(response);
-    console.log(response);
   }, [id]);
 
   useEffect(() => {

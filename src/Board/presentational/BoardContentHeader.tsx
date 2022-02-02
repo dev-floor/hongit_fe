@@ -8,7 +8,7 @@ import FilterModal from 'Commons/FilterModal';
 import 'css/FilterModal.css';
 
 const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
-  const { title, options } = { ...boardDetailData };
+  const { title, options, id } = { ...boardDetailData };
 
   const viewSortValue = useRecoilValue<string>(viewSort);
   const viewFilterState = useRecoilValue<string[]>(viewFilter);
@@ -35,7 +35,7 @@ const BoardContentHeader = ({ boardDetailData }: BoardDetailProp) => {
         ) : (
           <RiEqualizerLine className="filter-btn" onClick={onOpenFilterModal} />
         )}
-        <Link to="/write">
+        <Link to={`/write/${id}`}>
           <button type="button" className="default-btn">
             글쓰기
           </button>

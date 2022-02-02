@@ -16,12 +16,10 @@ export const getRequest = async (url: string) => {
     if (response.status === 500) {
       throw Error('Internal Server Error :: 500 .');
     }
-    console.log(response.status);
     const result = response.data;
     return result;
   } catch (e) {
     console.error(e);
-    // return e;
     return undefined;
   }
 };
@@ -31,11 +29,15 @@ export const postArticleRequest = async (
   data: ArticleCreateApi
 ) => {
   try {
+    console.log("post Article Request :: ");
+    console.log(url);
+    console.log(data);
     const response = await axios.post(url, data);
-    if (response.status === 404) {
+    if (response.status === 404 || response.status === 400) {
       throw Error('There would be error in requesting.');
     }
     const result = response.data;
+    console.log(response.headers);
     return result;
   } catch (e) {
     console.error(e);
@@ -78,9 +80,31 @@ export const articleAPI = {
     );
     return res;
   },
-  postArticle: (data: ArticleCreateApi) => {
-    // const articlePost = await postRequest(`${END_POINT}/`, data);
-    console.log(data);
+  postArticle: async (data: ArticleCreateApi) => {
+    const token = window.localStorage.getItem('token');
+    try {
+      const res = await axios.post(
+        `${ARTICLE_URL}`,
+        {
+          optionIds: data.options,
+          title : data.title,
+          anonymous: data.anonymous,
+          content: data.content,
+          hashtagNames: data.hashtagNames,
+          boardId : Number( data.boardId )
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+      console.log(res.data.headers);
+      return res;
+    } catch (e) {
+      console.log(e);
+      return e;
+    }
   },
   delete: (/* id: string */) => {
     // return axios.delete('articles/${id}')
@@ -99,7 +123,6 @@ export const commentsAPI = {
   },
   registerNewComment: async (newComment: CommentApi, articleID: string) => {
     const token = window.localStorage.getItem('token');
-
     try {
       await axios.post(
         `${API_URL}/comments`,

@@ -30,6 +30,7 @@ export interface CommentProps {
 
 export interface ArticleCreatePageProps {
   onRegisterArticle: (newArticle: ArticleCreateApi) => void;
+  boardId: string;
   modifiyTargetArticle?: ArticleDetailApi;
 }
 

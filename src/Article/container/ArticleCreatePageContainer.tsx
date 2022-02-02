@@ -1,11 +1,13 @@
 import React, { useEffect, useState, useCallback } from 'react';
-import { useHistory, useLocation } from 'react-router-dom';
+import { useParams, useHistory, useLocation } from 'react-router-dom';
 import { articleAPI } from 'api/api';
 import { ArticleCreateApi, OptionResponse } from 'api/ApiProps';
+
 import ArticleCreatePage from '../presentational/ArticleCreatePage';
 
 const ArticleCreatePageContainer = () => {
   const history = useHistory();
+  const { id } = useParams<{ id: string }>();
   const location = useLocation<{ modifyArticleId: string }>();
   const [modifyTargetArticle, setModifyTargetArticle] = useState({
     id: 0,
@@ -30,9 +32,9 @@ const ArticleCreatePageContainer = () => {
   });
 
   const onRegisterArticle = (newArticle: ArticleCreateApi) => {
-    // FIX ME
-    articleAPI.postArticle(newArticle); // api 호출로 post 날리고
-    console.log(newArticle);
+    const res = articleAPI.postArticle(newArticle); // api 호출로 post 날리고
+    console.log(res);
+    
     history.push('/article/1');
     // history.push('/article/${newid}'); // 새롭게 등록된 게시물 id를 알수 있는지?
   };
@@ -51,10 +53,13 @@ const ArticleCreatePageContainer = () => {
   }, [loadData]);
 
   return location.state === undefined ? (
-    <ArticleCreatePage onRegisterArticle={onRegisterArticle} />
+    <ArticleCreatePage 
+      onRegisterArticle={onRegisterArticle}
+      boardId={id} />
   ) : (
     <ArticleCreatePage
       onRegisterArticle={onRegisterArticle}
+      boardId={id}
       modifiyTargetArticle={modifyTargetArticle}
     />
   );

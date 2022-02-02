@@ -10,13 +10,10 @@ const HongitMainContainer = () => {
   const loadData = async () => {
     const response = await homeAPI.get();
     setData(response);
-    console.log('Hongit main Contianer Load Data Res');
-    console.log(response);
   };
   const showBanner = useSetRecoilState(viewBanner);
 
   useEffect(() => {
-    console.log('Hongit main Contianer');
     loadData();
     showBanner(true);
   }, [showBanner]);

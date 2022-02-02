@@ -26,7 +26,7 @@ const ArticleListContainer = ({ id }: ParamsIdProps) => {
   useEffect(() => {
     // 여기서 필터링과 정렬순서가 적용된 api 콜이 수행됨.
     // FIX ME
-    console.log(viewSortValue, viewFilterValue);
+    // console.log(viewSortValue, viewFilterValue);
   }, [applyFilterFlagValue]);
 
   return <ArticleListArea feedList={feedListData} />;

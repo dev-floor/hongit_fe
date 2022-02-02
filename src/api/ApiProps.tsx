@@ -63,12 +63,21 @@ export interface CommentApi {
   modifiedAt: string;
 }
 
+// export interface ArticleCreateApi {
+//   options: string[];
+//   title: string;
+//   anonymous: boolean;
+//   content: string;
+//   hashtags: string[];
+// }
+
 export interface ArticleCreateApi {
   options: string[];
   title: string;
   anonymous: boolean;
   content: string;
-  hashtags: string[];
+  hashtagNames: string[];
+  boardId: number;
 }
 
 /* ----- Home ----- */

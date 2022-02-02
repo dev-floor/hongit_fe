@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { Route, useParams } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { useSetRecoilState } from 'recoil';
 import { boardDetailOptions } from 'Atoms/atom';
 import { boardAPI } from 'api/api';
 import { BoardDetailApi } from 'api/ApiProps';
-import ArticleCreatePageContainer from 'Article/container/ArticleCreatePageContainer';
 import ArticleListContainer from 'ArticleList/container/ArticleListContainer';
 import BoardContentHeader from '../presentational/BoardContentHeader';
 
@@ -61,11 +60,6 @@ const BoardDetailContainer = () => {
               <ArticleListContainer id={id} />
             </div>
           </section>
-          <Route
-            path="/board/write"
-            component={ArticleCreatePageContainer}
-            exact
-          />
         </div>
       )}
     </div>
