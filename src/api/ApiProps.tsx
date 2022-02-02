@@ -88,15 +88,6 @@ export interface BoardPreviewInfo {
   articles: ArticlePreviewInfo[];
 }
 
-export interface HomeApi {
-  totalFavorite: BoardPreviewInfo;
-  qnaRecent: BoardPreviewInfo;
-  totalViews: BoardPreviewInfo;
-  community: BoardPreviewInfo;
-  gathering: BoardPreviewInfo;
-  recruit: BoardPreviewInfo;
-}
-
 /* ----- Board ----- */
 export interface BoardOption {
   name: string;

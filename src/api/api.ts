@@ -1,8 +1,7 @@
 import axios from 'axios';
 import { CommentApi, ArticleCreateApi, SideBarDetailApi } from './ApiProps';
-import homeDummyData from '../data/HomeDummyData';
 
-const API_URL = 'http://34.64.100.216:8080/api';
+const API_URL = 'http://34.64.101.17:8080/api';
 const ARTICLE_URL = API_URL.concat('/articles');
 const BOARD_URL = API_URL.concat('/boards');
 const COMMENT_URL = API_URL.concat('/comments');
@@ -63,12 +62,20 @@ export const articleAPI = {
     const res = await getRequest(`${ARTICLE_URL}/${articleId}`);
     return res;
   },
-  getFeedByBoardId: async (boardId: string, page : number, pageSize : number ) => {
-    const res = await getRequest(`${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`);
+  getFeedByBoardId: async (boardId: string, page: number, pageSize: number) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}/?boardId=${boardId}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
-  getFeedByNickName: async (nickname: string, page :number, pageSize: number) => {
-    const res = await getRequest(`${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`);
+  getFeedByNickName: async (
+    nickname: string,
+    page: number,
+    pageSize: number
+  ) => {
+    const res = await getRequest(
+      `${ARTICLE_URL}?nickname=${nickname}&page=${page}&pageSize=${pageSize}`
+    );
     return res;
   },
   postArticle: (data: ArticleCreateApi) => {
@@ -154,7 +161,6 @@ export const boardAPI = {
         },
       });
       const { data } = response;
-      console.log(data);
       return data;
     } catch (e) {
       console.log(e);
@@ -194,13 +200,8 @@ export const boardAPI = {
 
 export const homeAPI = {
   get: async () => {
-    const res = await getRequest(`${ARTICLE_URL}/home`);
+    const res = await getRequest(`${API_URL}/home`);
     return res;
-  },
-  
-  getByDummy: () => {
-    const homeResponse = homeDummyData;
-    return homeResponse;
   },
 };
 

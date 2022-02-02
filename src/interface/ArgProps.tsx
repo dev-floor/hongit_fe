@@ -8,7 +8,6 @@ import {
   SideBarDetailApi,
   BoardPreviewInfo,
   ArticlePreviewInfo,
-  HomeApi,
   ProfileUserApi,
   ProfileCommentApi,
   ArticleFeedApiPartial,
@@ -61,7 +60,7 @@ export interface SideBarProps {
 }
 
 export interface HongitMainProps {
-  mainData: HomeApi;
+  mainData: BoardPreviewInfo[];
 }
 
 export interface AllLectureMenuProp {
